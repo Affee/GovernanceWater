@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */; };
+		586D16869B65B2599F806EBB /* AFbase.m in Sources */ = {isa = PBXBuildFile; fileRef = 586D15E2E08B57534814C3E2 /* AFbase.m */; };
 		F657861721992027003D87EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F657861621992027003D87EA /* AppDelegate.m */; };
 		F657861D21992027003D87EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F657861B21992027003D87EA /* Main.storyboard */; };
 		F657861F2199202A003D87EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F657861E2199202A003D87EA /* Assets.xcassets */; };
@@ -16,10 +17,13 @@
 		F657863821992D3B003D87EA /* AFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863721992D3B003D87EA /* AFTabBarController.m */; };
 		F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863B21992D6F003D87EA /* WRCustomNavigationBar.m */; };
 		F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863D21992D6F003D87EA /* WRNavigationBar.m */; };
+		F657864221993076003D87EA /* AFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864121993076003D87EA /* AFBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.release.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.release.xcconfig"; sourceTree = "<group>"; };
+		586D15E2E08B57534814C3E2 /* AFbase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFbase.m; sourceTree = "<group>"; };
+		586D1D16D1ACBAEB49C560E0 /* AFbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFbase.h; sourceTree = "<group>"; };
 		83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.debug.xcconfig"; sourceTree = "<group>"; };
 		88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GovernmentWater.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F657861221992027003D87EA /* GovernmentWater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GovernmentWater.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +40,8 @@
 		F657863B21992D6F003D87EA /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
 		F657863C21992D6F003D87EA /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
 		F657863D21992D6F003D87EA /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
+		F657864021993076003D87EA /* AFBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFBaseViewController.h; sourceTree = "<group>"; };
+		F657864121993076003D87EA /* AFBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFBaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +71,130 @@
 				433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		586D112FE9D63D01D2CF1D0B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		586D13978A7AC7C9760FE276 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		586D13A6FC4F54DDBD9DE560 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		586D13C014C8C87067DACB8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		586D14F8050CA3EA88A383B3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		586D151EE1A7CD6314D904A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		586D1778CACBAD984CD48D42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		586D180B86F3FE897B8AB345 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		586D186CD885916126707252 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				586D1F360891ED1D959B2CC7 /* Model */,
+				586D151EE1A7CD6314D904A4 /* View */,
+				586D14F8050CA3EA88A383B3 /* Controller */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		586D1AC51BC10A9493E80540 /* ViewRiver */ = {
+			isa = PBXGroup;
+			children = (
+				586D112FE9D63D01D2CF1D0B /* Model */,
+				586D1EABE3A5B3844CA0D94A /* View */,
+				586D180B86F3FE897B8AB345 /* Controller */,
+			);
+			path = ViewRiver;
+			sourceTree = "<group>";
+		};
+		586D1D8BAF610DCE10E26F48 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		586D1EABE3A5B3844CA0D94A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		586D1F28ED33FF27BBDD4872 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				586D1778CACBAD984CD48D42 /* Model */,
+				586D13C014C8C87067DACB8C /* View */,
+				586D1D8BAF610DCE10E26F48 /* Controller */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		586D1F360891ED1D959B2CC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		586D1F8C5C048EA947F8180F /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				586D13978A7AC7C9760FE276 /* Model */,
+				586D1FAC2E789806798F2BD5 /* View */,
+				586D13A6FC4F54DDBD9DE560 /* Controller */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		586D1FAC2E789806798F2BD5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		F657860921992027003D87EA = {
@@ -112,6 +242,10 @@
 		F657862E21992561003D87EA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				586D186CD885916126707252 /* Home */,
+				586D1AC51BC10A9493E80540 /* ViewRiver */,
+				586D1F28ED33FF27BBDD4872 /* Event */,
+				586D1F8C5C048EA947F8180F /* Mine */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -126,6 +260,10 @@
 		F65786302199256B003D87EA /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				F657864021993076003D87EA /* AFBaseViewController.h */,
+				F657864121993076003D87EA /* AFBaseViewController.m */,
+				586D15E2E08B57534814C3E2 /* AFbase.m */,
+				586D1D16D1ACBAEB49C560E0 /* AFbase.h */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -188,6 +326,7 @@
 				F657860E21992027003D87EA /* Sources */,
 				F657860F21992027003D87EA /* Frameworks */,
 				F657861021992027003D87EA /* Resources */,
+				52D689628F14680459C01297 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +401,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		52D689628F14680459C01297 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -269,11 +430,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
 				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F657861721992027003D87EA /* AppDelegate.m in Sources */,
 				F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */,
+				586D16869B65B2599F806EBB /* AFbase.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
