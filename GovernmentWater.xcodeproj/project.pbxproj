@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */; };
+		F657861721992027003D87EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F657861621992027003D87EA /* AppDelegate.m */; };
+		F657861D21992027003D87EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F657861B21992027003D87EA /* Main.storyboard */; };
+		F657861F2199202A003D87EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F657861E2199202A003D87EA /* Assets.xcassets */; };
+		F65786222199202A003D87EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F65786202199202A003D87EA /* LaunchScreen.storyboard */; };
+		F65786252199202A003D87EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F65786242199202A003D87EA /* main.m */; };
+		F657863821992D3B003D87EA /* AFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863721992D3B003D87EA /* AFTabBarController.m */; };
+		F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863B21992D6F003D87EA /* WRCustomNavigationBar.m */; };
+		F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863D21992D6F003D87EA /* WRNavigationBar.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.release.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.release.xcconfig"; sourceTree = "<group>"; };
+		83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.debug.xcconfig"; sourceTree = "<group>"; };
+		88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GovernmentWater.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F657861221992027003D87EA /* GovernmentWater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GovernmentWater.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F657861521992027003D87EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F657861621992027003D87EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F657861C21992027003D87EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F657861E2199202A003D87EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F65786212199202A003D87EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F65786232199202A003D87EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F65786242199202A003D87EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F657863621992D3B003D87EA /* AFTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFTabBarController.h; sourceTree = "<group>"; };
+		F657863721992D3B003D87EA /* AFTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFTabBarController.m; sourceTree = "<group>"; };
+		F657863A21992D6F003D87EA /* WRCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCustomNavigationBar.h; sourceTree = "<group>"; };
+		F657863B21992D6F003D87EA /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
+		F657863C21992D6F003D87EA /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
+		F657863D21992D6F003D87EA /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F657860F21992027003D87EA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3BC5E37C925502E16BCC3A81 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42FA3B8106CBDFB5203C2477 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */,
+				433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F657860921992027003D87EA = {
+			isa = PBXGroup;
+			children = (
+				F657861421992027003D87EA /* GovernmentWater */,
+				F657861321992027003D87EA /* Products */,
+				42FA3B8106CBDFB5203C2477 /* Pods */,
+				3BC5E37C925502E16BCC3A81 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F657861321992027003D87EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F657861221992027003D87EA /* GovernmentWater.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F657861421992027003D87EA /* GovernmentWater */ = {
+			isa = PBXGroup;
+			children = (
+				F657863521992596003D87EA /* ThirdFrameWork */,
+				F657863421992593003D87EA /* AF */,
+				F65786332199258F003D87EA /* Rescource */,
+				F65786322199258C003D87EA /* Util */,
+				F657863121992589003D87EA /* Tools */,
+				F65786302199256B003D87EA /* Base */,
+				F657862F21992568003D87EA /* Macros */,
+				F657862E21992561003D87EA /* Class */,
+				F657861521992027003D87EA /* AppDelegate.h */,
+				F657861621992027003D87EA /* AppDelegate.m */,
+				F657863621992D3B003D87EA /* AFTabBarController.h */,
+				F657863721992D3B003D87EA /* AFTabBarController.m */,
+				F657861B21992027003D87EA /* Main.storyboard */,
+				F657861E2199202A003D87EA /* Assets.xcassets */,
+				F65786202199202A003D87EA /* LaunchScreen.storyboard */,
+				F65786232199202A003D87EA /* Info.plist */,
+				F65786242199202A003D87EA /* main.m */,
+			);
+			path = GovernmentWater;
+			sourceTree = "<group>";
+		};
+		F657862E21992561003D87EA /* Class */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		F657862F21992568003D87EA /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Macros;
+			sourceTree = "<group>";
+		};
+		F65786302199256B003D87EA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F657863121992589003D87EA /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				F657863921992D6F003D87EA /* WRNavigationBar */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		F65786322199258C003D87EA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		F65786332199258F003D87EA /* Rescource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rescource;
+			sourceTree = "<group>";
+		};
+		F657863421992593003D87EA /* AF */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AF;
+			sourceTree = "<group>";
+		};
+		F657863521992596003D87EA /* ThirdFrameWork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ThirdFrameWork;
+			sourceTree = "<group>";
+		};
+		F657863921992D6F003D87EA /* WRNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				F657863A21992D6F003D87EA /* WRCustomNavigationBar.h */,
+				F657863B21992D6F003D87EA /* WRCustomNavigationBar.m */,
+				F657863C21992D6F003D87EA /* WRNavigationBar.h */,
+				F657863D21992D6F003D87EA /* WRNavigationBar.m */,
+			);
+			path = WRNavigationBar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F657861121992027003D87EA /* GovernmentWater */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F65786282199202A003D87EA /* Build configuration list for PBXNativeTarget "GovernmentWater" */;
+			buildPhases = (
+				2DE008EB9E7F10050114A91A /* [CP] Check Pods Manifest.lock */,
+				F657860E21992027003D87EA /* Sources */,
+				F657860F21992027003D87EA /* Frameworks */,
+				F657861021992027003D87EA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GovernmentWater;
+			productName = GovernmentWater;
+			productReference = F657861221992027003D87EA /* GovernmentWater.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F657860A21992027003D87EA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = affee;
+				TargetAttributes = {
+					F657861121992027003D87EA = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = F657860D21992027003D87EA /* Build configuration list for PBXProject "GovernmentWater" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F657860921992027003D87EA;
+			productRefGroup = F657861321992027003D87EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F657861121992027003D87EA /* GovernmentWater */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F657861021992027003D87EA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F65786222199202A003D87EA /* LaunchScreen.storyboard in Resources */,
+				F657861F2199202A003D87EA /* Assets.xcassets in Resources */,
+				F657861D21992027003D87EA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2DE008EB9E7F10050114A91A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GovernmentWater-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F657860E21992027003D87EA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
+				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
+				F65786252199202A003D87EA /* main.m in Sources */,
+				F657861721992027003D87EA /* AppDelegate.m in Sources */,
+				F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F657861B21992027003D87EA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F657861C21992027003D87EA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F65786202199202A003D87EA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F65786212199202A003D87EA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F65786262199202A003D87EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F65786272199202A003D87EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F65786292199202A003D87EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NK8YAKFDQQ;
+				INFOPLIST_FILE = GovernmentWater/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-GovernmentWater.wisenergy.com.GovernmentWater";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F657862A2199202A003D87EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NK8YAKFDQQ;
+				INFOPLIST_FILE = GovernmentWater/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.-GovernmentWater.wisenergy.com.GovernmentWater";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F657860D21992027003D87EA /* Build configuration list for PBXProject "GovernmentWater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F65786262199202A003D87EA /* Debug */,
+				F65786272199202A003D87EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F65786282199202A003D87EA /* Build configuration list for PBXNativeTarget "GovernmentWater" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F65786292199202A003D87EA /* Debug */,
+				F657862A2199202A003D87EA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F657860A21992027003D87EA /* Project object */;
+}
