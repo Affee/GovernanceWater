@@ -8,6 +8,7 @@
 
 #import "AFBaseViewController.h"
 #import "WRNavigationBar.h"
+#import "AFTwoViewController.h"
 
 
 @interface AFBaseViewController ()
@@ -29,7 +30,8 @@
 //    设置自定义导航北京图片
     self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"NavBarBG"];
 //    或者直接是颜色的
-//    [self wr_setNavBarTintColor:[UIColor yellowColor]];
+//         [self wr_setNavBarTintColor:[UIColor blueColor]];
+
 
 //        设置导航标题栏的颜色
         self.customNavBar.titleLabelColor = [UIColor yellowColor];
@@ -46,4 +48,15 @@
     return _customNavBar;
 }
 
+
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    AFLog(@"dididi");
+    AFTwoViewController *tttt = [[AFTwoViewController alloc]init];
+    
+    tttt.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:tttt animated:YES];
+    
+}
 @end

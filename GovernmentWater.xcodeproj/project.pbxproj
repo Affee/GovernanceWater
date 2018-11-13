@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */; };
-		586D16869B65B2599F806EBB /* AFbase.m in Sources */ = {isa = PBXBuildFile; fileRef = 586D15E2E08B57534814C3E2 /* AFbase.m */; };
 		F657861721992027003D87EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F657861621992027003D87EA /* AppDelegate.m */; };
 		F657861D21992027003D87EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F657861B21992027003D87EA /* Main.storyboard */; };
 		F657861F2199202A003D87EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F657861E2199202A003D87EA /* Assets.xcassets */; };
@@ -18,12 +17,23 @@
 		F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863B21992D6F003D87EA /* WRCustomNavigationBar.m */; };
 		F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863D21992D6F003D87EA /* WRNavigationBar.m */; };
 		F657864221993076003D87EA /* AFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864121993076003D87EA /* AFBaseViewController.m */; };
+		F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578644219AA3A7003D87EA /* AFBaseNavigationController.m */; };
+		F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864A219AB896003D87EA /* NSDictionary+Nilsafe.m */; };
+		F6578657219AB897003D87EA /* UIButton+Affee.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864C219AB896003D87EA /* UIButton+Affee.m */; };
+		F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864E219AB896003D87EA /* UIColor+Affee.m */; };
+		F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578650219AB896003D87EA /* UIFont+Affee.m */; };
+		F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578652219AB896003D87EA /* UIImage+Affee.m */; };
+		F657865B219AB897003D87EA /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578653219AB896003D87EA /* StringUtil.m */; };
+		F657865C219AB897003D87EA /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578654219AB896003D87EA /* DateUtil.m */; };
+		F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578660219ABAEA003D87EA /* HomeViewController.m */; };
+		F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578663219ABB0F003D87EA /* ViewRiverVC.m */; };
+		F6578667219ABB23003D87EA /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578666219ABB23003D87EA /* EventVC.m */; };
+		F657866A219ABB37003D87EA /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578669219ABB37003D87EA /* MineVC.m */; };
+		F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.release.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.release.xcconfig"; sourceTree = "<group>"; };
-		586D15E2E08B57534814C3E2 /* AFbase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFbase.m; sourceTree = "<group>"; };
-		586D1D16D1ACBAEB49C560E0 /* AFbase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFbase.h; sourceTree = "<group>"; };
 		83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.debug.xcconfig"; sourceTree = "<group>"; };
 		88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GovernmentWater.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F657861221992027003D87EA /* GovernmentWater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GovernmentWater.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +52,35 @@
 		F657863D21992D6F003D87EA /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
 		F657864021993076003D87EA /* AFBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFBaseViewController.h; sourceTree = "<group>"; };
 		F657864121993076003D87EA /* AFBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFBaseViewController.m; sourceTree = "<group>"; };
+		F6578643219AA3A7003D87EA /* AFBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFBaseNavigationController.h; sourceTree = "<group>"; };
+		F6578644219AA3A7003D87EA /* AFBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFBaseNavigationController.m; sourceTree = "<group>"; };
+		F6578647219AB896003D87EA /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
+		F6578649219AB896003D87EA /* NSDictionary+Nilsafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Nilsafe.h"; sourceTree = "<group>"; };
+		F657864A219AB896003D87EA /* NSDictionary+Nilsafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Nilsafe.m"; sourceTree = "<group>"; };
+		F657864B219AB896003D87EA /* UIButton+Affee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Affee.h"; sourceTree = "<group>"; };
+		F657864C219AB896003D87EA /* UIButton+Affee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Affee.m"; sourceTree = "<group>"; };
+		F657864D219AB896003D87EA /* UIColor+Affee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Affee.h"; sourceTree = "<group>"; };
+		F657864E219AB896003D87EA /* UIColor+Affee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Affee.m"; sourceTree = "<group>"; };
+		F657864F219AB896003D87EA /* UIFont+Affee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Affee.h"; sourceTree = "<group>"; };
+		F6578650219AB896003D87EA /* UIFont+Affee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Affee.m"; sourceTree = "<group>"; };
+		F6578651219AB896003D87EA /* UIImage+Affee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Affee.h"; sourceTree = "<group>"; };
+		F6578652219AB896003D87EA /* UIImage+Affee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Affee.m"; sourceTree = "<group>"; };
+		F6578653219AB896003D87EA /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
+		F6578654219AB896003D87EA /* DateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtil.m; sourceTree = "<group>"; };
+		F6578655219AB897003D87EA /* DateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtil.h; sourceTree = "<group>"; };
+		F657865D219ABA89003D87EA /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		F657865E219ABAAB003D87EA /* KKCommonMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKCommonMacro.h; sourceTree = "<group>"; };
+		F657865F219ABAEA003D87EA /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		F6578660219ABAEA003D87EA /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		F6578662219ABB0F003D87EA /* ViewRiverVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewRiverVC.h; sourceTree = "<group>"; };
+		F6578663219ABB0F003D87EA /* ViewRiverVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewRiverVC.m; sourceTree = "<group>"; };
+		F6578665219ABB23003D87EA /* EventVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVC.h; sourceTree = "<group>"; };
+		F6578666219ABB23003D87EA /* EventVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
+		F6578668219ABB37003D87EA /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
+		F6578669219ABB37003D87EA /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
+		F6A5C6F7219AD9DA00EB846F /* AFTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFTwoViewController.h; sourceTree = "<group>"; };
+		F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFTwoViewController.m; sourceTree = "<group>"; };
+		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +129,8 @@
 		586D13A6FC4F54DDBD9DE560 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F6578668219ABB37003D87EA /* MineVC.h */,
+				F6578669219ABB37003D87EA /* MineVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -104,6 +145,8 @@
 		586D14F8050CA3EA88A383B3 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F657865F219ABAEA003D87EA /* HomeViewController.h */,
+				F6578660219ABAEA003D87EA /* HomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,6 +168,8 @@
 		586D180B86F3FE897B8AB345 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F6578662219ABB0F003D87EA /* ViewRiverVC.h */,
+				F6578663219ABB0F003D87EA /* ViewRiverVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -152,6 +197,8 @@
 		586D1D8BAF610DCE10E26F48 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F6578665219ABB23003D87EA /* EventVC.h */,
+				F6578666219ABB23003D87EA /* EventVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -253,6 +300,9 @@
 		F657862F21992568003D87EA /* Macros */ = {
 			isa = PBXGroup;
 			children = (
+				F657865D219ABA89003D87EA /* Constants.h */,
+				F657865E219ABAAB003D87EA /* KKCommonMacro.h */,
+				F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -262,8 +312,10 @@
 			children = (
 				F657864021993076003D87EA /* AFBaseViewController.h */,
 				F657864121993076003D87EA /* AFBaseViewController.m */,
-				586D15E2E08B57534814C3E2 /* AFbase.m */,
-				586D1D16D1ACBAEB49C560E0 /* AFbase.h */,
+				F6578643219AA3A7003D87EA /* AFBaseNavigationController.h */,
+				F6578644219AA3A7003D87EA /* AFBaseNavigationController.m */,
+				F6A5C6F7219AD9DA00EB846F /* AFTwoViewController.h */,
+				F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -279,6 +331,11 @@
 		F65786322199258C003D87EA /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				F6578648219AB896003D87EA /* Category(类别) */,
+				F6578655219AB897003D87EA /* DateUtil.h */,
+				F6578654219AB896003D87EA /* DateUtil.m */,
+				F6578647219AB896003D87EA /* StringUtil.h */,
+				F6578653219AB896003D87EA /* StringUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -313,6 +370,23 @@
 				F657863D21992D6F003D87EA /* WRNavigationBar.m */,
 			);
 			path = WRNavigationBar;
+			sourceTree = "<group>";
+		};
+		F6578648219AB896003D87EA /* Category(类别) */ = {
+			isa = PBXGroup;
+			children = (
+				F6578649219AB896003D87EA /* NSDictionary+Nilsafe.h */,
+				F657864A219AB896003D87EA /* NSDictionary+Nilsafe.m */,
+				F657864B219AB896003D87EA /* UIButton+Affee.h */,
+				F657864C219AB896003D87EA /* UIButton+Affee.m */,
+				F657864D219AB896003D87EA /* UIColor+Affee.h */,
+				F657864E219AB896003D87EA /* UIColor+Affee.m */,
+				F657864F219AB896003D87EA /* UIFont+Affee.h */,
+				F6578650219AB896003D87EA /* UIFont+Affee.m */,
+				F6578651219AB896003D87EA /* UIImage+Affee.h */,
+				F6578652219AB896003D87EA /* UIImage+Affee.m */,
+			);
+			path = "Category(类别)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,13 +504,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */,
 				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
 				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
+				F657866A219ABB37003D87EA /* MineVC.m in Sources */,
+				F657865C219AB897003D87EA /* DateUtil.m in Sources */,
+				F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */,
+				F657865B219AB897003D87EA /* StringUtil.m in Sources */,
+				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
+				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
+				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
+				F6578657219AB897003D87EA /* UIButton+Affee.m in Sources */,
+				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
+				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
+				F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */,
 				F657861721992027003D87EA /* AppDelegate.m in Sources */,
 				F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */,
-				586D16869B65B2599F806EBB /* AFbase.m in Sources */,
+				F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +667,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK8YAKFDQQ;
+				ENABLE_BITCODE = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = /Users/affee/GovernanceWater/GovernmentWater/Macros/PrefixHeader.pch;
 				INFOPLIST_FILE = GovernmentWater/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -599,7 +689,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK8YAKFDQQ;
+				ENABLE_BITCODE = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = /Users/affee/GovernanceWater/GovernmentWater/Macros/PrefixHeader.pch;
 				INFOPLIST_FILE = GovernmentWater/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

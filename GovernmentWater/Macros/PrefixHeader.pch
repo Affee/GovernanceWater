@@ -1,0 +1,100 @@
+//
+//  PrefixHeader.pch
+//  GovernmentWater
+//
+//  Created by affee on 2018/11/13.
+//  Copyright © 2018年 affee. All rights reserved.
+//
+
+#pragma mark ---  头文件相关
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//RGBA(139, 52, 193, 1)
+#define KKColorPurple       [UIColor colorWithRed:139/255.0f green:52/255.0f blue:193/255.0f alpha:1]
+#define KKWhitePurple       [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]
+#define KKColorLightGray       [UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1]
+
+#define KKRGBA(r,g,b,a)   [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define KKScreenBounds    [UIScreen mainScreen].bounds
+#define KKScreenSize      [UIScreen mainScreen].bounds.size
+#define KKScreenWidth     KKScreenSize.width
+#define KKScreenHeight    KKScreenSize.height
+#define KKZoom_Scall      KKScreenWidth/375.0
+
+// 需要用到的字号
+#define KKFont16 [UIFont systemFontOfSize:KKScreenHeight/(667/16)];
+//#define KKFont14 KKScreenHeight/(667/14)
+#define KKFont14 [UIFont systemFontOfSize:KKScreenHeight/(667/14)];
+#define KKFont18 [UIFont systemFontOfSize:KKScreenHeight/(667/18)];
+#define KKFont12 [UIFont systemFontOfSize:KKScreenHeight/(667/12)];
+#define KKHeight40 KKScreenHeight/(667/40)
+#define KKHeight50 KKScreenHeight/(667/50)
+
+//总借口
+//#define KKWebServiceBaseUrl @"http://139.219.71.184"
+
+#ifdef __OBJC__
+
+
+#import "KKCommonMacro.h"//接口
+#import "Constants.h" //常量
+
+//第三方
+#import <ReactiveCocoa/ReactiveCocoa.h>
+#import <Masonry/Masonry.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <MJRefresh/MJRefresh.h>
+#import <MJExtension/MJExtension.h>
+#import "UIImageView+WebCache.h"
+#import <UIKit/UIKit.h>
+
+//类别
+#import "UIFont+Affee.h"
+#import "UIImage+Affee.h"
+#import "UIButton+Affee.h"
+#import "UIColor+Affee.h"
+#import "NSDictionary+Nilsafe.h"
+#import "DateUtil.h"
+#import "StringUtil.h"
+
+//工具
+#import "WRNavigationBar.h"
+
+
+
+//#import "WMPageController.h"
+//#import "IQKeyboardManager.h"
+//#import "DateUtil.h" //时间轴转化
+//#import "UIView+SDAutoLayout.h" //SDAutoLayout
+//#import "UITableView+SDAutoTableViewCellHeight.h"
+//#import "WRNavigationBar.h"
+//#import <SVProgressHUD.h>
+//#import "BaseClass.h" //基本类的结合
+//#import "StringUtil.h" //字符串等的判断
+//#import <AFNetworking.h>
+//#import "TLHttpManager.h"//带缓存的请求
+//#import <UIImageView+WebCache.h>
+
+#endif
+
+//--------------- 自定义高效率的 NSLog
+#ifdef DEBUG
+#define AFLog(...) NSLog(@"%s 第%d行 \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+#else
+#define AFLog(...)
+
+#endif
+
+
+//获取系统版本
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define CurrentSystemVersion [[UIDevice currentDevice] systemVersion]
+
+
+//#define KKApplication [UIApplication sharedApplication]
+//#define KKAppDelegate ((AppDelegate*)KKApplication.delegate)
+
+
+#endif /* PrefixHeader_pch */
