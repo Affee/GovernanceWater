@@ -20,7 +20,7 @@
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBarHidden = NO;
     self.view.backgroundColor = [UIColor redColor];;
-    // 设置文字
+    // 设置文字 啦啦
     UIBarButtonItem * leftBarItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(clickLeftBarItem)];
     leftBarItem.tintColor = KKColorPurple;
     self.navigationItem.leftBarButtonItem = leftBarItem;
