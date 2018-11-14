@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"您好是啊";
-    self.view.backgroundColor = [UIColor blueColor];
+    self.view.backgroundColor = KKColorPurple;
 }
 
 /*
