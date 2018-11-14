@@ -30,6 +30,8 @@
 		F6578667219ABB23003D87EA /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578666219ABB23003D87EA /* EventVC.m */; };
 		F657866A219ABB37003D87EA /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578669219ABB37003D87EA /* MineVC.m */; };
 		F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */; };
+		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
+		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,10 @@
 		F6A5C6F7219AD9DA00EB846F /* AFTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFTwoViewController.h; sourceTree = "<group>"; };
 		F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFTwoViewController.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		F6A5C6FC219BF7F700EB846F /* AFLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFLoginVC.h; sourceTree = "<group>"; };
+		F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFLoginVC.m; sourceTree = "<group>"; };
+		F6A5C701219C5D6900EB846F /* FrogetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrogetVC.h; sourceTree = "<group>"; };
+		F6A5C702219C5D6900EB846F /* FrogetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrogetVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +295,7 @@
 		F657862E21992561003D87EA /* Class */ = {
 			isa = PBXGroup;
 			children = (
+				F6A5C6FB219BF6DA00EB846F /* Login */,
 				586D186CD885916126707252 /* Home */,
 				586D1AC51BC10A9493E80540 /* ViewRiver */,
 				586D1F28ED33FF27BBDD4872 /* Event */,
@@ -387,6 +394,17 @@
 				F6578652219AB896003D87EA /* UIImage+Affee.m */,
 			);
 			path = "Category(类别)";
+			sourceTree = "<group>";
+		};
+		F6A5C6FB219BF6DA00EB846F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F6A5C6FC219BF7F700EB846F /* AFLoginVC.h */,
+				F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */,
+				F6A5C701219C5D6900EB846F /* FrogetVC.h */,
+				F6A5C702219C5D6900EB846F /* FrogetVC.m */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,6 +530,7 @@
 				F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */,
 				F657865B219AB897003D87EA /* StringUtil.m in Sources */,
 				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
+				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
@@ -519,6 +538,7 @@
 				F6578657219AB897003D87EA /* UIButton+Affee.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
+				F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */,
 				F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */,
 				F657861721992027003D87EA /* AppDelegate.m in Sources */,
 				F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */,
@@ -665,6 +685,7 @@
 			baseConfigurationReference = 83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK8YAKFDQQ;
 				ENABLE_BITCODE = YES;
@@ -687,6 +708,7 @@
 			baseConfigurationReference = 433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NK8YAKFDQQ;
 				ENABLE_BITCODE = YES;

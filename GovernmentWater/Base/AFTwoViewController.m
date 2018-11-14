@@ -7,6 +7,7 @@
 //
 
 #import "AFTwoViewController.h"
+#import "AppDelegate.h"
 
 @interface AFTwoViewController ()
 
@@ -17,18 +18,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"您好是啊";
-    self.view.backgroundColor = KKWhitePurple;
-
+    self.view.backgroundColor = KKWhiteColor;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:@"确定退出" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
 }
-*/
+
+/**
+ 退出登录
+ */
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    
+    if (buttonIndex == 1) {
+        NSLog(@"哈哈哈");
+        
+        [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"loginSuccess"];
+        //      [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"loginSuccess"];
+        //这个位置是退出登录的地方 就是返回到登录界面那块儿    应该是这块有问题 退出后 是推到home 界面
+        UIApplication *app = [UIApplication sharedApplication];
+        AppDelegate *dele = (AppDelegate*)app.delegate;
+        //重新启动
+        [dele application:app didFinishLaunchingWithOptions:[[NSDictionary alloc] init]];
+        
+    }else{
+        NSLog(@"你妈的");
+    }
+}
 
 @end

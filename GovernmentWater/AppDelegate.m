@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "AFTabBarController.h"
+#import "AFLoginVC.h"
+#import <IQKeyboardManager.h>
+
 @interface AppDelegate ()
 
 @end
@@ -16,13 +19,35 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//    键盘管理
+    [self keyboardManager];
+    
     [self changeRoot];
     return YES;
 }
+
+-(void)keyboardManager{
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable = YES;
+    manager.shouldResignOnTouchOutside = YES;
+    manager.shouldToolbarUsesTextFieldTintColor = YES;
+    manager.enableAutoToolbar = NO;
+}
+
+/**
+ 进入哪个RootvView
+ */
 -(void)changeRoot{
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = [[AFTabBarController alloc]init];
+    NSString *loginStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"loginSuccess"];
+    
+    if (!loginStr){
+        self.window.rootViewController = [[AFLoginVC alloc] init];
+    } else{
+        self.window.rootViewController = [[AFTabBarController alloc] init];
+    }
+//    self.window.rootViewController = [[AFTabBarController alloc]init];
     [self.window makeKeyAndVisible];
 }
 

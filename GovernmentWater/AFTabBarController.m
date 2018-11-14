@@ -31,6 +31,7 @@
     NSArray *titleArray = @[@"首页",@"巡河",@"事件",@"我的"];
     
     NSMutableArray *arrayM = [NSMutableArray array];
+    
     for (int i = 0; i < childVC.count; i++) {
         Class cls  = NSClassFromString(childVC[i]);
         UIViewController * vc = [[cls alloc]init];

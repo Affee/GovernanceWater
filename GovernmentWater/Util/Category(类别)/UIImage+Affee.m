@@ -89,7 +89,6 @@
     return image;
     
 }
-
 + (UIImage *)imageWithName:(NSString *)name size:(CGSize)size {
     UIImage *icon = [self imageNamed:name];
     CGSize itemSize = size;
