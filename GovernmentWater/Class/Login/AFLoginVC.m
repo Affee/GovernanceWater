@@ -60,7 +60,7 @@
         self.passwordTF = UITextField.new;
         _passwordTF.backgroundColor = KKColorLightGray;
         _passwordTF.placeholder = @"请输入密码";
-        _passwordTF.keyboardType = UIKeyboardTypeNumberPad;
+//        _passwordTF.keyboardType = UIKeyboardTypeNumberPad;
         _passwordTF.textAlignment = NSTextAlignmentCenter;
         [_bigView addSubview:_passwordTF];
         
@@ -127,9 +127,7 @@
             make.top.equalTo(_bigView.mas_bottom).offset(Padding2*2);
             make.left.equalTo(self.view).offset(Padding2);
             make.right.equalTo(self.view).offset(-Padding2);
-            make.height.equalTo(@40);
-            
-            
+            make.height.equalTo(@50);
         }];
         
         [forgetBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -162,11 +160,11 @@
 }
 #pragma mark 点击方法
 -(void)Clidklanding:(UIButton *)sender{
-    AFLog(@"账号为===%@\n密码为===%@",_phoneTF.text,_passwordTF.text);
-    //        [[NSUserDefaults standardUserDefaults] setObject:@"loginSuccess" forKey:@"loginSuccess"];
-    //        AFTabBarController *aftabBar = [[AFTabBarController alloc]init];
-    //        AppDelegate *dele = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    //        dele.window.rootViewController = aftabBar;
+            AFLog(@"账号为===%@\n密码为===%@",_phoneTF.text,_passwordTF.text);
+            [[NSUserDefaults standardUserDefaults] setObject:@"loginSuccess" forKey:@"loginSuccess"];
+            AFTabBarController *aftabBar = [[AFTabBarController alloc]init];
+            AppDelegate *dele = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            dele.window.rootViewController = aftabBar;
 }
 
 -(void)Clickforget:(UIButton *)sender{

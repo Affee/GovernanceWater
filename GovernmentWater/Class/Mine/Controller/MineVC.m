@@ -7,6 +7,7 @@
 //
 
 #import "MineVC.h"
+#import "AFTwoViewController.h"
 
 @interface MineVC ()
 
@@ -21,14 +22,15 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    AFLog(@"dididi");
+    AFTwoViewController *tttt = [[AFTwoViewController alloc]init];
+    
+    tttt.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:tttt animated:YES];
+    
 }
-*/
+
 
 @end

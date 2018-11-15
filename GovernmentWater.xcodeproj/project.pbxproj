@@ -32,6 +32,9 @@
 		F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
+		F6A5C706219D487D00EB846F /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C705219D487D00EB846F /* EventListCell.m */; };
+		F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C708219D5C6400EB846F /* EventListCellModel.m */; };
+		F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C70B219D750400EB846F /* EventDetailsVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +90,12 @@
 		F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFLoginVC.m; sourceTree = "<group>"; };
 		F6A5C701219C5D6900EB846F /* FrogetVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FrogetVC.h; sourceTree = "<group>"; };
 		F6A5C702219C5D6900EB846F /* FrogetVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FrogetVC.m; sourceTree = "<group>"; };
+		F6A5C704219D487D00EB846F /* EventListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventListCell.h; sourceTree = "<group>"; };
+		F6A5C705219D487D00EB846F /* EventListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventListCell.m; sourceTree = "<group>"; };
+		F6A5C707219D5C6400EB846F /* EventListCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventListCellModel.h; sourceTree = "<group>"; };
+		F6A5C708219D5C6400EB846F /* EventListCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventListCellModel.m; sourceTree = "<group>"; };
+		F6A5C70A219D750400EB846F /* EventDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailsVC.h; sourceTree = "<group>"; };
+		F6A5C70B219D750400EB846F /* EventDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +153,8 @@
 		586D13C014C8C87067DACB8C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F6A5C704219D487D00EB846F /* EventListCell.h */,
+				F6A5C705219D487D00EB846F /* EventListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +178,8 @@
 		586D1778CACBAD984CD48D42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F6A5C707219D5C6400EB846F /* EventListCellModel.h */,
+				F6A5C708219D5C6400EB846F /* EventListCellModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -205,6 +218,8 @@
 			children = (
 				F6578665219ABB23003D87EA /* EventVC.h */,
 				F6578666219ABB23003D87EA /* EventVC.m */,
+				F6A5C70A219D750400EB846F /* EventDetailsVC.h */,
+				F6A5C70B219D750400EB846F /* EventDetailsVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -524,6 +539,7 @@
 			files = (
 				F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */,
 				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
+				F6A5C706219D487D00EB846F /* EventListCell.m in Sources */,
 				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
 				F657866A219ABB37003D87EA /* MineVC.m in Sources */,
 				F657865C219AB897003D87EA /* DateUtil.m in Sources */,
@@ -532,6 +548,8 @@
 				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
+				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
+				F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */,
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,

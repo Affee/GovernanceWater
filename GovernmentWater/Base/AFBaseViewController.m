@@ -8,7 +8,6 @@
 
 #import "AFBaseViewController.h"
 #import "WRNavigationBar.h"
-#import "AFTwoViewController.h"
 
 
 @interface AFBaseViewController ()
@@ -49,14 +48,4 @@
 }
 
 
-
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    AFLog(@"dididi");
-    AFTwoViewController *tttt = [[AFTwoViewController alloc]init];
-    
-    tttt.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController pushViewController:tttt animated:YES];
-    
-}
 @end

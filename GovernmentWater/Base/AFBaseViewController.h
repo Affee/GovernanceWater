@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, strong)WRCustomNavigationBar *customNavBar ;
 
-+ (instancetype)sharedInstance;
 
 
 @end
