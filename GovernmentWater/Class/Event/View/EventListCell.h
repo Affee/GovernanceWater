@@ -11,7 +11,45 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventListCell : UITableViewCell
-@property(nonatomic,strong)UIView *bigView;
+
+/**
+ 头像
+ */
+@property(nonatomic,strong)UIImageView *imgvIcon;
+
+
+/**
+ 名字
+ */
+@property(nonatomic,strong)UILabel *namenikeLabel;
+
+/**
+ 时间标签
+ */
+@property (nonatomic, strong) UILabel *timeLabel;
+
+/**
+ 污水标签
+ */
+@property (nonatomic, strong) UILabel *sewageLabel;
+
+/**
+ 地址
+ */
+@property (nonatomic, strong) UILabel *addressLabel;
+
+/**
+ 警报标签
+ */
+@property (nonatomic, strong) UIImageView *alarmImg;
+
+
+/**
+ 事件Label
+ */
+@property (nonatomic, strong) UILabel *eventLabel;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

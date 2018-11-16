@@ -19,7 +19,7 @@
 #define KKBlueColor         [UIColor colorWithRed:45/255.0f green:105/255.0f blue:182/255.0f alpha:1]
 #define KKColorPurple       [UIColor colorWithRed:139/255.0f green:52/255.0f blue:193/255.0f alpha:1]
 #define KKWhiteColor        [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]
-#define KKColorLightGray       [UIColor colorWithRed:240/255.0f green:240/255.0f blue:240/255.0f alpha:1]
+#define KKColorLightGray       [UIColor colorWithRed:153/255.0f green:153/255.0f blue:153/255.0f alpha:1]
 
 #define KKRGBA(r,g,b,a)   [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 #define KKScreenBounds    [UIScreen mainScreen].bounds
@@ -99,8 +99,24 @@
 #define CurrentSystemVersion [[UIDevice currentDevice] systemVersion]
 
 
+
+//判断是否是ipad
+#define isPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+//判断iPhoneX
+#define IS_IPHONE_X ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iPHoneXr
+#define IS_IPHONE_Xr ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(828, 1792), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iPhoneXs
+#define IS_IPHONE_Xs ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+//判断iPhoneXs Max
+#define IS_IPHONE_Xs_Max ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1242, 2688), [[UIScreen mainScreen] currentMode].size) && !isPad : NO)
+
 //#define KKApplication [UIApplication sharedApplication]
 //#define KKAppDelegate ((AppDelegate*)KKApplication.delegate)
+
+//获取图片资源
+#define KKGetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
+#define KKPlaceholderImage [UIImage imageNamed:[NSString stringWithFormat:@"首页icon copy"]]
 
 
 #endif /* PrefixHeader_pch */

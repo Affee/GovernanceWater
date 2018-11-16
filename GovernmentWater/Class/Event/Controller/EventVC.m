@@ -67,19 +67,30 @@
 #pragma mark - tableview delegate / dataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 160;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 30;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-    cell.textLabel.text = @"滴滴滴";
-    cell.detailTextLabel.text = @"啦啦啦";
-    cell.textLabel.font = [UIFont affeeBlodFont:14];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    static NSString *ID = @"EventListCell";
+    EventListCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[EventListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    
+//    if (indexPath.row/2 == 1) {
+//        cell.detailsLabel.text = @"啦啦啦啦啦德玛西亚";
+//    }else{
+//        cell.detailsLabel.text = @"不管你有多少钱，世上只有两种人：一种是还幸存的，一种是已迷失的。--Don't matter how much money you got, there's only two kinds of people: there's saved people and there's lost people.";
+//    }
+//    EventListCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+//    cell.textLabel.text = @"滴滴滴";
+//    cell.detailTextLabel.text = @"啦啦啦";
+//    cell.textLabel.font = [UIFont affeeBlodFont:14];
+//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

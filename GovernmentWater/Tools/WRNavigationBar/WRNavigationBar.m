@@ -11,24 +11,75 @@
 #import <objc/runtime.h>
 #import "sys/utsname.h"
 
+
+
 @implementation WRNavigationBar
 
-+ (BOOL)isIphoneX {
+//+ (BOOL)isIphoneX {
+//    struct utsname systemInfo;
+//    uname(&systemInfo);
+//    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
+//    if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) {
+//        // judgment by height when in simulators
+//        return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
+//                CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)));
+//    }
+//    BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
+//    return isIPhoneX;
+//}
++(BOOL)isIphoneX{
     struct utsname systemInfo;
     uname(&systemInfo);
     NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
     if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) {
         // judgment by height when in simulators
-        return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
-                CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)));
+        // return (CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(375, 812)) ||
+        // CGSizeEqualToSize([UIScreen mainScreen].bounds.size, CGSizeMake(812, 375)));
+        if(IS_IPHONE_X==YES){
+            return YES;
+        }else if (IS_IPHONE_Xr ==YES){
+            return YES;
+        }else if (IS_IPHONE_Xs ==YES){
+            return YES;
+        }else if (IS_IPHONE_Xs_Max ==YES){
+            return YES;
+        }else{
+            return NO;
+        }
     }
-    BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
-    return isIPhoneX;
+    // BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
+    // NSLog(@"isIPhoneX = %d",isIPhoneX);
+    // return isIPhoneX;
+    if(IS_IPHONE_X==YES){
+        return YES;
+    }else if (IS_IPHONE_Xr ==YES){
+        return YES;
+    }else if (IS_IPHONE_Xs ==YES){
+        return YES;
+    }else if (IS_IPHONE_Xs_Max ==YES){
+        return YES;
+    }else{
+        return NO;
+    }
 }
+//适配中可能会出现的问题
 + (CGFloat)navBarBottom {
     return [self isIphoneX] ? 88 : 64;
+//    X XR XS XSMax barBottom的底部坐标
+//    if(IS_IPHONE_X==YES){
+//        return 88;
+//    }else if (IS_IPHONE_Xr ==YES){
+//        return 88;
+//    }else if (IS_IPHONE_Xs ==YES){
+//        return 88;
+//    }else if (IS_IPHONE_Xs_Max ==YES){
+//        return 88;
+//    }else{
+//        return 64;
+//    }
 }
 + (CGFloat)tabBarHeight {
+    //    X XR XS XSMax barBottom的高度
     return [self isIphoneX] ? 83 : 49;
 }
 + (CGFloat)screenWidth {
@@ -901,5 +952,9 @@ static char kWRSystemNavBarTitleColorKey;
         return [tabBarController.viewControllers containsObject:self];
     }
 }
+
+
+
+
 
 @end
