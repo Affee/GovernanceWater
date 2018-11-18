@@ -31,13 +31,16 @@
 #pragma mark 控件的创建和布局
 -(void)createControls{
     self.namenikeLabel = [[UILabel alloc]init];
-    self.namenikeLabel.font = KKFont16;
-    self.namenikeLabel.backgroundColor = KKColorLightGray;
-    self.namenikeLabel.textColor = KKColorPurple;
+//    self.namenikeLabel.font = KKFont16;
+//        加粗
+    self.namenikeLabel.font = [UIFont affeeBlodFont:16];
+//    self.namenikeLabel.backgroundColor = KKColorLightGray;
+//    self.namenikeLabel.textColor = KKColorPurple;
     self.namenikeLabel.text = @"黄蕾";
     self.namenikeLabel.numberOfLines = 0;
     self.imgvIcon = [[UIImageView alloc]init];
-    self.imgvIcon.layer.cornerRadius = 60;
+    self.imgvIcon.layer.cornerRadius =  25;
+    self.imgvIcon.layer.masksToBounds = YES;
     [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:KKPlaceholderImage];
     
     UILabel *timeLabel = [[UILabel alloc] init];
@@ -48,9 +51,10 @@
     UILabel *sewageLabel = [[UILabel alloc] init];
     _sewageLabel = sewageLabel;
     sewageLabel.text = @" 污水直排 ";
+    sewageLabel.textColor = KKWhiteColor;
     sewageLabel.font = KKFont14;
 //    sewageLabel.backgroundColor = KKColorLightGray;
-    sewageLabel.layer.backgroundColor = KKColorLightGray.CGColor;
+    sewageLabel.layer.backgroundColor = KKColorPurple.CGColor;
     sewageLabel.layer.borderColor = KKBlueColor.CGColor;
     sewageLabel.layer.borderWidth = 1;
     sewageLabel.layer.cornerRadius = 5.0f;
@@ -58,7 +62,8 @@
      UILabel *addressLabel = [[UILabel alloc] init];
      _addressLabel = addressLabel;
      addressLabel.font = KKFont14;
-     addressLabel.layer.backgroundColor = KKColorLightGray.CGColor;
+     addressLabel.textColor = KKWhiteColor;
+     addressLabel.layer.backgroundColor = KKColorPurple.CGColor;
      addressLabel.text = @" 汇川区高平镇高平区 ";
     addressLabel.layer.borderColor = KKBlueColor.CGColor;
     addressLabel.layer.borderWidth = 1;
@@ -89,8 +94,8 @@
     [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(Padding);
         make.left.equalTo(self.contentView).offset(Padding);
-        make.width.equalTo(@60);
-        make.height.equalTo(@60);
+        make.width.equalTo(@50);
+        make.height.equalTo(@50);
     }];
 
     [self.namenikeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -98,13 +103,13 @@
         make.left.equalTo(self.imgvIcon.mas_right).offset(10);
 //        make.width.equalTo(@100);
         make.width.greaterThanOrEqualTo(@30).priorityHigh();
-        make.height.equalTo(@30);
+        make.height.equalTo(@25);
     }];
 
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
        make.top.equalTo(self.contentView).offset(Padding);
        make.right.equalTo(self.contentView).offset(-Padding);
-       make.height.equalTo(@30);
+       make.height.equalTo(@25);
        make.width.greaterThanOrEqualTo(@30).priorityHigh();
     }];
 
@@ -127,13 +132,16 @@
         make.bottom.equalTo(self.contentView).offset(-Padding);
         make.height.equalTo(@30);
         make.width.greaterThanOrEqualTo(@20).priorityHigh();
+//        make.top.equalTo(_eventLabel.mas_bottom).offset(Padding);
     }];
 
     [_eventLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_namenikeLabel.mas_bottom).offset(Padding);
+        make.top.equalTo(_namenikeLabel.mas_bottom).offset(Padding/2);
         make.left.equalTo(_namenikeLabel);
         make.right.equalTo(self.contentView).offset(-Padding);
-        make.height.greaterThanOrEqualTo(@20).priorityHigh();
+        make.height.greaterThanOrEqualTo(@20).priorityHigh();//优先级 high
+//        make.bottom.equalTo(_addressLabel.mas_top).offset(-Padding).priorityLow;// 低
     }];
+
 }
 @end
