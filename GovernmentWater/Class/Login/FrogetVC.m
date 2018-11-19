@@ -7,7 +7,7 @@
 //
 
 #import "FrogetVC.h"
-#import "UIButton+Affee.h"
+
 
 #define TopHeigh 100  //从上到下的高度
 #define LabelWitdth 70//左边label的宽度

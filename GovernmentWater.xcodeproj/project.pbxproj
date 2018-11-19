@@ -19,7 +19,6 @@
 		F657864221993076003D87EA /* AFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864121993076003D87EA /* AFBaseViewController.m */; };
 		F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578644219AA3A7003D87EA /* AFBaseNavigationController.m */; };
 		F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864A219AB896003D87EA /* NSDictionary+Nilsafe.m */; };
-		F6578657219AB897003D87EA /* UIButton+Affee.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864C219AB896003D87EA /* UIButton+Affee.m */; };
 		F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864E219AB896003D87EA /* UIColor+Affee.m */; };
 		F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578650219AB896003D87EA /* UIFont+Affee.m */; };
 		F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578652219AB896003D87EA /* UIImage+Affee.m */; };
@@ -29,6 +28,14 @@
 		F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578663219ABB0F003D87EA /* ViewRiverVC.m */; };
 		F6578667219ABB23003D87EA /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578666219ABB23003D87EA /* EventVC.m */; };
 		F657866A219ABB37003D87EA /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578669219ABB37003D87EA /* MineVC.m */; };
+		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
+		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
+		F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F695C1D821A28E5100E93F1A /* BRPickerView.bundle */; };
+		F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1DB21A28E5100E93F1A /* BRBaseView.m */; };
+		F695C1EA21A28E7B00E93F1A /* BRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E021A28E5100E93F1A /* BRDatePickerView.m */; };
+		F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E221A28E5100E93F1A /* NSDate+BRPickerView.m */; };
+		F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E521A28E5100E93F1A /* BRStringPickerView.m */; };
+		F695C1EF21A28EFD00E93F1A /* BRInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */; };
 		F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
@@ -62,8 +69,6 @@
 		F6578647219AB896003D87EA /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
 		F6578649219AB896003D87EA /* NSDictionary+Nilsafe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Nilsafe.h"; sourceTree = "<group>"; };
 		F657864A219AB896003D87EA /* NSDictionary+Nilsafe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Nilsafe.m"; sourceTree = "<group>"; };
-		F657864B219AB896003D87EA /* UIButton+Affee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Affee.h"; sourceTree = "<group>"; };
-		F657864C219AB896003D87EA /* UIButton+Affee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Affee.m"; sourceTree = "<group>"; };
 		F657864D219AB896003D87EA /* UIColor+Affee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Affee.h"; sourceTree = "<group>"; };
 		F657864E219AB896003D87EA /* UIColor+Affee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Affee.m"; sourceTree = "<group>"; };
 		F657864F219AB896003D87EA /* UIFont+Affee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Affee.h"; sourceTree = "<group>"; };
@@ -83,6 +88,23 @@
 		F6578666219ABB23003D87EA /* EventVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
 		F6578668219ABB37003D87EA /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
 		F6578669219ABB37003D87EA /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
+		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
+		F695C1D521A28E5100E93F1A /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
+		F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
+		F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressPickerView.m; sourceTree = "<group>"; };
+		F695C1D821A28E5100E93F1A /* BRPickerView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BRPickerView.bundle; sourceTree = "<group>"; };
+		F695C1DA21A28E5100E93F1A /* BRBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRBaseView.h; sourceTree = "<group>"; };
+		F695C1DB21A28E5100E93F1A /* BRBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRBaseView.m; sourceTree = "<group>"; };
+		F695C1DC21A28E5100E93F1A /* BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPickerView.h; sourceTree = "<group>"; };
+		F695C1DD21A28E5100E93F1A /* BRPickerViewMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRPickerViewMacro.h; sourceTree = "<group>"; };
+		F695C1DF21A28E5100E93F1A /* BRDatePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRDatePickerView.h; sourceTree = "<group>"; };
+		F695C1E021A28E5100E93F1A /* BRDatePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRDatePickerView.m; sourceTree = "<group>"; };
+		F695C1E121A28E5100E93F1A /* NSDate+BRPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BRPickerView.h"; sourceTree = "<group>"; };
+		F695C1E221A28E5100E93F1A /* NSDate+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRPickerView.m"; sourceTree = "<group>"; };
+		F695C1E421A28E5100E93F1A /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
+		F695C1E521A28E5100E93F1A /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
+		F695C1ED21A28EFD00E93F1A /* BRInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRInfoModel.h; sourceTree = "<group>"; };
+		F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRInfoModel.m; sourceTree = "<group>"; };
 		F6A5C6F7219AD9DA00EB846F /* AFTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFTwoViewController.h; sourceTree = "<group>"; };
 		F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFTwoViewController.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -178,6 +200,8 @@
 		586D1778CACBAD984CD48D42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F695C1ED21A28EFD00E93F1A /* BRInfoModel.h */,
+				F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */,
 				F6A5C707219D5C6400EB846F /* EventListCellModel.h */,
 				F6A5C708219D5C6400EB846F /* EventListCellModel.m */,
 			);
@@ -345,6 +369,7 @@
 		F657863121992589003D87EA /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F695C1D221A28E5100E93F1A /* BRPickerView */,
 				F657863921992D6F003D87EA /* WRNavigationBar */,
 			);
 			path = Tools;
@@ -399,8 +424,6 @@
 			children = (
 				F6578649219AB896003D87EA /* NSDictionary+Nilsafe.h */,
 				F657864A219AB896003D87EA /* NSDictionary+Nilsafe.m */,
-				F657864B219AB896003D87EA /* UIButton+Affee.h */,
-				F657864C219AB896003D87EA /* UIButton+Affee.m */,
 				F657864D219AB896003D87EA /* UIColor+Affee.h */,
 				F657864E219AB896003D87EA /* UIColor+Affee.m */,
 				F657864F219AB896003D87EA /* UIFont+Affee.h */,
@@ -409,6 +432,60 @@
 				F6578652219AB896003D87EA /* UIImage+Affee.m */,
 			);
 			path = "Category(类别)";
+			sourceTree = "<group>";
+		};
+		F695C1D221A28E5100E93F1A /* BRPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				F695C1D321A28E5100E93F1A /* AddressPickerView */,
+				F695C1D921A28E5100E93F1A /* Base */,
+				F695C1DC21A28E5100E93F1A /* BRPickerView.h */,
+				F695C1DD21A28E5100E93F1A /* BRPickerViewMacro.h */,
+				F695C1DE21A28E5100E93F1A /* DatePickerView */,
+				F695C1E321A28E5100E93F1A /* StringPickerView */,
+			);
+			path = BRPickerView;
+			sourceTree = "<group>";
+		};
+		F695C1D321A28E5100E93F1A /* AddressPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				F695C1D421A28E5100E93F1A /* BRAddressModel.h */,
+				F695C1D521A28E5100E93F1A /* BRAddressModel.m */,
+				F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */,
+				F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */,
+				F695C1D821A28E5100E93F1A /* BRPickerView.bundle */,
+			);
+			path = AddressPickerView;
+			sourceTree = "<group>";
+		};
+		F695C1D921A28E5100E93F1A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F695C1DA21A28E5100E93F1A /* BRBaseView.h */,
+				F695C1DB21A28E5100E93F1A /* BRBaseView.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		F695C1DE21A28E5100E93F1A /* DatePickerView */ = {
+			isa = PBXGroup;
+			children = (
+				F695C1DF21A28E5100E93F1A /* BRDatePickerView.h */,
+				F695C1E021A28E5100E93F1A /* BRDatePickerView.m */,
+				F695C1E121A28E5100E93F1A /* NSDate+BRPickerView.h */,
+				F695C1E221A28E5100E93F1A /* NSDate+BRPickerView.m */,
+			);
+			path = DatePickerView;
+			sourceTree = "<group>";
+		};
+		F695C1E321A28E5100E93F1A /* StringPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				F695C1E421A28E5100E93F1A /* BRStringPickerView.h */,
+				F695C1E521A28E5100E93F1A /* BRStringPickerView.m */,
+			);
+			path = StringPickerView;
 			sourceTree = "<group>";
 		};
 		F6A5C6FB219BF6DA00EB846F /* Login */ = {
@@ -481,6 +558,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */,
 				F65786222199202A003D87EA /* LaunchScreen.storyboard in Resources */,
 				F657861F2199202A003D87EA /* Assets.xcassets in Resources */,
 				F657861D21992027003D87EA /* Main.storyboard in Resources */,
@@ -543,19 +621,25 @@
 				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
 				F657866A219ABB37003D87EA /* MineVC.m in Sources */,
 				F657865C219AB897003D87EA /* DateUtil.m in Sources */,
+				F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */,
 				F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */,
+				F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */,
 				F657865B219AB897003D87EA /* StringUtil.m in Sources */,
+				F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */,
 				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
+				F695C1EF21A28EFD00E93F1A /* BRInfoModel.m in Sources */,
 				F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */,
+				F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */,
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
+				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
-				F6578657219AB897003D87EA /* UIButton+Affee.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
+				F695C1EA21A28E7B00E93F1A /* BRDatePickerView.m in Sources */,
 				F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */,
 				F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */,
 				F657861721992027003D87EA /* AppDelegate.m in Sources */,

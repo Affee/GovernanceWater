@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong)UILabel *namenikeLabel;
 
 /**
- 时间标签
+ 时间标签我我
  */
 @property (nonatomic, strong) UILabel *timeLabel;
 

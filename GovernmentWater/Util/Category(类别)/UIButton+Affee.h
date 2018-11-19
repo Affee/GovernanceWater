@@ -16,8 +16,8 @@
  *  @param title           title
  *  @param backgroundColor 背景颜色
  *  @param titleColor      文字颜色
- *  @param font            文字大小
- *  @param tapAction       回调
+ *  @param titleFont            文字大小
+ *  @param titleFont       回调
  */
 + (instancetype)createCustomButtonWithFrame:(CGRect)frame
                                       title:(NSString *)title

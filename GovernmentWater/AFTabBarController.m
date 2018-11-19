@@ -27,7 +27,7 @@
 -(void)addChildVC{
     NSArray *norImage = @[@"首页icon copy",@"服务icon copy",@"挖矿icon copy",@"我的icon copy"];
     NSArray *selImage = @[@"首页icon_pressed copy",@"服务icon_pressed copy",@"挖矿icon_pressed copy",@"我的icon_pressed copy"];
-    NSArray *childVC =  @[@"HomeViewController",@"ViewRiverVC",@"EventVC",@"MineVC"];
+    NSArray *childVC =  @[@"EventVC",@"HomeViewController",@"ViewRiverVC",@"MineVC"];
     NSArray *titleArray = @[@"首页",@"巡河",@"事件",@"我的"];
     
     NSMutableArray *arrayM = [NSMutableArray array];
