@@ -1,4 +1,4 @@
-//
+ //
 //  EventDetailsVC.h
 //  GovernmentWater
 //
@@ -7,7 +7,6 @@
 //
 
 #import "AFBaseViewController.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventDetailsVC : AFBaseViewController
@@ -15,3 +14,4 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+

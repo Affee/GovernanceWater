@@ -36,6 +36,9 @@
 		F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E221A28E5100E93F1A /* NSDate+BRPickerView.m */; };
 		F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E521A28E5100E93F1A /* BRStringPickerView.m */; };
 		F695C1EF21A28EFD00E93F1A /* BRInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */; };
+		F695C27D21A3F4D900E93F1A /* DetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C27C21A3F4D900E93F1A /* DetailsVC.m */; };
+		F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C27F21A4189600E93F1A /* RecordEventCell.m */; };
+		F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28221A42F2800E93F1A /* RecordHeaderCell.m */; };
 		F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
@@ -105,6 +108,12 @@
 		F695C1E521A28E5100E93F1A /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
 		F695C1ED21A28EFD00E93F1A /* BRInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRInfoModel.h; sourceTree = "<group>"; };
 		F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRInfoModel.m; sourceTree = "<group>"; };
+		F695C27B21A3F4D900E93F1A /* DetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsVC.h; sourceTree = "<group>"; };
+		F695C27C21A3F4D900E93F1A /* DetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsVC.m; sourceTree = "<group>"; };
+		F695C27E21A4189600E93F1A /* RecordEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordEventCell.h; sourceTree = "<group>"; };
+		F695C27F21A4189600E93F1A /* RecordEventCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordEventCell.m; sourceTree = "<group>"; };
+		F695C28121A42F2800E93F1A /* RecordHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordHeaderCell.h; sourceTree = "<group>"; };
+		F695C28221A42F2800E93F1A /* RecordHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordHeaderCell.m; sourceTree = "<group>"; };
 		F6A5C6F7219AD9DA00EB846F /* AFTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFTwoViewController.h; sourceTree = "<group>"; };
 		F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFTwoViewController.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -177,6 +186,10 @@
 			children = (
 				F6A5C704219D487D00EB846F /* EventListCell.h */,
 				F6A5C705219D487D00EB846F /* EventListCell.m */,
+				F695C27E21A4189600E93F1A /* RecordEventCell.h */,
+				F695C27F21A4189600E93F1A /* RecordEventCell.m */,
+				F695C28121A42F2800E93F1A /* RecordHeaderCell.h */,
+				F695C28221A42F2800E93F1A /* RecordHeaderCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +257,8 @@
 				F6578666219ABB23003D87EA /* EventVC.m */,
 				F6A5C70A219D750400EB846F /* EventDetailsVC.h */,
 				F6A5C70B219D750400EB846F /* EventDetailsVC.m */,
+				F695C27B21A3F4D900E93F1A /* DetailsVC.h */,
+				F695C27C21A3F4D900E93F1A /* DetailsVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -628,12 +643,15 @@
 				F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */,
 				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
+				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
 				F695C1EF21A28EFD00E93F1A /* BRInfoModel.m in Sources */,
 				F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */,
 				F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */,
+				F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */,
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
+				F695C27D21A3F4D900E93F1A /* DetailsVC.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
