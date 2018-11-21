@@ -28,12 +28,13 @@
     [self.view addSubview:self.customNavBar];
 //    设置自定义导航北京图片
     self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"NavBarBG"];
+//    self.customNavBar.backgroundColor = KKBlueColor;
 //    或者直接是颜色的
 //         [self wr_setNavBarTintColor:[UIColor blueColor]];
 
 
 //        设置导航标题栏的颜色
-        self.customNavBar.titleLabelColor = [UIColor yellowColor];
+        self.customNavBar.titleLabelColor = [UIColor whiteColor];
     if (self.navigationController.childViewControllers.count != 1) {
         //        [self.customNavBar wr_setLeftButtonWithTitle:@"<" titleColor:[UIColor whiteColor]];
         //        wr_setLeftButtonWithImage
