@@ -20,13 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    UIImage *backGroundImage=[UIImage imageNamed:@"个人中心bg"];
-    self.view.contentMode=UIViewContentModeScaleAspectFill;
-    self.view.layer.contents=(__bridge id _Nullable)(backGroundImage.CGImage);
+    self.view.backgroundColor = UIColor.whiteColor;
+//    UIImage *backGroundImage=[UIImage imageNamed:@"个人中心bg"];
+//    self.view.contentMode=UIViewContentModeScaleAspectFill;
+//    self.view.layer.contents=(__bridge id _Nullable)(backGroundImage.CGImage);
     
     [self buildUI];
-    self.view.backgroundColor = [UIColor yellowColor];
 }
 -(id)init
 {

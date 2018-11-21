@@ -7,7 +7,6 @@
 //
 
 #import "ViewRiverVC.h"
-#import "DetailsVC.h"
 
 @interface ViewRiverVC ()
 
@@ -19,11 +18,6 @@
     [super viewDidLoad];
     self.customNavBar.title = @"巡河";
     self.automaticallyAdjustsScrollViewInsets = NO;
-}
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    DetailsVC *ddd = [[DetailsVC alloc]init];
-    ddd.view.backgroundColor = [UIColor blueColor];
-    [self.navigationController pushViewController:ddd animated:YES];
 }
 
 

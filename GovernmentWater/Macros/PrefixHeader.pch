@@ -17,7 +17,7 @@
 
 //RGBA(139, 52, 193, 1)
 #define KKBlueColor         [UIColor colorWithRed:45/255.0f green:105/255.0f blue:182/255.0f alpha:1]
-#define KKColorPurple       [UIColor colorWithRed:139/255.0f green:52/255.0f blue:193/255.0f alpha:1]
+#define KKColorPurple       [UIColor colorWithRed:45/255.0f green:105/255.0f blue:182/255.0f alpha:1]
 #define KKWhiteColor        [UIColor colorWithRed:255/255.0f green:255/255.0f blue:255/255.0f alpha:1]
 #define KKColorLightGray       [UIColor colorWithRed:153/255.0f green:153/255.0f blue:153/255.0f alpha:1]
 
@@ -47,14 +47,15 @@
 #import "Constants.h" //常量
 
 //第三方
-#import <ReactiveCocoa/ReactiveCocoa.h>
+//#import <ReactiveCocoa/ReactiveCocoa.h>
 #import <Masonry/Masonry.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <MJRefresh/MJRefresh.h>
-#import <MJExtension/MJExtension.h>
+//#import <MJExtension/MJExtension.h>
 #import "UIImageView+WebCache.h"
 #import <UIKit/UIKit.h>
 #import <Masonry.h>
+#import <YYKit/YYKit.h>
 
 //类别
 #import "UIFont+Affee.h"

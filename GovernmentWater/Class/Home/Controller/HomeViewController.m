@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "ReportVC.h"
 
 @interface HomeViewController ()
 
@@ -17,19 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.customNavBar.title = @"首页";
-//    [self.customNavBar wr_setTintColor:[UIColor yellowColor]];
     self.automaticallyAdjustsScrollViewInsets = NO;
-
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    ReportVC *repc = [[ReportVC alloc]init];
+    repc.customNavBar.title = @"上报事件";
+    repc.view.backgroundColor = KKWhiteColor;
+    [self.navigationController pushViewController:repc animated:YES];
 }
-*/
 
 @end

@@ -57,10 +57,16 @@
      [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
     // 设置初始导航栏透明度
     [self.customNavBar wr_setBackgroundAlpha:1];
-//    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"iv_search"]];
-//    UIButton *searchBtn = [[UIButton alloc] initWithFrame:[UIImage imageNamed:@"iv_search"]];
-    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"首页icon copy"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickRight)];
-    self.navigationItem.rightBarButtonItem = rightButtonItem;
+    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"首页icon copy"]];
+    [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"首页icon copy"]];
+//    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"首页icon copy"]];
+//    UIButton *searchBtn = [[UIButton alloc] initWithFrame:[UIImage imageNamed:@"首页icon copy"]];
+//    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"首页icon copy"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickRight)];
+//    UIBarButtonItem *messageItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"首页icon copy"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickMessage)];
+//
+//    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects: rightButtonItem,messageItem,nil]];
+
+//    self.navigationItem.rightBarButtonItem = rightButtonItem;
     
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
@@ -69,10 +75,12 @@
 }
 
 #pragma mark ----右item
--(void)onClickRight{
-    AFLog(@"点击右边1");
+-(void)clickRight {
+    AFLog(@"点击右边");
 }
-
+-(void)clickLeft {
+    AFLog(@"点击右边");
+}
 #pragma mark ----获取数据
 -(void)loadData{
     self.infoModel.addressStr = @"默认地址>默认事件>默认情况";

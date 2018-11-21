@@ -36,9 +36,12 @@
 		F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E221A28E5100E93F1A /* NSDate+BRPickerView.m */; };
 		F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E521A28E5100E93F1A /* BRStringPickerView.m */; };
 		F695C1EF21A28EFD00E93F1A /* BRInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */; };
-		F695C27D21A3F4D900E93F1A /* DetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C27C21A3F4D900E93F1A /* DetailsVC.m */; };
 		F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C27F21A4189600E93F1A /* RecordEventCell.m */; };
 		F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28221A42F2800E93F1A /* RecordHeaderCell.m */; };
+		F695C28921A4FB9A00E93F1A /* DealingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28821A4FB9A00E93F1A /* DealingCell.m */; };
+		F695C28F21A54C3C00E93F1A /* ReportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28E21A54C3C00E93F1A /* ReportVC.m */; };
+		F695C29321A551F400E93F1A /* TextAndImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C29121A551F400E93F1A /* TextAndImageCell.m */; };
+		F695C29421A551F500E93F1A /* TextAndImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F695C29221A551F400E93F1A /* TextAndImageCell.xib */; };
 		F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
@@ -108,12 +111,17 @@
 		F695C1E521A28E5100E93F1A /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
 		F695C1ED21A28EFD00E93F1A /* BRInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRInfoModel.h; sourceTree = "<group>"; };
 		F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRInfoModel.m; sourceTree = "<group>"; };
-		F695C27B21A3F4D900E93F1A /* DetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsVC.h; sourceTree = "<group>"; };
-		F695C27C21A3F4D900E93F1A /* DetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsVC.m; sourceTree = "<group>"; };
 		F695C27E21A4189600E93F1A /* RecordEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordEventCell.h; sourceTree = "<group>"; };
 		F695C27F21A4189600E93F1A /* RecordEventCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordEventCell.m; sourceTree = "<group>"; };
 		F695C28121A42F2800E93F1A /* RecordHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordHeaderCell.h; sourceTree = "<group>"; };
 		F695C28221A42F2800E93F1A /* RecordHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordHeaderCell.m; sourceTree = "<group>"; };
+		F695C28721A4FB9A00E93F1A /* DealingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DealingCell.h; sourceTree = "<group>"; };
+		F695C28821A4FB9A00E93F1A /* DealingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DealingCell.m; sourceTree = "<group>"; };
+		F695C28D21A54C3C00E93F1A /* ReportVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportVC.h; sourceTree = "<group>"; };
+		F695C28E21A54C3C00E93F1A /* ReportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportVC.m; sourceTree = "<group>"; };
+		F695C29021A551F400E93F1A /* TextAndImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextAndImageCell.h; sourceTree = "<group>"; };
+		F695C29121A551F400E93F1A /* TextAndImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextAndImageCell.m; sourceTree = "<group>"; };
+		F695C29221A551F400E93F1A /* TextAndImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextAndImageCell.xib; sourceTree = "<group>"; };
 		F6A5C6F7219AD9DA00EB846F /* AFTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFTwoViewController.h; sourceTree = "<group>"; };
 		F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFTwoViewController.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -190,6 +198,11 @@
 				F695C27F21A4189600E93F1A /* RecordEventCell.m */,
 				F695C28121A42F2800E93F1A /* RecordHeaderCell.h */,
 				F695C28221A42F2800E93F1A /* RecordHeaderCell.m */,
+				F695C28721A4FB9A00E93F1A /* DealingCell.h */,
+				F695C28821A4FB9A00E93F1A /* DealingCell.m */,
+				F695C29021A551F400E93F1A /* TextAndImageCell.h */,
+				F695C29121A551F400E93F1A /* TextAndImageCell.m */,
+				F695C29221A551F400E93F1A /* TextAndImageCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -257,8 +270,8 @@
 				F6578666219ABB23003D87EA /* EventVC.m */,
 				F6A5C70A219D750400EB846F /* EventDetailsVC.h */,
 				F6A5C70B219D750400EB846F /* EventDetailsVC.m */,
-				F695C27B21A3F4D900E93F1A /* DetailsVC.h */,
-				F695C27C21A3F4D900E93F1A /* DetailsVC.m */,
+				F695C28D21A54C3C00E93F1A /* ReportVC.h */,
+				F695C28E21A54C3C00E93F1A /* ReportVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -576,6 +589,7 @@
 				F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */,
 				F65786222199202A003D87EA /* LaunchScreen.storyboard in Resources */,
 				F657861F2199202A003D87EA /* Assets.xcassets in Resources */,
+				F695C29421A551F500E93F1A /* TextAndImageCell.xib in Resources */,
 				F657861D21992027003D87EA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,6 +646,7 @@
 			files = (
 				F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */,
 				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
+				F695C28F21A54C3C00E93F1A /* ReportVC.m in Sources */,
 				F6A5C706219D487D00EB846F /* EventListCell.m in Sources */,
 				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
 				F657866A219ABB37003D87EA /* MineVC.m in Sources */,
@@ -641,6 +656,7 @@
 				F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */,
 				F657865B219AB897003D87EA /* StringUtil.m in Sources */,
 				F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */,
+				F695C29321A551F400E93F1A /* TextAndImageCell.m in Sources */,
 				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
@@ -651,13 +667,13 @@
 				F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */,
 				F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */,
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
-				F695C27D21A3F4D900E93F1A /* DetailsVC.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
 				F695C1EA21A28E7B00E93F1A /* BRDatePickerView.m in Sources */,
+				F695C28921A4FB9A00E93F1A /* DealingCell.m in Sources */,
 				F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */,
 				F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */,
 				F657861721992027003D87EA /* AppDelegate.m in Sources */,

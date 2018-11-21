@@ -10,6 +10,7 @@
 #import "WRNavigationBar.h"
 #import "RecordEventCell.h"
 #import "RecordHeaderCell.h"
+#import "DealingCell.h"
 
 @interface EventDetailsVC ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -62,6 +63,8 @@
         return 100;
     }else if (indexPath.section ==0 && indexPath.row ==0){
         return 180;
+    }else if (indexPath.section == 1){
+        return 80;
     }else{
         return 60;
     }
@@ -132,26 +135,32 @@
         
         return cell;
     }else if (indexPath.section == 1){
-        
-        static NSString *NCell=@"NCell";
-        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];
-        if (cell  == nil) {
-            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NCell];
+        static  NSString *DealingC = @"DealingC";
+        DealingCell *cell = [tableView dequeueReusableCellWithIdentifier:DealingC];
+        if (!cell){
+            cell = [[DealingCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:DealingC];
         }
-//        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:[UIImage imageNamed:@"addIcon"]];
-        [cell.imageView setImage:[UIImage imageNamed:@"addIcon"]];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.text = @"黄蕾";
-        cell.detailTextLabel.text = @"哈哈哈";
-        cell.textLabel.font = [UIFont affeeBlodFont:14];
-        
-        CGSize imageSize = CGSizeMake(40, 40);
-        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0);
-        CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
-        [cell.imageView.image drawInRect:imageRect];
-        cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsGetImageFromCurrentImageContext();
+        cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         return cell;
+//        static NSString *NCell=@"NCell";
+//        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];
+//        if (cell  == nil) {
+//            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NCell];
+//        }
+////        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:[UIImage imageNamed:@"addIcon"]];
+//        [cell.imageView setImage:[UIImage imageNamed:@"addIcon"]];
+//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+//        cell.textLabel.text = @"黄蕾";
+//        cell.detailTextLabel.text = @"哈哈哈";
+//        cell.textLabel.font = [UIFont affeeBlodFont:14];
+//
+//        CGSize imageSize = CGSizeMake(40, 40);
+//        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0);
+//        CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
+//        [cell.imageView.image drawInRect:imageRect];
+//        cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsGetImageFromCurrentImageContext();
+//        return cell;
     }else if (indexPath.section == 2){
         static NSString *ID = @"RecordEventCell";
         RecordEventCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];

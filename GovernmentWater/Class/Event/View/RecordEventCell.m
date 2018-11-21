@@ -51,7 +51,7 @@
     UILabel *eventLabel = [[UILabel alloc] init];
     _eventLabel = eventLabel;
     eventLabel.font = KKFont14;
-    eventLabel.textColor = KKColorPurple;
+    eventLabel.textColor = KKBlueColor;
     eventLabel.text = @"我曾经跨过山和大海";
     eventLabel.numberOfLines = 0;
     

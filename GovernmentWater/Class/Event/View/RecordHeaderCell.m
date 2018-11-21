@@ -29,7 +29,7 @@
 -(void)createControls{
     self.eventLabel = [[UILabel alloc]init];
     self.eventLabel.font = KKFont14;
-    self.eventLabel.text = @"高坪镇高坪河河道污染严重高坪镇高坪河河道污染严重高坪镇高坪河河道污染严重高坪镇高坪河河道污染严重";
+    self.eventLabel.text = @"高坪镇高坪河河道污染严河道污染严重高坪镇高坪河河道污染严重";
     self.eventLabel.numberOfLines = 0;
     
     [self.contentView addSubview:self.eventLabel];
