@@ -49,6 +49,8 @@
 		F6A5C706219D487D00EB846F /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C705219D487D00EB846F /* EventListCell.m */; };
 		F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C708219D5C6400EB846F /* EventListCellModel.m */; };
 		F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C70B219D750400EB846F /* EventDetailsVC.m */; };
+		F6C92B2621A6F5F200EE05D1 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2321A6F5F200EE05D1 /* PPNetworkCache.m */; };
+		F6C92B2721A6F5F200EE05D1 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2521A6F5F200EE05D1 /* PPNetworkHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +140,10 @@
 		F6A5C708219D5C6400EB846F /* EventListCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventListCellModel.m; sourceTree = "<group>"; };
 		F6A5C70A219D750400EB846F /* EventDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailsVC.h; sourceTree = "<group>"; };
 		F6A5C70B219D750400EB846F /* EventDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailsVC.m; sourceTree = "<group>"; };
+		F6C92B2221A6F5F200EE05D1 /* PPNetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkCache.h; sourceTree = "<group>"; };
+		F6C92B2321A6F5F200EE05D1 /* PPNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkCache.m; sourceTree = "<group>"; };
+		F6C92B2421A6F5F200EE05D1 /* PPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkHelper.h; sourceTree = "<group>"; };
+		F6C92B2521A6F5F200EE05D1 /* PPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -400,6 +406,7 @@
 		F657863121992589003D87EA /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F6C92B2121A6F5F200EE05D1 /* PPNetworkHelper */,
 				F695C29521A68FC000E93F1A /* JMDropMenu */,
 				F695C1D221A28E5100E93F1A /* BRPickerView */,
 				F657863921992D6F003D87EA /* WRNavigationBar */,
@@ -540,6 +547,17 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		F6C92B2121A6F5F200EE05D1 /* PPNetworkHelper */ = {
+			isa = PBXGroup;
+			children = (
+				F6C92B2221A6F5F200EE05D1 /* PPNetworkCache.h */,
+				F6C92B2321A6F5F200EE05D1 /* PPNetworkCache.m */,
+				F6C92B2421A6F5F200EE05D1 /* PPNetworkHelper.h */,
+				F6C92B2521A6F5F200EE05D1 /* PPNetworkHelper.m */,
+			);
+			path = PPNetworkHelper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -665,7 +683,9 @@
 				F657866A219ABB37003D87EA /* MineVC.m in Sources */,
 				F657865C219AB897003D87EA /* DateUtil.m in Sources */,
 				F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */,
+				F6C92B2621A6F5F200EE05D1 /* PPNetworkCache.m in Sources */,
 				F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */,
+				F6C92B2721A6F5F200EE05D1 /* PPNetworkHelper.m in Sources */,
 				F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */,
 				F657865B219AB897003D87EA /* StringUtil.m in Sources */,
 				F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */,
