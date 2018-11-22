@@ -31,7 +31,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return 3;
+        if ([self.customNavBar.title isEqualToString:@"督办事件"]) {
+            return 4;
+        }else{
+            return 3;
+        }
     }else {
         return 1;
     }
@@ -41,6 +45,8 @@
 {
     if(indexPath.section ==0 && indexPath.row ==0){
         return 180;
+    }else if (indexPath.section == 1){
+        return 50;
     }else{
         return 60;
     }
@@ -89,9 +95,15 @@
             if (cell  == nil) {
                 cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NCell];
             }
-            NSArray *arr = @[@"地址",@"类型"];
-            cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
+            if ([self.customNavBar.title isEqualToString:@"督办事件"]) {
+               NSArray *arr = @[@"上报时间",@"地址",@"类型"];
+                cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
+            }else{
+              NSArray *arr = @[@"地址",@"类型"];
+                cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
+            }
             cell.textLabel.font = [UIFont affeeBlodFont:16];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             return cell;
         }
     }else{
@@ -100,11 +112,26 @@
         if (cell  == nil) {
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NCell];
         }
-        cell.textLabel.text  = @"点击";
-        cell.textLabel.font = [UIFont affeeBlodFont:16];
+        UIButton *landingBtn = UIButton.new;
+        landingBtn.layer.cornerRadius = 5.0f;
+        landingBtn.backgroundColor = KKBlueColor;
+        [landingBtn setTitle:@"确定" forState:UIControlStateNormal];
+        [landingBtn addTarget:self action:@selector(Clidklandings) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:landingBtn];
+        
+        [landingBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(cell.contentView).offset(Padding);
+            make.bottom.top.equalTo(cell.contentView);
+            make.right.equalTo(cell.contentView).offset(-Padding);
+        }];
+
         return cell;
     }
     return nil;
+}
+-(void)Clidklandings{
+//    [SVProgressHUD showWithStatus:@"sss"];
+    [SVProgressHUD showErrorWithStatus:@"确定"];
 }
 
 #pragma mark ----tableView get/setter

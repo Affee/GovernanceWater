@@ -42,6 +42,7 @@
 		F695C28F21A54C3C00E93F1A /* ReportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28E21A54C3C00E93F1A /* ReportVC.m */; };
 		F695C29321A551F400E93F1A /* TextAndImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C29121A551F400E93F1A /* TextAndImageCell.m */; };
 		F695C29421A551F500E93F1A /* TextAndImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F695C29221A551F400E93F1A /* TextAndImageCell.xib */; };
+		F695C29821A68FC300E93F1A /* JMDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C29721A68FC000E93F1A /* JMDropMenu.m */; };
 		F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
@@ -122,6 +123,8 @@
 		F695C29021A551F400E93F1A /* TextAndImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextAndImageCell.h; sourceTree = "<group>"; };
 		F695C29121A551F400E93F1A /* TextAndImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextAndImageCell.m; sourceTree = "<group>"; };
 		F695C29221A551F400E93F1A /* TextAndImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextAndImageCell.xib; sourceTree = "<group>"; };
+		F695C29621A68FC000E93F1A /* JMDropMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMDropMenu.h; sourceTree = "<group>"; };
+		F695C29721A68FC000E93F1A /* JMDropMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMDropMenu.m; sourceTree = "<group>"; };
 		F6A5C6F7219AD9DA00EB846F /* AFTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFTwoViewController.h; sourceTree = "<group>"; };
 		F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFTwoViewController.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -397,6 +400,7 @@
 		F657863121992589003D87EA /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F695C29521A68FC000E93F1A /* JMDropMenu */,
 				F695C1D221A28E5100E93F1A /* BRPickerView */,
 				F657863921992D6F003D87EA /* WRNavigationBar */,
 			);
@@ -514,6 +518,15 @@
 				F695C1E521A28E5100E93F1A /* BRStringPickerView.m */,
 			);
 			path = StringPickerView;
+			sourceTree = "<group>";
+		};
+		F695C29521A68FC000E93F1A /* JMDropMenu */ = {
+			isa = PBXGroup;
+			children = (
+				F695C29621A68FC000E93F1A /* JMDropMenu.h */,
+				F695C29721A68FC000E93F1A /* JMDropMenu.m */,
+			);
+			path = JMDropMenu;
 			sourceTree = "<group>";
 		};
 		F6A5C6FB219BF6DA00EB846F /* Login */ = {
@@ -656,6 +669,7 @@
 				F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */,
 				F657865B219AB897003D87EA /* StringUtil.m in Sources */,
 				F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */,
+				F695C29821A68FC300E93F1A /* JMDropMenu.m in Sources */,
 				F695C29321A551F400E93F1A /* TextAndImageCell.m in Sources */,
 				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,

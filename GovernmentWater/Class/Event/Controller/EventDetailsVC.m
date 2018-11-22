@@ -51,7 +51,7 @@
     if (section == 0) {
         return 6;
     }else if (section ==1){
-        return 3;
+        return 1;
     }else {
         return 3;
     }
@@ -141,6 +141,7 @@
             cell = [[DealingCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:DealingC];
         }
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
 //        static NSString *NCell=@"NCell";
 //        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];

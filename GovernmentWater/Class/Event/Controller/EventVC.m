@@ -13,11 +13,14 @@
 #import "BRInfoModel.h"
 #import "BRPickerViewMacro.h"
 #import "BRAddressPickerView.h"
+#import "JMDropMenu.h"
+#import "ReportVC.h"
 
 #define HeaderHeight 60//顶部筛选的高度
-@interface EventVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface EventVC ()<UITableViewDelegate,UITableViewDataSource,JMDropMenuDelegate,UIScrollViewDelegate>
 {
     NSArray *_dataArray;
+    int buttonY;
 }
 
 /**
@@ -43,35 +46,78 @@
 @property (nonatomic, strong) UIView *lineView;
 
 
+/**
+ 添加按钮
+ */
+@property (nonatomic, strong) UIButton *addBtn;
+
+//@property (nonatomic, strong) UIView *aView;
+
+
 @end
+
 
 @implementation EventVC
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    self.aView = [[UIView alloc] initWithFrame:CGRectMake(100, 300,100, 100)];
+//    _aView.backgroundColor = [UIColor redColor];
+//    [self.tableView.window addSubview:_aView];
+//    [self.tableView.window bringSubviewToFront:_aView];
+//
+//}
+
+//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(200, 200, 100, 100)];
+//    [_addBtn setImage:KKPlaceholderImage forState:UIControlStateNormal];
+//    _addBtn.backgroundColor = KKColorPurple;
+//    [self.tableView addSubview:_addBtn];
+//    [self.tableView bringSubviewToFront:_addBtn];
+//    buttonY = (int)_addBtn.frame.origin.y;
+//
+//
+//
+//}
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     self.customNavBar.title = @"事件";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.customNavBar wr_setBottomLineHidden:YES];//分割线是否隐藏
     self.view.backgroundColor = UIColor.cyanColor;
-    [self buildTableView];
-     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
+    [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
     // 设置初始导航栏透明度
     [self.customNavBar wr_setBackgroundAlpha:1];
     [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"首页icon copy"]];
     [self.customNavBar wr_setLeftButtonWithImage:[UIImage imageNamed:@"首页icon copy"]];
-//    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"首页icon copy"]];
-//    UIButton *searchBtn = [[UIButton alloc] initWithFrame:[UIImage imageNamed:@"首页icon copy"]];
-//    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"首页icon copy"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickRight)];
-//    UIBarButtonItem *messageItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"首页icon copy"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickMessage)];
-//
-//    [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects: rightButtonItem,messageItem,nil]];
-
-//    self.navigationItem.rightBarButtonItem = rightButtonItem;
-    
     if (@available(iOS 11.0, *)) {
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self loadData];
+    [self buildTableView];
+//    [self.view addSubview:self.tableView];
+}
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(KKScreenWidth - 60,KKScreenHeight -250, 40, 40)];
+    _addBtn.layer.cornerRadius = 25.0f;
+    [_addBtn setImage:[UIImage imageNamed:@"addBlue"] forState:UIControlStateNormal];
+    [_addBtn addTarget:self action:@selector(btnClick) forControlEvents:UIControlEventTouchUpInside];
+    _addBtn.backgroundColor = KKColorPurple;
+    UIWindow *window =  [UIApplication sharedApplication].windows[0];
+    [window addSubview:_addBtn];
+    buttonY = (int)_addBtn.frame.origin.y;
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+   
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [_addBtn removeFromSuperview];
 }
 
 #pragma mark ----右item
@@ -214,4 +260,46 @@
 //        return 64;
 //    }
 //}
+
+//
+//-(UIView *)addBtn{
+//    if (!_addBtn) {
+//        _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(100, 200, 100, 100)];
+//        [_addBtn setImage:KKPlaceholderImage forState:UIControlStateNormal];
+//        [self.tableView addSubview:_addBtn];
+//        [self.tableView bringSubviewToFront:_addBtn];
+//        buttonY = (int)_addBtn.frame.origin.y;
+//    }
+//    return _addBtn;
+//}
+- (void)btnClick {
+    NSArray *titleArr = @[@"上报事件",@"督办事件"];
+    NSArray *imageArr = @[@"img1",@"img2"];
+    
+    JMDropMenu *dropMenu = [[JMDropMenu alloc] initWithFrame:CGRectMake(_addBtn.centerX - 50, _addBtn.centerY + 20, 80, 80) ArrowOffset:60.f TitleArr:titleArr ImageArr:imageArr Type:JMDropMenuTypeWeChat LayoutType:JMDropMenuLayoutTypeNormal RowHeight:40.f Delegate:self];
+    
+    dropMenu.titleColor = KKWhiteColor;
+    dropMenu.lineColor = KKColorLightGray;
+    dropMenu.backgroundColor = KKBlueColor;
+    
+//    dropMenu.arrowColor = [UIColor clearColor];
+    dropMenu.LayoutType = JMDropMenuLayoutTypeTitle;
+}
+- (void)didSelectRowAtIndex:(NSInteger)index Title:(NSString *)title Image:(NSString *)image {
+    NSLog(@"index----%zd,  title---%@, image---%@", index, title, image);
+    ReportVC *repc = [[ReportVC alloc]init];
+    repc.view.backgroundColor = KKWhiteColor;
+    [self.navigationController pushViewController:repc animated:YES];
+    if (index == 0) {
+        repc.customNavBar.title = @"群众上报";
+    }else if (index ==1)
+    {
+        repc.customNavBar.title = @"督办事件";
+    }
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    AFLog(@"=====%d",(int)_addBtn.frame.origin.y);
+    _addBtn.frame = CGRectMake(_addBtn.frame.origin.x, buttonY+self.tableView.contentOffset.y , _addBtn.frame.size.width, _addBtn.frame.size.height);
+
+}
 @end

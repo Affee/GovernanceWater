@@ -20,10 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = UIColor.whiteColor;
-//    UIImage *backGroundImage=[UIImage imageNamed:@"个人中心bg"];
-//    self.view.contentMode=UIViewContentModeScaleAspectFill;
-//    self.view.layer.contents=(__bridge id _Nullable)(backGroundImage.CGImage);
+//    self.view.backgroundColor = UIColor.whiteColor;
+    UIImage *backGroundImage=[UIImage imageNamed:@"lg-1"];
+    self.view.contentMode=UIViewContentModeScaleAspectFill;
+    self.view.layer.contents=(__bridge id _Nullable)(backGroundImage.CGImage);
     
     [self buildUI];
 }
@@ -33,18 +33,24 @@
     if (self) {
         AFLog(@"2eq");
         self.bigView = UIView.new;
-        _bigView.backgroundColor = KKColorPurple;
+        _bigView.backgroundColor = KKWhiteColor;
         [self.view addSubview:_bigView];
         
+        UIView *line1 = UIView.new;
+        line1.backgroundColor = KKColorLightGray;
+        [_bigView addSubview:line1];
+        UIView *line2 = UIView.new;
+        line2.backgroundColor = KKColorLightGray;
+        [_bigView addSubview:line2];
+        
         UIImageView *phoneIgv = UIImageView.new;
-        phoneIgv.backgroundColor = KKColorLightGray;
-        [phoneIgv setImage:[UIImage imageNamed:@"我的icon copy"]];
+        phoneIgv.backgroundColor = KKWhiteColor;
+        [phoneIgv setImage:[UIImage imageNamed:@"Fill 1"]];
 //        phoneIgv.layer.borderColor = UIColor.blueColor.CGColor;
 //        phoneIgv.layer.borderWidth = 2;
         [_bigView addSubview:phoneIgv];
         
         self.phoneTF = UITextField.new;
-        _phoneTF.backgroundColor = KKColorLightGray;
         _phoneTF.placeholder = @"请输入手机号";
         _phoneTF.keyboardType = UIKeyboardTypeNumberPad;
         _phoneTF.textAlignment = NSTextAlignmentCenter;
@@ -52,12 +58,12 @@
         
         
         UIImageView *passwordImageV = UIImageView.new;
-        passwordImageV.backgroundColor = KKColorLightGray;
-        [passwordImageV setImage:[UIImage imageNamed:@"我的icon copy"]];
+        passwordImageV.backgroundColor = KKWhiteColor;
+        [passwordImageV setImage:[UIImage imageNamed:@"Fill 11"]];
         [_bigView addSubview:passwordImageV];
         
         self.passwordTF = UITextField.new;
-        _passwordTF.backgroundColor = KKColorLightGray;
+        _passwordTF.backgroundColor = KKWhiteColor;
         _passwordTF.placeholder = @"请输入密码";
 //        _passwordTF.keyboardType = UIKeyboardTypeNumberPad;
         _passwordTF.textAlignment = NSTextAlignmentCenter;
@@ -65,8 +71,8 @@
         
 //        添加登陆按钮
         UIButton *landingBtn = UIButton.new;
-        landingBtn.layer.borderColor = UIColor.yellowColor.CGColor;
-        landingBtn.layer.borderWidth = 2;
+//        landingBtn.layer.borderColor = UIColor.yellowColor.CGColor;
+//        landingBtn.layer.borderWidth = 2;
         landingBtn.layer.cornerRadius = 5.0f;
         landingBtn.backgroundColor = KKBlueColor;
         [landingBtn setTitle:@"登陆" forState:UIControlStateNormal];
@@ -75,20 +81,24 @@
         
 //        注册和忘记密码按钮
         UIButton *forgetBtn = UIButton.new;
-        forgetBtn.layer.borderColor = UIColor.yellowColor.CGColor;
-        forgetBtn.layer.borderWidth = 2;
-        forgetBtn.layer.cornerRadius = 5.0f;
-        forgetBtn.backgroundColor = KKBlueColor;
+//        forgetBtn.layer.borderColor = UIColor.yellowColor.CGColor;
+//        forgetBtn.layer.borderWidth = 2;
+//        forgetBtn.layer.cornerRadius = 5.0f;
+//        forgetBtn.backgroundColor = KKBlueColor;
+        [forgetBtn setTitleColor:KKColorLightGray forState:UIControlStateNormal];
         [forgetBtn setTitle:@"忘记密码" forState:UIControlStateNormal];
         [forgetBtn addTarget:self action:@selector(Clickforget:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:forgetBtn];
         
 //        register注册
         UIButton *registerBtn = UIButton.new;
-        registerBtn.layer.borderColor = UIColor.yellowColor.CGColor;
-        registerBtn.layer.borderWidth = 2;
-        registerBtn.layer.cornerRadius = 5.0f;
-        registerBtn.backgroundColor = KKBlueColor;
+        [registerBtn setTintColor:KKBlueColor];
+//        registerBtn.layer.borderColor = UIColor.yellowColor.CGColor;
+//        registerBtn.layer.borderWidth = 2;
+//        registerBtn.layer.cornerRadius = 5.0f;
+//        registerBtn.backgroundColor = KKBlueColor;
+        [registerBtn setTitleColor:KKBlueColor forState:UIControlStateNormal];
+
         [registerBtn setTitle:@"现在注册" forState:UIControlStateNormal];
         [registerBtn addTarget:self action:@selector(ClickregisterBtn:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:registerBtn];
@@ -141,6 +151,19 @@
             make.width.equalTo(@(KKScreenWidth/4));
             make.height.equalTo(@24);
         }];
+        [line1 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(phoneIgv.mas_bottom).offset(2);
+            make.left.equalTo(phoneIgv);
+            make.right.equalTo(_phoneTF);
+            make.height.equalTo(@1);
+        }];
+        [line2 mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(passwordImageV.mas_bottom).offset(2);
+            make.left.equalTo(phoneIgv);
+            make.right.equalTo(_phoneTF);
+            make.height.equalTo(@1);
+        }];
+        
         
         [self.bigView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.centerX.equalTo(self.view);
@@ -148,7 +171,7 @@
             make.right.equalTo(self.view).offset(-Padding2);
             make.bottom.equalTo(passwordImageV.mas_bottom).offset(Padding);
 //        bigView的中心坐标（主要是Y轴）
-            make.centerY.equalTo(self.view.mas_centerY).offset(-Padding2);
+            make.centerY.equalTo(self.view.mas_centerY).offset(Padding2*2);
         }];
     }
     return self;

@@ -7,7 +7,7 @@
 //
 
 #import "ViewRiverVC.h"
-
+#import "ReportVC.h"
 @interface ViewRiverVC ()
 
 @end
@@ -20,6 +20,11 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
-
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    ReportVC *repc = [[ReportVC alloc]init];
+    repc.customNavBar.title = @"督办事件";
+    repc.view.backgroundColor = KKWhiteColor;
+    [self.navigationController pushViewController:repc animated:YES];
+}
 
 @end
