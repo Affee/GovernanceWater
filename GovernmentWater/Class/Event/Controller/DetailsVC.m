@@ -57,13 +57,13 @@
             str = @"连续多个界面隐藏导航栏";
             break;
         case 7:
-            str = @"拉钩App首页";
+            str = @"拉钩App首页s";
             break;
         case 8:
             str = @"WRNavigationBar 对其不产生任何印象";
             break;
         case 9:
-            str = @"测试 IQKeyBoardManager 对其影响";
+            str = @"测试 IQKeyBoardManager对其影响";
             break;
             
         default:
