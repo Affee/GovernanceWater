@@ -19,7 +19,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    键盘管理
+    //设置显示的时间
+    [SVProgressHUD setMinimumDismissTimeInterval:1];
+    
+    //    键盘管理
     [self keyboardManager];
     
     [self changeRoot];

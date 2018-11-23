@@ -11,6 +11,9 @@
 #import "AFTabBarController.h"
 #import "AppDelegate.h"
 #import "FrogetVC.h"
+#import "PPNetworkHelper.h"
+#import "PPHTTPRequest.h"
+#import "PPInterfacedConst.h"
 
 @interface AFLoginVC ()
 
@@ -24,9 +27,9 @@
     UIImage *backGroundImage=[UIImage imageNamed:@"lg-1"];
     self.view.contentMode=UIViewContentModeScaleAspectFill;
     self.view.layer.contents=(__bridge id _Nullable)(backGroundImage.CGImage);
-    
     [self buildUI];
 }
+
 -(id)init
 {
     self = [super init];
@@ -67,6 +70,7 @@
         _passwordTF.placeholder = @"请输入密码";
 //        _passwordTF.keyboardType = UIKeyboardTypeNumberPad;
         _passwordTF.textAlignment = NSTextAlignmentCenter;
+        _passwordTF.secureTextEntry = YES;
         [_bigView addSubview:_passwordTF];
         
 //        添加登陆按钮
@@ -182,11 +186,48 @@
 }
 #pragma mark 点击方法
 -(void)Clidklanding:(UIButton *)sender{
-            AFLog(@"账号为===%@\n密码为===%@",_phoneTF.text,_passwordTF.text);
-            [[NSUserDefaults standardUserDefaults] setObject:@"loginSuccess" forKey:@"loginSuccess"];
-            AFTabBarController *aftabBar = [[AFTabBarController alloc]init];
-            AppDelegate *dele = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            dele.window.rootViewController = aftabBar;
+    if (![StringUtil checkTelNumber:_phoneTF.text]) {
+        [SVProgressHUD showErrorWithStatus:@"请输入正确的手机号"];
+        return;
+    }
+    if (_passwordTF.text.length < 6) {
+        [SVProgressHUD showErrorWithStatus:@"密码长度至少六位"];
+    }
+    NSDictionary *dict = @{
+                           @"mobile":_phoneTF.text,
+                           @"passWord":_passwordTF.text
+                           };
+    [PPNetworkHelper POST:Login_URL parameters:dict success:^(id responseObject) {
+        int sucStr = [responseObject[@"status"] intValue];
+        if (sucStr  == 200) {
+            NSString *messStr = responseObject[@"message"];
+            if ([messStr isEqualToString:@"登录成功"]) {
+                [SVProgressHUD showSuccessWithStatus:messStr];
+                [SVProgressHUD dismissWithDelay:0.5f completion:^{
+                    
+                    AFLog(@"账号为===%@\n密码为===%@",_phoneTF.text,_passwordTF.text);
+                    [[NSUserDefaults standardUserDefaults] setObject:@"loginSuccess" forKey:@"loginSuccess"];
+                    AFTabBarController *aftabBar = [[AFTabBarController alloc]init];
+                    AppDelegate *dele = (AppDelegate *)[UIApplication sharedApplication].delegate;
+                    dele.window.rootViewController = aftabBar;
+                    
+//                        创建单利 保存唯一的ID
+                    NSUserDefaults *loginData = [NSUserDefaults standardUserDefaults];
+                    [loginData setObject:responseObject[@"token"] forKey:@"token"];
+                    [loginData synchronize];
+                }];
+            }else{
+                [SVProgressHUD showErrorWithStatus:@"重新登录"];
+            }
+        }else{
+            
+        }
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    
+
 }
 
 -(void)Clickforget:(UIButton *)sender{

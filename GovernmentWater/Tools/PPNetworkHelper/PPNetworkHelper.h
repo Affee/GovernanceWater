@@ -69,7 +69,7 @@ typedef NS_ENUM(NSUInteger, PPResponseSerializer) {
 
 /// 请求成功的Block
 typedef void(^PPHttpRequestSuccess)(id responseObject);
-
+    
 /// 请求失败的Block
 typedef void(^PPHttpRequestFailed)(NSError *error);
 

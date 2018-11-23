@@ -49,4 +49,28 @@
 }
 
 
+
+#pragma mark - ----------------------- 指示器 -----------------------
+
+
+ 
+
+- (void)showMyHud:(NSString *)statusStr{
+    if (![StringUtil isEmpty:statusStr]) {
+        [SVProgressHUD showWithStatus:statusStr];
+    }else{
+        [SVProgressHUD showWithStatus:@"加载中"];
+    }
+}
+
+/**
+ 隐藏HUD
+ */
+- (void)hideMyHud
+{
+    [SVProgressHUD dismiss];
+}
+
+
+
 @end

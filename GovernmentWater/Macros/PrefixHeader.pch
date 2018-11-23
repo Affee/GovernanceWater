@@ -43,8 +43,9 @@
 #ifdef __OBJC__
 
 
-#import "KKCommonMacro.h"//接口
+#import "KKCommonMacro.h"//本地NSD
 #import "Constants.h" //常量
+#import "KKDomian.h" //接口
 
 //第三方
 //#import <ReactiveCocoa/ReactiveCocoa.h>

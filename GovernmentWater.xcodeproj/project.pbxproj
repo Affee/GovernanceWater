@@ -51,6 +51,9 @@
 		F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C70B219D750400EB846F /* EventDetailsVC.m */; };
 		F6C92B2621A6F5F200EE05D1 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2321A6F5F200EE05D1 /* PPNetworkCache.m */; };
 		F6C92B2721A6F5F200EE05D1 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2521A6F5F200EE05D1 /* PPNetworkHelper.m */; };
+		F6C92B3021A796B800EE05D1 /* PPInterfacedConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2D21A796B700EE05D1 /* PPInterfacedConst.m */; };
+		F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2F21A796B800EE05D1 /* PPHTTPRequest.m */; };
+		F6C92B3421A7976000EE05D1 /* AFLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B3321A7976000EE05D1 /* AFLoginModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +147,13 @@
 		F6C92B2321A6F5F200EE05D1 /* PPNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkCache.m; sourceTree = "<group>"; };
 		F6C92B2421A6F5F200EE05D1 /* PPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkHelper.h; sourceTree = "<group>"; };
 		F6C92B2521A6F5F200EE05D1 /* PPNetworkHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkHelper.m; sourceTree = "<group>"; };
+		F6C92B2C21A796B700EE05D1 /* PPInterfacedConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPInterfacedConst.h; sourceTree = "<group>"; };
+		F6C92B2D21A796B700EE05D1 /* PPInterfacedConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPInterfacedConst.m; sourceTree = "<group>"; };
+		F6C92B2E21A796B800EE05D1 /* PPHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPHTTPRequest.h; sourceTree = "<group>"; };
+		F6C92B2F21A796B800EE05D1 /* PPHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPHTTPRequest.m; sourceTree = "<group>"; };
+		F6C92B3221A7976000EE05D1 /* AFLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFLoginModel.h; sourceTree = "<group>"; };
+		F6C92B3321A7976000EE05D1 /* AFLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFLoginModel.m; sourceTree = "<group>"; };
+		F6C92B3521A7DDC500EE05D1 /* KKDomian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKDomian.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -386,6 +396,7 @@
 				F657865D219ABA89003D87EA /* Constants.h */,
 				F657865E219ABAAB003D87EA /* KKCommonMacro.h */,
 				F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */,
+				F6C92B3521A7DDC500EE05D1 /* KKDomian.h */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -543,6 +554,8 @@
 				F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */,
 				F6A5C701219C5D6900EB846F /* FrogetVC.h */,
 				F6A5C702219C5D6900EB846F /* FrogetVC.m */,
+				F6C92B3221A7976000EE05D1 /* AFLoginModel.h */,
+				F6C92B3321A7976000EE05D1 /* AFLoginModel.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -550,12 +563,24 @@
 		F6C92B2121A6F5F200EE05D1 /* PPNetworkHelper */ = {
 			isa = PBXGroup;
 			children = (
+				F6C92B2B21A7969600EE05D1 /* HTTPRequestLayer */,
 				F6C92B2221A6F5F200EE05D1 /* PPNetworkCache.h */,
 				F6C92B2321A6F5F200EE05D1 /* PPNetworkCache.m */,
 				F6C92B2421A6F5F200EE05D1 /* PPNetworkHelper.h */,
 				F6C92B2521A6F5F200EE05D1 /* PPNetworkHelper.m */,
 			);
 			path = PPNetworkHelper;
+			sourceTree = "<group>";
+		};
+		F6C92B2B21A7969600EE05D1 /* HTTPRequestLayer */ = {
+			isa = PBXGroup;
+			children = (
+				F6C92B2E21A796B800EE05D1 /* PPHTTPRequest.h */,
+				F6C92B2F21A796B800EE05D1 /* PPHTTPRequest.m */,
+				F6C92B2C21A796B700EE05D1 /* PPInterfacedConst.h */,
+				F6C92B2D21A796B700EE05D1 /* PPInterfacedConst.m */,
+			);
+			path = HTTPRequestLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -677,6 +702,7 @@
 			files = (
 				F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */,
 				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
+				F6C92B3421A7976000EE05D1 /* AFLoginModel.m in Sources */,
 				F695C28F21A54C3C00E93F1A /* ReportVC.m in Sources */,
 				F6A5C706219D487D00EB846F /* EventListCell.m in Sources */,
 				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
@@ -686,6 +712,7 @@
 				F6C92B2621A6F5F200EE05D1 /* PPNetworkCache.m in Sources */,
 				F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */,
 				F6C92B2721A6F5F200EE05D1 /* PPNetworkHelper.m in Sources */,
+				F6C92B3021A796B800EE05D1 /* PPInterfacedConst.m in Sources */,
 				F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */,
 				F657865B219AB897003D87EA /* StringUtil.m in Sources */,
 				F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */,
@@ -693,6 +720,7 @@
 				F695C29321A551F400E93F1A /* TextAndImageCell.m in Sources */,
 				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
+				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,

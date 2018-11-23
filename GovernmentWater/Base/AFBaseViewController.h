@@ -17,8 +17,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong)WRCustomNavigationBar *customNavBar ;
 
 
+/**
+ 显示HUD
+ 
+ @param statusStr 显示的文字
+ */
+- (void)showMyHud:(NSString *)statusStr;
+
+/**
+ 隐藏HUD
+ */
+- (void)hideMyHud;
 
 @end
+
 
 
 NS_ASSUME_NONNULL_END

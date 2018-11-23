@@ -10,4 +10,10 @@
 #define KKCommonMacro_h
 
 
+
+#define KKWeakify(o)                __weak   typeof(self) fwwo = o;
+#define KKStrongify(o)              __strong typeof(self) o = fwwo;
+
+#define Token [[NSUserDefaults standardUserDefaults] stringForKey:@"token"]
+
 #endif /* KKCommonMacro_h */
