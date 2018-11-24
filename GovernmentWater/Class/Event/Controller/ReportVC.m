@@ -8,6 +8,7 @@
 
 #import "ReportVC.h"
 #import "RecordHeaderCell.h"
+#import "TextAndImagesCell.h"
 
 @interface ReportVC ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -56,7 +57,7 @@
     if (section == 0) {
         return 50;
     }else{
-        return 30;
+        return 10;
     }
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -82,13 +83,13 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
-            static NSString *ID = @"RecordHeaderCell";
-            RecordHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+            static NSString *TextAndImage = @"TextAndImage";
+            TextAndImagesCell *cell = [tableView dequeueReusableCellWithIdentifier:TextAndImage];
             if (!cell) {
-                cell = [[RecordHeaderCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+                cell = [[TextAndImagesCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TextAndImage];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                return cell;
             }
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-            return cell;
         }else{
             static NSString *NCell=@"NCell";
             UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];

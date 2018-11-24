@@ -135,4 +135,10 @@
     [alertC addAction:cancel];
     [self presentViewController:alertC animated:YES completion:nil];
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    AFTwoViewController *aaaaa = [[AFTwoViewController alloc]init];
+    aaaaa.title = @"相册";
+    [self.navigationController pushViewController:aaaaa animated:YES];
+}
 @end
