@@ -15,6 +15,9 @@
 
 //登陆接口
 #define Login_URL  KKStringWithFormat(@"%@/appLogin", Base_Url)
+//上传事件  /riverCruise/workerEvents
+#define WorkerEvents_URL  KKStringWithFormat(@"%@/riverCruise/workerEvents", Base_Url)
+
 
 
 #endif /* KKDomian_h */

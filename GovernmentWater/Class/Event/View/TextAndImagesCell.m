@@ -31,11 +31,10 @@
     self.eventTextView = [[UITextView alloc]init];
     self.eventTextView.layer.borderWidth  = 1.0f;
     self.eventTextView.layer.cornerRadius = 5.0f;
-    self.eventTextView.font = [UIFont affeeBlodFont:14];
+    self.eventTextView.font = [UIFont systemFontOfSize:15];
     self.eventTextView.layer.borderColor = KKColorLightGray.CGColor;
-    self.eventTextView.zw_placeHolder = @"向厂家反馈同业相关活动、产品信息、用于市场分析。向厂家反馈同业相关活动、产品信息、用于市场分析。";
+    self.eventTextView.zw_placeHolder = @"请填写相处理的信息。";
     self.eventTextView.zw_limitCount = 60;
-    self.eventTextView.text = @"请点击添加";
     
     [self.contentView addSubview:self.eventTextView];
     
@@ -58,9 +57,9 @@
 
     
     [self.eventTextView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(self.contentView).offset(Padding);
-        make.right.equalTo(self.contentView).offset(-Padding);
-        make.height.equalTo(@100);
+        make.top.left.equalTo(self.contentView).offset(Padding/2);
+        make.right.equalTo(self.contentView).offset(-Padding/2);
+        make.height.equalTo(@80);
     }];
 }
 

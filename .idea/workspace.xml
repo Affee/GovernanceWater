@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="49cd87b6-d98a-4308-adb6-72d44df3dbf0" name="Default" comment="Reportscoks">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GovernmentWater.xcworkspace/xcuserdata/affee.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/GovernmentWater.xcworkspace/xcuserdata/affee.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/EventDetailsVC.m" beforeDir="false" afterPath="$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/EventDetailsVC.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GovernmentWater.xcworkspace/xcuserdata/affee.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" beforeDir="false" afterPath="$PROJECT_DIR$/GovernmentWater.xcworkspace/xcuserdata/affee.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/ReportVC.m" beforeDir="false" afterPath="$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/ReportVC.m" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GovernmentWater/Class/Login/AFLoginVC.m" beforeDir="false" afterPath="$PROJECT_DIR$/GovernmentWater/Class/Login/AFLoginVC.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GovernmentWater/Class/Event/View/TextAndImagesCell.m" beforeDir="false" afterPath="$PROJECT_DIR$/GovernmentWater/Class/Event/View/TextAndImagesCell.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GovernmentWater/Macros/KKDomian.h" beforeDir="false" afterPath="$PROJECT_DIR$/GovernmentWater/Macros/KKDomian.h" afterDir="false" />
     </list>
     <ignored path="$USER_HOME$/Library/Developer/Xcode/DerivedData/GovernmentWater-depvrafdtbrteaajsrroypmtvjqk/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,9 +17,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_813950ca611330fd3d8ad20b24e365428967391d" />
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="HomeViewController.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Home/Controller/HomeViewController.m">
           <provider selected="true" editor-type-id="text-editor">
@@ -42,8 +44,8 @@
       <file leaf-file-name="EventDetailsVC.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/EventDetailsVC.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="146" column="84" lean-forward="true" selection-start-line="146" selection-start-column="84" selection-end-line="146" selection-end-column="84" />
+            <state relative-caret-position="2190">
+              <caret line="146" column="84" selection-start-line="146" selection-start-column="84" selection-end-line="146" selection-end-column="84" />
               <folding>
                 <element signature="e#137#163#0" expanded="true" />
               </folding>
@@ -66,8 +68,8 @@
       <file leaf-file-name="AppDelegate.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GovernmentWater/AppDelegate.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="41" column="55" lean-forward="true" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+            <state relative-caret-position="615">
+              <caret line="44" column="55" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -75,17 +77,17 @@
       <file leaf-file-name="ReportVC.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/ReportVC.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="94" column="62" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
+            <state relative-caret-position="1755">
+              <caret line="186" column="62" selection-start-line="186" selection-start-column="62" selection-end-line="186" selection-end-column="62" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AFLoginVC.m" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AFLoginVC.m" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Login/AFLoginVC.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+            <state relative-caret-position="377">
+              <caret line="223" column="9" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
               <folding>
                 <element signature="e#133#154#0" expanded="true" />
               </folding>
@@ -93,11 +95,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecordHeaderCell.m" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/View/RecordHeaderCell.m">
+      <file leaf-file-name="AFTwoViewController.m" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GovernmentWater/Base/AFTwoViewController.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="267">
+              <caret line="80" column="67" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+              <folding>
+                <element signature="e#142#173#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,6 +148,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1920" />
@@ -154,6 +160,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Cidr.FilesView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -265,8 +273,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Cidr.FilesView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -308,6 +314,7 @@
       <workItem from="1542109005749" duration="45196000" />
       <workItem from="1542721875881" duration="1174000" />
       <workItem from="1542769291690" duration="22205000" />
+      <workItem from="1543200276288" duration="8553000" />
     </task>
     <task id="LOCAL-00001" summary="第三方库添加">
       <created>1542017506710</created>
@@ -425,7 +432,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77956000" />
+    <option name="totallyTimeSpent" value="86509000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -445,11 +452,10 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4986835" weight="0.3295838" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50289625" side_tool="true" weight="0.1991001" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49710375" weight="0.1991001" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49921012" weight="0.3295838" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49605057" visible="true" weight="0.104611926" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49605057" visible="true" weight="0.21484815" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -459,6 +465,7 @@
       <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49710375" weight="0.19797525" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -517,18 +524,81 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/GovernmentWater/Class/Login/AFLoginVC.m</url>
-          <line>13</line>
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/GovernmentWater/Class/Login/AFLoginVC.m</url>
-          <line>9</line>
-          <option name="timeStamp" value="1" />
+          <line>16</line>
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Home/Controller/HomeViewController.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="e#141#171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/EventVC.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/EventDetailsVC.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2190">
+          <caret line="146" column="84" lean-forward="true" selection-start-line="146" selection-start-column="84" selection-end-line="146" selection-end-column="84" />
+          <folding>
+            <element signature="e#137#163#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#134#157#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/AppDelegate.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="55" lean-forward="true" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/ReportVC.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1410">
+          <caret line="94" column="62" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/View/RecordHeaderCell.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Login/AFLoginVC.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+          <folding>
+            <element signature="e#133#154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/View/DealingCell.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -579,15 +649,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GovernmentWater/AppDelegate.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="41" column="55" lean-forward="true" selection-start-line="41" selection-start-column="55" selection-end-line="41" selection-end-column="55" />
+        <state relative-caret-position="615">
+          <caret line="44" column="55" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/EventDetailsVC.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="146" column="84" lean-forward="true" selection-start-line="146" selection-start-column="84" selection-end-line="146" selection-end-column="84" />
+        <state relative-caret-position="2190">
+          <caret line="146" column="84" selection-start-line="146" selection-start-column="84" selection-end-line="146" selection-end-column="84" />
           <folding>
             <element signature="e#137#163#0" expanded="true" />
           </folding>
@@ -608,6 +678,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/ReportVC.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1755">
+          <caret line="186" column="62" selection-start-line="186" selection-start-column="62" selection-end-line="186" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Login/AFLoginVC.m">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="223" column="9" selection-start-line="223" selection-start-column="9" selection-end-line="223" selection-end-column="9" />
+          <folding>
+            <element signature="e#133#154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Tools/TZImagePickerController/UIView+Layout.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/View/RecordHeaderCell.m">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -615,19 +709,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/ReportVC.m">
+    <entry file="file:///Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIViewController.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="94" column="62" selection-start-line="94" selection-start-column="62" selection-end-line="94" selection-end-column="62" />
+        <state relative-caret-position="89">
+          <caret line="99" column="106" lean-forward="true" selection-start-line="99" selection-start-column="106" selection-end-line="99" selection-end-column="106" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Login/AFLoginVC.m">
+    <entry file="file://$PROJECT_DIR$/GovernmentWater/Base/AFTwoViewController.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+        <state relative-caret-position="267">
+          <caret line="80" column="67" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
           <folding>
-            <element signature="e#133#154#0" expanded="true" />
+            <element signature="e#142#173#0" expanded="true" />
           </folding>
         </state>
       </provider>
