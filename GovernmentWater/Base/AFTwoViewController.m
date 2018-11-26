@@ -54,14 +54,19 @@
     // 如不需要长按排序效果，将LxGridViewFlowLayout类改成UICollectionViewFlowLayout即可
     _layout = [[LxGridViewFlowLayout alloc] init];
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_layout];
-    CGFloat rgb = 244 / 255.0;
+//    CGFloat rgb = 244 / 255.0;
     _collectionView.alwaysBounceVertical = YES;
-    _collectionView.backgroundColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:1.0];
+//    _collectionView.backgroundColor = [UIColor colorWithRed:rgb green:rgb blue:rgb alpha:1.0];
+    _collectionView.backgroundColor = [UIColor redColor];
     _collectionView.contentInset = UIEdgeInsetsMake(4, 4, 4, 4);
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     _collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    [self.view addSubview:_collectionView];
+    
+    UIView *bigView = [[UIView alloc]initWithFrame:CGRectMake(0, 200, KKScreenWidth, 300)];
+    bigView.backgroundColor = UIColor.yellowColor;
+    [self.view addSubview:bigView];
+    [bigView addSubview:_collectionView];
     [_collectionView registerClass:[TZTestCell class] forCellWithReuseIdentifier:@"TZTestCell"];
 }
 
