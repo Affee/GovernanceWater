@@ -12,10 +12,11 @@
 #define KKStringWithFormat(format, ...) [NSString stringWithFormat:format, __VA_ARGS__]
 //总接口
 #define Base_Url @"http://139.219.4.43:8080"
+//#define Base_Url @"http://172.16.201.175:8080"
 
 //登陆接口
 #define Login_URL  KKStringWithFormat(@"%@/appLogin", Base_Url)
-//上传事件  /riverCruise/workerEvents
+//上传事件保洁、村河长、镇河长新建上报事件   /riverCruise/workerEvents
 #define WorkerEvents_URL  KKStringWithFormat(@"%@/riverCruise/workerEvents", Base_Url)
 
 

@@ -23,10 +23,10 @@
 #import "TZAssetCell.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "FLAnimatedImage.h"
-
+#import <AssetsLibrary/AssetsLibrary.h>
 #import "PPHTTPRequest.h"
 #import "PPNetworkHelper.h"
-
+#import "AFGetImageAsset.h"
 
 
 @interface ReportVC ()<UITableViewDelegate, UITableViewDataSource,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
@@ -34,7 +34,9 @@
     NSMutableArray *_selectedPhotos;
     NSMutableArray *_selectedAssets;
     BOOL _isSelectOriginalPhoto;
-    
+    NSString *_uploadText;
+    NSArray *_upImages;
+    NSMutableArray *_addUpDataArr;
     
     CGFloat _itemWH;
     CGFloat _margin;
@@ -58,48 +60,58 @@
     [self.view addSubview:_tableView];
     _selectedPhotos = [NSMutableArray array];
     _selectedAssets = [NSMutableArray array];
+    _upImages = [NSMutableArray array];
+    _uploadText  = [[NSString alloc]init];
+    _addUpDataArr = [NSMutableArray array];
     [self configCollectionView];
 }
 #pragma mark ======post提交
-/**
- *  上传单/多张图片
- *
- *  @param URL        请求地址
- *  @param parameters 请求参数
- *  @param name       图片对应服务器上的字段
- *  @param images     图片数组
- *  @param fileNames  图片文件名数组, 可以为nil, 数组内的文件名默认为当前日期时间"yyyyMMddHHmmss"
- *  @param imageScale 图片文件压缩比 范围 (0.f ~ 1.f)
- *  @param imageType  图片文件的类型,例:png、jpg(默认类型)....
- *  @param progress   上传进度信息
- *  @param success    请求成功的回调
- *  @param failure    请求失败的回调
- *
- *  @return 返回的对象可取消请求,调用cancel方法
- */
-//+ (__kindof NSURLSessionTask *)uploadImagesWithURL:(NSString *)URL
-//                                        parameters:(id)parameters
-//                                              name:(NSString *)name
-//                                            images:(NSArray<UIImage *> *)images
-//                                         fileNames:(NSArray<NSString *> *)fileNames
-//                                        imageScale:(CGFloat)imageScale
-//                                         imageType:(NSString *)imageType
-//                                          progress:(PPHttpProgress)progress
-//                                           success:(PPHttpRequestSuccess)success
-//                                           failure:(PPHttpRequestFailed)failure;
+
+
 
 
 -(void)Clidklandings{
+    
     //    [SVProgressHUD showWithStatus:@"sss"];
-//    WorkerEvents_URL
-//    NSString *urlStr = [NSString stringWithFormat:@"%@%@",WorkerEvents_URL,Token];
-//    NSDictionary *dict = @{
-//
-//                           };
-//    [SVProgressHUD showErrorWithStatus:@"确定"];
-//    PPNetworkHelper uploadImagesWithURL:urlStr parameters:<#(id)#> name:<#(NSString *)#> images:<#(NSArray<UIImage *> *)#> fileNames:<#(NSArray<NSString *> *)#> imageScale:<#(CGFloat)#> imageType:<#(NSString *)#> progress:<#^(NSProgress *progress)progress#> success:<#^(id responseObject)success#> failure:<#^(NSError *error)failure#>
+    NSDictionary *dict = @{
+                           @"eventContent":@"123",
+                           @"isUrgen":@1,
+                           @"riverId":@2,
+                           @"eventPlace":@2,
+                           @"eventNature":@2,
+                           @"typeId":@2,
+                           @"handleId":@5,
+                           @"flag":@0,
+                           };
+    //    _selectedPhotos
+    /// Get Original Photo / 获取原
+//    雷雷 收到请回答
+//    for (int i = 0; i<_selectedAssets.count; i++) {
+//        NSString *filename = _selectedAssets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
+//        [_addUpDataArr addObject:filename];
+//    }
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+    AFLog(@"%@",Token);
+    [PPNetworkHelper uploadImagesWithURL:WorkerEvents_URL parameters:dict name:nil images:_addUpDataArr fileNames:nil imageScale:1 imageType:@"jpg" progress:^(NSProgress *progress) {
+        AFLog(@"上传成功1");
+    } success:^(id responseObject) {
+        AFLog(@"上传成功2");
+    } failure:^(NSError *error) {
+        AFLog(@"上传失败3");
+    }];
+
 }
 
++ (NSArray<PHAsset *> *)getPHAssetWithPHCollection:(PHCollection *)collection {
+    NSMutableArray *array = [NSMutableArray array];
+    PHAssetCollection *assetCollection = (PHAssetCollection *)collection;
+    // 从每一个智能相册中获取到的 PHFetchResult 中包含的才是真正的资源（PHAsset）
+    PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:assetCollection options:nil];
+    for (PHAsset *asset in fetchResult) {
+        [array addObject:asset];
+    }
+    return array;
+}
 
 #pragma mark - tableview delegate / dataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -165,6 +177,7 @@
             if (!cell) {
                 cell = [[TextAndImagesCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TextAndImage];
             }
+            _uploadText = cell.eventTextView.text;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             UIView *big = [[UIView alloc]initWithFrame:CGRectMake(0, 85, KKScreenWidth, (KKScreenWidth - 12)/3 +15)];
             [cell.contentView addSubview:big];
@@ -298,6 +311,7 @@
         cell.asset = _selectedAssets[indexPath.item];
         cell.deleteBtn.hidden = NO;
     }
+
     cell.gifLable.hidden = YES;
     cell.deleteBtn.tag = indexPath.item;
     [cell.deleteBtn addTarget:self action:@selector(deleteBtnClik:) forControlEvents:UIControlEventTouchUpInside];
@@ -324,6 +338,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)sourceIndexPath didMoveToIndexPath:(NSIndexPath *)destinationIndexPath {
     UIImage *image = _selectedPhotos[sourceIndexPath.item];
+    
     [_selectedPhotos removeObjectAtIndex:sourceIndexPath.item];
     [_selectedPhotos insertObject:image atIndex:destinationIndexPath.item];
     
@@ -341,62 +356,24 @@
     //        return;
     //    }
     TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:3 columnNumber:3 delegate:self pushPhotoPickerVc:YES];
-    // imagePickerVc.navigationBar.translucent = NO;
+     imagePickerVc.navigationBar.translucent = NO;
     
 #pragma mark - 五类个性化设置，这些参数都可以不传，此时会走默认设置
     imagePickerVc.isSelectOriginalPhoto = _isSelectOriginalPhoto;
-    
-    //    if (self.maxCountTF.text.integerValue > 1) {
     // 1.设置目前已经选中的图片数组
     imagePickerVc.selectedAssets = _selectedAssets; // 目前已经选中的图片数组
-    //    }
-    //    imagePickerVc.allowTakePicture = self.showTakePhotoBtnSwitch.isOn; // 在内部显示拍照按钮
-    //    imagePickerVc.allowTakeVideo = self.showTakeVideoBtnSwitch.isOn;   // 在内部显示拍视频按
     imagePickerVc.videoMaximumDuration = 10; // 视频最大拍摄时间
     [imagePickerVc setUiImagePickerControllerSettingBlock:^(UIImagePickerController *imagePickerController) {
         imagePickerController.videoQuality = UIImagePickerControllerQualityTypeHigh;
     }];
     
-    // imagePickerVc.photoWidth = 1000;
-    
-    // 2. Set the appearance
-    // 2. 在这里设置imagePickerVc的外观
-    // imagePickerVc.navigationBar.barTintColor = [UIColor greenColor];
-    // imagePickerVc.oKButtonTitleColorDisabled = [UIColor lightGrayColor];
-    // imagePickerVc.oKButtonTitleColorNormal = [UIColor greenColor];
-    // imagePickerVc.navigationBar.translucent = NO;
     imagePickerVc.iconThemeColor = [UIColor colorWithRed:31 / 255.0 green:185 / 255.0 blue:34 / 255.0 alpha:1.0];
     imagePickerVc.showPhotoCannotSelectLayer = YES;
     imagePickerVc.cannotSelectLayerColor = [[UIColor whiteColor] colorWithAlphaComponent:0.8];
     [imagePickerVc setPhotoPickerPageUIConfigBlock:^(UICollectionView *collectionView, UIView *bottomToolBar, UIButton *previewButton, UIButton *originalPhotoButton, UILabel *originalPhotoLabel, UIButton *doneButton, UIImageView *numberImageView, UILabel *numberLabel, UIView *divideLine) {
         [doneButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     }];
-    /*
-     [imagePickerVc setAssetCellDidSetModelBlock:^(TZAssetCell *cell, UIImageView *imageView, UIImageView *selectImageView, UILabel *indexLabel, UIView *bottomView, UILabel *timeLength, UIImageView *videoImgView) {
-     cell.contentView.clipsToBounds = YES;
-     cell.contentView.layer.cornerRadius = cell.contentView.tz_width * 0.5;
-     }];
-     */
-    
-    // 3. Set allow picking video & photo & originalPhoto or not
-    // 3. 设置是否可以选择视频/图片/原图
-    //    imagePickerVc.allowPickingVideo = self.allowPickingVideoSwitch.isOn;
-    //    imagePickerVc.allowPickingImage = self.allowPickingImageSwitch.isOn;
-    //    imagePickerVc.allowPickingOriginalPhoto = self.allowPickingOriginalPhotoSwitch.isOn;
-    //    imagePickerVc.allowPickingGif = self.allowPickingGifSwitch.isOn;
-    //    imagePickerVc.allowPickingMultipleVideo = self.allowPickingMuitlpleVideoSwitch.isOn; // 是否可以多选视频
-    
-    // 4. 照片排列按修改时间升序
-    //    imagePickerVc.sortAscendingByModificationDate = self.sortAscendingSwitch.isOn;
-    
-    // imagePickerVc.minImagesCount = 3;
-    // imagePickerVc.alwaysEnableDoneBtn = YES;
-    
-    // imagePickerVc.minPhotoWidthSelectable = 3000;
-    // imagePickerVc.minPhotoHeightSelectable = 2000;
-    
-    /// 5. Single selection mode, valid when maxImagesCount = 1
-    /// 5. 单选模式,maxImagesCount为1时才生效
+
     imagePickerVc.showSelectBtn = NO;
     //    imagePickerVc.allowCrop = self.allowCropSwitch.isOn;
     //    imagePickerVc.needCircleCrop = self.needCircleCropSwitch.isOn;
@@ -405,26 +382,6 @@
     NSInteger widthHeight = self.view.tz_width - 2 * left;
     NSInteger top = (self.view.tz_height - widthHeight) / 2;
     imagePickerVc.cropRect = CGRectMake(left, top, widthHeight, widthHeight);
-    // 设置横屏下的裁剪尺寸
-    // imagePickerVc.cropRectLandscape = CGRectMake((self.view.tz_height - widthHeight) / 2, left, widthHeight, widthHeight);
-    /*
-     [imagePickerVc setCropViewSettingBlock:^(UIView *cropView) {
-     cropView.layer.borderColor = [UIColor redColor].CGColor;
-     cropView.layer.borderWidth = 2.0;
-     }];*/
-    
-    //imagePickerVc.allowPreview = NO;
-    // 自定义导航栏上的返回按钮
-    /*
-     [imagePickerVc setNavLeftBarButtonSettingBlock:^(UIButton *leftButton){
-     [leftButton setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
-     [leftButton setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 20)];
-     }];
-     imagePickerVc.delegate = self;
-     */
-    
-    // Deprecated, Use statusBarStyle
-    // imagePickerVc.isStatusBarDefault = NO;
     imagePickerVc.statusBarStyle = UIStatusBarStyleLightContent;
     
     // 设置是否显示图片序号
@@ -450,7 +407,7 @@
     }];
     
     // 设置首选语言 / Set preferred language
-    // imagePickerVc.preferredLanguage = @"zh-Hans";
+     imagePickerVc.preferredLanguage = @"zh-Hans";
     
     // 设置languageBundle以使用其它语言 / Set languageBundle to use other language
     // imagePickerVc.languageBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"tz-ru" ofType:@"lproj"]];
@@ -460,9 +417,20 @@
     // You can get the photos by block, the same as by delegate.
     // 你可以通过block或者代理，来得到用户选择的照片.
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        
+   
+//        _upImages = assets;
+   
+
     }];
-    
+//    [[TZImageManager manager] getOriginalPhotoWithAsset:completion:]
+        for (int i = 0; i<_selectedAssets.count; i++) {
+            [[TZImageManager manager] getOriginalPhotoWithAsset:_selectedAssets[i] completion:^(UIImage *photo, NSDictionary *info) {
+                NSString *filename = _selectedAssets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
+                [_addUpDataArr addObject:filename];
+            }];
+          
+        }
+  
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
 
@@ -535,11 +503,11 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
     [picker dismissViewControllerAnimated:YES completion:nil];
     NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
     
     TZImagePickerController *tzImagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
-    //    tzImagePickerVc.sortAscendingByModificationDate = self.sortAscendingSwitch.isOn;
     [tzImagePickerVc showProgressHUD];
     if ([type isEqualToString:@"public.image"]) {
         UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -551,17 +519,11 @@
                 NSLog(@"图片保存失败 %@",error);
             } else {
                 TZAssetModel *assetModel = [[TZImageManager manager] createModelWithAsset:asset];
-                //                if (self.allowCropSwitch.isOn) { // 允许裁剪,去裁剪
-                //                    TZImagePickerController *imagePicker = [[TZImagePickerController alloc] initCropTypeWithAsset:assetModel.asset photo:image completion:^(UIImage *cropImage, id asset) {
-                //                        [self refreshCollectionViewWithAddedAsset:asset image:cropImage];
-                //                    }];
-                //                    imagePicker.allowPickingImage = YES;
-                //                    imagePicker.needCircleCrop = self.needCircleCropSwitch.isOn;
-                //                    imagePicker.circleCropRadius = 100;
-                //                    [self presentViewController:imagePicker animated:YES completion:nil];
-                //                } else {
                 [self refreshCollectionViewWithAddedAsset:assetModel.asset image:image];
-                //                }
+                AFLog(@"asset=====%@",asset);
+                
+                
+                
             }
         }];
     } else if ([type isEqualToString:@"public.movie"]) {
@@ -580,22 +542,26 @@
             }];
         }
     }
+    
 }
 
 - (void)refreshCollectionViewWithAddedAsset:(PHAsset *)asset image:(UIImage *)image {
     [_selectedAssets addObject:asset];
     [_selectedPhotos addObject:image];
+    
+    AFLog(@"_selectedPhotos===%@",_selectedPhotos);
     [_collectionView reloadData];
     
     if ([asset isKindOfClass:[PHAsset class]]) {
         PHAsset *phAsset = asset;
-        NSLog(@"location:%@",phAsset.location);
+        NSLog(@"location=======:%@",phAsset.location);
     }
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     if ([picker isKindOfClass:[UIImagePickerController class]]) {
         [picker dismissViewControllerAnimated:YES completion:nil];
+        
     }
 }
 
@@ -627,14 +593,22 @@
     _selectedPhotos = [NSMutableArray arrayWithArray:photos];
     _selectedAssets = [NSMutableArray arrayWithArray:assets];
     _isSelectOriginalPhoto = isSelectOriginalPhoto;
+    
+//    for (int i = 0; i<photos.count; i++) {
+////        NSString *filename = assets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
+////        [_addUpDataArr addObject:filename];
+//        [_addUpDataArr addObject:photos];
+//
+//    }
     [_collectionView reloadData];
     // _collectionView.contentSize = CGSizeMake(0, ((_selectedPhotos.count + 2) / 3 ) * (_margin + _itemWH));
     
     // 1.打印图片名字
-    //    [self printAssetsName:assets];
+        [self printAssetsName:assets];
     // 2.图片位置信息
     for (PHAsset *phAsset in assets) {
-        NSLog(@"location:%@",phAsset.location);
+        NSLog(@"location====!!!====:%@",phAsset.location);
+        
     }
     
     /*
@@ -657,12 +631,12 @@
      }
      */
 }
-
 // If user picking a video, this callback will be called.
 // 如果用户选择了一个视频，下面的handle会被执行
 - (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingVideo:(UIImage *)coverImage sourceAssets:(PHAsset *)asset {
     _selectedPhotos = [NSMutableArray arrayWithArray:@[coverImage]];
     _selectedAssets = [NSMutableArray arrayWithArray:@[asset]];
+    
     // open this code to send video / 打开这段代码发送视频
     [[TZImageManager manager] getVideoOutputPathWithAsset:asset presetName:AVAssetExportPreset640x480 success:^(NSString *outputPath) {
         NSLog(@"视频导出到本地完成,沙盒路径为:%@",outputPath);
@@ -702,14 +676,14 @@
     /*
      switch (asset.mediaType) {
      case PHAssetMediaTypeVideo: {
-     // 视频时长
-     // NSTimeInterval duration = phAsset.duration;
+      视频时长
+      NSTimeInterval duration = phAsset.duration;
      return NO;
      } break;
      case PHAssetMediaTypeImage: {
-     // 图片尺寸
+      图片尺寸
      if (phAsset.pixelWidth > 3000 || phAsset.pixelHeight > 3000) {
-     // return NO;
+      return NO;
      }
      return YES;
      } break;
@@ -756,5 +730,16 @@
 }
 
 
+#pragma mark - Private
+
+/// 打印图片名字
+- (void)printAssetsName:(NSArray *)assets {
+    NSString *fileName;
+    for (PHAsset *asset in assets) {
+        fileName = [asset valueForKey:@"filename"];
+         NSLog(@"图片名字:%@",fileName);
+//        [_addUpDataArr addObject:fileName];
+    }
+}
 
 @end

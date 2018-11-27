@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */; };
+		F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = F63AE32521ACD3CE001FB986 /* AFGetImageAsset.m */; };
 		F657861721992027003D87EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F657861621992027003D87EA /* AppDelegate.m */; };
 		F657861D21992027003D87EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F657861B21992027003D87EA /* Main.storyboard */; };
 		F657861F2199202A003D87EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F657861E2199202A003D87EA /* Assets.xcassets */; };
@@ -80,6 +81,8 @@
 		433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.release.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.release.xcconfig"; sourceTree = "<group>"; };
 		83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.debug.xcconfig"; sourceTree = "<group>"; };
 		88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GovernmentWater.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63AE32421ACD3CE001FB986 /* AFGetImageAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFGetImageAsset.h; sourceTree = "<group>"; };
+		F63AE32521ACD3CE001FB986 /* AFGetImageAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFGetImageAsset.m; sourceTree = "<group>"; };
 		F657861221992027003D87EA /* GovernmentWater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GovernmentWater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F657861521992027003D87EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F657861621992027003D87EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -499,6 +502,8 @@
 				F6578654219AB896003D87EA /* DateUtil.m */,
 				F6578647219AB896003D87EA /* StringUtil.h */,
 				F6578653219AB896003D87EA /* StringUtil.m */,
+				F63AE32421ACD3CE001FB986 /* AFGetImageAsset.h */,
+				F63AE32521ACD3CE001FB986 /* AFGetImageAsset.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -854,6 +859,7 @@
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
+				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
 				F695C1EF21A28EFD00E93F1A /* BRInfoModel.m in Sources */,
 				F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */,
 				F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */,
