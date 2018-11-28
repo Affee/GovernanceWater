@@ -85,14 +85,18 @@
                            };
     //    _selectedPhotos
     /// Get Original Photo / 获取原
-//    雷雷 收到请回答
+//    收到请回答
 //    for (int i = 0; i<_selectedAssets.count; i++) {
 //        NSString *filename = _selectedAssets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
 //        [_addUpDataArr addObject:filename];
 //    }
+        for (int i = 0; i<_selectedAssets.count; i++) {
+            NSString *filename = _selectedAssets[i][@"filename"];
+            [_addUpDataArr addObject:filename];
+        }
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
     AFLog(@"%@",Token);
-    [PPNetworkHelper uploadImagesWithURL:WorkerEvents_URL parameters:dict name:nil images:_addUpDataArr fileNames:nil imageScale:1 imageType:@"jpg" progress:^(NSProgress *progress) {
+    [PPNetworkHelper uploadImagesWithURL:WorkerEvents_URL parameters:dict name:nil images:_addUpDataArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
         AFLog(@"上传成功1");
     } success:^(id responseObject) {
         AFLog(@"上传成功2");
@@ -423,13 +427,15 @@
 
     }];
 //    [[TZImageManager manager] getOriginalPhotoWithAsset:completion:]
-        for (int i = 0; i<_selectedAssets.count; i++) {
-            [[TZImageManager manager] getOriginalPhotoWithAsset:_selectedAssets[i] completion:^(UIImage *photo, NSDictionary *info) {
-                NSString *filename = _selectedAssets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
-                [_addUpDataArr addObject:filename];
-            }];
-          
-        }
+    
+//MODE 这里也尝试过 不行啊
+//        for (int i = 0; i<_selectedAssets.count; i++) {
+//            [[TZImageManager manager] getOriginalPhotoWithAsset:_selectedAssets[i] completion:^(UIImage *photo, NSDictionary *info) {
+//                NSString *filename = _selectedAssets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
+//                [_addUpDataArr addObject:filename];
+//            }];
+//
+//        }
   
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */; };
+		F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6299E5A21AE645C009382EB /* EventVCModel.m */; };
 		F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = F63AE32521ACD3CE001FB986 /* AFGetImageAsset.m */; };
 		F657861721992027003D87EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F657861621992027003D87EA /* AppDelegate.m */; };
 		F657861D21992027003D87EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F657861B21992027003D87EA /* Main.storyboard */; };
@@ -81,6 +82,8 @@
 		433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.release.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.release.xcconfig"; sourceTree = "<group>"; };
 		83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.debug.xcconfig"; sourceTree = "<group>"; };
 		88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GovernmentWater.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6299E5921AE645C009382EB /* EventVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCModel.h; sourceTree = "<group>"; };
+		F6299E5A21AE645C009382EB /* EventVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCModel.m; sourceTree = "<group>"; };
 		F63AE32421ACD3CE001FB986 /* AFGetImageAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFGetImageAsset.h; sourceTree = "<group>"; };
 		F63AE32521ACD3CE001FB986 /* AFGetImageAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFGetImageAsset.m; sourceTree = "<group>"; };
 		F657861221992027003D87EA /* GovernmentWater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GovernmentWater.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -315,6 +318,8 @@
 				F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */,
 				F6A5C707219D5C6400EB846F /* EventListCellModel.h */,
 				F6A5C708219D5C6400EB846F /* EventListCellModel.m */,
+				F6299E5921AE645C009382EB /* EventVCModel.h */,
+				F6299E5A21AE645C009382EB /* EventVCModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -873,6 +878,7 @@
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
+				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,

@@ -16,11 +16,17 @@
 #import "JMDropMenu.h"
 #import "ReportVC.h"
 
+#import "EventVCModel.h"
+#import <NSObject+YYModel.h>
+#import <YYKit/NSObject+YYModel.h>
+
 #define HeaderHeight 60//顶部筛选的高度
 @interface EventVC ()<UITableViewDelegate,UITableViewDataSource,JMDropMenuDelegate,UIScrollViewDelegate>
 {
     NSArray *_dataArray;
     int buttonY;
+    NSMutableDictionary *_requestData;
+    NSMutableArray *_recordsMArr;
 }
 
 /**
@@ -36,50 +42,20 @@
  事件的分类别
  */
 @property (nonatomic,strong)UILabel *eventTypeLabel;
-
-
 /**
  筛选
  */
 @property (nonatomic, strong) UILabel *chooseLabel;
-
 @property (nonatomic, strong) UIView *lineView;
-
-
 /**
  添加按钮
  */
 @property (nonatomic, strong) UIButton *addBtn;
 
-//@property (nonatomic, strong) UIView *aView;
-
-
 @end
-
 
 @implementation EventVC
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    self.aView = [[UIView alloc] initWithFrame:CGRectMake(100, 300,100, 100)];
-//    _aView.backgroundColor = [UIColor redColor];
-//    [self.tableView.window addSubview:_aView];
-//    [self.tableView.window bringSubviewToFront:_aView];
-//
-//}
-
-//-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(200, 200, 100, 100)];
-//    [_addBtn setImage:KKPlaceholderImage forState:UIControlStateNormal];
-//    _addBtn.backgroundColor = KKColorPurple;
-//    [self.tableView addSubview:_addBtn];
-//    [self.tableView bringSubviewToFront:_addBtn];
-//    buttonY = (int)_addBtn.frame.origin.y;
-//
-//
-//
-//}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -96,7 +72,11 @@
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     [self loadData];
+    [self requestData];
     [self buildTableView];
+    
+//    数组字典初始化
+    _recordsMArr  = [NSMutableArray array];
 //    [self.view addSubview:self.tableView];
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -112,7 +92,6 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -130,7 +109,35 @@
 #pragma mark ----获取数据
 -(void)loadData{
     self.infoModel.addressStr = @"默认地址>默认事件>默认情况";
+    
 }
+-(void)requestData
+{
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+    NSDictionary *dict = @{
+                           @"pages":@2,
+                           @"size":@12,
+                           };
+    [PPNetworkHelper GET:Event_GetList_URL parameters:dict responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        _recordsMArr =  responseObject[@"records"];
+//        EventVCModel *eventVCModel = [EventVCModel ];
+//        NSDictionary *json = [self getJsonWithEventVCM:@"DoubleModel"];
+//        EventVCModel *event = [EventVCModel yy];
+//        EventVCModel *eventVCModel = [eventVCModel y];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+//-(NSDictionary *) getJsonWithEventVCM:(NSString *)eventVCM{
+////    从本地读取json数据（这一步从网络请求）
+//    NSString *path  = [[NSBundle mainBundle]pathForResource:eventVCM ofType:@"json"];
+//    NSData *data = [NSData dataWithContentsOfFile:path];
+//    return [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+//}
 #pragma mark --getter/setter
 
 -(void)buildTableView{
