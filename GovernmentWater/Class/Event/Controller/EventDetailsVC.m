@@ -11,19 +11,36 @@
 #import "RecordEventCell.h"
 #import "RecordHeaderCell.h"
 #import "DealingCell.h"
+#import "EventDetailModel.h"
+#import "userEventList.h"
+//        detailArr = @[_eventDict[@"updateTime"],_eventDict[@"isUrgen"],_eventDict[@"riverName"],_eventDict[@"eventPlace"],_eventDict[@"typeId"]];
 
 @interface EventDetailsVC ()<UITableViewDelegate, UITableViewDataSource>
 {
-    NSMutableArray *_DetailsdataArray;
+    NSMutableArray *_UserEventListArr;
+    NSDictionary *_eventDict;
+    NSDictionary *_RequestDict;
+    NSMutableArray *_detailArr;
+    
+    NSMutableArray *_userEventListArr;
+    
+    NSMutableArray *_imagesArr;
+    
+    NSString *_eventContentStr;
 }
 @property (nonatomic, strong) UITableView *tableView;
-
+@property (nonatomic,strong) EventDetailModel *model;
 @end
 
 @implementation EventDetailsVC
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    //    数据请求
+    [self getListData];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    AFLog(@"EventID ==%@",_eventID);
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.customNavBar.title = @"事件详情";
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
@@ -31,12 +48,47 @@
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
     [self wr_setNavBarBackgroundAlpha:1];
     
-//    数据请求
-    [self getListData];
+
+//    初始化
+    _eventContentStr = @"选";
+    _imagesArr = [[NSMutableArray alloc]initWithObjects: [NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"],nil];
+    _detailArr = [[NSMutableArray alloc]initWithObjects:@"1", @"1",@"1",@"1",@"1",nil];
+    _UserEventListArr = [[NSMutableArray alloc]init];
+    _eventDict = [[NSDictionary alloc]init];
+    _RequestDict = [[NSDictionary alloc]init];
+    _userEventListArr = [[NSMutableArray alloc]init];
+
+
 }
 //获取列别
 -(void)getListData{
-    _DetailsdataArray = @[@"2018-7-25 10:23",@"是",@"高坪河",@"汇川高坪镇高坪河",@"污水直排"];
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+    NSDictionary *dict =@{
+                          @"id":@76,
+                          };
+    [PPNetworkHelper GET:Event_FindById_URL parameters:dict success:^(id responseObject) {
+        _userEventListArr = responseObject[@"userEventList"];
+        
+
+        _RequestDict = responseObject[@"event"];
+        EventDetailModel *model = [EventDetailModel modelWithDictionary:responseObject[@"event"]];
+//        移除并重新添加
+        [_detailArr removeAllObjects];
+        _detailArr = [[NSMutableArray alloc]initWithObjects:model.updateTime,model.isUrgen,model.riverName,model.eventPlace,model.typeId,nil];
+        _eventContentStr = model.eventContent;
+        
+        [_imagesArr removeAllObjects];
+        _imagesArr = model.enclosureList;
+//            _eventDict = responseObject[@"event"];
+        
+//            _upArr = @[_eventDict[@"updateTime"],_eventDict[@"isUrgen"],_eventDict[@"riverName"],_eventDict[@"eventPlace"],_eventDict[@"typeId"]];
+        
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableView reloadData];
+            });
+    } failure:^(NSError *error) {
+        
+    }];
 }
 #pragma mark ---getter/setter
 
@@ -69,10 +121,7 @@
         return 60;
     }
 }
-//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-//    NSString *titleStr  =[NSString stringWithFormat:@"哈哈哈"];
-//    return titleStr;
-//}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 50;
 }
@@ -101,22 +150,15 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    static NSString *NCell=@"NCell";
-//    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];
-//    if (cell  == nil) {
-//        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NCell];
-//    }
-//    cell.textLabel.text = [NSString stringWithFormat:@"花猪/大奶==%ld",(long)indexPath.row];
-//    cell.detailTextLabel.text = @"公会妹子们的奶都好大哈噗";
-//    cell.textLabel.textColor = KKColorPurple;
-//    cell.textLabel.font = [UIFont affeeBlodFont:16];
-//    cell.detailTextLabel.textColor = KKColorPurple;
     if (indexPath.section == 0 && indexPath.row == 0) {
         static NSString *ID = @"RecordHeaderCell";
         RecordHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
         if (!cell) {
             cell = [[RecordHeaderCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
         }
+        cell.eventLabel.text = _eventContentStr;
+        cell.imageArr = _imagesArr;
+        
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }else if (indexPath.section == 0 && indexPath.row >0){
@@ -125,14 +167,10 @@
         if (cell  == nil) {
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NCell];
         }
-        NSArray *arr = @[@"时间",@"紧急",@"河道",@"地址",@"类型",];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
-        cell.textLabel.font = [UIFont affeeBlodFont:16];
-        cell.detailTextLabel.text = _DetailsdataArray[indexPath.row -1];
-        if (indexPath.row ==2) {
-            cell.detailTextLabel.textColor = [UIColor redColor];
-        }
         
+        NSArray *textLabelarr = @[@"时间",@"紧急",@"河道",@"地址",@"类型",];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@",textLabelarr[indexPath.row-1]];
+        cell.detailTextLabel.text = _detailArr[indexPath.row - 1];
         return cell;
     }else if (indexPath.section == 1){
         static  NSString *DealingC = @"DealingC";
@@ -143,31 +181,15 @@
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;
-//        static NSString *NCell=@"NCell";
-//        UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];
-//        if (cell  == nil) {
-//            cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NCell];
-//        }
-////        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:[UIImage imageNamed:@"addIcon"]];
-//        [cell.imageView setImage:[UIImage imageNamed:@"addIcon"]];
-//        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//        cell.textLabel.text = @"黄蕾";
-//        cell.detailTextLabel.text = @"哈哈哈";
-//        cell.textLabel.font = [UIFont affeeBlodFont:14];
-//
-//        CGSize imageSize = CGSizeMake(40, 40);
-//        UIGraphicsBeginImageContextWithOptions(imageSize, NO, 0.0);
-//        CGRect imageRect = CGRectMake(0.0, 0.0, imageSize.width, imageSize.height);
-//        [cell.imageView.image drawInRect:imageRect];
-//        cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsGetImageFromCurrentImageContext();
-//        return cell;
     }else if (indexPath.section == 2){
         static NSString *ID = @"RecordEventCell";
         RecordEventCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
         if (!cell) {
             cell = [[RecordEventCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
         }
+        cell.dict = _UserEventListArr[indexPath.row];
+//        userEventList *usermodel = [userEventList modelWithDictionary:_UserEventListArr[indexPath.row]];
+//        cell.model = usermodel;
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }else {

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "EventVCModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventListCell : UITableViewCell
@@ -48,6 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  事件Label
  */
 @property (nonatomic, strong) UILabel *eventLabel;
+
 
 
 @end

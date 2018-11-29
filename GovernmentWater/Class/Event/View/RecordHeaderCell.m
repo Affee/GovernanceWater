@@ -14,6 +14,14 @@
     [super awakeFromNib];
     // Initialization code
 }
+-(NSMutableArray *)imageArr
+{
+    if (!_imageArr) {
+        NSMutableArray *imageArr = [[NSMutableArray alloc]init];
+        _imageArr = imageArr;
+    }
+    return _imageArr;
+}
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -41,9 +49,9 @@
         //        make.bottom.equalTo(_addressLabel.mas_top).offset(-Padding).priorityLow;// 低
     }];
 
-    for (int i = 0; i <= 3; i++) {
+    for (int i = 0; i <= _imageArr.count; i++) {
         self.imgvIcon = [[UIImageView alloc]init];
-        [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:KKPlaceholderImage];
+        [self.imgvIcon sd_setImageWithURL:_imageArr[i] placeholderImage:KKPlaceholderImage];
         [self.contentView addSubview:self.imgvIcon];
 
         [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,5 +62,6 @@
         }];
     }
 }
+
 
 @end

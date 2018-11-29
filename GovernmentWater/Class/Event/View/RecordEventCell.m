@@ -14,6 +14,17 @@
     [super awakeFromNib];
     
 }
+//-(userEventList *)model{
+//    if (_model) {
+//        userEventList *model = [userEventList modelWithDictionary:self.dict];
+//        _model = model;
+////        self.namenikeLabel.text = _model.createTime;
+//        AFLog(@"%@====_model.createTime",_model.createTime);
+//    }
+//    return _model;
+//}
+
+
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -28,6 +39,9 @@
 #pragma mark 控件的创建和布局
 -(void)createControls{
     self.namenikeLabel = [[UILabel alloc]init];
+    
+    userEventList *model = [userEventList modelWithDictionary:self.dict];
+//    _model = model;
     //    self.namenikeLabel.font = KKFont16;
     //        加粗
     self.namenikeLabel.font = [UIFont affeeBlodFont:16];
@@ -42,7 +56,7 @@
     
     UILabel *timeLabel = [[UILabel alloc] init];
     _timeLabel = timeLabel;
-    timeLabel.text = @"2018年7月25日 10:23";
+    timeLabel.text = model.createTime;
     timeLabel.font = KKFont14;
     
     
@@ -60,6 +74,7 @@
     [self.contentView addSubview:self.imgvIcon];
     [self.contentView addSubview:eventLabel];
 }
+
 -(void)layoutControls{
     
     [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {

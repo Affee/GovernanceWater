@@ -19,7 +19,7 @@
 #import "EventVCModel.h"
 #import <NSObject+YYModel.h>
 #import <YYKit/NSObject+YYModel.h>
-
+#import <YYKit.h>
 #define HeaderHeight 60//顶部筛选的高度
 @interface EventVC ()<UITableViewDelegate,UITableViewDataSource,JMDropMenuDelegate,UIScrollViewDelegate>
 {
@@ -27,12 +27,14 @@
     int buttonY;
     NSMutableDictionary *_requestData;
     NSMutableArray *_recordsMArr;
+    NSInteger _pages;
 }
 
 /**
  模型
  */
 @property (nonatomic, strong) BRInfoModel *infoModel;
+@property (nonatomic,strong) EventVCModel *evenVCModel;
 
 @property(nonatomic,strong) UITableView *tableView;
 /*筛选的View*/
@@ -58,6 +60,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    AFLog(@"token ====%@",Token);
     [super viewWillAppear:animated];
     self.customNavBar.title = @"事件";
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -73,7 +77,6 @@
     }
     [self loadData];
     [self requestData];
-    [self buildTableView];
     
 //    数组字典初始化
     _recordsMArr  = [NSMutableArray array];
@@ -92,10 +95,14 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self buildTableView];
+    [self.view addSubview:_tableView];
+
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
+//    移除添加
     [_addBtn removeFromSuperview];
 }
 
@@ -114,30 +121,25 @@
 -(void)requestData
 {
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-    NSDictionary *dict = @{
-                           @"pages":@2,
-                           @"size":@12,
-                           };
-    [PPNetworkHelper GET:Event_GetList_URL parameters:dict responseCache:^(id responseCache) {
-        
+//    NSDictionary *dict = @{
+//                           @"pages":@2,
+//                           @"size":@12,
+//                           };
+    [PPNetworkHelper GET:Event_GetList_URL parameters:nil responseCache:^(id responseCache) {
+//            缓存稍后再做
     } success:^(id responseObject) {
         _recordsMArr =  responseObject[@"records"];
-//        EventVCModel *eventVCModel = [EventVCModel ];
-//        NSDictionary *json = [self getJsonWithEventVCM:@"DoubleModel"];
-//        EventVCModel *event = [EventVCModel yy];
-//        EventVCModel *eventVCModel = [eventVCModel y];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+            [self buildTableView];
+        });
         
     } failure:^(NSError *error) {
         
     }];
 }
 
-//-(NSDictionary *) getJsonWithEventVCM:(NSString *)eventVCM{
-////    从本地读取json数据（这一步从网络请求）
-//    NSString *path  = [[NSBundle mainBundle]pathForResource:eventVCM ofType:@"json"];
-//    NSData *data = [NSData dataWithContentsOfFile:path];
-//    return [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-//}
 #pragma mark --getter/setter
 
 -(void)buildTableView{
@@ -229,11 +231,12 @@
 #pragma mark - tableview delegate / dataSource 两个代理
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 140;
+    return 130;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 30;
+   return _recordsMArr.count;
+    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *ID = @"EventListCell";
@@ -241,21 +244,46 @@
     if (!cell) {
         cell = [[EventListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
+    
+    EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
+    cell.namenikeLabel.text = eventVCModel.eventContent;
+//    MODE
+    long timeLong = [[ NSString stringWithFormat:@"%@",eventVCModel.createTime] longValue];
+    cell.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh-mm-ss"];
+    if ([DateUtil isEqual:eventVCModel.eventPlace]) {
+        cell.addressLabel.text = @"贵州遵义";
+    }
+    cell.addressLabel.text = eventVCModel.eventPlace;
+    cell.sewageLabel.text = eventVCModel.typeName;
+    cell.eventLabel.text = eventVCModel.eventContent;
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
+//    紧急事件
+    if ([eventVCModel.isUrgen  isEqual: @"0"]) {
+        cell.alarmImg.hidden = YES;
+    }
+
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
     EventDetailsVC *eventDetailsVC = [[EventDetailsVC alloc]init];
-//    EventDetailsVC *eventDetailsVC = EventDetailsVC.new;
+//    MODE 这个后期再搞吧
+    eventDetailsVC.eventID = eventVCModel.EventID;
     eventDetailsVC.customNavBar.title = @"事件详情";
     eventDetailsVC.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:eventDetailsVC animated:YES];
 }
 
-
+-(EventVCModel *)evenVCModel{
+    if (_evenVCModel) {
+        _evenVCModel = [[EventVCModel alloc]init];
+    }
+    return _evenVCModel;
+}
 - (BRInfoModel *)infoModel {
     if (!_infoModel) {
         _infoModel = [[BRInfoModel alloc]init];
+        
     }
     return _infoModel;
 }
@@ -309,4 +337,6 @@
     _addBtn.frame = CGRectMake(_addBtn.frame.origin.x, buttonY+self.tableView.contentOffset.y , _addBtn.frame.size.width, _addBtn.frame.size.height);
 
 }
+
+
 @end

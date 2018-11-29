@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventDetailsVC : AFBaseViewController
+@property (nonatomic, copy) NSString *eventID;
 
 @end
 

@@ -65,11 +65,31 @@
 #import <Foundation/Foundation.h>
 #import <NSObject+YYModel.h>
 
+
 @interface EventVCModel : NSObject
 
-@property NSString *eventContent;
-@property NSDate *createTime;
-
+@property(nonatomic, assign) NSInteger *typeId;
+@property(nonatomic, assign) NSInteger *eventNature;
+@property(nonatomic, copy) NSString *enclosureList2;
+@property(nonatomic, assign) NSInteger *userId;
+@property(nonatomic, assign) NSInteger *updateTime;
+@property(nonatomic, copy) NSString *typeName;
+@property(nonatomic, copy) NSString *approvalOpinion;
+@property(nonatomic, copy) NSString *EventID;
+@property(nonatomic, assign) NSInteger *isDeleted;
+@property(nonatomic, copy) NSString *createTime;
+@property(nonatomic, strong) NSMutableArray *enclosureList;
+@property(nonatomic, copy) NSString *requitEnd;
+@property(nonatomic, assign) NSInteger *riverId;
+@property(nonatomic, copy) NSString *handleName;
+@property(nonatomic, copy) NSString *eventPlace;
+@property(nonatomic, copy) NSString *requit;
+@property(nonatomic, copy) NSString *requitStart;
+@property(nonatomic, copy) NSString *riverName;
+@property(nonatomic, copy) NSString *eventContent;
+@property(nonatomic, copy) NSString *handleOpinion;
+@property(nonatomic, copy) NSString *isUrgen;
+@property(nonatomic, assign) NSInteger *eventStatus;
 
 @end
 

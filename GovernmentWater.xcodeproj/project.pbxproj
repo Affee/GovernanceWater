@@ -30,6 +30,9 @@
 		F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578663219ABB0F003D87EA /* ViewRiverVC.m */; };
 		F6578667219ABB23003D87EA /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578666219ABB23003D87EA /* EventVC.m */; };
 		F657866A219ABB37003D87EA /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578669219ABB37003D87EA /* MineVC.m */; };
+		F669DA7621AEA3B300CAE242 /* BRInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DA7521AEA3B300CAE242 /* BRInfoModel.m */; };
+		F669DA7921AF8F2200CAE242 /* EventDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DA7821AF8F2200CAE242 /* EventDetailModel.m */; };
+		F669DA7C21AFF06400CAE242 /* userEventList.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DA7B21AFF06400CAE242 /* userEventList.m */; };
 		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
 		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
 		F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F695C1D821A28E5100E93F1A /* BRPickerView.bundle */; };
@@ -37,7 +40,6 @@
 		F695C1EA21A28E7B00E93F1A /* BRDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E021A28E5100E93F1A /* BRDatePickerView.m */; };
 		F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E221A28E5100E93F1A /* NSDate+BRPickerView.m */; };
 		F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1E521A28E5100E93F1A /* BRStringPickerView.m */; };
-		F695C1EF21A28EFD00E93F1A /* BRInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */; };
 		F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C27F21A4189600E93F1A /* RecordEventCell.m */; };
 		F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28221A42F2800E93F1A /* RecordHeaderCell.m */; };
 		F695C28921A4FB9A00E93F1A /* DealingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28821A4FB9A00E93F1A /* DealingCell.m */; };
@@ -126,6 +128,12 @@
 		F6578666219ABB23003D87EA /* EventVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
 		F6578668219ABB37003D87EA /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
 		F6578669219ABB37003D87EA /* MineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineVC.m; sourceTree = "<group>"; };
+		F669DA7421AEA3B300CAE242 /* BRInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRInfoModel.h; sourceTree = "<group>"; };
+		F669DA7521AEA3B300CAE242 /* BRInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRInfoModel.m; sourceTree = "<group>"; };
+		F669DA7721AF8F2200CAE242 /* EventDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailModel.h; sourceTree = "<group>"; };
+		F669DA7821AF8F2200CAE242 /* EventDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailModel.m; sourceTree = "<group>"; };
+		F669DA7A21AFF06400CAE242 /* userEventList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = userEventList.h; sourceTree = "<group>"; };
+		F669DA7B21AFF06400CAE242 /* userEventList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = userEventList.m; sourceTree = "<group>"; };
 		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		F695C1D521A28E5100E93F1A /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
 		F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
@@ -141,8 +149,6 @@
 		F695C1E221A28E5100E93F1A /* NSDate+BRPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRPickerView.m"; sourceTree = "<group>"; };
 		F695C1E421A28E5100E93F1A /* BRStringPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRStringPickerView.h; sourceTree = "<group>"; };
 		F695C1E521A28E5100E93F1A /* BRStringPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRStringPickerView.m; sourceTree = "<group>"; };
-		F695C1ED21A28EFD00E93F1A /* BRInfoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRInfoModel.h; sourceTree = "<group>"; };
-		F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRInfoModel.m; sourceTree = "<group>"; };
 		F695C27E21A4189600E93F1A /* RecordEventCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordEventCell.h; sourceTree = "<group>"; };
 		F695C27F21A4189600E93F1A /* RecordEventCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RecordEventCell.m; sourceTree = "<group>"; };
 		F695C28121A42F2800E93F1A /* RecordHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordHeaderCell.h; sourceTree = "<group>"; };
@@ -314,12 +320,16 @@
 		586D1778CACBAD984CD48D42 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F695C1ED21A28EFD00E93F1A /* BRInfoModel.h */,
-				F695C1EE21A28EFD00E93F1A /* BRInfoModel.m */,
+				F669DA7421AEA3B300CAE242 /* BRInfoModel.h */,
+				F669DA7521AEA3B300CAE242 /* BRInfoModel.m */,
 				F6A5C707219D5C6400EB846F /* EventListCellModel.h */,
 				F6A5C708219D5C6400EB846F /* EventListCellModel.m */,
 				F6299E5921AE645C009382EB /* EventVCModel.h */,
 				F6299E5A21AE645C009382EB /* EventVCModel.m */,
+				F669DA7721AF8F2200CAE242 /* EventDetailModel.h */,
+				F669DA7821AF8F2200CAE242 /* EventDetailModel.m */,
+				F669DA7A21AFF06400CAE242 /* userEventList.h */,
+				F669DA7B21AFF06400CAE242 /* userEventList.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -865,7 +875,6 @@
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
-				F695C1EF21A28EFD00E93F1A /* BRInfoModel.m in Sources */,
 				F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */,
 				F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */,
 				F6C92B7921A9506900EE05D1 /* FLAnimatedImage.m in Sources */,
@@ -882,13 +891,16 @@
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,
+				F669DA7C21AFF06400CAE242 /* userEventList.m in Sources */,
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
 				F695C1EA21A28E7B00E93F1A /* BRDatePickerView.m in Sources */,
 				F695C28921A4FB9A00E93F1A /* DealingCell.m in Sources */,
 				F6C92B6A21A94B3400EE05D1 /* TZLocationManager.m in Sources */,
+				F669DA7921AF8F2200CAE242 /* EventDetailModel.m in Sources */,
 				F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */,
 				F6C92B4021A9308300EE05D1 /* UITextView+ZWLimitCounter.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,
+				F669DA7621AEA3B300CAE242 /* BRInfoModel.m in Sources */,
 				F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */,
 				F657861721992027003D87EA /* AppDelegate.m in Sources */,
 				F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */,

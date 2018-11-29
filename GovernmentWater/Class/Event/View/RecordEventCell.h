@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "userEventList.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RecordEventCell : UITableViewCell
+
 
 /**
  图片
@@ -22,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *eventLabel;
 
 @property (nonatomic, strong) UILabel *timeLabel;
+
+@property (nonatomic,strong) userEventList *model;
+@property (nonatomic,strong) NSDictionary *dict;
 
 
 @end

@@ -15,7 +15,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="iphoneos_813950ca611330fd3d8ad20b24e365428967391d" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="HomeViewController.m" pinned="false" current-in-tab="false">
@@ -75,8 +75,8 @@
       <file leaf-file-name="ReportVC.m" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/ReportVC.m">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="249" column="18" lean-forward="true" selection-start-line="249" selection-start-column="18" selection-end-line="249" selection-end-column="18" />
+            <state relative-caret-position="395">
+              <caret line="242" column="22" lean-forward="true" selection-start-line="242" selection-start-column="22" selection-end-line="242" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -313,7 +313,7 @@
       <workItem from="1542721875881" duration="1174000" />
       <workItem from="1542769291690" duration="22205000" />
       <workItem from="1543200276288" duration="13759000" />
-      <workItem from="1543369492339" duration="793000" />
+      <workItem from="1543369492339" duration="1450000" />
     </task>
     <task id="LOCAL-00001" summary="第三方库添加">
       <created>1542017506710</created>
@@ -431,7 +431,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92508000" />
+    <option name="totallyTimeSpent" value="93165000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -444,6 +444,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="986" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17535545" />
@@ -790,8 +791,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GovernmentWater/Class/Event/Controller/ReportVC.m">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="249" column="18" lean-forward="true" selection-start-line="249" selection-start-column="18" selection-end-line="249" selection-end-column="18" />
+        <state relative-caret-position="395">
+          <caret line="242" column="22" lean-forward="true" selection-start-line="242" selection-start-column="22" selection-end-line="242" selection-end-column="22" />
         </state>
       </provider>
     </entry>

@@ -57,6 +57,7 @@
 #import <UIKit/UIKit.h>
 #import <Masonry.h>
 #import <YYKit/YYKit.h>
+#import <NSObject+YYModel.h>
 
 //类别
 #import "UIFont+Affee.h"

@@ -10,4 +10,16 @@
 
 @implementation EventVCModel
 
+//- (void)setValue:(id)value forUndefinedKey:(NSString *)key
+//{
+//    if([key isEqualToString:@"id"])
+//    self.EventID = key;
+//}
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key  {
+    
+    if([key isEqualToString:@"id"])
+        
+        self.EventID = value;
+    
+}
 @end
