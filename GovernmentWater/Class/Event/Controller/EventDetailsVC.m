@@ -35,8 +35,7 @@
 @implementation EventDetailsVC
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    //    数据请求
-    [self getListData];
+  
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,7 +47,8 @@
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
     [self wr_setNavBarBackgroundAlpha:1];
     
-
+    //    数据请求
+    [self getListData];
 //    初始化
     _eventContentStr = @"选";
     _imagesArr = [[NSMutableArray alloc]initWithObjects: [NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"],nil];
@@ -64,7 +64,7 @@
 -(void)getListData{
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
     NSDictionary *dict =@{
-                          @"id":@76,
+                          @"id":self.eventID,
                           };
     [PPNetworkHelper GET:Event_FindById_URL parameters:dict success:^(id responseObject) {
         _userEventListArr = responseObject[@"userEventList"];
@@ -77,11 +77,10 @@
         _detailArr = [[NSMutableArray alloc]initWithObjects:model.updateTime,model.isUrgen,model.riverName,model.eventPlace,model.typeId,nil];
         _eventContentStr = model.eventContent;
         
-        [_imagesArr removeAllObjects];
+//        [_imagesArr removeAllObjects];
         _imagesArr = model.enclosureList;
 //            _eventDict = responseObject[@"event"];
         
-//            _upArr = @[_eventDict[@"updateTime"],_eventDict[@"isUrgen"],_eventDict[@"riverName"],_eventDict[@"eventPlace"],_eventDict[@"typeId"]];
         
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableView reloadData];
@@ -102,11 +101,19 @@
 {
     if (section == 0) {
         return 6;
-    }else if (section ==1){
-        return 1;
-    }else {
-        return 3;
     }
+    if (section ==1){
+        return 1;
+    }
+//    if ([array isKindOfClass:[NSArray class]] && array.count > 0)
+    if (section == 2) {
+        if ([_UserEventListArr isKindOfClass:[NSArray class]] && _UserEventListArr.count > 0) {
+            return _UserEventListArr.count;
+        }else{
+            return 0;
+        }
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,7 +165,7 @@
         }
         cell.eventLabel.text = _eventContentStr;
         cell.imageArr = _imagesArr;
-        
+//        cell.RequestDict = _RequestDict;
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }else if (indexPath.section == 0 && indexPath.row >0){
@@ -178,6 +185,7 @@
         if (!cell){
             cell = [[DealingCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:DealingC];
         }
+        
         cell.selectionStyle = UITableViewCellSeparatorStyleNone;
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         return cell;

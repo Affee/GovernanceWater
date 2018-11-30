@@ -12,16 +12,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
 }
--(NSMutableArray *)imageArr
-{
-    if (!_imageArr) {
-        NSMutableArray *imageArr = [[NSMutableArray alloc]init];
-        _imageArr = imageArr;
-    }
-    return _imageArr;
-}
+
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -32,13 +25,31 @@
     return self;
 }
 
-
+-(EventDetailModel *)model
+{
+    if (_model) {
+        EventDetailModel *model = [ EventDetailModel modelWithDictionary:_RequestDict];
+        _model = model;
+    }
+    return _model;
+}
+-(NSMutableArray *)imageArr{
+    if (_imageArr) {
+        NSMutableArray *imageArr = [NSMutableArray array];
+        imageArr = _model.enclosureList;
+        _imageArr = imageArr;
+    }
+    AFLog(@"===图片流程===%@",_imageArr);
+    return _imageArr;
+}
 #pragma mark 控件的创建和布局
 -(void)createControls{
     self.eventLabel = [[UILabel alloc]init];
-    self.eventLabel.font = KKFont14;
+    self.eventLabel.font = KKFont16;
     self.eventLabel.text = @"高坪镇高坪河河道污染严河道污染严重高坪镇高坪河河道污染严重";
     self.eventLabel.numberOfLines = 0;
+    
+//    EventDetailModel *model = [EventDetailModel modelWithDictionary:_imageArr];
     
     [self.contentView addSubview:self.eventLabel];
     [self.eventLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -48,7 +59,7 @@
         make.height.greaterThanOrEqualTo(@20).priorityHigh();//优先级 high
         //        make.bottom.equalTo(_addressLabel.mas_top).offset(-Padding).priorityLow;// 低
     }];
-
+    
     for (int i = 0; i <= _imageArr.count; i++) {
         self.imgvIcon = [[UIImageView alloc]init];
         [self.imgvIcon sd_setImageWithURL:_imageArr[i] placeholderImage:KKPlaceholderImage];

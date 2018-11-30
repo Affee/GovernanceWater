@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong)NSMutableArray *imageArr;
 
 @property (nonatomic,strong)EventDetailModel *model;
+@property (nonatomic, strong) NSDictionary *RequestDict;
+
 @end
 
 NS_ASSUME_NONNULL_END
