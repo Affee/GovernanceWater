@@ -27,7 +27,7 @@
 #import "PPHTTPRequest.h"
 #import "PPNetworkHelper.h"
 #import "AFGetImageAsset.h"
-#import "CharacterSelectionVC.h"
+#import "CLLThreeTreeViewController.h"
 
 
 @interface ReportVC ()<UITableViewDelegate, UITableViewDataSource,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
@@ -232,8 +232,8 @@
     return nil;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    CharacterSelectionVC *characterVC = [[CharacterSelectionVC alloc]init];
-    characterVC.customNavBar.title = @"朋友列表";
+    CLLThreeTreeViewController *characterVC = [[CLLThreeTreeViewController alloc]init];
+    characterVC.title = @"朋友列表";
     characterVC.view.backgroundColor = [UIColor yellowColor];
     [self.navigationController pushViewController:characterVC animated:YES];
 }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChapterHeader">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t60-ld-ijr">
+                    <rect key="frame" x="52" y="8" width="186" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="186" id="1bx-1b-huW"/>
+                        <constraint firstAttribute="height" constant="21" id="6Ct-NZ-5mP"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LCP-n7-oVE">
+                    <rect key="frame" x="13" y="0.0" width="19" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="2aC-qv-TPu"/>
+                        <constraint firstAttribute="width" constant="19" id="6Wm-iz-pzu"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oLc-hg-eVx">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="LCP-n7-oVE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6Cd-TW-ZXl"/>
+                <constraint firstAttribute="trailing" secondItem="oLc-hg-eVx" secondAttribute="trailing" id="KYY-p0-scz"/>
+                <constraint firstItem="t60-ld-ijr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="Md3-Ju-xMo"/>
+                <constraint firstItem="oLc-hg-eVx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="U4c-as-dBO"/>
+                <constraint firstItem="oLc-hg-eVx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Vor-VZ-wla"/>
+                <constraint firstItem="t60-ld-ijr" firstAttribute="leading" secondItem="LCP-n7-oVE" secondAttribute="trailing" constant="20" id="bu6-WH-kgd"/>
+                <constraint firstItem="LCP-n7-oVE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="fre-r3-VgC"/>
+                <constraint firstAttribute="bottom" secondItem="oLc-hg-eVx" secondAttribute="bottom" id="qs4-pq-0zl"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="chapterName" destination="t60-ld-ijr" id="Rd7-xF-7iX"/>
+                <outlet property="imageView" destination="LCP-n7-oVE" id="2j7-0T-M47"/>
+                <outlet property="openButton" destination="oLc-hg-eVx" id="mVe-t2-YKU"/>
+            </connections>
+            <point key="canvasLocation" x="475" y="310"/>
+        </view>
+    </objects>
+</document>
