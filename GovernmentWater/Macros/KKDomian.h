@@ -22,6 +22,9 @@
 #define Event_GetList_URL  KKStringWithFormat(@"%@/event/getList", Base_Url)
 // 根据事件id 查询事件详情
 #define Event_FindById_URL  KKStringWithFormat(@"%@/event/findById", Base_Url)
+//行政区域列表
+#define Event_GetRegin_URL KKStringWithFormat(@"%@/event/getRegion", Base_Url)
+
 
 
 

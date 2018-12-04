@@ -27,6 +27,7 @@
 #import "PPHTTPRequest.h"
 #import "PPNetworkHelper.h"
 #import "AFGetImageAsset.h"
+#import "CharacterSelectionVC.h"
 
 
 @interface ReportVC ()<UITableViewDelegate, UITableViewDataSource,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
@@ -56,6 +57,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.backgroundColor = KKBlueColor;
+
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
     [self.view addSubview:_tableView];
     _selectedPhotos = [NSMutableArray array];
@@ -227,6 +230,12 @@
         return cell;
     }
     return nil;
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    CharacterSelectionVC *characterVC = [[CharacterSelectionVC alloc]init];
+    characterVC.customNavBar.title = @"朋友列表";
+    characterVC.view.backgroundColor = [UIColor yellowColor];
+    [self.navigationController pushViewController:characterVC animated:YES];
 }
 
 #pragma mark ----tableView get/setter

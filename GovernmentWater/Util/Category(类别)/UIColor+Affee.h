@@ -10,11 +10,11 @@
 
 @interface UIColor (Affee)
 
-//十六进制颜色值
-+(UIColor *) colorWithHex:(long)hex;
-+(UIColor *) colorWithHexString:(NSString *)hex;
-
-+(UIColor *) colorWithHex:(long)hex alpha:(float)alpha;
+////十六进制颜色值
+//+(UIColor *) colorWithHex:(long)hex;
+//+(UIColor *) colorWithHexString:(NSString *)hex;
+//
+//+(UIColor *) colorWithHex:(long)hex alpha:(float)alpha;
 
 
 @end
