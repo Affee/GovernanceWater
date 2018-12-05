@@ -112,6 +112,7 @@
 }
 -(void)getData{
     
+    [SVProgressHUD show];
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
     [PPNetworkHelper GET:Event_GetRegin_URL parameters:nil
            responseCache:^(id responseCache) {
@@ -134,39 +135,12 @@
                dispatch_async(dispatch_get_main_queue(), ^{
                    [_tableView reloadData];
                });
-               
+                [SVProgressHUD dismiss];
            } failure:^(NSError *error) {
                
            }];
-    
-    
-//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"json" ofType:nil];
-//    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-//    _dataSource = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-//
-//    self.sectionOpen = [NSMutableArray array];
-//    for (NSInteger i = 0; i < self.dataSource.count; i++) {
-//        [self.sectionOpen addObject:@0];
-//    }
-//
-//    for (NSDictionary *dic1 in self.dataSource) {
-//        NSArray *arr2 = dic1[@"childrenList"];
-//        for (NSDictionary *dic2 in arr2) {
-//            NSString *key = [NSString stringWithFormat:@"%@", dic2[@"chapterID"]];
-//            CLLThreeTreeModel *model = [[CLLThreeTreeModel alloc] initWithDic:dic2];
-//            model.isShow = NO;
-//            [self.cellOpen setValue:model forKey:key];
-//        }
-//    }
-
 }
-//-(UITableView *)tableView
-//{
-//    if (!_tableView) {
-//        _tableView = [[UITableView alloc]init];
-//    }
-//    return _tableView;
-//}
+
 
 - (void)sectionAction:(UIButton *)button{
     currentSection = button.tag;
@@ -305,12 +279,9 @@
         
         [cell hiddenTableView];
     }
-    
     cell.selectedBackgroundView = [[UIView alloc] initWithFrame:cell.frame];
     cell.selectedBackgroundView.backgroundColor = [UIColor clearColor];
-    
     return cell;
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -346,11 +317,14 @@
     NSDictionary *cellData = cellArray[indexPath.row];
     
     NSString *key = [NSString stringWithFormat:@"%@", cellData[@"id"]];
-    CLLThreeTreeModel *chapterModel = [self.cellOpen valueForKey:key];
     
+    CLLThreeTreeModel *chapterModel = [self.cellOpen valueForKey:key];
     chapterModel.isShow = !chapterModel.isShow;
     
+    
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    
 }
 
 

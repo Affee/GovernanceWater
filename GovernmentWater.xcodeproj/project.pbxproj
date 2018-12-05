@@ -42,6 +42,7 @@
 		F669DAB221B6809700CAE242 /* ChapterHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DAAC21B6809700CAE242 /* ChapterHeader.m */; };
 		F669DAB321B6809700CAE242 /* CLLThreeTreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DAAD21B6809700CAE242 /* CLLThreeTreeTableViewCell.m */; };
 		F669DAB421B6809700CAE242 /* ChapterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DAAE21B6809700CAE242 /* ChapterTableViewCell.m */; };
+		F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DAB621B7814000CAE242 /* MemberListVC.m */; };
 		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
 		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
 		F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F695C1D821A28E5100E93F1A /* BRPickerView.bundle */; };
@@ -159,6 +160,8 @@
 		F669DAAE21B6809700CAE242 /* ChapterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChapterTableViewCell.m; sourceTree = "<group>"; };
 		F669DAAF21B6809700CAE242 /* CLLThreeTreeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLThreeTreeTableViewCell.h; sourceTree = "<group>"; };
 		F669DAB021B6809700CAE242 /* ChapterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterTableViewCell.h; sourceTree = "<group>"; };
+		F669DAB521B7813F00CAE242 /* MemberListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberListVC.h; sourceTree = "<group>"; };
+		F669DAB621B7814000CAE242 /* MemberListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberListVC.m; sourceTree = "<group>"; };
 		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		F695C1D521A28E5100E93F1A /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
 		F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
@@ -404,6 +407,8 @@
 				F695C28E21A54C3C00E93F1A /* ReportVC.m */,
 				F669DAA221B67D2E00CAE242 /* CLLThreeTreeViewController.h */,
 				F669DAA321B67D2E00CAE242 /* CLLThreeTreeViewController.m */,
+				F669DAB521B7813F00CAE242 /* MemberListVC.h */,
+				F669DAB621B7814000CAE242 /* MemberListVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -928,6 +933,7 @@
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
+				F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,

@@ -24,11 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.customNavBar.title = @"我的";
-//     [self wr_setNavBarTintColor:[UIColor blueColor]];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
-
-    
 }
 
 -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -42,7 +39,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
         static NSString *NCell=@"NCell";
         UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];
         if (cell  == nil) {

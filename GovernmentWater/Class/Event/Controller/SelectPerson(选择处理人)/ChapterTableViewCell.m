@@ -11,6 +11,7 @@
 #import "CLLThreeTreeTableViewCell.h"
 #import "AppDelegate.h"
 #import "CLLThreeTreeViewController.h"
+#import "MemberListVC.h"
 
 @implementation ChapterTableViewCell
 
@@ -68,7 +69,6 @@
         NSString *chapterId = dict[@"id"];
         [self.chapterIdArray addObject:chapterId];
     }
-    
     CGRect frame = self.tableView.frame;
     frame.size.height = 60 * array.count;
     self.tableView.frame = frame;
@@ -90,6 +90,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     NSString *str = self.dataArray[indexPath.row];
     
+    
     cell.image = [[UIImageView alloc] initWithFrame:CGRectMake(13, 0, 19, 60)];
     [cell.contentView addSubview:cell.image];
     cell.label = [[UILabel alloc] initWithFrame:CGRectMake(45, 8, 183, 21)];
@@ -107,6 +108,19 @@
         [cell.image setContentMode:UIViewContentModeScaleAspectFit];
     }
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MemberListVC *memlist = [[MemberListVC alloc]init];
+    memlist.view.backgroundColor = [UIColor whiteColor];
+    memlist.customNavBar.title = [NSString stringWithFormat:@"%@",self.dataArray[indexPath.row]];
+    
+    
+    NSString *strID =self.chapterIdArray[indexPath.row];
+    NSLog(@"我是====%ld=====%@=======%@",(long)indexPath.row,strID,self.dataArray[indexPath.row]);
+    
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

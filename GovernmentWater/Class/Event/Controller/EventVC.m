@@ -248,8 +248,8 @@
     EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
     cell.namenikeLabel.text = eventVCModel.eventContent;
 //    MODE
-    long timeLong = [[ NSString stringWithFormat:@"%@",eventVCModel.createTime] longValue];
-    cell.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh-mm-ss"];
+    long timeLong = [[ NSString stringWithFormat:@" %@ ",eventVCModel.createTime] longValue];
+    cell.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh:mm:ss"];
     if ([DateUtil isEqual:eventVCModel.eventPlace]) {
         cell.addressLabel.text = @"贵州遵义";
     }

@@ -28,6 +28,7 @@
 #import "PPNetworkHelper.h"
 #import "AFGetImageAsset.h"
 #import "CLLThreeTreeViewController.h"
+#import "DealingCell.h"
 
 
 @interface ReportVC ()<UITableViewDelegate, UITableViewDataSource,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
@@ -93,10 +94,10 @@
 //        NSString *filename = _selectedAssets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
 //        [_addUpDataArr addObject:filename];
 //    }
-        for (int i = 0; i<_selectedAssets.count; i++) {
-            NSString *filename = _selectedAssets[i][@"filename"];
-            [_addUpDataArr addObject:filename];
-        }
+//        for (int i = 0; i<_selectedAssets.count; i++) {
+//            NSString *filename = _selectedAssets[i][@"filename"];
+//            [_addUpDataArr addObject:filename];
+//        }
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
     AFLog(@"%@",Token);
     [PPNetworkHelper uploadImagesWithURL:WorkerEvents_URL parameters:dict name:nil images:_addUpDataArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
@@ -122,28 +123,40 @@
 
 #pragma mark - tableview delegate / dataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 2;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+//    if (section == 0) {
+//        if ([self.customNavBar.title isEqualToString:@"督办事件"]) {
+//            return 4;
+//        }else{
+//            return 3;
+//        }
+//    }else {
+//        return 1;
+//    }
     if (section == 0) {
-        if ([self.customNavBar.title isEqualToString:@"督办事件"]) {
-            return 4;
-        }else{
-            return 3;
-        }
-    }else {
+        return 1;
+    }else if (section == 1){
+        return 1;
+    }else if (section == 2){
+        return 4;
+    }else if (section == 1){
+        return 1;
+    }else{
         return 1;
     }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section ==0 && indexPath.row ==0){
         return 100+(KKScreenWidth - 12)/3;
-    }else if (indexPath.section == 1){
-        return 50;
+    }else if (indexPath.section == 3){
+        return 80;
     }else{
         return 60;
     }
@@ -152,8 +165,12 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return 50;
-    }else{
-        return 10;
+    }else if (section == 3)
+    {
+        return 50;
+    }
+    else{
+        return 0;
     }
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -168,8 +185,8 @@
         case 0:
             titleLabel.text = @"问题";
             break;
-        case 1:
-            titleLabel.text = @" ";
+        case 3:
+            titleLabel.text = @"处理人";
             break;
         default:
             break;
@@ -177,8 +194,8 @@
     return bigView;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.section == 0) {
-        if (indexPath.row == 0) {
+    
+        if (indexPath.section == 0) {
             static NSString *TextAndImage = @"TextAndImage";
             TextAndImagesCell *cell = [tableView dequeueReusableCellWithIdentifier:TextAndImage];
             if (!cell) {
@@ -191,24 +208,44 @@
             [big addSubview:_collectionView];
             big.backgroundColor = [UIColor clearColor];
             return cell;
-        }else{
+        }else if (indexPath.section == 1){
+            static NSString *NCells=@"NCells";
+            UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCells];
+            if (cell  == nil) {
+                cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NCells];
+            }
+            cell.textLabel.text  = @"附件";
+            cell.textLabel.font = [UIFont affeeBlodFont:16];
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            return cell;
+        }else if (indexPath.section == 2){
             static NSString *NCell=@"NCell";
             UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];
             if (cell  == nil) {
                 cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NCell];
             }
-            if ([self.customNavBar.title isEqualToString:@"督办事件"]) {
-               NSArray *arr = @[@"上报时间",@"地址",@"类型"];
-                cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
-            }else{
-              NSArray *arr = @[@"地址",@"类型"];
-                cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
-            }
+            NSArray *arr = @[@"紧急",@"河道",@"地址",@"类型"];
+            cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row]];
+//            if ([self.customNavBar.title isEqualToString:@"督办事件"]) {
+//               NSArray *arr = @[@"上报时间",@"地址",@"类型"];
+//                cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
+//            }else{
+//              NSArray *arr = @[@"地址",@"类型"];
+//                cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
+//            }
             cell.textLabel.font = [UIFont affeeBlodFont:16];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             return cell;
-        }
-    }else{
+        }else if (indexPath.section == 3){
+            static  NSString *DealingC = @"DealingC";
+            DealingCell *cell = [tableView dequeueReusableCellWithIdentifier:DealingC];
+            if (!cell){
+                cell = [[DealingCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:DealingC];
+            }
+            cell.selectionStyle = UITableViewCellSeparatorStyleNone;
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            return cell;
+        }else{
         static NSString *NCell=@"NCell";
         UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];
         if (cell  == nil) {
@@ -430,10 +467,15 @@
     // You can get the photos by block, the same as by delegate.
     // 你可以通过block或者代理，来得到用户选择的照片.
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-   
-//        _upImages = assets;
-   
-
+//      照片返回的结果
+//        for (int i = 0 ; i <photos.count; i++) {
+//            [_addUpDataArr addObjectsFromArray:photos[i]];
+//        }
+//             [_addUpDataArr addObjectsFromArray:photos];
+        for (NSString *strr in photos) {
+            [_addUpDataArr addObject:strr];
+        }
+        
     }];
 //    [[TZImageManager manager] getOriginalPhotoWithAsset:completion:]
     
