@@ -15,7 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UILabel *eventLabel;
 @property (nonatomic, strong) UIImageView *imgvIcon;
-@property (nonatomic,strong)NSMutableArray *imageArr;
 
 @property (nonatomic,strong)EventDetailModel *model;
 @property (nonatomic, strong) NSDictionary *RequestDict;

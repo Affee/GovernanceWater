@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSString *handleOpinion;
 @property(nonatomic, copy) NSString *isUrgen;
 @property(nonatomic, copy) NSString *avatar;
+
 @end
 
 

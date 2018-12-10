@@ -7,20 +7,15 @@
 //
 
 #import "AFBaseNavigationController.h"
-
 @interface AFBaseNavigationController ()
-
 @end
-
 @implementation AFBaseNavigationController
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     UINavigationBar *bar = [UINavigationBar appearance];
     bar.barTintColor = [UIColor whiteColor];
     bar.translucent = YES;  //半透明
-    //设置字体颜色
     bar.tintColor = [UIColor blackColor];
     [bar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor]}];
 }
@@ -30,7 +25,6 @@
         viewController.hidesBottomBarWhenPushed = YES;
     }
     [super pushViewController:viewController animated:animated];
-
 }
-
 @end
+ 

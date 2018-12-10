@@ -125,4 +125,7 @@
 #define KKPlaceholderImage [UIImage imageNamed:[NSString stringWithFormat:@"首页icon copy"]]
 
 
+//if (imageArr != nil && ![imageArr isKindOfClass:[NSNull class]] && imageArr.count != 0){
+
+
 #endif /* PrefixHeader_pch */

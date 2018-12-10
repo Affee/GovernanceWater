@@ -220,7 +220,7 @@
                 [SVProgressHUD showErrorWithStatus:@"重新登录"];
             }
         }else{
-            
+            [SVProgressHUD showErrorWithStatus:@"输入正确的账号密码"];
         }
     } failure:^(NSError *error) {
         

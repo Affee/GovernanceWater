@@ -25,7 +25,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *timeLabel;
 
 @property (nonatomic,strong) userEventList *model;
-@property (nonatomic,strong) NSDictionary *dict;
 
 
 @end

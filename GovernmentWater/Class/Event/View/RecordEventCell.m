@@ -14,16 +14,14 @@
     [super awakeFromNib];
     
 }
-//-(userEventList *)model{
-//    if (_model) {
-//        userEventList *model = [userEventList modelWithDictionary:self.dict];
-//        _model = model;
-////        self.namenikeLabel.text = _model.createTime;
-//        AFLog(@"%@====_model.createTime",_model.createTime);
-//    }
-//    return _model;
-//}
 
+-(void)setModel:(userEventList *)model
+{
+    self.namenikeLabel.text = model.startName;
+    self.eventLabel.text = model.processDescription;
+    long timeLong = [[ NSString stringWithFormat:@" %@ ",model.createTime] longValue];
+    self.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh:mm:ss"];
+}
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -39,15 +37,11 @@
 #pragma mark 控件的创建和布局
 -(void)createControls{
     self.namenikeLabel = [[UILabel alloc]init];
-    
-    userEventList *model = [userEventList modelWithDictionary:self.dict];
-//    _model = model;
-    //    self.namenikeLabel.font = KKFont16;
     //        加粗
     self.namenikeLabel.font = [UIFont affeeBlodFont:16];
     //    self.namenikeLabel.backgroundColor = KKColorLightGray;
     self.namenikeLabel.textColor = KKColorPurple;
-    self.namenikeLabel.text = @"黄蕾";
+//    self.namenikeLabel.text = _dict[@"endName"];
     self.namenikeLabel.numberOfLines = 0;
     self.imgvIcon = [[UIImageView alloc]init];
     self.imgvIcon.layer.cornerRadius =  20;
@@ -56,7 +50,7 @@
     
     UILabel *timeLabel = [[UILabel alloc] init];
     _timeLabel = timeLabel;
-    timeLabel.text = model.createTime;
+    timeLabel.text = _model.createTime;
     timeLabel.font = KKFont14;
     
     
@@ -66,7 +60,7 @@
     _eventLabel = eventLabel;
     eventLabel.font = KKFont14;
     eventLabel.textColor = KKBlueColor;
-    eventLabel.text = @"我曾经跨过山和大海";
+    eventLabel.text = _model.processDescription;
     eventLabel.numberOfLines = 0;
     
     [self.contentView addSubview:timeLabel];

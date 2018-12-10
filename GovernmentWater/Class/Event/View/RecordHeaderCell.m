@@ -9,10 +9,13 @@
 #import "RecordHeaderCell.h"
 
 @implementation RecordHeaderCell
+{
+    NSMutableArray *_imageArr;
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    _imageArr = [[NSMutableArray alloc]init];
 }
 
 
@@ -25,28 +28,32 @@
     return self;
 }
 
--(EventDetailModel *)model
+-(void)setModel:(EventDetailModel *)model
 {
-    if (_model) {
-        EventDetailModel *model = [ EventDetailModel modelWithDictionary:_RequestDict];
-        _model = model;
-    }
-    return _model;
+    self.eventLabel.text = model.eventContent;
+//     NSMutableArray *imageArr = [NSMutableArray array];
+    _imageArr = [NSMutableArray arrayWithObject:model.enclosureList];
+//    if (imageArr != nil && ![imageArr isKindOfClass:[NSNull class]] && imageArr.count != 0){
+//        for (int i = 0; i <= imageArr.count; i++) {
+//            self.imgvIcon = [[UIImageView alloc]init];
+//            [self.imgvIcon sd_setImageWithURL:imageArr[i] placeholderImage:KKPlaceholderImage];
+//            //        [self.imgvIcon setImageWithURL:imageArr[i] placeholder:KKPlaceholderImage];
+//            [self.contentView addSubview:self.imgvIcon];
+//            [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.left.equalTo(self.contentView).offset(Padding +((KKScreenWidth - Padding*4)/3 +Padding)*i);
+//                make.bottom.equalTo(self.contentView).offset(-Padding);
+//                make.width.equalTo(@((KKScreenWidth - Padding*4)/3));
+//                make.height.equalTo(@(((KKScreenWidth - Padding*4)/3)*3/4));
+//            }];
+//        }
+//    }else{
+//    }
 }
--(NSMutableArray *)imageArr{
-    if (_imageArr) {
-        NSMutableArray *imageArr = [NSMutableArray array];
-        imageArr = _model.enclosureList;
-        _imageArr = imageArr;
-    }
-    AFLog(@"===图片流程===%@",_imageArr);
-    return _imageArr;
-}
+
 #pragma mark 控件的创建和布局
 -(void)createControls{
     self.eventLabel = [[UILabel alloc]init];
     self.eventLabel.font = KKFont16;
-    self.eventLabel.text = @"高坪镇高坪河河道污染严河道污染严重高坪镇高坪河河道污染严重";
     self.eventLabel.numberOfLines = 0;
     
 //    EventDetailModel *model = [EventDetailModel modelWithDictionary:_imageArr];
@@ -59,12 +66,13 @@
         make.height.greaterThanOrEqualTo(@20).priorityHigh();//优先级 high
         //        make.bottom.equalTo(_addressLabel.mas_top).offset(-Padding).priorityLow;// 低
     }];
+
     
     for (int i = 0; i <= _imageArr.count; i++) {
         self.imgvIcon = [[UIImageView alloc]init];
         [self.imgvIcon sd_setImageWithURL:_imageArr[i] placeholderImage:KKPlaceholderImage];
+        //        [self.imgvIcon setImageWithURL:imageArr[i] placeholder:KKPlaceholderImage];
         [self.contentView addSubview:self.imgvIcon];
-
         [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView).offset(Padding +((KKScreenWidth - Padding*4)/3 +Padding)*i);
             make.bottom.equalTo(self.contentView).offset(-Padding);
@@ -72,6 +80,8 @@
             make.height.equalTo(@(((KKScreenWidth - Padding*4)/3)*3/4));
         }];
     }
+
+
 }
 
 

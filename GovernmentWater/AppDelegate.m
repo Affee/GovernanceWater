@@ -19,6 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    AFLog(@"%@",Token);
     //设置显示的时间
     [SVProgressHUD setMinimumDismissTimeInterval:1];
     
