@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger *isDeleted;
 @property(nonatomic, copy) NSString *realName;
 @property(nonatomic, assign) NSInteger *createTime;
-@property(nonatomic, strong) NSMutableArray *enclosureList;
+@property(nonatomic, strong) NSArray<NSString *> *enclosureList;
 @property(nonatomic, copy) NSString *requitEnd;
 @property(nonatomic, assign) NSInteger *riverId;
 @property(nonatomic, copy) NSString *handleName;

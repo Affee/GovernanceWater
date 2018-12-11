@@ -24,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.customNavBar.title = @"我的";
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
 }
@@ -117,6 +118,7 @@
     UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"确定退出登陆" message:@"是/否" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *del = [UIAlertAction actionWithTitle:@"确定退出" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         AFLog(@"点击确定");
+        [PPNetworkCache removeAllHttpCache];
         [[NSUserDefaults standardUserDefaults]removeObjectForKey:@"loginSuccess"];
         //      [[NSUserDefaults standardUserDefaults] setObject:@"" forKey:@"loginSuccess"];
         //这个位置是退出登录的地方 就是返回到登录界面那块儿

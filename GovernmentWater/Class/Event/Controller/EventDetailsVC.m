@@ -20,14 +20,18 @@
     NSMutableArray *_UserEventListArr;
     NSDictionary *_RequestDict;
     NSMutableArray *_detailArr;
-    NSMutableArray *_imagesArr;
-    NSString *_eventContentStr;
+    
+
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic,strong) EventDetailModel *model;
 @end
 
 @implementation EventDetailsVC
+
+static NSMutableArray *_allSessionTask;
+
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
@@ -43,9 +47,7 @@
     [self wr_setNavBarBackgroundAlpha:1];
 
 //    初始化
-    _eventContentStr = @" ";
-    _imagesArr = [[NSMutableArray alloc]initWithObjects: [NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"],nil];
-    _detailArr = [[NSMutableArray alloc]initWithObjects:@"1", @"1",@"1",@"1",@"1",nil];
+    _detailArr = [[NSMutableArray alloc]initWithObjects:@" ", @" ",@" ",@" ",@" ",nil];
     _UserEventListArr = [[NSMutableArray alloc]init];
     _RequestDict = [[NSDictionary alloc]init];
     _UserEventListArr = [[NSMutableArray alloc]init];
@@ -60,34 +62,61 @@
                           @"id":self.eventID,
                           };
     [SVProgressHUD show];
-    [PPNetworkHelper GET:Event_FindById_URL parameters:dict success:^(id responseObject) {
+    
+    [PPNetworkHelper GET:Event_FindById_URL parameters:dict responseCache:^(id responseCache) {
         
+    } success:^(id responseObject) {
         for (NSDictionary *dict in responseObject[@"userEventList"]) {
             [_UserEventListArr addObject:dict];
             
         }
-//        _userEventListArr = responseObject[@"userEventList"];
-
         _RequestDict = responseObject[@"event"];
         EventDetailModel *model = [EventDetailModel modelWithDictionary:responseObject[@"event"]];
-//        移除并重新添加
+        //        移除并重新添加
         [_detailArr removeAllObjects];
         _detailArr = [[NSMutableArray alloc]initWithObjects:model.updateTime,model.isUrgen,model.riverName,model.eventPlace,model.typeName,nil];
-        _eventContentStr = model.eventContent;
-
-//        [_imagesArr removeAllObjects];
-        _imagesArr = model.enclosureList;
         
         
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [_tableView reloadData];
-//                NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:2];
-//                [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
-            });
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+            //                NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:2];
+            //                [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+        });
         [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
         
     }];
+    
+//    [PPNetworkHelper GET:Event_FindById_URL parameters:dict success:^(id responseObject) {
+//
+//        for (NSDictionary *dict in responseObject[@"userEventList"]) {
+//            [_UserEventListArr addObject:dict];
+//
+//        }
+//        _RequestDict = responseObject[@"event"];
+//        EventDetailModel *model = [EventDetailModel modelWithDictionary:responseObject[@"event"]];
+////        移除并重新添加
+//        [_detailArr removeAllObjects];
+//        _detailArr = [[NSMutableArray alloc]initWithObjects:model.updateTime,model.isUrgen,model.riverName,model.eventPlace,model.typeName,nil];
+//
+//
+//
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                [_tableView reloadData];
+////                NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:2];
+////                [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
+//            });
+//        [SVProgressHUD dismiss];
+//    } failure:^(NSError *error) {
+//
+//    }];
+}
++ (NSMutableArray *)allSessionTask {
+    if (!_allSessionTask) {
+        _allSessionTask = [[NSMutableArray alloc] init];
+    }
+    return _allSessionTask;
 }
 #pragma mark ---getter/setter
 
@@ -162,7 +191,6 @@
         }
         EventDetailModel *model = [EventDetailModel modelWithDictionary:_RequestDict];
         cell.model = model;
-        cell.eventLabel.text = _eventContentStr;
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }else if (indexPath.section == 0 && indexPath.row >0){

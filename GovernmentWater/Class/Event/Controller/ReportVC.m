@@ -75,8 +75,6 @@
 
 
 -(void)Clidklandings{
-    
-    //    [SVProgressHUD showWithStatus:@"sss"];
     NSDictionary *dict = @{
                            @"eventContent":@"123",
                            @"isUrgen":@1,
@@ -87,7 +85,6 @@
                            @"handleId":@5,
                            @"flag":@0,
                            };
-    //    _selectedPhotos
     /// Get Original Photo / 获取原
 //    收到请回答
 //    for (int i = 0; i<_selectedAssets.count; i++) {
@@ -128,15 +125,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if (section == 0) {
-//        if ([self.customNavBar.title isEqualToString:@"督办事件"]) {
-//            return 4;
-//        }else{
-//            return 3;
-//        }
-//    }else {
-//        return 1;
-//    }
     if (section == 0) {
         return 1;
     }else if (section == 1){
@@ -459,34 +447,16 @@
     // 设置首选语言 / Set preferred language
      imagePickerVc.preferredLanguage = @"zh-Hans";
     
-    // 设置languageBundle以使用其它语言 / Set languageBundle to use other language
-    // imagePickerVc.languageBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"tz-ru" ofType:@"lproj"]];
-    
 #pragma mark - 到这里为止
     
     // You can get the photos by block, the same as by delegate.
     // 你可以通过block或者代理，来得到用户选择的照片.
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-//      照片返回的结果
-//        for (int i = 0 ; i <photos.count; i++) {
-//            [_addUpDataArr addObjectsFromArray:photos[i]];
-//        }
-//             [_addUpDataArr addObjectsFromArray:photos];
         for (NSString *strr in photos) {
             [_addUpDataArr addObject:strr];
         }
         
     }];
-//    [[TZImageManager manager] getOriginalPhotoWithAsset:completion:]
-    
-//MODE 这里也尝试过 不行啊
-//        for (int i = 0; i<_selectedAssets.count; i++) {
-//            [[TZImageManager manager] getOriginalPhotoWithAsset:_selectedAssets[i] completion:^(UIImage *photo, NSDictionary *info) {
-//                NSString *filename = _selectedAssets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
-//                [_addUpDataArr addObject:filename];
-//            }];
-//
-//        }
   
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
@@ -651,14 +621,7 @@
     _selectedAssets = [NSMutableArray arrayWithArray:assets];
     _isSelectOriginalPhoto = isSelectOriginalPhoto;
     
-//    for (int i = 0; i<photos.count; i++) {
-////        NSString *filename = assets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
-////        [_addUpDataArr addObject:filename];
-//        [_addUpDataArr addObject:photos];
-//
-//    }
     [_collectionView reloadData];
-    // _collectionView.contentSize = CGSizeMake(0, ((_selectedPhotos.count + 2) / 3 ) * (_margin + _itemWH));
     
     // 1.打印图片名字
         [self printAssetsName:assets];
@@ -717,42 +680,11 @@
 // Decide album show or not't
 // 决定相册显示与否
 - (BOOL)isAlbumCanSelect:(NSString *)albumName result:(PHFetchResult *)result {
-    /*
-     if ([albumName isEqualToString:@"个人收藏"]) {
-     return NO;
-     }
-     if ([albumName isEqualToString:@"视频"]) {
-     return NO;
-     }*/
     return YES;
 }
 
-// Decide asset show or not't
 // 决定asset显示与否
 - (BOOL)isAssetCanSelect:(PHAsset *)asset {
-    /*
-     switch (asset.mediaType) {
-     case PHAssetMediaTypeVideo: {
-      视频时长
-      NSTimeInterval duration = phAsset.duration;
-     return NO;
-     } break;
-     case PHAssetMediaTypeImage: {
-      图片尺寸
-     if (phAsset.pixelWidth > 3000 || phAsset.pixelHeight > 3000) {
-      return NO;
-     }
-     return YES;
-     } break;
-     case PHAssetMediaTypeAudio:
-     return NO;
-     break;
-     case PHAssetMediaTypeUnknown:
-     return NO;
-     break;
-     default: break;
-     }
-     */
     return YES;
 }
 

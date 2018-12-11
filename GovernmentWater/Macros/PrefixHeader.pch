@@ -70,8 +70,11 @@
 //工具
 #import "WRNavigationBar.h"
 
-//请求
+//YYKit 和PP请求
 #import "PPNetworkHelper.h"
+#import <NSObject+YYModel.h>
+#import <YYKit/NSObject+YYModel.h>
+#import <YYKit.h>
 
 
 

@@ -6,12 +6,47 @@
 //  Copyright © 2018年 affee. All rights reserved.
 //
 
+//cell.namenikeLabel.text = eventVCModel.eventContent;
+////    MODE
+//long timeLong = [[ NSString stringWithFormat:@" %@ ",eventVCModel.createTime] longValue];
+//cell.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh:mm:ss"];
+//if ([DateUtil isEqual:eventVCModel.eventPlace]) {
+//    cell.addressLabel.text = @"贵州遵义";
+//}
+//cell.addressLabel.text = eventVCModel.eventPlace;
+//cell.sewageLabel.text = eventVCModel.typeName;
+//cell.eventLabel.text = eventVCModel.eventContent;
+//cell.selectionStyle=UITableViewCellSelectionStyleNone;
+////    紧急事件
+//if ([eventVCModel.isUrgen  isEqual: @"0"]) {
+//    cell.alarmImg.hidden = YES;
+//}
+
 #import "EventListCell.h"
 
 @implementation EventListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+}
+-(void)setModel:(EventVCModel *)model
+{
+    self.namenikeLabel.text = model.eventContent;
+    //    MODE
+    long timeLong = [[ NSString stringWithFormat:@" %@ ",model.createTime] longValue];
+    self.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh:mm:ss"];
+    if ([DateUtil isEqual:model.eventPlace]) {
+        self.addressLabel.text = @"贵州遵义";
+    }
+    
+    self.addressLabel.text = model.eventPlace;
+    self.sewageLabel.text = model.typeName;
+    self.eventLabel.text = model.eventContent;
+    self.selectionStyle=UITableViewCellSelectionStyleNone;
+    //    紧急事件
+    if ([model.isUrgen  isEqual: @"0"]) {
+        self.alarmImg.hidden = YES;
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

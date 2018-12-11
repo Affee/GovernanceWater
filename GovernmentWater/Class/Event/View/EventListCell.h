@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) UILabel *eventLabel;
 
-
+@property (nonatomic,strong) EventVCModel *model;
 
 @end
 

@@ -9,6 +9,7 @@
 #import "AFBaseViewController.h"
 #import "WRNavigationBar.h"
 
+#import <DZNEmptyDataSet/UIScrollView+EmptyDataSet.h>
 
 @interface AFBaseViewController ()
 
@@ -21,7 +22,7 @@
     self.navigationController.navigationBar.hidden = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupNavBar];
-
+    
 }
 
 -(void)setupNavBar{
@@ -70,6 +71,9 @@
 {
     [SVProgressHUD dismiss];
 }
+
+
+
 
 
 

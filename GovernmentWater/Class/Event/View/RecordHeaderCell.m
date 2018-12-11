@@ -12,10 +12,9 @@
 {
     NSMutableArray *_imageArr;
 }
-
 - (void)awakeFromNib {
     [super awakeFromNib];
-    _imageArr = [[NSMutableArray alloc]init];
+
 }
 
 
@@ -31,8 +30,11 @@
 -(void)setModel:(EventDetailModel *)model
 {
     self.eventLabel.text = model.eventContent;
+    AFLog(@"%@=====",model.eventContent);
 //     NSMutableArray *imageArr = [NSMutableArray array];
-    _imageArr = [NSMutableArray arrayWithObject:model.enclosureList];
+//    _imageArr = [NSMutableArray arrayWithObjects:@"首页icon copy", nil];
+//    _imageArr = [NSMutableArray arrayWithObject:model.enclosureList];
+    
 //    if (imageArr != nil && ![imageArr isKindOfClass:[NSNull class]] && imageArr.count != 0){
 //        for (int i = 0; i <= imageArr.count; i++) {
 //            self.imgvIcon = [[UIImageView alloc]init];
@@ -67,19 +69,36 @@
         //        make.bottom.equalTo(_addressLabel.mas_top).offset(-Padding).priorityLow;// 低
     }];
 
+//    MODE 蛋疼的图片
+//    if ([_imageArr isKindOfClass:[NSNull class]] ||  _imageArr.count == 0 || _imageArr == nil){
+//        self.imgvIcon = [[UIImageView alloc]init];
+//        [self.imgvIcon setImage:KKPlaceholderImage];
+//        //        [self.imgvIcon setImageWithURL:imageArr[i] placeholder:KKPlaceholderImage];
+//        [self.contentView addSubview:self.imgvIcon];
+//        [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.equalTo(self.contentView).offset(Padding);
+//            make.bottom.equalTo(self.contentView).offset(-Padding);
+//            make.width.equalTo(@((KKScreenWidth - Padding*4)/3));
+//            make.height.equalTo(@(((KKScreenWidth - Padding*4)/3)*3/4));
+//        }];
+//
+//    }else{
+//        for (int i = 0; i <= _imageArr.count; i++) {
+//            self.imgvIcon = [[UIImageView alloc]init];
+//            [self.imgvIcon sd_setImageWithURL:_imageArr[i] placeholderImage:KKPlaceholderImage];
+//            //        [self.imgvIcon setImageWithURL:imageArr[i] placeholder:KKPlaceholderImage];
+//            [self.contentView addSubview:self.imgvIcon];
+//            [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.left.equalTo(self.contentView).offset(Padding +((KKScreenWidth - Padding*4)/3 +Padding)*i);
+//                make.bottom.equalTo(self.contentView).offset(-Padding);
+//                make.width.equalTo(@((KKScreenWidth - Padding*4)/3));
+//                make.height.equalTo(@(((KKScreenWidth - Padding*4)/3)*3/4));
+//            }];
+//        }
+//    }
+
     
-    for (int i = 0; i <= _imageArr.count; i++) {
-        self.imgvIcon = [[UIImageView alloc]init];
-        [self.imgvIcon sd_setImageWithURL:_imageArr[i] placeholderImage:KKPlaceholderImage];
-        //        [self.imgvIcon setImageWithURL:imageArr[i] placeholder:KKPlaceholderImage];
-        [self.contentView addSubview:self.imgvIcon];
-        [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.contentView).offset(Padding +((KKScreenWidth - Padding*4)/3 +Padding)*i);
-            make.bottom.equalTo(self.contentView).offset(-Padding);
-            make.width.equalTo(@((KKScreenWidth - Padding*4)/3));
-            make.height.equalTo(@(((KKScreenWidth - Padding*4)/3)*3/4));
-        }];
-    }
+ 
 
 
 }
