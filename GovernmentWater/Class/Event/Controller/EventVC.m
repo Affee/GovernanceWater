@@ -27,7 +27,6 @@
     NSArray *_dataArray;
     int buttonY;
     NSMutableDictionary *_requestData;
-    NSMutableArray *_recordsMArr;
     NSInteger _pages;
 }
 
@@ -40,25 +39,26 @@
 @property(nonatomic,strong) UITableView *tableView;
 /*筛选的View*/
 @property (nonatomic, strong)UIView *eventHeaderView;
-
-/**
- 事件的分类别
- */
 @property (nonatomic,strong)UILabel *eventTypeLabel;
-/**
- 筛选
- */
 @property (nonatomic, strong) UILabel *chooseLabel;
 @property (nonatomic, strong) UIView *lineView;
-/**
- 添加按钮
- */
 @property (nonatomic, strong) UIButton *addBtn;
+
+//数据
+@property (nonatomic, strong) NSMutableArray *recordsMArr;
+
 
 @end
 
 @implementation EventVC
 
+-(NSMutableArray *)recordsMArr
+{
+    if (!_recordsMArr) {
+        self.recordsMArr = [NSMutableArray array];
+    }
+    return _recordsMArr;
+}
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -93,19 +93,21 @@
         self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     //    数组字典初始化
-    _pages = 10;
+    _pages = 1;
     _recordsMArr  = [NSMutableArray array];
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
     [self.view addSubview:_tableView];
     [self loadData];
     __weak __typeof(self) weakSelf = self;
-    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
-        [weakSelf requestRefreshData];
-    }];
+
 
 
     [self requestData];
+    
+//    尾部/头部刷新控件
+    [self addRefreshFooter];
+    [self addRefreshHeader];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -128,48 +130,84 @@
 -(void)requestData
 {
         [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-        AFLog(@"%ld",(long)_pages);
     
         [SVProgressHUD show];
         [PPNetworkHelper GET:Event_GetList_URL parameters:nil responseCache:^(id responseCache) {
             
         } success:^(id responseObject) {
-//            _pages++;
-            _recordsMArr =  responseObject[@"records"];
+            _pages++;
+//            _recordsMArr =  responseObject[@"records"];
+            for (NSDictionary *dict in responseObject[@"records"]) {
+                [_recordsMArr addObject:dict];
+            }
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableView reloadData];
             });
             [SVProgressHUD dismiss];
         } failure:^(NSError *error) {
-//            _pages--;
+            
         }];
 }
--(void)requestRefreshData
+-(void)addRefreshFooter
 {
-    __unsafe_unretained UITableView *tableView = self.tableView;
-        // 结束刷新
-        _pages+=10;
+    __unsafe_unretained typeof(self) safeSelf = self;
+//    添加尾部控件
+    safeSelf.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        if (_recordsMArr.count >= 10) {
+            [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+            AFLog(@"%ld",(long)_pages);
+
+            NSDictionary *dict = @{
+                                   @"index":[NSString stringWithFormat:@"%ld",(long)_pages],
+                                   };
+            [PPNetworkHelper GET:Event_GetList_URL parameters:dict responseCache:^(id responseCache) {
+                
+            } success:^(id responseObject) {
+                _pages++;
+                for (NSDictionary *dict in responseObject[@"records"]) {
+                    [_recordsMArr insertObject:dict atIndex:_recordsMArr.count];
+                }
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_tableView reloadData];
+                    [safeSelf.tableView.mj_footer endRefreshing];
+                });
+            } failure:^(NSError *error) {
+                _pages--;
+            }];
+        }
+    }];
+}
+-(void)addRefreshHeader{
+    __unsafe_unretained typeof(self) safeSelf = self;
+    
+    if (safeSelf.tableView.mj_header.isRefreshing) {
+        [safeSelf.tableView.mj_header endRefreshing];
+    }
+    
+    
+    safeSelf.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-        NSDictionary *dict = @{
-                               @"size":[NSString stringWithFormat:@"%ld",(long)_pages],
-                               };
-        [PPNetworkHelper GET:Event_GetList_URL parameters:dict responseCache:^(id responseCache) {
-            
+        [PPNetworkHelper GET:Event_GetList_URL parameters:nil responseCache:^(id responseCache) {
+
         } success:^(id responseObject) {
-            for (NSMutableArray *arr in responseObject[@"records"]) {
-                [_recordsMArr addObject:arr];
+            
+            
+//            MODE 为对数组进项元素排除  这个后期再做吧
+            for (NSDictionary *dict in responseObject[@"records"]) {
+                [_recordsMArr insertObject:dict atIndex:0];
             }
-//            [_recordsMArr addObjectsFromArray:responseObject[@"records"]];
             
             dispatch_async(dispatch_get_main_queue(), ^{
                 [_tableView reloadData];
-                [self.tableView.mj_footer endRefreshing];
+//                safeSelf.tableView.mj_header.state = MJRefreshStateNoMoreData;
+                [safeSelf.tableView.mj_header endRefreshing];
             });
         } failure:^(NSError *error) {
-            _pages-=10;
-            [self.tableView.mj_footer endRefreshing];
         }];
+        
+    }];
 }
 
 #pragma mark --getter/setter
@@ -249,9 +287,9 @@
     AFLog(@"点击筛选按钮");
     // 【转换】：以@" "自字符串为基准将字符串分离成数组，如：@"浙江省 杭州市 西湖区" ——》@[@"浙江省", @"杭州市", @"西湖区"]
     NSArray *defaultSelArr = [_eventTypeLabel.text componentsSeparatedByString:@"上报事件 我应知晓 待处理"];
-    // NSArray *dataSource = [weakSelf getAddressDataSource];  //从外部传入地区数据源
+//     NSArray *dataSource = [weakSelf getAddressDataSource];  //从外部传入地区数据源
     NSArray *dataSource = nil; // dataSource 为空时，就默认使用框架内部提供的数据源（即 BRCity.plist）
-    [BRAddressPickerView showAddressPickerWithShowType:BRAddressPickerModeArea dataSource:dataSource defaultSelected:defaultSelArr isAutoSelect:YES themeColor:nil resultBlock:^(BRProvinceModel *province, BRCityModel *city, BRAreaModel *area) {
+    [BRAddressPickerView showAddressPickerWithShowType:BRAddressPickerModeArea dataSource:dataSource defaultSelected:defaultSelArr isAutoSelect:YES themeColor:KKColorPurple resultBlock:^(BRProvinceModel *province, BRCityModel *city, BRAreaModel *area) {
         _eventTypeLabel.text = self.infoModel.addressStr = [NSString stringWithFormat:@"%@>%@>%@", province.name, city.name, area.name];
         NSLog(@"省[%@]：%@，%@", @(province.index), province.code, province.name);
         NSLog(@"市[%@]：%@，%@", @(city.index), city.code, city.name);
@@ -299,6 +337,7 @@
     }
     return _infoModel;
 }
+
 
 - (void)btnClick {
     NSArray *titleArr = @[@"上报事件",@"督办事件"];

@@ -38,7 +38,8 @@
     BOOL _isSelectOriginalPhoto;
     NSString *_uploadText;
     NSArray *_upImages;
-    NSMutableArray *_addUpDataArr;
+    
+    NSMutableArray *_uploadImageMutArr;
     
     CGFloat _itemWH;
     CGFloat _margin;
@@ -66,7 +67,8 @@
     _selectedAssets = [NSMutableArray array];
     _upImages = [NSMutableArray array];
     _uploadText  = [[NSString alloc]init];
-    _addUpDataArr = [NSMutableArray array];
+    
+    _uploadImageMutArr = [NSMutableArray array];
     [self configCollectionView];
 }
 #pragma mark ======post提交
@@ -85,19 +87,10 @@
                            @"handleId":@5,
                            @"flag":@0,
                            };
-    /// Get Original Photo / 获取原
-//    收到请回答
-//    for (int i = 0; i<_selectedAssets.count; i++) {
-//        NSString *filename = _selectedAssets[i][@"info"][@"UIImagePickerControllerReferenceURL"];
-//        [_addUpDataArr addObject:filename];
-//    }
-//        for (int i = 0; i<_selectedAssets.count; i++) {
-//            NSString *filename = _selectedAssets[i][@"filename"];
-//            [_addUpDataArr addObject:filename];
-//        }
+
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-    AFLog(@"%@",Token);
-    [PPNetworkHelper uploadImagesWithURL:WorkerEvents_URL parameters:dict name:nil images:_addUpDataArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
+//    MODE  这个name 为空
+    [PPNetworkHelper uploadImagesWithURL:WorkerEvents_URL parameters:dict name:@"filename.png" images:_uploadImageMutArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
         AFLog(@"上传成功1");
     } success:^(id responseObject) {
         AFLog(@"上传成功2");
@@ -214,13 +207,6 @@
             }
             NSArray *arr = @[@"紧急",@"河道",@"地址",@"类型"];
             cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row]];
-//            if ([self.customNavBar.title isEqualToString:@"督办事件"]) {
-//               NSArray *arr = @[@"上报时间",@"地址",@"类型"];
-//                cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
-//            }else{
-//              NSArray *arr = @[@"地址",@"类型"];
-//                cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row-1]];
-//            }
             cell.textLabel.font = [UIFont affeeBlodFont:16];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             return cell;
@@ -251,7 +237,6 @@
             make.bottom.top.equalTo(cell.contentView);
             make.right.equalTo(cell.contentView).offset(-Padding);
         }];
-
         return cell;
     }
     return nil;
@@ -301,11 +286,6 @@
     _collectionView.dataSource = self;
     _collectionView.delegate = self;
     _collectionView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-//
-//    UIView *bigView = [[UIView alloc]initWithFrame:CGRectMake(0, 200, KKScreenWidth, 300)];
-//    bigView.backgroundColor = UIColor.yellowColor;
-//    [self.view addSubview:bigView];
-//    [bigView addSubview:_collectionView];
     [_collectionView registerClass:[TZTestCell class] forCellWithReuseIdentifier:@"TZTestCell"];
 }
 - (void)viewDidLayoutSubviews {
@@ -452,25 +432,14 @@
     // You can get the photos by block, the same as by delegate.
     // 你可以通过block或者代理，来得到用户选择的照片.
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        for (NSString *strr in photos) {
-            [_addUpDataArr addObject:strr];
+      
+        for (UIImage *str in photos) {
+            [_uploadImageMutArr addObject:str];
         }
-        
     }];
   
     [self presentViewController:imagePickerVc animated:YES completion:nil];
 }
-
-/*
- // 设置了navLeftBarButtonSettingBlock后，需打开这个方法，让系统的侧滑返回生效
- - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
- 
- navigationController.interactivePopGestureRecognizer.enabled = YES;
- if (viewController != navigationController.viewControllers[0]) {
- navigationController.interactivePopGestureRecognizer.delegate = nil; // 支持侧滑
- }
- }
- */
 
 #pragma mark - UIImagePickerController
 
@@ -547,12 +516,16 @@
             } else {
                 TZAssetModel *assetModel = [[TZImageManager manager] createModelWithAsset:asset];
                 [self refreshCollectionViewWithAddedAsset:assetModel.asset image:image];
-                AFLog(@"asset=====%@",asset);
-                
-                
+                AFLog(@"asset=====%@===图片名称=%@",asset,image);
                 
             }
         }];
+        
+        
+//        [[TZImageManager manager]getOriginalPhotoWithAsset:(PHAsset *) completion:^(UIImage *photo, NSDictionary *info) {
+//
+//        }];
+        
     } else if ([type isEqualToString:@"public.movie"]) {
         NSURL *videoUrl = [info objectForKey:UIImagePickerControllerMediaURL];
         if (videoUrl) {
@@ -576,6 +549,8 @@
     [_selectedAssets addObject:asset];
     [_selectedPhotos addObject:image];
     
+    NSMutableArray *arr = [NSMutableArray array];
+
     AFLog(@"_selectedPhotos===%@",_selectedPhotos);
     [_collectionView reloadData];
     
@@ -627,29 +602,27 @@
         [self printAssetsName:assets];
     // 2.图片位置信息
     for (PHAsset *phAsset in assets) {
-        NSLog(@"location====!!!====:%@",phAsset.location);
-        
+        NSLog(@"location====!!!====:%@",phAsset.location);   
     }
     
-    /*
-     // 3. 获取原图的示例，这样一次性获取很可能会导致内存飙升，建议获取1-2张，消费和释放掉，再获取剩下的
-     __block NSMutableArray *originalPhotos = [NSMutableArray array];
-     __block NSInteger finishCount = 0;
-     for (NSInteger i = 0; i < assets.count; i++) {
-     [originalPhotos addObject:@1];
-     }
-     for (NSInteger i = 0; i < assets.count; i++) {
-     PHAsset *asset = assets[i];
-     PHImageRequestID requestId = [[TZImageManager manager] getOriginalPhotoWithAsset:asset completion:^(UIImage *photo, NSDictionary *info) {
-     finishCount += 1;
-     [originalPhotos replaceObjectAtIndex:i withObject:photo];
-     if (finishCount >= assets.count) {
-     NSLog(@"All finished.");
-     }
-     }];
-     NSLog(@"requestId: %d", requestId);
-     }
-     */
+    
+//     // 3. 获取原图的示例，这样一次性获取很可能会导致内存飙升，建议获取1-2张，消费和释放掉，再获取剩下的
+//     __block NSMutableArray *originalPhotos = [NSMutableArray array];
+//     __block NSInteger finishCount = 0;
+//     for (NSInteger i = 0; i < assets.count; i++) {
+//     [originalPhotos addObject:@1];
+//     }
+//     for (NSInteger i = 0; i < assets.count; i++) {
+//     PHAsset *asset = assets[i];
+//     PHImageRequestID requestId = [[TZImageManager manager] getOriginalPhotoWithAsset:asset completion:^(UIImage *photo, NSDictionary *info) {
+//     finishCount += 1;
+//     [originalPhotos replaceObjectAtIndex:i withObject:photo];
+//     if (finishCount >= assets.count) {
+//     NSLog(@"All finished.");
+//     }
+//     }];
+//     NSLog(@"requestId: %d", requestId);
+//     }
 }
 // If user picking a video, this callback will be called.
 // 如果用户选择了一个视频，下面的handle会被执行
@@ -727,8 +700,6 @@
     for (PHAsset *asset in assets) {
         fileName = [asset valueForKey:@"filename"];
          NSLog(@"图片名字:%@",fileName);
-//        [_addUpDataArr addObject:fileName];
     }
 }
-
 @end
