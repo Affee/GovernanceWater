@@ -8,7 +8,7 @@
 
 #import "AFTabBarController.h"
 #import "HomeViewController.h"
-#import "ViewRiverVC.h"
+//#import "ViewRiverVC.h"
 #import "EventVC.h"
 #import "MineVC.h"
 #import "AFBaseNavigationController.h"
