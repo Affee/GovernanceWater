@@ -77,7 +77,10 @@
 #import <YYKit.h>
 
 
-
+//百度地图
+#import <BaiduTraceSDK/BaiduTraceSDK.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import "YYConst.h"
 
 //#import "WMPageController.h"
 //#import "IQKeyboardManager.h"
@@ -104,9 +107,24 @@
 
 
 //获取系统版本
-#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define CURRENT_IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
 #define CurrentSystemVersion [[UIDevice currentDevice] systemVersion]
 
+//#define CURRENT_LOCALE [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]
+#define CURRENT_LOCALE [NSLocale currentLocale]
+#define APP_DELEGATE [[UIApplication sharedApplication] delegate]
+
+#define USER_DEFAULTS [NSUserDefaults standardUserDefaults]
+
+#define MAIN_BUNDLE [NSBundle mainBundle]
+
+#define GLOBAL_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define MAIN_QUEUE dispatch_get_main_queue()
+
+#define ENTITY_NAME @"entity_name"
+#define HISTORY_TRACK_START_TIME @"history_track_start_time"
+#define HISTORY_TRACK_END_TIME @"history_track_end_time"
+#define LATEST_LOCATION @"latest_location"
 
 
 //判断是否是ipad
