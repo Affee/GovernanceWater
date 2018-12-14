@@ -74,7 +74,14 @@
 
 
 
-
++(int)navBarBottom
+{
+    if ([WRNavigationBar isIphoneX]) {
+        return 88;
+    } else {
+        return 64;
+    }
+}
 
 
 @end
