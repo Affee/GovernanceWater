@@ -117,6 +117,7 @@
 
 -(void)onQueryTrackLatestPoint:(NSData *)response {
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+    
     if (nil == dict) {
         NSLog(@"Entity List查询格式转换出错");
         return;
@@ -311,8 +312,8 @@
         // 开启服务之间先配置轨迹服务的基础信息
         BTKServiceOption *basicInfoOption = [[BTKServiceOption alloc] initWithAK:AK mcode:MCODE serviceID:serviceID keepAlive:self.serviceBasicInfo.keepAlive];
         [[BTKAction sharedInstance] initInfo:basicInfoOption];
-        // 开启服务
-        BTKStartServiceOption *startServiceOption = [[BTKStartServiceOption alloc] initWithEntityName:self.serviceBasicInfo.entityName];
+        // 开启服务      把设备的uuid作为entityName
+        BTKStartServiceOption *startServiceOption = [[BTKStartServiceOption alloc] initWithEntityName:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
         [[YYServiceManager defaultManager] startServiceWithOption:startServiceOption];
     }
 }

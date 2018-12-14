@@ -7,9 +7,11 @@
 //
 
 #import "HomeViewController.h"
-#import "ReportVC.h"
+
+
 
 @interface HomeViewController ()
+@property (nonatomic, strong) UITableView *tableView;
 
 @end
 
@@ -19,12 +21,17 @@
     [super viewDidLoad];
     self.customNavBar.title = @"首页";
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    
+    [self.view addSubview:self.tableView];
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    ReportVC *repc = [[ReportVC alloc]init];
-    repc.customNavBar.title = @"群众上报";
-    repc.view.backgroundColor = KKWhiteColor;
-    [self.navigationController pushViewController:repc animated:YES];
+
+-(UITableView *)tableView
+{
+    if (!_tableView) {
+        
+    }
+    return _tableView;
 }
 
 @end

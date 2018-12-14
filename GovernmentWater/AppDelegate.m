@@ -19,7 +19,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    AFLog(@"%@",Token);
+    AFLog(@"%@-----%@",Token,[[[UIDevice currentDevice] identifierForVendor] UUIDString]);
+    
     //设置显示的时间
     [SVProgressHUD setMinimumDismissTimeInterval:1];
     
@@ -81,7 +82,7 @@
     [[BTKAction sharedInstance] initInfo:basicInfoOption];
     
 //    初始化地图SDK
-    BMKMapManager *mapManager = [[BMKMapManager alloc]init];
+    BMKMapManager *mapManager = [[BMKMapManager alloc] init];
     [mapManager start:AK generalDelegate:self];
     
 }

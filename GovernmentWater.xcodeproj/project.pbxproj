@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */; };
 		F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6299E5A21AE645C009382EB /* EventVCModel.m */; };
+		F6347F1C21C360FB002F37B4 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		F6347F1D21C390B6002F37B4 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */; };
+		F6347F1E21C390B6002F37B4 /* BaiduTraceSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F6347F2121C39218002F37B4 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F6347F2021C39218002F37B4 /* mapapi.bundle */; };
 		F6388CCF21C2423E00186D72 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CCE21C2423D00186D72 /* CoreTelephony.framework */; };
 		F6388CD121C2425F00186D72 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CD021C2425F00186D72 /* Security.framework */; };
 		F6388CD321C2426F00186D72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CD221C2426F00186D72 /* CoreGraphics.framework */; };
@@ -18,7 +22,6 @@
 		F6388CDB21C242AA00186D72 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CDA21C242AA00186D72 /* CoreLocation.framework */; };
 		F6388CE221C2456900186D72 /* BaiduMapAPI_Location.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CDC21C2455A00186D72 /* BaiduMapAPI_Location.framework */; };
 		F6388CE321C2456900186D72 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CDD21C2456100186D72 /* BaiduMapAPI_Map.framework */; };
-		F6388CE421C2456900186D72 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CDE21C2456200186D72 /* BaiduTraceSDK.framework */; };
 		F6388CE521C2456900186D72 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CDF21C2456300186D72 /* BaiduMapAPI_Base.framework */; };
 		F6388CE621C2456900186D72 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CE021C2456800186D72 /* libcrypto.a */; };
 		F6388CE721C2456900186D72 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CE121C2456900186D72 /* libssl.a */; };
@@ -34,7 +37,6 @@
 		F6388D0721C27C1300186D72 /* BaiduMapAPI_Base.framework in Sources */ = {isa = PBXBuildFile; fileRef = F6388CDF21C2456300186D72 /* BaiduMapAPI_Base.framework */; };
 		F6388D0821C27C1300186D72 /* BaiduMapAPI_Location.framework in Sources */ = {isa = PBXBuildFile; fileRef = F6388CDC21C2455A00186D72 /* BaiduMapAPI_Location.framework */; };
 		F6388D0921C27C1300186D72 /* BaiduMapAPI_Map.framework in Sources */ = {isa = PBXBuildFile; fileRef = F6388CDD21C2456100186D72 /* BaiduMapAPI_Map.framework */; };
-		F6388D0A21C27C1300186D72 /* BaiduTraceSDK.framework in Sources */ = {isa = PBXBuildFile; fileRef = F6388CDE21C2456200186D72 /* BaiduTraceSDK.framework */; };
 		F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = F63AE32521ACD3CE001FB986 /* AFGetImageAsset.m */; };
 		F657861721992027003D87EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F657861621992027003D87EA /* AppDelegate.m */; };
 		F657861D21992027003D87EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F657861B21992027003D87EA /* Main.storyboard */; };
@@ -116,12 +118,28 @@
 		F6C92B7A21A9506900EE05D1 /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B7821A9506900EE05D1 /* FLAnimatedImageView.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F6347F1F21C390B6002F37B4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F6347F1E21C390B6002F37B4 /* BaiduTraceSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.release.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.release.xcconfig"; sourceTree = "<group>"; };
 		83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.debug.xcconfig"; sourceTree = "<group>"; };
 		88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GovernmentWater.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6299E5921AE645C009382EB /* EventVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCModel.h; sourceTree = "<group>"; };
 		F6299E5A21AE645C009382EB /* EventVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCModel.m; sourceTree = "<group>"; };
+		F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduTraceSDK.framework; sourceTree = "<group>"; };
+		F6347F2021C39218002F37B4 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = mapapi.bundle; path = BaiduMapAPI_Map.framework/Resources/mapapi.bundle; sourceTree = "<group>"; };
 		F6388CCE21C2423D00186D72 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F6388CD021C2425F00186D72 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F6388CD221C2426F00186D72 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -131,7 +149,6 @@
 		F6388CDA21C242AA00186D72 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		F6388CDC21C2455A00186D72 /* BaiduMapAPI_Location.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Location.framework; sourceTree = "<group>"; };
 		F6388CDD21C2456100186D72 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
-		F6388CDE21C2456200186D72 /* BaiduTraceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduTraceSDK.framework; sourceTree = "<group>"; };
 		F6388CDF21C2456300186D72 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
 		F6388CE021C2456800186D72 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
 		F6388CE121C2456900186D72 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
@@ -325,13 +342,14 @@
 				F6388CD521C2428600186D72 /* SystemConfiguration.framework in Frameworks */,
 				F6388CD321C2426F00186D72 /* CoreGraphics.framework in Frameworks */,
 				F6388CE921C2461E00186D72 /* libsqlite3.0.tbd in Frameworks */,
+				F6347F1C21C360FB002F37B4 /* BaiduTraceSDK.framework in Frameworks */,
 				F6388CD121C2425F00186D72 /* Security.framework in Frameworks */,
 				F6388CCF21C2423E00186D72 /* CoreTelephony.framework in Frameworks */,
 				F6388CE521C2456900186D72 /* BaiduMapAPI_Base.framework in Frameworks */,
 				F6388CE621C2456900186D72 /* libcrypto.a in Frameworks */,
-				F6388CE421C2456900186D72 /* BaiduTraceSDK.framework in Frameworks */,
 				2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */,
 				F6388CEB21C2464600186D72 /* libstdc++.6.0.9.tbd in Frameworks */,
+				F6347F1D21C390B6002F37B4 /* BaiduTraceSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,12 +359,13 @@
 		3BC5E37C925502E16BCC3A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6347F2021C39218002F37B4 /* mapapi.bundle */,
+				F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */,
 				F6388CEA21C2464600186D72 /* libstdc++.6.0.9.tbd */,
 				F6388CE821C2461E00186D72 /* libsqlite3.0.tbd */,
 				F6388CDF21C2456300186D72 /* BaiduMapAPI_Base.framework */,
 				F6388CDC21C2455A00186D72 /* BaiduMapAPI_Location.framework */,
 				F6388CDD21C2456100186D72 /* BaiduMapAPI_Map.framework */,
-				F6388CDE21C2456200186D72 /* BaiduTraceSDK.framework */,
 				F6388CE021C2456800186D72 /* libcrypto.a */,
 				F6388CE121C2456900186D72 /* libssl.a */,
 				F6388CDA21C242AA00186D72 /* CoreLocation.framework */,
@@ -916,6 +935,7 @@
 				F657860F21992027003D87EA /* Frameworks */,
 				F657861021992027003D87EA /* Resources */,
 				52D689628F14680459C01297 /* [CP] Copy Pods Resources */,
+				F6347F1F21C390B6002F37B4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -968,6 +988,7 @@
 				F6C92B6821A94B3400EE05D1 /* TZImagePickerController.bundle in Resources */,
 				F657861F2199202A003D87EA /* Assets.xcassets in Resources */,
 				F669DAA621B67D5F00CAE242 /* json in Resources */,
+				F6347F2121C39218002F37B4 /* mapapi.bundle in Resources */,
 				F669DAB121B6809700CAE242 /* ChapterHeader.xib in Resources */,
 				F657861D21992027003D87EA /* Main.storyboard in Resources */,
 			);
@@ -1026,7 +1047,6 @@
 				F6388D0721C27C1300186D72 /* BaiduMapAPI_Base.framework in Sources */,
 				F6388D0821C27C1300186D72 /* BaiduMapAPI_Location.framework in Sources */,
 				F6388D0921C27C1300186D72 /* BaiduMapAPI_Map.framework in Sources */,
-				F6388D0A21C27C1300186D72 /* BaiduTraceSDK.framework in Sources */,
 				F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */,
 				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
 				F6C92B3421A7976000EE05D1 /* AFLoginModel.m in Sources */,
@@ -1248,6 +1268,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
@@ -1269,9 +1290,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-GovernmentWater.wisenergy.com.GovernmentWater";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64e armv7s arm64 armv7";
 			};
 			name = Debug;
 		};
@@ -1279,6 +1302,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_STYLE = Automatic;
@@ -1300,9 +1324,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-GovernmentWater.wisenergy.com.GovernmentWater";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64e armv7s arm64 armv7";
 			};
 			name = Release;
 		};
