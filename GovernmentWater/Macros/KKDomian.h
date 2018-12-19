@@ -26,7 +26,8 @@
 #define Event_GetRegin_URL KKStringWithFormat(@"%@/event/getRegion", Base_Url)
 //获取质询或者制度列表
 #define URL_Copywriting_GetCopywritingListPC KKStringWithFormat(@"%@/copywriting/getCopywritingListPC", Base_Url)
-
+//轮播图http://139.219.4.43:8080/copywriting/getBannerList
+#define URL_Copywriting_GetBannerList  KKStringWithFormat(@"%@/copywriting/getBannerList", Base_Url)
 
 
 

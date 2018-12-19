@@ -9,13 +9,20 @@
 #import "HomeViewController.h"
 #import "NewsCell.h"
 #import "NewsEventModel.h"
+#import <SDCycleScrollView.h>
+#import "BannerModel.h"
+
 //NSMutableDictionary *_requestData;
 
 
-@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,SDCycleScrollViewDelegate>
 {
     NSMutableDictionary *_requestData;
     NSMutableArray *_recordsMArr;
+
+    //    轮播图的图片数组和t标题数组
+    NSMutableArray *_bannerMArr;
+    NSMutableArray *_titleArr;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headerView;
@@ -30,6 +37,8 @@
     [super viewDidLoad];
     _requestData = [[NSMutableDictionary alloc]init];
     _recordsMArr = [[NSMutableArray alloc]init];
+    _bannerMArr = [[NSMutableArray alloc]init];
+    _titleArr = [[NSMutableArray alloc]init];
     
     self.customNavBar.title = @"首页";
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -38,7 +47,9 @@
      _tableView.tableHeaderView = self.headerView;
     [self.view addSubview:self.tableView];
     [_tableView addSubview:_headerView];
+    
     [self getDate];
+    [self getHeaderData];
 }
 -(void)getDate
 {
@@ -55,6 +66,20 @@
         }
         
         
+    } failure:^(NSError *error) {
+        
+    }];
+}
+-(void)getHeaderData
+{
+    [PPNetworkHelper GET:URL_Copywriting_GetBannerList parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        for (NSDictionary *dict in responseObject[@"copywritings"]) {
+            BannerModel *model = [BannerModel modelWithDictionary:dict];
+            [_bannerMArr addObject:model.entityEnclosures[0].enclosureURL];
+            [_titleArr addObject:model.informationTitle];
+        }
     } failure:^(NSError *error) {
         
     }];
@@ -90,9 +115,6 @@
     }
     NewsEventModel *model = [NewsEventModel modelWithDictionary:_recordsMArr[indexPath.row]];
     cell.model = model;
-//    EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
-//
-//    cell.model = eventVCModel;
     return cell;
 }
 
@@ -109,7 +131,21 @@
     if (!_headerView) {
         _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKHeaderViewHeight)];
         _headerView.backgroundColor = [UIColor redColor];
+        
+        SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, KKScreenWidth, KKHeaderViewHeight) delegate:self placeholderImage:KKPlaceholderImage];
+//        图片数组
+        cycleScrollView.imageURLStringsGroup = _bannerMArr;
+        cycleScrollView.titlesGroup = _titleArr;
+       
+        
+        [_headerView addSubview:cycleScrollView];
     }
     return _headerView;
+}
+
+#pragma mark - SDCycleScrollViewDelegate
+-(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index
+{
+    NSLog(@"-------%ld",(long)index);
 }
 @end

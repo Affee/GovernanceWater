@@ -11,6 +11,7 @@
 		F602733421C9EF3400B39E6C /* libIQKeyboardManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F602733321C9EF3400B39E6C /* libIQKeyboardManager.a */; };
 		F602733C21C9F21400B39E6C /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F602733B21C9F21400B39E6C /* NewsCell.m */; };
 		F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734121CA300A00B39E6C /* NewsEventModel.m */; };
+		F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734421CA6A8C00B39E6C /* BannerModel.m */; };
 		F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6299E5A21AE645C009382EB /* EventVCModel.m */; };
 		F6347F1C21C360FB002F37B4 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F6347F1D21C390B6002F37B4 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */; };
@@ -144,6 +145,8 @@
 		F602733B21C9F21400B39E6C /* NewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
 		F602734021CA300A00B39E6C /* NewsEventModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsEventModel.h; sourceTree = "<group>"; };
 		F602734121CA300A00B39E6C /* NewsEventModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsEventModel.m; sourceTree = "<group>"; };
+		F602734321CA6A8C00B39E6C /* BannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BannerModel.h; sourceTree = "<group>"; };
+		F602734421CA6A8C00B39E6C /* BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		F6299E5921AE645C009382EB /* EventVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCModel.h; sourceTree = "<group>"; };
 		F6299E5A21AE645C009382EB /* EventVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCModel.m; sourceTree = "<group>"; };
 		F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduTraceSDK.framework; sourceTree = "<group>"; };
@@ -552,6 +555,8 @@
 			children = (
 				F602734021CA300A00B39E6C /* NewsEventModel.h */,
 				F602734121CA300A00B39E6C /* NewsEventModel.m */,
+				F602734321CA6A8C00B39E6C /* BannerModel.h */,
+				F602734421CA6A8C00B39E6C /* BannerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1123,6 +1128,7 @@
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
+				F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */,
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,
 				F669DA7C21AFF06400CAE242 /* userEventList.m in Sources */,
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
