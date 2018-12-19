@@ -6,21 +6,6 @@
 //  Copyright © 2018年 affee. All rights reserved.
 //
 
-//cell.namenikeLabel.text = eventVCModel.eventContent;
-////    MODE
-//long timeLong = [[ NSString stringWithFormat:@" %@ ",eventVCModel.createTime] longValue];
-//cell.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh:mm:ss"];
-//if ([DateUtil isEqual:eventVCModel.eventPlace]) {
-//    cell.addressLabel.text = @"贵州遵义";
-//}
-//cell.addressLabel.text = eventVCModel.eventPlace;
-//cell.sewageLabel.text = eventVCModel.typeName;
-//cell.eventLabel.text = eventVCModel.eventContent;
-//cell.selectionStyle=UITableViewCellSelectionStyleNone;
-////    紧急事件
-//if ([eventVCModel.isUrgen  isEqual: @"0"]) {
-//    cell.alarmImg.hidden = YES;
-//}
 
 #import "EventListCell.h"
 

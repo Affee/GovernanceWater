@@ -24,6 +24,8 @@
 #define Event_FindById_URL  KKStringWithFormat(@"%@/event/findById", Base_Url)
 //行政区域列表
 #define Event_GetRegin_URL KKStringWithFormat(@"%@/event/getRegion", Base_Url)
+//获取质询或者制度列表
+#define URL_Copywriting_GetCopywritingListPC KKStringWithFormat(@"%@/copywriting/getCopywritingListPC", Base_Url)
 
 
 

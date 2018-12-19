@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */; };
+		F602733421C9EF3400B39E6C /* libIQKeyboardManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F602733321C9EF3400B39E6C /* libIQKeyboardManager.a */; };
+		F602733C21C9F21400B39E6C /* NewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F602733B21C9F21400B39E6C /* NewsCell.m */; };
+		F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734121CA300A00B39E6C /* NewsEventModel.m */; };
 		F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6299E5A21AE645C009382EB /* EventVCModel.m */; };
 		F6347F1C21C360FB002F37B4 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F6347F1D21C390B6002F37B4 /* BaiduTraceSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */; };
@@ -136,6 +139,11 @@
 		433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.release.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.release.xcconfig"; sourceTree = "<group>"; };
 		83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.debug.xcconfig"; sourceTree = "<group>"; };
 		88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GovernmentWater.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F602733321C9EF3400B39E6C /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F602733A21C9F21400B39E6C /* NewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsCell.h; sourceTree = "<group>"; };
+		F602733B21C9F21400B39E6C /* NewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsCell.m; sourceTree = "<group>"; };
+		F602734021CA300A00B39E6C /* NewsEventModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsEventModel.h; sourceTree = "<group>"; };
+		F602734121CA300A00B39E6C /* NewsEventModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsEventModel.m; sourceTree = "<group>"; };
 		F6299E5921AE645C009382EB /* EventVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCModel.h; sourceTree = "<group>"; };
 		F6299E5A21AE645C009382EB /* EventVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCModel.m; sourceTree = "<group>"; };
 		F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduTraceSDK.framework; sourceTree = "<group>"; };
@@ -333,6 +341,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F602733421C9EF3400B39E6C /* libIQKeyboardManager.a in Frameworks */,
 				F6388CDB21C242AA00186D72 /* CoreLocation.framework in Frameworks */,
 				F6388CE221C2456900186D72 /* BaiduMapAPI_Location.framework in Frameworks */,
 				F6388CE721C2456900186D72 /* libssl.a in Frameworks */,
@@ -359,6 +368,7 @@
 		3BC5E37C925502E16BCC3A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F602733321C9EF3400B39E6C /* libIQKeyboardManager.a */,
 				F6347F2021C39218002F37B4 /* mapapi.bundle */,
 				F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */,
 				F6388CEA21C2464600186D72 /* libstdc++.6.0.9.tbd */,
@@ -445,6 +455,8 @@
 		586D151EE1A7CD6314D904A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F602733A21C9F21400B39E6C /* NewsCell.h */,
+				F602733B21C9F21400B39E6C /* NewsCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -538,6 +550,8 @@
 		586D1F360891ED1D959B2CC7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F602734021CA300A00B39E6C /* NewsEventModel.h */,
+				F602734121CA300A00B39E6C /* NewsEventModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1080,8 +1094,10 @@
 				F695C29821A68FC300E93F1A /* JMDropMenu.m in Sources */,
 				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
 				F6C92B6C21A94B3400EE05D1 /* TZPhotoPreviewCell.m in Sources */,
+				F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
+				F602733C21C9F21400B39E6C /* NewsCell.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F6388D0521C2779700186D72 /* YYServiceViewController.m in Sources */,
 				F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */,

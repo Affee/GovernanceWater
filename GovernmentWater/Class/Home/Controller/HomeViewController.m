@@ -5,13 +5,22 @@
 //  Created by affee on 2018/11/13.
 //  Copyright © 2018年 affee. All rights reserved.
 //
-
+#define KKHeaderViewHeight KKScreenWidth*9/16
 #import "HomeViewController.h"
-
+#import "NewsCell.h"
+#import "NewsEventModel.h"
+//NSMutableDictionary *_requestData;
 
 
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource>
+{
+    NSMutableDictionary *_requestData;
+    NSMutableArray *_recordsMArr;
+}
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView *headerView;
+
+
 
 @end
 
@@ -19,13 +28,37 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _requestData = [[NSMutableDictionary alloc]init];
+    _recordsMArr = [[NSMutableArray alloc]init];
+    
     self.customNavBar.title = @"首页";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
     
+     _tableView.tableHeaderView = self.headerView;
     [self.view addSubview:self.tableView];
+    [_tableView addSubview:_headerView];
+    [self getDate];
 }
-
+-(void)getDate
+{
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+    NSDictionary *dict = @{
+                           @"copywritingType":@1,
+                           @"copywritingStatus":@0,
+                           };
+    [PPNetworkHelper GET:URL_Copywriting_GetCopywritingListPC parameters:dict responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        for (NSDictionary *dict in responseObject[@"records"]) {
+            [_recordsMArr addObject:dict];
+        }
+        
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
@@ -36,33 +69,30 @@
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _tableView.delegate = self;
         _tableView.dataSource = self;
-//        _tableView.tableHeaderView = self.headerView;
-//        _tableView.tableFooterView = self.footView;
-        [self.view  addSubview:_tableView];
-        
     }
     return _tableView;
 }
 -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return _recordsMArr.count;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 130;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *NCell=@"NCell";
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];
-    if (cell  == nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NCell];
+{    
+    static NSString *ID = @"EventListCell";
+    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (!cell) {
+        cell = [[NewsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
-    NSArray *arr = @[@"意见反馈",@"关于我们",@"清楚缓存",@"修改密码",@"消息提醒",];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row]];
-    cell.textLabel.font = [UIFont affeeBlodFont:16];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    NewsEventModel *model = [NewsEventModel modelWithDictionary:_recordsMArr[indexPath.row]];
+    cell.model = model;
+//    EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
+//
+//    cell.model = eventVCModel;
     return cell;
 }
 
@@ -74,5 +104,12 @@
         return 64;
     }
 }
-
+-(UIView *)headerView
+{
+    if (!_headerView) {
+        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKHeaderViewHeight)];
+        _headerView.backgroundColor = [UIColor redColor];
+    }
+    return _headerView;
+}
 @end
