@@ -36,12 +36,25 @@
 {
     self.namenikeLabel.text = model.informationTitle;
     long timeLong = [[NSString stringWithFormat:@"%ld",(long)model.createTime] longValue];
-    self.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh:mm:ss"];
+    self.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd"];
     self.addressLabel.text = model.programName;
     self.sewageLabel.text = model.realName;
     self.eventLabel.text = model.informationContent;
-    [self.alarmImg setImageWithURL:[NSString stringWithFormat:@"%@",model.entityEnclosures[0].enclosureURL] placeholder:KKPlaceholderImage];
+    NSMutableArray *arr = [[NSMutableArray alloc]init];
+    for (int i = 0; i<model.entityEnclosures.count; i++) {
+        [arr addObject:model.entityEnclosures[i]];
+    }
+    NSDictionary *dict  = arr[0];
+    NSString *str = dict[@"enclosureUrl"];
+    [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:KKPlaceholderImage];
     
+    
+//    for (NSDictionary *dict  in arr[0]) {
+//        [self.alarmImg setImageWithURL:[NSURL URLWithString:@"%@",dict[@"enclosureURL"]] placeholder:KKPlaceholderImage];
+//    }
+//    NSURL *url = [NSURL URLWithString:model.entityEnclosures[0].enclosureURL];
+//    [self.alarmImg sd_setImageWithURL:url placeholderImage:KKPlaceholderImage];
+
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -68,8 +81,8 @@
     self.namenikeLabel.text = @"黄蕾";
     self.namenikeLabel.numberOfLines = 0;
     self.imgvIcon = [[UIImageView alloc]init];
-    self.imgvIcon.layer.cornerRadius =  25;
-    self.imgvIcon.layer.masksToBounds = YES;
+//    self.imgvIcon.layer.cornerRadius =  25;
+//    self.imgvIcon.layer.masksToBounds = YES;
     [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:KKPlaceholderImage];
     
     UILabel *timeLabel = [[UILabel alloc] init];
@@ -107,12 +120,12 @@
     eventLabel.font = KKFont16;
     eventLabel.textColor = KKColorLightGray;
     eventLabel.text = @"我曾经跨过山和大海";
-    eventLabel.numberOfLines = 0;
+    eventLabel.numberOfLines = 2;
     
     [self.contentView addSubview:timeLabel];
     [self.contentView addSubview:sewageLabel];
     [self.contentView addSubview:addressLabel];
-    [self.contentView addSubview:alarmImg];
+//    [self.contentView addSubview:alarmImg];
     [self.contentView addSubview:self.namenikeLabel];
     [self.contentView addSubview:self.imgvIcon];
     [self.contentView addSubview:eventLabel];
@@ -122,43 +135,42 @@
     [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView).offset(Padding);
         make.left.equalTo(self.contentView).offset(Padding);
-        make.width.equalTo(@50);
-        make.height.equalTo(@50);
+        make.bottom.equalTo(self.contentView).offset(-Padding);
+        make.width.equalTo(self.imgvIcon.mas_height).multipliedBy(1.2);
     }];
     
     [self.namenikeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.imgvIcon);
         make.left.equalTo(self.imgvIcon.mas_right).offset(10);
-        //        make.width.equalTo(@100);
         make.width.greaterThanOrEqualTo(@30).priorityHigh();
         make.height.equalTo(@25);
     }];
     
     [_timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.contentView).offset(Padding);
+        make.bottom.equalTo(self.contentView).offset(-Padding);
         make.right.equalTo(self.contentView).offset(-Padding);
-        make.height.equalTo(@25);
+        make.height.equalTo(@20);
         make.width.greaterThanOrEqualTo(@30).priorityHigh();
     }];
     
-    [_alarmImg mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.contentView).offset(-Padding);
-        make.right.equalTo(self.contentView).offset(-Padding);
-        make.height.equalTo(@30);
-        make.width.equalTo(@30);
-    }];
+//    [_alarmImg mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.bottom.equalTo(self.contentView).offset(-Padding);
+//        make.right.equalTo(self.contentView).offset(-Padding);
+//        make.height.equalTo(@30);
+//        make.width.equalTo(@30);
+//    }];
     
     [_sewageLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_namenikeLabel);
         make.bottom.equalTo(self.contentView).offset(-Padding);
-        make.height.equalTo(@30);
+        make.height.equalTo(@20);
         make.width.greaterThanOrEqualTo(@20).priorityHigh();
     }];
     
     [_addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(_sewageLabel.mas_right).offset(Padding);
         make.bottom.equalTo(self.contentView).offset(-Padding);
-        make.height.equalTo(@30);
+        make.height.equalTo(@20);
         make.width.greaterThanOrEqualTo(@20).priorityHigh();
         //        make.top.equalTo(_eventLabel.mas_bottom).offset(Padding);
     }];

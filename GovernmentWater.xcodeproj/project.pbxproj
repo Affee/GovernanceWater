@@ -42,6 +42,7 @@
 		F6388D0821C27C1300186D72 /* BaiduMapAPI_Location.framework in Sources */ = {isa = PBXBuildFile; fileRef = F6388CDC21C2455A00186D72 /* BaiduMapAPI_Location.framework */; };
 		F6388D0921C27C1300186D72 /* BaiduMapAPI_Map.framework in Sources */ = {isa = PBXBuildFile; fileRef = F6388CDD21C2456100186D72 /* BaiduMapAPI_Map.framework */; };
 		F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = F63AE32521ACD3CE001FB986 /* AFGetImageAsset.m */; };
+		F642B9BB21CB313A00E00C46 /* libSDCycleScrollView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F642B9BA21CB313A00E00C46 /* libSDCycleScrollView.a */; };
 		F657861721992027003D87EA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F657861621992027003D87EA /* AppDelegate.m */; };
 		F657861D21992027003D87EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F657861B21992027003D87EA /* Main.storyboard */; };
 		F657861F2199202A003D87EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F657861E2199202A003D87EA /* Assets.xcassets */; };
@@ -181,6 +182,7 @@
 		F6388D0121C2779700186D72 /* YYServiceParamCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYServiceParamCell.m; sourceTree = "<group>"; };
 		F63AE32421ACD3CE001FB986 /* AFGetImageAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFGetImageAsset.h; sourceTree = "<group>"; };
 		F63AE32521ACD3CE001FB986 /* AFGetImageAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFGetImageAsset.m; sourceTree = "<group>"; };
+		F642B9BA21CB313A00E00C46 /* libSDCycleScrollView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libSDCycleScrollView.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F657861221992027003D87EA /* GovernmentWater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GovernmentWater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F657861521992027003D87EA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F657861621992027003D87EA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F642B9BB21CB313A00E00C46 /* libSDCycleScrollView.a in Frameworks */,
 				F602733421C9EF3400B39E6C /* libIQKeyboardManager.a in Frameworks */,
 				F6388CDB21C242AA00186D72 /* CoreLocation.framework in Frameworks */,
 				F6388CE221C2456900186D72 /* BaiduMapAPI_Location.framework in Frameworks */,
@@ -371,6 +374,7 @@
 		3BC5E37C925502E16BCC3A81 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F642B9BA21CB313A00E00C46 /* libSDCycleScrollView.a */,
 				F602733321C9EF3400B39E6C /* libIQKeyboardManager.a */,
 				F6347F2021C39218002F37B4 /* mapapi.bundle */,
 				F6347F1B21C360FB002F37B4 /* BaiduTraceSDK.framework */,
@@ -1312,7 +1316,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.-GovernmentWater.wisenergy.com.GovernmentWater";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";

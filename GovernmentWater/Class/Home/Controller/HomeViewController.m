@@ -11,6 +11,7 @@
 #import "NewsEventModel.h"
 #import <SDCycleScrollView.h>
 #import "BannerModel.h"
+@class BannerEntityEnclosure;
 
 //NSMutableDictionary *_requestData;
 
@@ -45,41 +46,73 @@
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
     
      _tableView.tableHeaderView = self.headerView;
-    [self.view addSubview:self.tableView];
     [_tableView addSubview:_headerView];
+    [self.view addSubview:self.tableView];
+    
     
     [self getDate];
     [self getHeaderData];
 }
+
+#pragma mark ----请求列表
 -(void)getDate
 {
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
     NSDictionary *dict = @{
                            @"copywritingType":@1,
-                           @"copywritingStatus":@0,
+                           @"copywritingStatus":@2,
                            };
     [PPNetworkHelper GET:URL_Copywriting_GetCopywritingListPC parameters:dict responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
-        for (NSDictionary *dict in responseObject[@"records"]) {
+        for (NSDictionary *dict in responseObject[@"copywritings"][@"records"]) {
             [_recordsMArr addObject:dict];
         }
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+        });
         
     } failure:^(NSError *error) {
         
     }];
 }
+#pragma mark ---headerImage
+
+//NSMutableArray *arr = [[NSMutableArray alloc]init];
+//for (int i = 0; i<model.entityEnclosures.count; i++) {
+//    [arr addObject:model.entityEnclosures[i]];
+//}
+//NSDictionary *dict  = arr[0];
+//NSString *str = dict[@"enclosureUrl"];
+//[self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:KKPlaceholderImage];
+
 -(void)getHeaderData
 {
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
     [PPNetworkHelper GET:URL_Copywriting_GetBannerList parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
+        NSMutableArray *arr = [NSMutableArray array];
         for (NSDictionary *dict in responseObject[@"copywritings"]) {
             BannerModel *model = [BannerModel modelWithDictionary:dict];
-            [_bannerMArr addObject:model.entityEnclosures[0].enclosureURL];
+            
+//            [arr addObject:model.entityEnclosures];
+//            [_bannerMArr addObject:model.entityEnclosures[0].enclosureURL];
             [_titleArr addObject:model.informationTitle];
+            for (int i = 0 ; i<model.entityEnclosures.count; i++) {
+                [arr addObject:model.entityEnclosures[i]];
+                for (int j = 0; j<arr.count; j++) {
+                    [_bannerMArr addObject:arr[j][@"enclosureUrl"]];
+                    
+                }
+            }
         }
+    
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [_tableView reloadData];
+        });
+        
     } failure:^(NSError *error) {
         
     }];
@@ -129,16 +162,26 @@
 -(UIView *)headerView
 {
     if (!_headerView) {
-        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, KKHeaderViewHeight)];
+        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 200)];
         _headerView.backgroundColor = [UIColor redColor];
         
-        SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, KKScreenWidth, KKHeaderViewHeight) delegate:self placeholderImage:KKPlaceholderImage];
-//        图片数组
-        cycleScrollView.imageURLStringsGroup = _bannerMArr;
-        cycleScrollView.titlesGroup = _titleArr;
-       
+//        SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, KKScreenWidth, 200) delegate:self placeholderImage:nil];
+////        图片数组
+//        cycleScrollView.imageURLStringsGroup = _bannerMArr;
+//        cycleScrollView.titlesGroup = _titleArr;
+//
+//
+//        [_headerView addSubview:cycleScrollView];
         
-        [_headerView addSubview:cycleScrollView];
+        // 网络加载 --- 创建带标题的图片轮播器
+        SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:_headerView.frame  delegate:self placeholderImage:nil];
+        cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+        cycleScrollView2.titlesGroup = _titleArr;
+        cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
+        [_headerView addSubview:cycleScrollView2];
+        cycleScrollView2.autoScrollTimeInterval = MAXPRI;
+        cycleScrollView2.imageURLStringsGroup = _bannerMArr;
+        
     }
     return _headerView;
 }
