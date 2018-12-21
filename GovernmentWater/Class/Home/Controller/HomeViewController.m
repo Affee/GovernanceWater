@@ -11,6 +11,7 @@
 #import "NewsEventModel.h"
 #import <SDCycleScrollView.h>
 #import "BannerModel.h"
+#import "HomeNewsDetailsVC.h"
 @class BannerEntityEnclosure;
 
 //NSMutableDictionary *_requestData;
@@ -95,7 +96,6 @@
         NSMutableArray *arr = [NSMutableArray array];
         for (NSDictionary *dict in responseObject[@"copywritings"]) {
             BannerModel *model = [BannerModel modelWithDictionary:dict];
-            
 //            [arr addObject:model.entityEnclosures];
 //            [_bannerMArr addObject:model.entityEnclosures[0].enclosureURL];
             [_titleArr addObject:model.informationTitle];
@@ -107,8 +107,6 @@
                 }
             }
         }
-    
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             [_tableView reloadData];
         });
@@ -136,7 +134,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 130;
+    return 120;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -150,7 +148,16 @@
     cell.model = model;
     return cell;
 }
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    HomeNewsDetailsVC *homeVC  = [[HomeNewsDetailsVC alloc]init];
+    NewsEventModel *model = [NewsEventModel modelWithDictionary:_recordsMArr[indexPath.row]];
+    homeVC.identifier =  model.identifier;
+    homeVC.customNavBar.title = model.informationTitle;
+    homeVC.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:homeVC animated:YES];
+    
+}
 - (int)navBarBottom
 {
     if ([WRNavigationBar isIphoneX]) {
