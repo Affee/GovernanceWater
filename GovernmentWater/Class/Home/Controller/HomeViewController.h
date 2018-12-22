@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface HomeViewController : AFBaseViewController
+//@property (nonatomic,strong) SDCycleScrollView *cycleScrollView2;
 
 @end
 

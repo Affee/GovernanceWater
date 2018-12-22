@@ -12,7 +12,7 @@
 #import <SDCycleScrollView.h>
 #import "BannerModel.h"
 #import "HomeNewsDetailsVC.h"
-@class BannerEntityEnclosure;
+//@class BannerEntityEnclosure;
 
 //NSMutableDictionary *_requestData;
 
@@ -25,9 +25,11 @@
     //    轮播图的图片数组和t标题数组
     NSMutableArray *_bannerMArr;
     NSMutableArray *_titleArr;
+    NSMutableArray *_identifierArr;
 }
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headerView;
+@property (nonatomic,strong) SDCycleScrollView *cycleScrollView2;
 
 
 
@@ -39,17 +41,22 @@
     [super viewDidLoad];
     _requestData = [[NSMutableDictionary alloc]init];
     _recordsMArr = [[NSMutableArray alloc]init];
+    
     _bannerMArr = [[NSMutableArray alloc]init];
     _titleArr = [[NSMutableArray alloc]init];
+    _identifierArr = [[NSMutableArray alloc]init];
     
     self.customNavBar.title = @"首页";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
     
-     _tableView.tableHeaderView = self.headerView;
-    [_tableView addSubview:_headerView];
-    [self.view addSubview:self.tableView];
     
+    [self.view addSubview:self.tableView];
+    [_tableView addSubview:_headerView];
+    
+
+
+
     
     [self getDate];
     [self getHeaderData];
@@ -73,19 +80,22 @@
             [_tableView reloadData];
         });
         
+        [self aaaaa];
     } failure:^(NSError *error) {
         
     }];
 }
 #pragma mark ---headerImage
+-(void)aaaaa{
+    _cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, KKScreenWidth, 200)  delegate:self placeholderImage:nil];
+    _cycleScrollView2.showPageControl = SDCycleScrollViewPageContolAlimentRight;
+    _cycleScrollView2.titlesGroup = _titleArr;
+    _cycleScrollView2.currentPageDotColor = [UIColor redColor];
+    _cycleScrollView2.autoScrollTimeInterval = MAXPRI;
+    _cycleScrollView2.imageURLStringsGroup = _bannerMArr;
+    [self.headerView addSubview:_cycleScrollView2];
+}
 
-//NSMutableArray *arr = [[NSMutableArray alloc]init];
-//for (int i = 0; i<model.entityEnclosures.count; i++) {
-//    [arr addObject:model.entityEnclosures[i]];
-//}
-//NSDictionary *dict  = arr[0];
-//NSString *str = dict[@"enclosureUrl"];
-//[self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:KKPlaceholderImage];
 
 -(void)getHeaderData
 {
@@ -93,20 +103,13 @@
     [PPNetworkHelper GET:URL_Copywriting_GetBannerList parameters:nil responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
-        NSMutableArray *arr = [NSMutableArray array];
-        for (NSDictionary *dict in responseObject[@"copywritings"]) {
-            BannerModel *model = [BannerModel modelWithDictionary:dict];
-//            [arr addObject:model.entityEnclosures];
-//            [_bannerMArr addObject:model.entityEnclosures[0].enclosureURL];
+        for (NSDictionary *dic in responseObject[@"copywritings"]) {
+            BannerModel *model = [BannerModel modelWithDictionary:dic];
+            [_bannerMArr addObject:model.photosLB];
             [_titleArr addObject:model.informationTitle];
-            for (int i = 0 ; i<model.entityEnclosures.count; i++) {
-                [arr addObject:model.entityEnclosures[i]];
-                for (int j = 0; j<arr.count; j++) {
-                    [_bannerMArr addObject:arr[j][@"enclosureUrl"]];
-                    
-                }
-            }
+            [_identifierArr addObject:[NSNumber numberWithInteger:model.identifier]];
         }
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             [_tableView reloadData];
         });
@@ -125,9 +128,19 @@
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _tableView.delegate = self;
         _tableView.dataSource = self;
+        _tableView.tableHeaderView = self.headerView;
     }
     return _tableView;
 }
+-(UIView *)headerView
+{
+    if (!_headerView) {
+        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 200)];
+        _headerView.backgroundColor = [UIColor redColor];
+    }
+    return _headerView;
+}
+
 -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _recordsMArr.count;
@@ -166,36 +179,18 @@
         return 64;
     }
 }
--(UIView *)headerView
-{
-    if (!_headerView) {
-        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 200)];
-        _headerView.backgroundColor = [UIColor redColor];
-        
-//        SDCycleScrollView *cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, KKScreenWidth, 200) delegate:self placeholderImage:nil];
-////        图片数组
-//        cycleScrollView.imageURLStringsGroup = _bannerMArr;
-//        cycleScrollView.titlesGroup = _titleArr;
-//
-//
-//        [_headerView addSubview:cycleScrollView];
-        
-        // 网络加载 --- 创建带标题的图片轮播器
-        SDCycleScrollView *cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:_headerView.frame  delegate:self placeholderImage:nil];
-        cycleScrollView2.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
-        cycleScrollView2.titlesGroup = _titleArr;
-        cycleScrollView2.currentPageDotColor = [UIColor whiteColor]; // 自定义分页控件小圆标颜色
-        [_headerView addSubview:cycleScrollView2];
-        cycleScrollView2.autoScrollTimeInterval = MAXPRI;
-        cycleScrollView2.imageURLStringsGroup = _bannerMArr;
-        
-    }
-    return _headerView;
-}
+
 
 #pragma mark - SDCycleScrollViewDelegate
 -(void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index
 {
     NSLog(@"-------%ld",(long)index);
+    
+    HomeNewsDetailsVC *homeVC  = [[HomeNewsDetailsVC alloc]init];
+    homeVC.identifier =   [_identifierArr[(long)index] integerValue];
+    homeVC.customNavBar.title = _titleArr[(long)index];
+    homeVC.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:homeVC animated:YES];
+    
 }
 @end
