@@ -121,10 +121,12 @@
 #define GLOBAL_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 #define MAIN_QUEUE dispatch_get_main_queue()
 
-#define ENTITY_NAME @"entity_name"
+#define ENTITY_NAME [[[UIDevice currentDevice] identifierForVendor] UUIDString]
 #define HISTORY_TRACK_START_TIME @"history_track_start_time"
 #define HISTORY_TRACK_END_TIME @"history_track_end_time"
 #define LATEST_LOCATION @"latest_location"
+//Bar高度
+#define STATUS_BAR_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
 
 
 //判断是否是ipad

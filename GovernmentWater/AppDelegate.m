@@ -78,13 +78,16 @@
     
 //    鹰眼sdk的基本信息
 //    每次调用startService 开始轨迹之前，可以重新设置这些信息
-    BTKServiceOption *basicInfoOption = [[BTKServiceOption alloc] initWithAK:AK mcode:MCODE serviceID:serviceID keepAlive:FALSE];
+    BTKServiceOption *basicInfoOption = [[BTKServiceOption alloc] initWithAK:AK mcode:MCODE serviceID:serviceID keepAlive:YES];
     [[BTKAction sharedInstance] initInfo:basicInfoOption];
+    
     
 //    初始化地图SDK
     BMKMapManager *mapManager = [[BMKMapManager alloc] init];
     [mapManager start:AK generalDelegate:self];
     
+    
+
 }
 #pragma mark - BMKGeneralDelegate
 -(void)onGetNetworkState:(int)iError {

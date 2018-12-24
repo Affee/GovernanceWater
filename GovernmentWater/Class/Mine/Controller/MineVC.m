@@ -7,7 +7,6 @@
 //
 
 #import "MineVC.h"
-#import "AFTwoViewController.h"
 #import "AppDelegate.h"
 
 @interface MineVC ()<UITableViewDelegate, UITableViewDataSource>
@@ -60,15 +59,7 @@
         return 64;
     }
 }
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    AFLog(@"dididi");
-    AFTwoViewController *tttt = [[AFTwoViewController alloc]init];
-    
-    tttt.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController pushViewController:tttt animated:YES];
-    
-}
+
 
 #pragma mark ----get/set
 - (UITableView *)tableView
@@ -135,8 +126,8 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AFTwoViewController *aaaaa = [[AFTwoViewController alloc]init];
-    aaaaa.title = @"相册";
-    [self.navigationController pushViewController:aaaaa animated:YES];
+//    AFTwoViewController *aaaaa = [[AFTwoViewController alloc]init];
+//    aaaaa.title = @"相册";
+//    [self.navigationController pushViewController:aaaaa animated:YES];
 }
 @end

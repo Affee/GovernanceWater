@@ -43,6 +43,7 @@
     NSMutableArray *arr = [[NSMutableArray alloc]init];
     for (int i = 0; i<model.entityEnclosures.count; i++) {
         [arr addObject:model.entityEnclosures[i]];
+        
     }
     NSDictionary *dict  = arr[0];
     NSString *str = dict[@"enclosureUrl"];
@@ -50,6 +51,7 @@
     
     
 //    for (NSDictionary *dict  in arr[0]) {
+    
 //        [self.alarmImg setImageWithURL:[NSURL URLWithString:@"%@",dict[@"enclosureURL"]] placeholder:KKPlaceholderImage];
 //    }
 //    NSURL *url = [NSURL URLWithString:model.entityEnclosures[0].enclosureURL];

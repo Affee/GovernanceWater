@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UIBarButtonItem *serviceButton;
 @property (nonatomic, strong) UIBarButtonItem *gatherButton;
 
+
 /**
  使用点标注表示最新位置的坐标位置
  */
@@ -48,6 +49,11 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.mapView];
+    
+    self.mapView.showsUserLocation = YES;
+    self.mapView.userTrackingMode = BMKUserTrackingModeFollow;
+
+    
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
     [self setupUI];
 }
@@ -58,11 +64,14 @@
     [self.mapView viewWillAppear];
     self.mapView.delegate = self;
     [self resumeTimer];
+    
+    
     NSData *locationData = [USER_DEFAULTS objectForKey:LATEST_LOCATION];
     if (locationData) {
         CLLocation *position = [NSKeyedUnarchiver unarchiveObjectWithData:locationData];
         [self updateMapViewWithLocation:position];
     }
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -114,7 +123,6 @@
 }
 
 
-
 -(void)onQueryTrackLatestPoint:(NSData *)response {
     NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
     
@@ -139,6 +147,8 @@
     [USER_DEFAULTS setObject:[NSKeyedArchiver archivedDataWithRootObject:latestLocation] forKey:LATEST_LOCATION];
     [USER_DEFAULTS synchronize];
     [self updateMapViewWithLocation:latestLocation];
+    
+    
 }
 
 
@@ -161,6 +171,7 @@
         }
     });
 }
+
 
 -(void)updateGatherButtonStyle {
     dispatch_async(MAIN_QUEUE, ^{
@@ -313,7 +324,7 @@
         BTKServiceOption *basicInfoOption = [[BTKServiceOption alloc] initWithAK:AK mcode:MCODE serviceID:serviceID keepAlive:self.serviceBasicInfo.keepAlive];
         [[BTKAction sharedInstance] initInfo:basicInfoOption];
         // 开启服务      把设备的uuid作为entityName
-        BTKStartServiceOption *startServiceOption = [[BTKStartServiceOption alloc] initWithEntityName:[[[UIDevice currentDevice] identifierForVendor] UUIDString]];
+        BTKStartServiceOption *startServiceOption = [[BTKStartServiceOption alloc] initWithEntityName:self.serviceBasicInfo.entityName];
         [[YYServiceManager defaultManager] startServiceWithOption:startServiceOption];
     }
 }

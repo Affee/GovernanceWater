@@ -122,6 +122,25 @@
 		F6C92B7321A9505100EE05D1 /* LxGridViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B7121A9505100EE05D1 /* LxGridViewFlowLayout.m */; };
 		F6C92B7921A9506900EE05D1 /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B7621A9506900EE05D1 /* FLAnimatedImage.m */; };
 		F6C92B7A21A9506900EE05D1 /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B7821A9506900EE05D1 /* FLAnimatedImageView.m */; };
+		F6FD28C321D0D7D4002B7276 /* YYEntitySearchFilterSetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28B521D0D7D2002B7276 /* YYEntitySearchFilterSetupViewController.m */; };
+		F6FD28C421D0D7D4002B7276 /* YYEntityManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28B721D0D7D2002B7276 /* YYEntityManageViewController.m */; };
+		F6FD28C521D0D7D4002B7276 /* YYEntitySearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28BB21D0D7D3002B7276 /* YYEntitySearchViewController.m */; };
+		F6FD28C621D0D7D4002B7276 /* YYEntityInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28BE21D0D7D3002B7276 /* YYEntityInfo.m */; };
+		F6FD28C721D0D7D4002B7276 /* YYEntityAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28BF21D0D7D3002B7276 /* YYEntityAddViewController.m */; };
+		F6FD28C821D0D7D4002B7276 /* YYTrackLatestPointProcessOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28C021D0D7D3002B7276 /* YYTrackLatestPointProcessOptionViewController.m */; };
+		F6FD28C921D0D7D4002B7276 /* YYTrackLatestPointViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28C221D0D7D3002B7276 /* YYTrackLatestPointViewController.m */; };
+		F6FD28CF21D0D8E8002B7276 /* YYLocalFenceModificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28CD21D0D8E7002B7276 /* YYLocalFenceModificationViewController.m */; };
+		F6FD28D021D0D8E8002B7276 /* YYLocalFenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28CE21D0D8E7002B7276 /* YYLocalFenceViewController.m */; };
+		F6FD28E021D0D9EC002B7276 /* YYHistoryTrackParam.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28D221D0D9EA002B7276 /* YYHistoryTrackParam.m */; };
+		F6FD28E121D0D9EC002B7276 /* YYHistoryTrackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28D321D0D9EA002B7276 /* YYHistoryTrackViewController.m */; };
+		F6FD28E221D0D9EC002B7276 /* YYHistoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28D421D0D9EA002B7276 /* YYHistoryViewModel.m */; };
+		F6FD28E321D0D9EC002B7276 /* YYHistoryTrackParamSetTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28D521D0D9EA002B7276 /* YYHistoryTrackParamSetTableViewController.m */; };
+		F6FD28E421D0D9EC002B7276 /* YYHistoryTrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28DC21D0D9EB002B7276 /* YYHistoryTrackPoint.m */; };
+		F6FD28E521D0D9EC002B7276 /* YYMultiColorPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28DD21D0D9EB002B7276 /* YYMultiColorPolyline.m */; };
+		F6FD28E621D0D9EC002B7276 /* YYArrowAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28DF21D0D9EC002B7276 /* YYArrowAnnotationView.m */; };
+		F6FD28EE21D0E470002B7276 /* YYCacheClearViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28E821D0E46F002B7276 /* YYCacheClearViewController.m */; };
+		F6FD28EF21D0E470002B7276 /* YYCacheVolumnViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28EB21D0E470002B7276 /* YYCacheVolumnViewController.m */; };
+		F6FD28F021D0E470002B7276 /* YYCacheManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD28EC21D0E470002B7276 /* YYCacheManageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -342,6 +361,44 @@
 		F6C92B7621A9506900EE05D1 /* FLAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImage.m; sourceTree = "<group>"; };
 		F6C92B7721A9506900EE05D1 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
 		F6C92B7821A9506900EE05D1 /* FLAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImageView.m; sourceTree = "<group>"; };
+		F6FD28B521D0D7D2002B7276 /* YYEntitySearchFilterSetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYEntitySearchFilterSetupViewController.m; sourceTree = "<group>"; };
+		F6FD28B621D0D7D2002B7276 /* YYEntityInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYEntityInfo.h; sourceTree = "<group>"; };
+		F6FD28B721D0D7D2002B7276 /* YYEntityManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYEntityManageViewController.m; sourceTree = "<group>"; };
+		F6FD28B821D0D7D2002B7276 /* YYEntitySearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYEntitySearchViewController.h; sourceTree = "<group>"; };
+		F6FD28B921D0D7D2002B7276 /* YYTrackLatestPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTrackLatestPointViewController.h; sourceTree = "<group>"; };
+		F6FD28BA21D0D7D2002B7276 /* YYEntityManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYEntityManageViewController.h; sourceTree = "<group>"; };
+		F6FD28BB21D0D7D3002B7276 /* YYEntitySearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYEntitySearchViewController.m; sourceTree = "<group>"; };
+		F6FD28BC21D0D7D3002B7276 /* YYEntitySearchFilterSetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYEntitySearchFilterSetupViewController.h; sourceTree = "<group>"; };
+		F6FD28BD21D0D7D3002B7276 /* YYTrackLatestPointProcessOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYTrackLatestPointProcessOptionViewController.h; sourceTree = "<group>"; };
+		F6FD28BE21D0D7D3002B7276 /* YYEntityInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYEntityInfo.m; sourceTree = "<group>"; };
+		F6FD28BF21D0D7D3002B7276 /* YYEntityAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYEntityAddViewController.m; sourceTree = "<group>"; };
+		F6FD28C021D0D7D3002B7276 /* YYTrackLatestPointProcessOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTrackLatestPointProcessOptionViewController.m; sourceTree = "<group>"; };
+		F6FD28C121D0D7D3002B7276 /* YYEntityAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYEntityAddViewController.h; sourceTree = "<group>"; };
+		F6FD28C221D0D7D3002B7276 /* YYTrackLatestPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYTrackLatestPointViewController.m; sourceTree = "<group>"; };
+		F6FD28CB21D0D8E7002B7276 /* YYLocalFenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLocalFenceViewController.h; sourceTree = "<group>"; };
+		F6FD28CC21D0D8E7002B7276 /* YYLocalFenceModificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYLocalFenceModificationViewController.h; sourceTree = "<group>"; };
+		F6FD28CD21D0D8E7002B7276 /* YYLocalFenceModificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLocalFenceModificationViewController.m; sourceTree = "<group>"; };
+		F6FD28CE21D0D8E7002B7276 /* YYLocalFenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYLocalFenceViewController.m; sourceTree = "<group>"; };
+		F6FD28D221D0D9EA002B7276 /* YYHistoryTrackParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHistoryTrackParam.m; sourceTree = "<group>"; };
+		F6FD28D321D0D9EA002B7276 /* YYHistoryTrackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHistoryTrackViewController.m; sourceTree = "<group>"; };
+		F6FD28D421D0D9EA002B7276 /* YYHistoryViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHistoryViewModel.m; sourceTree = "<group>"; };
+		F6FD28D521D0D9EA002B7276 /* YYHistoryTrackParamSetTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHistoryTrackParamSetTableViewController.m; sourceTree = "<group>"; };
+		F6FD28D621D0D9EB002B7276 /* YYMultiColorPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMultiColorPolyline.h; sourceTree = "<group>"; };
+		F6FD28D721D0D9EB002B7276 /* YYArrowAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYArrowAnnotationView.h; sourceTree = "<group>"; };
+		F6FD28D821D0D9EB002B7276 /* YYHistoryTrackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHistoryTrackViewController.h; sourceTree = "<group>"; };
+		F6FD28D921D0D9EB002B7276 /* YYHistoryTrackParamSetTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHistoryTrackParamSetTableViewController.h; sourceTree = "<group>"; };
+		F6FD28DA21D0D9EB002B7276 /* YYHistoryTrackParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHistoryTrackParam.h; sourceTree = "<group>"; };
+		F6FD28DB21D0D9EB002B7276 /* YYHistoryViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHistoryViewModel.h; sourceTree = "<group>"; };
+		F6FD28DC21D0D9EB002B7276 /* YYHistoryTrackPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHistoryTrackPoint.m; sourceTree = "<group>"; };
+		F6FD28DD21D0D9EB002B7276 /* YYMultiColorPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMultiColorPolyline.m; sourceTree = "<group>"; };
+		F6FD28DE21D0D9EB002B7276 /* YYHistoryTrackPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHistoryTrackPoint.h; sourceTree = "<group>"; };
+		F6FD28DF21D0D9EC002B7276 /* YYArrowAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYArrowAnnotationView.m; sourceTree = "<group>"; };
+		F6FD28E821D0E46F002B7276 /* YYCacheClearViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCacheClearViewController.m; sourceTree = "<group>"; };
+		F6FD28E921D0E46F002B7276 /* YYCacheVolumnViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCacheVolumnViewController.h; sourceTree = "<group>"; };
+		F6FD28EA21D0E46F002B7276 /* YYCacheManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCacheManageViewController.h; sourceTree = "<group>"; };
+		F6FD28EB21D0E470002B7276 /* YYCacheVolumnViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCacheVolumnViewController.m; sourceTree = "<group>"; };
+		F6FD28EC21D0E470002B7276 /* YYCacheManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCacheManageViewController.m; sourceTree = "<group>"; };
+		F6FD28ED21D0E470002B7276 /* YYCacheClearViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCacheClearViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -590,6 +647,10 @@
 		F6388CEC21C24B0A00186D72 /* BaiduThings */ = {
 			isa = PBXGroup;
 			children = (
+				F6FD28E721D0E45A002B7276 /* Cache */,
+				F6FD28D121D0D9D6002B7276 /* HistoryTrack */,
+				F6FD28CA21D0D8D9002B7276 /* LocalFence */,
+				F6FD28B421D0D7B9002B7276 /* Entity */,
 				F6388CF721C2777A00186D72 /* Service */,
 				F6388CF321C25EF000186D72 /* Alarm */,
 			);
@@ -951,6 +1012,72 @@
 			path = FLAnimatedImage;
 			sourceTree = "<group>";
 		};
+		F6FD28B421D0D7B9002B7276 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F6FD28C121D0D7D3002B7276 /* YYEntityAddViewController.h */,
+				F6FD28BF21D0D7D3002B7276 /* YYEntityAddViewController.m */,
+				F6FD28B621D0D7D2002B7276 /* YYEntityInfo.h */,
+				F6FD28BE21D0D7D3002B7276 /* YYEntityInfo.m */,
+				F6FD28BA21D0D7D2002B7276 /* YYEntityManageViewController.h */,
+				F6FD28B721D0D7D2002B7276 /* YYEntityManageViewController.m */,
+				F6FD28BC21D0D7D3002B7276 /* YYEntitySearchFilterSetupViewController.h */,
+				F6FD28B521D0D7D2002B7276 /* YYEntitySearchFilterSetupViewController.m */,
+				F6FD28B821D0D7D2002B7276 /* YYEntitySearchViewController.h */,
+				F6FD28BB21D0D7D3002B7276 /* YYEntitySearchViewController.m */,
+				F6FD28BD21D0D7D3002B7276 /* YYTrackLatestPointProcessOptionViewController.h */,
+				F6FD28C021D0D7D3002B7276 /* YYTrackLatestPointProcessOptionViewController.m */,
+				F6FD28B921D0D7D2002B7276 /* YYTrackLatestPointViewController.h */,
+				F6FD28C221D0D7D3002B7276 /* YYTrackLatestPointViewController.m */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		F6FD28CA21D0D8D9002B7276 /* LocalFence */ = {
+			isa = PBXGroup;
+			children = (
+				F6FD28CC21D0D8E7002B7276 /* YYLocalFenceModificationViewController.h */,
+				F6FD28CD21D0D8E7002B7276 /* YYLocalFenceModificationViewController.m */,
+				F6FD28CB21D0D8E7002B7276 /* YYLocalFenceViewController.h */,
+				F6FD28CE21D0D8E7002B7276 /* YYLocalFenceViewController.m */,
+			);
+			path = LocalFence;
+			sourceTree = "<group>";
+		};
+		F6FD28D121D0D9D6002B7276 /* HistoryTrack */ = {
+			isa = PBXGroup;
+			children = (
+				F6FD28D721D0D9EB002B7276 /* YYArrowAnnotationView.h */,
+				F6FD28DF21D0D9EC002B7276 /* YYArrowAnnotationView.m */,
+				F6FD28DA21D0D9EB002B7276 /* YYHistoryTrackParam.h */,
+				F6FD28D221D0D9EA002B7276 /* YYHistoryTrackParam.m */,
+				F6FD28D921D0D9EB002B7276 /* YYHistoryTrackParamSetTableViewController.h */,
+				F6FD28D521D0D9EA002B7276 /* YYHistoryTrackParamSetTableViewController.m */,
+				F6FD28DE21D0D9EB002B7276 /* YYHistoryTrackPoint.h */,
+				F6FD28DC21D0D9EB002B7276 /* YYHistoryTrackPoint.m */,
+				F6FD28D821D0D9EB002B7276 /* YYHistoryTrackViewController.h */,
+				F6FD28D321D0D9EA002B7276 /* YYHistoryTrackViewController.m */,
+				F6FD28DB21D0D9EB002B7276 /* YYHistoryViewModel.h */,
+				F6FD28D421D0D9EA002B7276 /* YYHistoryViewModel.m */,
+				F6FD28D621D0D9EB002B7276 /* YYMultiColorPolyline.h */,
+				F6FD28DD21D0D9EB002B7276 /* YYMultiColorPolyline.m */,
+			);
+			path = HistoryTrack;
+			sourceTree = "<group>";
+		};
+		F6FD28E721D0E45A002B7276 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				F6FD28ED21D0E470002B7276 /* YYCacheClearViewController.h */,
+				F6FD28E821D0E46F002B7276 /* YYCacheClearViewController.m */,
+				F6FD28EA21D0E46F002B7276 /* YYCacheManageViewController.h */,
+				F6FD28EC21D0E470002B7276 /* YYCacheManageViewController.m */,
+				F6FD28E921D0E46F002B7276 /* YYCacheVolumnViewController.h */,
+				F6FD28EB21D0E470002B7276 /* YYCacheVolumnViewController.m */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1110,20 +1237,31 @@
 				F6C92B6C21A94B3400EE05D1 /* TZPhotoPreviewCell.m in Sources */,
 				F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
+				F6FD28F021D0E470002B7276 /* YYCacheManageViewController.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
+				F6FD28E321D0D9EC002B7276 /* YYHistoryTrackParamSetTableViewController.m in Sources */,
 				F602733C21C9F21400B39E6C /* NewsCell.m in Sources */,
+				F6FD28E421D0D9EC002B7276 /* YYHistoryTrackPoint.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
+				F6FD28EE21D0E470002B7276 /* YYCacheClearViewController.m in Sources */,
 				F618207B21CC8A5700F22C2B /* HomeNewsDetailsVC.m in Sources */,
 				F6388D0521C2779700186D72 /* YYServiceViewController.m in Sources */,
+				F6FD28C421D0D7D4002B7276 /* YYEntityManageViewController.m in Sources */,
+				F6FD28C921D0D7D4002B7276 /* YYTrackLatestPointViewController.m in Sources */,
 				F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */,
+				F6FD28C721D0D7D4002B7276 /* YYEntityAddViewController.m in Sources */,
+				F6FD28E521D0D9EC002B7276 /* YYMultiColorPolyline.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
 				F6388CF221C25A1C00186D72 /* YYConst.mm in Sources */,
 				F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */,
+				F6FD28D021D0D8E8002B7276 /* YYLocalFenceViewController.m in Sources */,
 				F669DAA421B67D2E00CAE242 /* CLLThreeTreeViewController.m in Sources */,
 				F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */,
 				F6C92B7921A9506900EE05D1 /* FLAnimatedImage.m in Sources */,
+				F6FD28E221D0D9EC002B7276 /* YYHistoryViewModel.m in Sources */,
+				F6FD28C821D0D7D4002B7276 /* YYTrackLatestPointProcessOptionViewController.m in Sources */,
 				F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */,
 				F6C92B7321A9505100EE05D1 /* LxGridViewFlowLayout.m in Sources */,
 				F6C92B6F21A94B3400EE05D1 /* TZVideoPlayerController.m in Sources */,
@@ -1131,11 +1269,15 @@
 				F6C92B3921A92A5D00EE05D1 /* TextAndImagesCell.m in Sources */,
 				F6388D0621C2779700186D72 /* YYServiceParamCell.m in Sources */,
 				F6C92B6D21A94B3400EE05D1 /* TZPhotoPreviewController.m in Sources */,
+				F6FD28E021D0D9EC002B7276 /* YYHistoryTrackParam.m in Sources */,
+				F6FD28E121D0D9EC002B7276 /* YYHistoryTrackViewController.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F6388CF621C25F1600186D72 /* YYNotificationHandler.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
+				F6FD28C321D0D7D4002B7276 /* YYEntitySearchFilterSetupViewController.m in Sources */,
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
+				F6FD28CF21D0D8E8002B7276 /* YYLocalFenceModificationViewController.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
 				F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */,
@@ -1144,11 +1286,15 @@
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
 				F695C1EA21A28E7B00E93F1A /* BRDatePickerView.m in Sources */,
 				F695C28921A4FB9A00E93F1A /* DealingCell.m in Sources */,
+				F6FD28EF21D0E470002B7276 /* YYCacheVolumnViewController.m in Sources */,
 				F6C92B6A21A94B3400EE05D1 /* TZLocationManager.m in Sources */,
 				F669DA7921AF8F2200CAE242 /* EventDetailModel.m in Sources */,
 				F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */,
+				F6FD28C621D0D7D4002B7276 /* YYEntityInfo.m in Sources */,
 				F6C92B4021A9308300EE05D1 /* UITextView+ZWLimitCounter.m in Sources */,
+				F6FD28E621D0D9EC002B7276 /* YYArrowAnnotationView.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,
+				F6FD28C521D0D7D4002B7276 /* YYEntitySearchViewController.m in Sources */,
 				F669DA9E21B65D0600CAE242 /* RegionModel.m in Sources */,
 				F669DA7621AEA3B300CAE242 /* BRInfoModel.m in Sources */,
 				F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */,
@@ -1323,7 +1469,7 @@
 					"$(PROJECT_DIR)",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-GovernmentWater.wisenergy.com.GovernmentWater";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GovernmentWater.wisenergy.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64e armv7s arm64 armv7";
@@ -1357,7 +1503,7 @@
 					"$(PROJECT_DIR)",
 				);
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.-GovernmentWater.wisenergy.com.GovernmentWater";
+				PRODUCT_BUNDLE_IDENTIFIER = com.GovernmentWater.wisenergy.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "arm64e armv7s arm64 armv7";

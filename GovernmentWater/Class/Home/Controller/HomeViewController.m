@@ -56,10 +56,9 @@
     
 
 
-
-    
-    [self getDate];
-    [self getHeaderData];
+//列表和轮播图的接口
+//    [self getDate];
+//    [self getHeaderData];
 }
 
 #pragma mark ----请求列表
@@ -93,6 +92,7 @@
     _cycleScrollView2.currentPageDotColor = [UIColor redColor];
     _cycleScrollView2.autoScrollTimeInterval = MAXPRI;
     _cycleScrollView2.imageURLStringsGroup = _bannerMArr;
+    
     [self.headerView addSubview:_cycleScrollView2];
 }
 
@@ -105,6 +105,10 @@
     } success:^(id responseObject) {
         for (NSDictionary *dic in responseObject[@"copywritings"]) {
             BannerModel *model = [BannerModel modelWithDictionary:dic];
+//            图片空数据 处理
+            if ([StringUtil isEqual:model.photosLB]) {
+                model.photosLB = @"http://5b0988e595225.cdn.sohucs.com/images/20180605/ca87c9dca4d4411f8e3926bc642072b8.png";
+            }
             [_bannerMArr addObject:model.photosLB];
             [_titleArr addObject:model.informationTitle];
             [_identifierArr addObject:[NSNumber numberWithInteger:model.identifier]];
@@ -188,6 +192,7 @@
     
     HomeNewsDetailsVC *homeVC  = [[HomeNewsDetailsVC alloc]init];
     homeVC.identifier =   [_identifierArr[(long)index] integerValue];
+    
     homeVC.customNavBar.title = _titleArr[(long)index];
     homeVC.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:homeVC animated:YES];

@@ -65,7 +65,6 @@
     [super viewWillAppear:animated];
     
 }
-
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     _addBtn = [[UIButton alloc]initWithFrame:CGRectMake(KKScreenWidth - 60,KKScreenHeight -250, 40, 40)];
@@ -114,6 +113,7 @@
     [super viewWillDisappear:animated];
 //    移除添加按钮
     [_addBtn removeFromSuperview];
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark ----右item
