@@ -57,7 +57,7 @@
 
 
 //列表和轮播图的接口
-//    [self getDate];
+    [self getDate];
 //    [self getHeaderData];
 }
 

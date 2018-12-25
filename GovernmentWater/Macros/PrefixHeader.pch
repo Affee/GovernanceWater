@@ -125,8 +125,10 @@
 #define HISTORY_TRACK_START_TIME @"history_track_start_time"
 #define HISTORY_TRACK_END_TIME @"history_track_end_time"
 #define LATEST_LOCATION @"latest_location"
-//Bar高度
-#define STATUS_BAR_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
+//Bar 状态栏的高度
+#define KKStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+//Bar 状态栏的高度+nav的高度
+#define KKBarHeight KKStatusBarHeight + 44
 
 
 //判断是否是ipad

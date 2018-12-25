@@ -439,7 +439,7 @@ typedef enum {
 
 /**
  *移除一组标注
- *@param annotation 要移除的标注数组
+ *@param annotations 要移除的标注数组
  */
 - (void)removeAnnotations:(NSArray *)annotations;
 

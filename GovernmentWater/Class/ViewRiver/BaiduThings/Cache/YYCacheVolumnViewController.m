@@ -53,7 +53,7 @@
                                                              toItem:self.view
                                                           attribute:NSLayoutAttributeTop
                                                          multiplier:1
-                                                           constant:navigationBarHeight + space + STATUS_BAR_HEIGHT]
+                                                           constant:navigationBarHeight + space + KKStatusBarHeight]
      ];
     [self.infoLabel addConstraint:[NSLayoutConstraint constraintWithItem:self.infoLabel
                                                                attribute:NSLayoutAttributeWidth

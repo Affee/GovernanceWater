@@ -233,6 +233,7 @@
     });
 }
 
+
 -(void)showStopServiceResultWithTitle:(NSString *)title message:(NSString *)message {
     dispatch_async(MAIN_QUEUE, ^{
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
@@ -453,6 +454,9 @@
     }
     return _locationAccuracyCircle;
 }
+
+
+
 
      
 @end

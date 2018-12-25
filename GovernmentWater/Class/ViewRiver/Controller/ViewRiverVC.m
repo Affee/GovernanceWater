@@ -7,9 +7,36 @@
 //
 
 #import "ViewRiverVC.h"
-#import "ReportVC.h"
-@interface ViewRiverVC ()
+#import "YYServiceParamSetViewController.h"
+#import "YYServiceParam.h"
+#import "AppDelegate.h"
+#import <CoreLocation/CoreLocation.h>
+#import "YYServiceManager.h"
 
+@interface ViewRiverVC ()
+@property (nonatomic, strong) BMKMapView *mapView;
+@property (nonatomic, strong) UIBarButtonItem *configurationSetUpButton;
+
+@property (nonatomic, strong) UIBarButtonItem *serviceButton;
+@property (nonatomic, strong) UIBarButtonItem *gatherButton;
+
+/**
+ 使用点标注表示最新位置的坐标位置
+ */
+@property (nonatomic, strong) BMKPointAnnotation *locationPointAnnotation;
+/**
+ 使用圆形覆盖物表示最新位置的定位精度
+ */
+@property (nonatomic, strong) BMKCircle *locationAccuracyCircle;
+
+
+@property (nonatomic, strong) YYServiceParam *serviceBasicInfo;
+@property (nonatomic, assign) BOOL serviceBasicInfoAlreadySetted;
+
+@property (nonatomic, copy) ServiceParamBlock block;
+@property (nonatomic, strong) YYServiceParamSetViewController *vc;
+
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation ViewRiverVC
@@ -18,13 +45,336 @@
     [super viewDidLoad];
     self.customNavBar.title = @"巡河";
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self.view addSubview:self.mapView];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    
+//    创建UI
+    [self setupUI];
+}
+-(void)viewWillAppear:(BOOL)animated {
+    self.navigationController.toolbarHidden = FALSE;
+    [super viewWillAppear:animated];
+    [self.mapView viewWillAppear];
+    self.mapView.delegate = self;
+//恢复时间
+    [self resumeTimer];
+    NSData *locationData = [USER_DEFAULTS objectForKey:LATEST_LOCATION];
+//   坐标
+    if (locationData) {
+        CLLocation *position = [NSKeyedUnarchiver unarchiveObjectWithData:locationData];
+        [self updateMapViewWithLocation:position];
+    }
 }
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    ReportVC *repc = [[ReportVC alloc]init];
-    repc.customNavBar.title = @"督办事件";
-    repc.view.backgroundColor = KKWhiteColor;
-    [self.navigationController pushViewController:repc animated:YES];
+-(instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _serviceBasicInfoAlreadySetted = FALSE;
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(serviceOperationResultHandler:) name:YYServiceOperationResultNotification object:nil];
+    }
+    return self;
 }
+-(void)dealloc{
+    [self.timer invalidate];
+    self.timer = nil;
+    self.mapView = nil;
+    [[NSNotificationCenter defaultCenter]removeObserver:self name:YYServiceOperationResultNotification object:nil];
+    
+}
+
+-(void)setupUI
+{
+    self.navigationController.toolbarHidden = FALSE;
+    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    self.toolbarItems = @[flexSpace, self.serviceButton, flexSpace, self.gatherButton, flexSpace];
+    
+}
+-(void)resumeTimer
+{
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.serviceBasicInfo.gatherInterval target:self selector:@selector(queryLatestPosition) userInfo:nil repeats:YES];
+}
+
+#pragma mark - BMKMapViewDelegate 代理
+-(BMKAnnotationView *)mapView:(BMKMapView *)mapView viewForAnnotation:(id<BMKAnnotation>)annotation
+{
+    if (annotation != self.locationPointAnnotation) {
+        return nil;
+    }
+    static NSString *latestPointAnnotationViewID  = @"latestPointAnnotationViewID";
+    //  根据指定标识查找一个可被复用的标注View，一般在delegate中使用，用此函数来代替新申请一个View
+    BMKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:latestPointAnnotationViewID];
+//    初始化并返回一个annotation view
+    if (nil == annotationView) {
+        annotationView  = [[BMKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:latestPointAnnotationViewID];
+    }
+//    MODE 明天继续
+    annotationView.
+}
+/// 本方法查询实时位置，只是为了在轨迹服务的控制页面展示当前的位置，所以这里不设置纠偏选项。
+/// 关于SDK中的queryTrackLatestPointWith方法，在其他页面中有详细介绍。
+-(void)queryLatestPosition {
+    dispatch_async(GLOBAL_QUEUE, ^{
+        BTKQueryTrackLatestPointRequest *request = [[BTKQueryTrackLatestPointRequest alloc] initWithEntityName:self.serviceBasicInfo.entityName processOption:nil outputCootdType:BTK_COORDTYPE_BD09LL serviceID:serviceID tag:0];
+        [[BTKTrackAction sharedInstance] queryTrackLatestPointWith:request delegate:self];
+    });
+}
+-(void)updateMapViewWithLocation:(CLLocation *)latestLocation
+{
+    CLLocationCoordinate2D centerCoordinate = latestLocation.coordinate;
+    // 原点代表最新位置
+    dispatch_async(MAIN_QUEUE, ^{
+        self.locationPointAnnotation.coordinate = centerCoordinate;
+        self.locationPointAnnotation.title = self.serviceBasicInfo.entityName;
+        [self.mapView removeAnnotations:self.mapView.annotations];
+        [self.mapView addAnnotation:self.locationPointAnnotation];
+    });
+    
+    // 填充圆代表定位精度
+    dispatch_async(MAIN_QUEUE, ^{
+        self.locationAccuracyCircle.coordinate = centerCoordinate;
+        self.locationAccuracyCircle.radius = latestLocation.horizontalAccuracy;
+        [self.mapView removeOverlays:self.mapView.overlays];
+        [self.mapView addOverlay:self.locationAccuracyCircle];
+    });
+    
+//    移动地图中心点
+    dispatch_async(MAIN_QUEUE, ^{
+        [self.mapView setCenterCoordinate:centerCoordinate animated:TRUE];
+    });
+}
+#pragma mark - event response
+-(void)serviceOperationResultHandler:(NSNotification *)notification {
+    NSDictionary *info = notification.userInfo;
+    ServiceOperationType type = (ServiceOperationType)[info[@"type"] unsignedIntValue];
+    NSString *title = info[@"title"];
+    NSString *message = info[@"message"];
+    switch (type) {
+        case YY_SERVICE_OPERATION_TYPE_START_SERVICE:
+            [self showStartServiceResultWithTitle:title message:message];
+            break;
+        case YY_SERVICE_OPERATION_TYPE_STOP_SERVICE:
+            [self showStopServiceResultWithTitle:title message:message];
+            break;
+        case YY_SERVICE_OPERATION_TYPE_START_GATHER:
+            [self showStartGatherResultWithTitle:title message:message];
+            break;
+        case YY_SERVICE_OPERATION_TYPE_STOP_GATHER:
+            [self showStopGatherResultWithTitle:title message:message];
+            break;
+        default:
+            break;
+    }
+}
+-(void)showStartServiceResultWithTitle:(NSString *)title message:(NSString *)message {
+    dispatch_async(MAIN_QUEUE, ^{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self updateServiceButtonStyle];
+        }];
+        [alertController addAction:defaultAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    });
+}
+
+-(void)showStopServiceResultWithTitle:(NSString *)title message:(NSString *)message {
+    dispatch_async(MAIN_QUEUE, ^{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self updateServiceButtonStyle];
+        }];
+        [alertController addAction:defaultAction];
+        if (self.presentedViewController == nil) {
+            [self presentViewController:alertController animated:YES completion:nil];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:^{
+                dispatch_async(MAIN_QUEUE, ^{
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self updateGatherButtonStyle];
+                    [self updateServiceButtonStyle];
+                });
+            }];
+        }
+    });
+}
+
+-(void)showStartGatherResultWithTitle:(NSString *)title message:(NSString *)message {
+    dispatch_async(MAIN_QUEUE, ^{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self updateGatherButtonStyle];
+        }];
+        [alertController addAction:defaultAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+    });
+}
+
+-(void)showStopGatherResultWithTitle:(NSString *)title message:(NSString *)message {
+    dispatch_async(MAIN_QUEUE, ^{
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self updateGatherButtonStyle];
+        }];
+        [alertController addAction:defaultAction];
+        if (self.presentedViewController == nil) {
+            [self presentViewController:alertController animated:YES completion:nil];
+        } else {
+            [self dismissViewControllerAnimated:NO completion:^{
+                dispatch_async(MAIN_QUEUE, ^{
+                    [self presentViewController:alertController animated:YES completion:nil];
+                    [self updateGatherButtonStyle];
+                    [self updateServiceButtonStyle];
+                });
+            }];
+        }
+    });
+}
+
+
+-(void)updateServiceButtonStyle {
+    dispatch_async(MAIN_QUEUE, ^{
+        if ([YYServiceManager defaultManager].isServiceStarted) {
+            self.serviceButton.title = @"停止服务";
+            self.serviceButton.tintColor = [UIColor darkGrayColor];
+        } else {
+            self.serviceButton.title = @"开启服务";
+            self.serviceButton.tintColor = [UIColor blueColor];
+        }
+    });
+}
+
+-(void)updateGatherButtonStyle {
+    dispatch_async(MAIN_QUEUE, ^{
+        if ([YYServiceManager defaultManager].isGatherStarted) {
+            self.gatherButton.title = @"停止采集";
+            self.gatherButton.tintColor = [UIColor darkGrayColor];
+        } else {
+            self.gatherButton.title = @"开始采集";
+            self.gatherButton.tintColor = [UIColor blueColor];
+        }
+    });
+}
+
+
+/**
+ 点击ServiceButton出发的事件
+ */
+-(void)serviceButtonTapped
+{
+//    f如果开启就停止，否则就开启服务
+    if ([YYServiceManager defaultManager].isGatherStarted) {
+//        停止服务
+        [[YYServiceManager defaultManager] stopService];
+    }else{
+//        开启服务之间 先配置轨迹服务信息
+        BTKServiceOption *basicInfoOption = [[BTKServiceOption alloc] initWithAK:AK mcode:MCODE serviceID:serviceID keepAlive:self.serviceBasicInfo.keepAlive];
+        
+        [[BTKAction sharedInstance] initInfo:basicInfoOption];
+//        开启服务
+        BTKStartServiceOption *startServiceOption = [[BTKStartServiceOption alloc] initWithEntityName:self.serviceBasicInfo.entityName];
+        [[YYServiceManager defaultManager] startServiceWithOption:startServiceOption];
+    }
+}
+
+-(void)gatherButtonTapped
+{
+    // 如果已经开始采集就停止采集；否则就开始采集
+    if ([YYServiceManager defaultManager].isGatherStarted) {
+//        停止采集
+        [[YYServiceManager defaultManager] stopService];
+    }else{
+//        开始采集
+        [[YYServiceManager defaultManager] startGather];
+    }
+}
+#pragma mark - setter & getter
+-(BMKMapView *)mapView
+{
+    if (!_mapView) {
+        CGRect mapRect = CGRectMake(0, KKBarHeight, KKScreenWidth, KKScreenHeight-KKBarHeight);
+        _mapView = [[BMKMapView alloc]initWithFrame:mapRect];
+        _mapView.zoomLevel = 20;
+    }
+    return _mapView;
+}
+
+//鹰眼的基础信息
+-(YYServiceParam *)serviceBasicInfo{
+    if (_serviceBasicInfo == nil) {
+        _serviceBasicInfo = [[YYServiceParam alloc] init];
+        // 配置默认值
+        _serviceBasicInfo.gatherInterval = 5;
+        _serviceBasicInfo.packInterval = 30;
+        _serviceBasicInfo.activityType = CLActivityTypeAutomotiveNavigation;
+        _serviceBasicInfo.desiredAccuracy = kCLLocationAccuracyBest;
+        _serviceBasicInfo.distanceFilter = kCLDistanceFilterNone;
+        _serviceBasicInfo.keepAlive = FALSE;
+        //        设置entityName
+        NSString *entityName = [USER_DEFAULTS objectForKey:ENTITY_NAME];
+        if (entityName != nil && entityName.length != 0 ) {
+            _serviceBasicInfo.entityName = entityName;
+        }
+    }
+    return _serviceBasicInfo;
+}
+
+-(NSTimer *)timer
+{
+    if (_timer ==nil) {
+        _timer = [NSTimer timerWithTimeInterval:self.serviceBasicInfo.gatherInterval target:self selector:@selector(queryLatestPosition) userInfo:nil repeats:YES];
+    }
+    return _timer;
+}
+-(BMKPointAnnotation *)locationPointAnnotation {
+    if (_locationPointAnnotation == nil) {
+        _locationPointAnnotation = [[BMKPointAnnotation alloc] init];
+    }
+    return _locationPointAnnotation;
+}
+
+-(BMKCircle *)locationAccuracyCircle {
+    if (_locationAccuracyCircle == nil) {
+        _locationAccuracyCircle = [[BMKCircle alloc] init];
+    }
+    return _locationAccuracyCircle;
+}
+-(UIBarButtonItem *)serviceButton {
+    if (_serviceButton == nil) {
+        NSString *title = nil;
+        UIColor *tintColor = nil;
+        if ([YYServiceManager defaultManager].isServiceStarted) {
+            title = @"结束服务";
+            tintColor = [UIColor darkGrayColor];
+        } else {
+            title = @"开启服务";
+            tintColor = [UIColor blueColor];
+        }
+        _serviceButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(serviceButtonTapped)];
+        _serviceButton.tintColor = tintColor;
+    }
+    return _serviceButton;
+}
+-(UIBarButtonItem *)gatherButton {
+    if (_gatherButton == nil) {
+        NSString *title = nil;
+        UIColor *tintColor = nil;
+        if ([YYServiceManager defaultManager].isGatherStarted) {
+            title = @"停止采集";
+            tintColor = [UIColor darkGrayColor];
+        } else {
+            title = @"开始采集";
+            tintColor = [UIColor blueColor];
+        }
+        _gatherButton = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:self action:@selector(gatherButtonTapped)];
+        _gatherButton.tintColor = tintColor;
+    }
+    return _gatherButton;
+}
+
 
 @end
