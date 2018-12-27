@@ -12,9 +12,13 @@
 #import "AppDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 #import "YYServiceManager.h"
+#import "YYMultiColorPolyline.h"
+
 
 @interface ViewRiverVC ()
 @property (nonatomic, strong) BMKMapView *mapView;
+@property (nonatomic, strong) YYMultiColorPolyline *routeLine;
+
 @property (nonatomic, strong) UIBarButtonItem *configurationSetUpButton;
 
 @property (nonatomic, strong) UIBarButtonItem *serviceButton;
@@ -113,9 +117,121 @@
     if (nil == annotationView) {
         annotationView  = [[BMKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:latestPointAnnotationViewID];
     }
-//    MODE 明天继续
-    annotationView.
+    annotationView.image = [UIImage imageNamed:@"icon_center_point"];
+    return annotationView;
 }
+-(BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id<BMKOverlay>)overlay
+{
+//    if (FALSE == [overlay isMemberOfClass:[BMKCircle class]]) {
+//        return nil;
+//    }
+//    BMKCircleView *circleView = [[BMKCircleView alloc] initWithOverlay:overlay];
+//    circleView.fillColor = [[UIColor alloc] initWithRed:0 green:1 blue:0 alpha:0.3];
+//    circleView.strokeColor = [[UIColor alloc] initWithRed:0 green:0 blue:1 alpha:0];
+//    return circleView;
+    
+    if ([overlay isKindOfClass:[BMKPolyline class]]) {
+        BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
+        polylineView.strokeColor = [[UIColor purpleColor] colorWithAlphaComponent:1];
+        polylineView.lineWidth = 5.0;
+        return polylineView;
+    }
+    return nil;
+}
+
+-(void)onQueryTrackLatestPoint:(NSData *)response{
+
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+    if (nil == dict) {
+        NSLog(@"Entity List查询格式转换出错");
+        return;
+    }
+    if (0 != [dict[@"status"] intValue]) {
+        NSLog(@"实时位置查询返回错误");
+        return;
+    }
+    NSDictionary *latestPoint = dict[@"latest_point"];
+    double latitude = [latestPoint[@"latitude"] doubleValue];
+    double longitude = [latestPoint[@"longitude"] doubleValue];
+    AFLog(@"%f==%f",latitude,longitude);
+    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(latitude, longitude);
+    double horizontalAccuracy = [latestPoint[@"radius"] doubleValue];
+    double loctime = [latestPoint[@"loc_time"] doubleValue];
+    NSDate *timestamp = [NSDate dateWithTimeIntervalSince1970:loctime];
+    CLLocation *latestLocation = [[CLLocation alloc] initWithCoordinate:coordinate altitude:0 horizontalAccuracy:horizontalAccuracy verticalAccuracy:0 timestamp:timestamp];
+    // 存储最新的实时位置只是为了在地图底图一开始加载的时候，以上一次最新的实时位置作为底图的中心点
+    [USER_DEFAULTS setObject:[NSKeyedArchiver archivedDataWithRootObject:latestLocation] forKey:LATEST_LOCATION];
+    [USER_DEFAULTS synchronize];
+    [self updateMapViewWithLocation:latestLocation];
+    
+}
+
+//回调
+-(void)onQueryHistoryTrack:(NSData *)response {
+    //轨迹数据
+    NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:response options:NSJSONReadingAllowFragments error:nil];
+    NSLog(@"track history response: %@", dict);
+    
+    //数据处理
+    
+}
+
+//-(void)onAddCustomTrackPoint:(NSData *)response
+//{
+//    // 设置轨迹点的坐标
+//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(44.654321, 111.123456);
+//    // 设置轨迹点的定位时间戳
+//    NSUInteger timestamp = [[NSDate date] timeIntervalSince1970] - 10;
+//    // 设置轨迹点的自定义track属性字段的值
+//    NSMutableDictionary *customData = [NSMutableDictionary dictionaryWithCapacity:3];
+//    customData[@"someIntColumn"] = @50;
+//    customData[@"someDoubleColumn"] = @44.55;
+//    customData[@"someStringColumn"] = @"aaa";
+//    // 构造自定义轨迹点
+//    BTKCustomTrackPoint *point = [[BTKCustomTrackPoint alloc] initWithCoordinate:coordinate coordType:BTK_COORDTYPE_BD09LL loctime:timestamp direction:11 height:58 radius:3 speed:68 customData:customData entityName:self.serviceBasicInfo.entityName];
+//    // 使用自定义轨迹点构造请求对象
+//    BTKAddCustomTrackPointRequest *request = [[BTKAddCustomTrackPointRequest alloc] initWithCustomTrackPoint:point serviceID:100000 tag:444];
+//    // 发起上传请求
+//    [[BTKTrackAction sharedInstance] addCustomPointWith:request delegate:self];
+//}
+
+/**
+ 开启轨迹服务的回调方法
+ 
+ @param error 开启轨迹服务的结果
+ */
+-(void)onStartService:(BTKServiceErrorCode) error {
+    
+}
+
+/**
+ 停止轨迹服务的回调方法
+ 
+ @param error 停止轨迹服务的结果
+ */
+-(void)onStopService:(BTKServiceErrorCode) error {
+    
+}
+
+/**
+ 开始采集的回调方法
+ 
+ @param error 开始采集的操作结果
+ */
+-(void)onStartGather:(BTKGatherErrorCode) error {
+    
+}
+
+/**
+ 停止采集的回调方法
+ 
+ @param error 停止采集的操作结果
+ */
+-(void)onStopGather:(BTKGatherErrorCode) error {
+    
+}
+
+
 /// 本方法查询实时位置，只是为了在轨迹服务的控制页面展示当前的位置，所以这里不设置纠偏选项。
 /// 关于SDK中的queryTrackLatestPointWith方法，在其他页面中有详细介绍。
 -(void)queryLatestPosition {
@@ -256,6 +372,7 @@
         } else {
             self.gatherButton.title = @"开始采集";
             self.gatherButton.tintColor = [UIColor blueColor];
+            
         }
     });
 }
@@ -299,6 +416,8 @@
         CGRect mapRect = CGRectMake(0, KKBarHeight, KKScreenWidth, KKScreenHeight-KKBarHeight);
         _mapView = [[BMKMapView alloc]initWithFrame:mapRect];
         _mapView.zoomLevel = 20;
+        [_mapView setUserTrackingMode:BMKUserTrackingModeFollow];
+        
     }
     return _mapView;
 }
@@ -375,6 +494,9 @@
     }
     return _gatherButton;
 }
+
+
+
 
 
 @end

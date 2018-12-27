@@ -20,39 +20,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/Home/Controller/HomeViewController.m"
-            timestampString = "567424189.34263"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
-            landmarkName = "-getDate"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GovernmentWater/Class/Home/Controller/HomeViewController.m"
-            timestampString = "567424189.34294"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "-getDate"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GovernmentWater/Class/Home/Controller/HomeViewController.m"
-            timestampString = "567424189.343006"
+            timestampString = "567573008.486181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
@@ -68,7 +36,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/Home/Controller/HomeViewController.m"
-            timestampString = "567424189.343061"
+            timestampString = "567573008.486251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "120"
@@ -84,7 +52,7 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "567424190.009439"
+                  timestampString = "567593874.24152"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "121"
@@ -95,11 +63,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.129"
+                  symbolName = "__copy_helper_block_.127"
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "567424190.0114011"
+                  timestampString = "567593874.243849"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "105"
@@ -110,11 +78,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__35-[HomeViewController getHeaderData]_block_invoke.132"
+                  symbolName = "__35-[HomeViewController getHeaderData]_block_invoke.130"
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "567424190.013607"
+                  timestampString = "567593874.2460459"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "123"
@@ -147,7 +115,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceViewController.m"
-            timestampString = "567424189.343178"
+            timestampString = "567593873.959214"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
@@ -163,7 +131,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceViewController.m"
-            timestampString = "567424189.343421"
+            timestampString = "567593873.9593"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "131"
@@ -179,7 +147,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceViewController.m"
-            timestampString = "567424189.3434891"
+            timestampString = "567593873.959353"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "208"
@@ -195,7 +163,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceViewController.m"
-            timestampString = "567424189.3435481"
+            timestampString = "567593873.959402"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "200"
@@ -211,7 +179,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceViewController.m"
-            timestampString = "567424189.343617"
+            timestampString = "567593873.959448"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "193"
@@ -226,76 +194,126 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GovernmentWater/Class/Home/Controller/HomeViewController.m"
-            timestampString = "567424189.3436821"
+            filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceManager.m"
+            timestampString = "567581210.590456"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-getDate"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-onStartService:"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HomeViewController getDate]"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "567424190.04342"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "636">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__29-[HomeViewController getDate]_block_invoke"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "567424190.045352"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__29-[HomeViewController getDate]_block_invoke_2"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "567424190.04747"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "112">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.73"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "567424190.0494601"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceManager.m"
+            timestampString = "567581211.23186"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "-onStartService:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceManager.m"
+            timestampString = "567584482.584555"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "-onStopService:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceManager.m"
+            timestampString = "567584483.541023"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "-onStopService:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceManager.m"
+            timestampString = "567584566.511149"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "-onStartGather:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceManager.m"
+            timestampString = "567584567.197252"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "-onStartGather:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceManager.m"
+            timestampString = "567584569.662276"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
+            landmarkName = "-onStopGather:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/BaiduThings/Service/YYServiceManager.m"
+            timestampString = "567584570.403597"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "-onStopGather:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -305,12 +323,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.m"
-            timestampString = "567424189.343739"
+            timestampString = "567602656.902048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "-updateMapViewWithLocation:"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-onQueryTrackLatestPoint:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

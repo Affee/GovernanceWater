@@ -8,6 +8,7 @@
 
 #import "MineVC.h"
 #import "AppDelegate.h"
+#import "PDFVC.h"
 
 @interface MineVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -126,8 +127,9 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    AFTwoViewController *aaaaa = [[AFTwoViewController alloc]init];
-//    aaaaa.title = @"相册";
-//    [self.navigationController pushViewController:aaaaa animated:YES];
+    PDFVC *aaaaa = [[PDFVC alloc]init];
+    aaaaa.view.backgroundColor = [UIColor whiteColor];
+    aaaaa.customNavBar.title = @"预览";
+    [self.navigationController pushViewController:aaaaa animated:YES];
 }
 @end

@@ -10,8 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ViewRiverVC : AFBaseViewController<BMKMapViewDelegate, BTKTraceDelegate, BTKTrackDelegate, CLLocationManagerDelegate>
-
+@interface ViewRiverVC : AFBaseViewController<BMKMapViewDelegate, BTKTraceDelegate, BTKTrackDelegate, CLLocationManagerDelegate,BTKEntityDelegate>
+/**
+ 标志是否已经开启轨迹服务
+ */
+@property (nonatomic, assign) BOOL isServiceStarted;
 @end
 
 NS_ASSUME_NONNULL_END
