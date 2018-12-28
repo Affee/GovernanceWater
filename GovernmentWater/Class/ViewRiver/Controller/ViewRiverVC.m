@@ -13,6 +13,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "YYServiceManager.h"
 #import "YYMultiColorPolyline.h"
+#import "YYHistoryTrackPoint.h"
 
 
 @interface ViewRiverVC ()
@@ -24,6 +25,10 @@
 @property (nonatomic, strong) UIBarButtonItem *serviceButton;
 @property (nonatomic, strong) UIBarButtonItem *gatherButton;
 
+/** 位置数组 */
+@property (nonatomic, strong) NSMutableArray *locationArrayM;
+/** 记录上一次的位置 */
+@property (nonatomic, strong) CLLocation *preLocation;
 /**
  使用点标注表示最新位置的坐标位置
  */
@@ -42,6 +47,10 @@
 
 @property (nonatomic, strong) NSTimer *timer;
 @end
+static double const EPSILON = 0.0001;
+static NSString * const kStartPositionTitle = @"起点";
+static NSString * const kEndPositionTitle = @"终点";
+static NSString * const kArrowTitle = @"箭头";
 
 @implementation ViewRiverVC
 
@@ -68,6 +77,8 @@
     if (locationData) {
         CLLocation *position = [NSKeyedUnarchiver unarchiveObjectWithData:locationData];
         [self updateMapViewWithLocation:position];
+        
+        [self.locationArrayM addObject:position];
     }
 }
 
@@ -85,7 +96,6 @@
     self.timer = nil;
     self.mapView = nil;
     [[NSNotificationCenter defaultCenter]removeObserver:self name:YYServiceOperationResultNotification object:nil];
-    
 }
 
 -(void)setupUI
@@ -93,7 +103,6 @@
     self.navigationController.toolbarHidden = FALSE;
     UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     self.toolbarItems = @[flexSpace, self.serviceButton, flexSpace, self.gatherButton, flexSpace];
-    
 }
 -(void)resumeTimer
 {
@@ -176,24 +185,6 @@
     
 }
 
-//-(void)onAddCustomTrackPoint:(NSData *)response
-//{
-//    // 设置轨迹点的坐标
-//    CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake(44.654321, 111.123456);
-//    // 设置轨迹点的定位时间戳
-//    NSUInteger timestamp = [[NSDate date] timeIntervalSince1970] - 10;
-//    // 设置轨迹点的自定义track属性字段的值
-//    NSMutableDictionary *customData = [NSMutableDictionary dictionaryWithCapacity:3];
-//    customData[@"someIntColumn"] = @50;
-//    customData[@"someDoubleColumn"] = @44.55;
-//    customData[@"someStringColumn"] = @"aaa";
-//    // 构造自定义轨迹点
-//    BTKCustomTrackPoint *point = [[BTKCustomTrackPoint alloc] initWithCoordinate:coordinate coordType:BTK_COORDTYPE_BD09LL loctime:timestamp direction:11 height:58 radius:3 speed:68 customData:customData entityName:self.serviceBasicInfo.entityName];
-//    // 使用自定义轨迹点构造请求对象
-//    BTKAddCustomTrackPointRequest *request = [[BTKAddCustomTrackPointRequest alloc] initWithCustomTrackPoint:point serviceID:100000 tag:444];
-//    // 发起上传请求
-//    [[BTKTrackAction sharedInstance] addCustomPointWith:request delegate:self];
-//}
 
 /**
  开启轨迹服务的回调方法
@@ -243,12 +234,18 @@
 -(void)updateMapViewWithLocation:(CLLocation *)latestLocation
 {
     CLLocationCoordinate2D centerCoordinate = latestLocation.coordinate;
+    
+    // 单色图
+    [self drawHistoryTrackWithPoints:self.locationArrayM];
+    
     // 原点代表最新位置
     dispatch_async(MAIN_QUEUE, ^{
         self.locationPointAnnotation.coordinate = centerCoordinate;
         self.locationPointAnnotation.title = self.serviceBasicInfo.entityName;
         [self.mapView removeAnnotations:self.mapView.annotations];
         [self.mapView addAnnotation:self.locationPointAnnotation];
+        
+      
     });
     
     // 填充圆代表定位精度
@@ -262,8 +259,95 @@
 //    移动地图中心点
     dispatch_async(MAIN_QUEUE, ^{
         [self.mapView setCenterCoordinate:centerCoordinate animated:TRUE];
+
     });
+    
+//    [self.locationArrayM addObject:latestLocation];
+    [self startTrailRouteWithUserLocation:latestLocation];
 }
+
+- (void)startTrailRouteWithUserLocation:(BMKUserLocation *)userLocation
+{
+    if (self.preLocation) {
+
+    }
+
+//    符合的位置点存储到数组中
+    [self.locationArrayM addObject:userLocation.location];
+    self.preLocation = userLocation.location;
+//    绘图
+//    [self drawWalkPolyline];
+
+
+    // 单色图
+    [self drawHistoryTrackWithPoints:self.locationArrayM];
+}
+
+- (void)drawHistoryTrackWithPoints:(NSMutableArray *)points
+{
+    CLLocationCoordinate2D coors[points.count];
+    NSInteger count = 0;
+    for (size_t i = 0; i < points.count; i++) {
+        CLLocationCoordinate2D p = ((YYHistoryTrackPoint *)points[i]).coordinate;
+        if (fabs(p.latitude) < ESPIPE || fabs(p.longitude) < ESPIPE) {
+            continue;
+        }
+        count++;
+        coors[i] = ((YYHistoryTrackPoint*)points[i]).coordinate;
+    }
+    BMKPolyline *line = [BMKPolyline polylineWithCoordinates:coors count:count];
+//    起点
+    BMKPointAnnotation *startAnnotation = [[BMKPointAnnotation alloc]init];
+    startAnnotation.coordinate = coors[0];
+    startAnnotation.title = kStartPositionTitle;
+//    终点
+    BMKPointAnnotation *endAnnotation = [[BMKPointAnnotation alloc] init];
+    endAnnotation.coordinate = coors[count - 1];
+    endAnnotation.title = kEndPositionTitle;
+
+    dispatch_async(MAIN_QUEUE, ^{
+        [self.mapView removeOverlays:self.mapView.overlays];
+        [self.mapView removeAnnotations:self.mapView.annotations];
+//        [self mapViewFitForCoordinates:points];
+        [self.mapView addOverlay:line];
+        [self.mapView addAnnotation:startAnnotation];
+        [self.mapView addAnnotation:endAnnotation];
+    });
+    
+}
+-(void)mapViewFitForCoordinates:(NSMutableArray *)points
+{
+    double minLat = 90.0;
+    double maxLat = -90.0;
+    double minLon = 180.0;
+    double maxLon = -180.0;
+    for (size_t i = 0; i <points.count; i++) {
+        minLat = fmin(minLat, ((YYHistoryTrackPoint *)points[i]).coordinate.latitude);
+        maxLat = fmax(maxLat, ((YYHistoryTrackPoint *)points[i]).coordinate.latitude);
+        minLon = fmin(minLon, ((YYHistoryTrackPoint *)points[i]).coordinate.longitude);
+        maxLon = fmax(maxLon, ((YYHistoryTrackPoint *)points[i]).coordinate.longitude);
+    }
+    CLLocationCoordinate2D center = CLLocationCoordinate2DMake((minLat + maxLat) * 0.5, (minLon + maxLon) * 0.5);
+    BMKCoordinateSpan span;
+    span.latitudeDelta = (maxLat - minLat) + 0.01;
+    span.longitudeDelta = (maxLat - minLon) +0.01;
+    BMKCoordinateRegion region;
+    region.center = center;
+    region.span = span;
+//    BMKZoomScale
+    [self.mapView setRegion:region animated:YES];
+}
+
+//-(void)drawWalkPolyline
+//{
+//    //轨迹点
+//    NSUInteger count = self.locationArrayM.count;
+//
+//
+//
+//
+//
+//}
 #pragma mark - event response
 -(void)serviceOperationResultHandler:(NSNotification *)notification {
     NSDictionary *info = notification.userInfo;
@@ -416,7 +500,7 @@
         CGRect mapRect = CGRectMake(0, KKBarHeight, KKScreenWidth, KKScreenHeight-KKBarHeight);
         _mapView = [[BMKMapView alloc]initWithFrame:mapRect];
         _mapView.zoomLevel = 20;
-        [_mapView setUserTrackingMode:BMKUserTrackingModeFollow];
+        [_mapView setUserTrackingMode:BMKUserTrackingModeHeading];
         
     }
     return _mapView;
@@ -495,8 +579,13 @@
     return _gatherButton;
 }
 
-
-
+-(NSMutableArray *)locationArrayM
+{
+    if (!_locationArrayM) {
+        _locationArrayM = [NSMutableArray array];
+    }
+    return _locationArrayM;
+}
 
 
 @end
