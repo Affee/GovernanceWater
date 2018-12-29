@@ -8,10 +8,16 @@
 
 #import "AFBaseViewController.h"
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface ViewRiverVC : AFBaseViewController
 
+
 @end
 
-NS_ASSUME_NONNULL_END
+@interface BMKSportNode : NSObject
+@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
+@property (nonatomic, assign) CGFloat angle;
+@property (nonatomic, assign) CGFloat distace;
+@property (nonatomic, assign) CGFloat speed;
+
+@end

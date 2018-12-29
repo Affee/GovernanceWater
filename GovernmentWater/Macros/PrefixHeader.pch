@@ -78,7 +78,13 @@
 
 
 //百度地图
-#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BaiduMapAPI_Base/BMKBaseComponent.h>//引入base相关所有的头文件
+#import <BaiduMapAPI_Map/BMKMapComponent.h>//引入地图功能所有的头文件
+#import <BaiduMapAPI_Search/BMKSearchComponent.h>//引入检索功能所有的头文件
+#import <BaiduMapAPI_Cloud/BMKCloudSearchComponent.h>//引入云检索功能所有的头文件
+#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>//引入计算工具所有的头文件
+#import <BaiduMapAPI_Map/BMKMapView.h>//只引入所需的单个头文件
+
 #import "YYConst.h"
 
 //#import "WMPageController.h"
@@ -126,9 +132,12 @@
 #define LATEST_LOCATION @"latest_location"
 //Bar 状态栏的高度
 #define KKStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
-//Bar 状态栏的高度+nav的高度
-#define KKBarHeight KKStatusBarHeight + 44
-
+//导航栏高度
+#define KKNavBarHeight 44.0
+//Bar 状态栏的高度+导航栏的高度
+#define KKBarHeight KKStatusBarHeight + KKNavBarHeight
+//iPhone X适配差值
+#define KKiPhoneXSafeAreaDValue  ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
 
 //判断是否是ipad
 #define isPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
