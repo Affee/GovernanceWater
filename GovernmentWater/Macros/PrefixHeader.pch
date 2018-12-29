@@ -78,7 +78,6 @@
 
 
 //百度地图
-#import <BaiduTraceSDK/BaiduTraceSDK.h>
 #import <BaiduMapAPI_Map/BMKMapComponent.h>
 #import "YYConst.h"
 

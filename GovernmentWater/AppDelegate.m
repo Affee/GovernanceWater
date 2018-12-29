@@ -64,28 +64,7 @@
  */
 -(void)baiduConfiguration
 {
-//    申请通知权限
-    if (CURRENT_IOS_VERSION >= 10.0) {
-        [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:(UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound) completionHandler:^(BOOL granted, NSError * _Nullable error) {
-            if (granted) {
-                NSLog(@"已经获取通知权限");
-            }
-        }];
-    }
 
-//    注册通知
-    [UNUserNotificationCenter currentNotificationCenter].delegate = self.notificationHandler;
-    
-//    鹰眼sdk的基本信息
-//    每次调用startService 开始轨迹之前，可以重新设置这些信息
-    BTKServiceOption *basicInfoOption = [[BTKServiceOption alloc] initWithAK:AK mcode:MCODE serviceID:serviceID keepAlive:YES];
-    [[BTKAction sharedInstance] initInfo:basicInfoOption];
-    
-    
-//    初始化地图SDK
-    BMKMapManager *mapManager = [[BMKMapManager alloc] init];
-    [mapManager start:AK generalDelegate:self];
-    
     
 
 }
@@ -106,12 +85,5 @@
     }
 }
 
-#pragma mark - setter & getter
--(YYNotificationHandler *)notificationHandler {
-    if (_notificationHandler == nil) {
-        _notificationHandler = [[YYNotificationHandler alloc] init];
-    }
-    return _notificationHandler;
-}
 
 @end

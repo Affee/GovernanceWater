@@ -13,7 +13,6 @@
 #import "MineVC.h"
 #import "AFBaseNavigationController.h"
 
-#import "YYServiceViewController.h"
 
 @interface AFTabBarController ()
 
