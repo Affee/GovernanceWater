@@ -194,9 +194,7 @@
 		F6FD29A621D768AA002B7276 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD29A521D768AA002B7276 /* MobileCoreServices.framework */; };
 		F6FD29A821D76905002B7276 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD29A721D76905002B7276 /* libc++.tbd */; };
 		F6FD29AA21D76986002B7276 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F6FD29A921D76985002B7276 /* mapapi.bundle */; };
-		F6FD29B321D76DE3002B7276 /* BMKSecondaryCataloguePage.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD29AC21D76DE3002B7276 /* BMKSecondaryCataloguePage.m */; };
-		F6FD29B421D76DE3002B7276 /* BMKCatalogueTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD29AE21D76DE3002B7276 /* BMKCatalogueTableViewCell.m */; };
-		F6FD29B521D76DE3002B7276 /* BMKCataloguePage.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD29B221D76DE3002B7276 /* BMKCataloguePage.m */; };
+		F6FD29B821DCA99F002B7276 /* YYHistoryTrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD29B721DCA99F002B7276 /* YYHistoryTrackPoint.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -488,13 +486,8 @@
 		F6FD29A521D768AA002B7276 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		F6FD29A721D76905002B7276 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		F6FD29A921D76985002B7276 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
-		F6FD29AC21D76DE3002B7276 /* BMKSecondaryCataloguePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKSecondaryCataloguePage.m; sourceTree = "<group>"; };
-		F6FD29AD21D76DE3002B7276 /* BMKCataloguePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKCataloguePage.h; sourceTree = "<group>"; };
-		F6FD29AE21D76DE3002B7276 /* BMKCatalogueTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKCatalogueTableViewCell.m; sourceTree = "<group>"; };
-		F6FD29AF21D76DE3002B7276 /* BMKSecondaryCataloguePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKSecondaryCataloguePage.h; sourceTree = "<group>"; };
-		F6FD29B021D76DE3002B7276 /* BMKPrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKPrefixHeader.pch; sourceTree = "<group>"; };
-		F6FD29B121D76DE3002B7276 /* BMKCatalogueTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMKCatalogueTableViewCell.h; sourceTree = "<group>"; };
-		F6FD29B221D76DE3002B7276 /* BMKCataloguePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMKCataloguePage.m; sourceTree = "<group>"; };
+		F6FD29B621DCA99F002B7276 /* YYHistoryTrackPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHistoryTrackPoint.h; sourceTree = "<group>"; };
+		F6FD29B721DCA99F002B7276 /* YYHistoryTrackPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHistoryTrackPoint.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -754,7 +747,8 @@
 		F6388CEC21C24B0A00186D72 /* BaiduThings */ = {
 			isa = PBXGroup;
 			children = (
-				F6FD29AB21D76DE3002B7276 /* Configuration */,
+				F6FD29B621DCA99F002B7276 /* YYHistoryTrackPoint.h */,
+				F6FD29B721DCA99F002B7276 /* YYHistoryTrackPoint.m */,
 			);
 			path = BaiduThings;
 			sourceTree = "<group>";
@@ -1238,20 +1232,6 @@
 			path = thirdlibs;
 			sourceTree = "<group>";
 		};
-		F6FD29AB21D76DE3002B7276 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				F6FD29AC21D76DE3002B7276 /* BMKSecondaryCataloguePage.m */,
-				F6FD29AD21D76DE3002B7276 /* BMKCataloguePage.h */,
-				F6FD29AE21D76DE3002B7276 /* BMKCatalogueTableViewCell.m */,
-				F6FD29AF21D76DE3002B7276 /* BMKSecondaryCataloguePage.h */,
-				F6FD29B021D76DE3002B7276 /* BMKPrefixHeader.pch */,
-				F6FD29B121D76DE3002B7276 /* BMKCatalogueTableViewCell.h */,
-				F6FD29B221D76DE3002B7276 /* BMKCataloguePage.m */,
-			);
-			path = Configuration;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1461,7 +1441,6 @@
 				F657866A219ABB37003D87EA /* MineVC.m in Sources */,
 				F669DAA921B6802A00CAE242 /* CLLThreeTreeModel.m in Sources */,
 				F657865C219AB897003D87EA /* DateUtil.m in Sources */,
-				F6FD29B321D76DE3002B7276 /* BMKSecondaryCataloguePage.m in Sources */,
 				F6C92B7021A94B3400EE05D1 /* UIView+Layout.m in Sources */,
 				F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */,
 				F6C92B6E21A94B3400EE05D1 /* TZProgressView.m in Sources */,
@@ -1478,7 +1457,6 @@
 				F669DAB221B6809700CAE242 /* ChapterHeader.m in Sources */,
 				F6C92B7A21A9506900EE05D1 /* FLAnimatedImageView.m in Sources */,
 				F657865B219AB897003D87EA /* StringUtil.m in Sources */,
-				F6FD29B421D76DE3002B7276 /* BMKCatalogueTableViewCell.m in Sources */,
 				F695C1EC21A28E7B00E93F1A /* BRStringPickerView.m in Sources */,
 				F669DAA121B6701E00CAE242 /* TownModel.m in Sources */,
 				F695C29821A68FC300E93F1A /* JMDropMenu.m in Sources */,
@@ -1508,7 +1486,6 @@
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
-				F6FD29B521D76DE3002B7276 /* BMKCataloguePage.m in Sources */,
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
@@ -1521,6 +1498,7 @@
 				F6C92B6A21A94B3400EE05D1 /* TZLocationManager.m in Sources */,
 				F669DA7921AF8F2200CAE242 /* EventDetailModel.m in Sources */,
 				F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */,
+				F6FD29B821DCA99F002B7276 /* YYHistoryTrackPoint.m in Sources */,
 				F6C92B4021A9308300EE05D1 /* UITextView+ZWLimitCounter.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,
 				F669DA9E21B65D0600CAE242 /* RegionModel.m in Sources */,

@@ -13,11 +13,3 @@
 
 
 @end
-
-@interface BMKSportNode : NSObject
-@property (nonatomic, assign) CLLocationCoordinate2D coordinate;
-@property (nonatomic, assign) CGFloat angle;
-@property (nonatomic, assign) CGFloat distace;
-@property (nonatomic, assign) CGFloat speed;
-
-@end
