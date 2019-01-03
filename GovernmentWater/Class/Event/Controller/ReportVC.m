@@ -90,6 +90,7 @@
 
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
 //    MODE  这个name 为空
+    //      雷雷 1 这里啊 照片上传不上后台呀  嘤嘤嘤 用的是TZImagePickerController 下面有个回调方法 取出照片信息，你若是有时间帮我看下哈，不穿图片的话，其他数据都可以上传成功的
     [PPNetworkHelper uploadImagesWithURL:WorkerEvents_URL parameters:dict name:@"filename.png" images:_uploadImageMutArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
         AFLog(@"上传成功1");
     } success:^(id responseObject) {
@@ -251,7 +252,7 @@
 #pragma mark ----tableView get/setter
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        CGRect frame = CGRectMake(0, [self navBarBottom], self.view.frame.size.width, self.view.frame.size.height - [self navBarBottom]);
+        CGRect frame = CGRectMake(0, KKBarHeight, self.view.frame.size.width, self.view.frame.size.height - KKBarHeight- KKiPhoneXSafeAreaDValue );
         _tableView = [[UITableView alloc] initWithFrame:frame
                                                   style:UITableViewStyleGrouped];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
@@ -263,14 +264,7 @@
 }
 
 
-- (int)navBarBottom
-{
-    if ([WRNavigationBar isIphoneX]) {
-        return 88;
-    } else {
-        return 64;
-    }
-}
+
 
 
 
@@ -432,7 +426,6 @@
     // You can get the photos by block, the same as by delegate.
     // 你可以通过block或者代理，来得到用户选择的照片.
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-      
         for (UIImage *str in photos) {
             [_uploadImageMutArr addObject:str];
         }

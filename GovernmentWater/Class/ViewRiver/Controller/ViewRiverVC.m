@@ -107,9 +107,9 @@
 -(void)BMKLocationManager:(BMKLocationManager *)manager didUpdateHeading:(CLHeading *)heading
 {
     if (!heading) {
-//设备的朝向
         return;
     }
+    //设备的朝向同步
     self.userLocation.heading = heading;
     [_mapView updateLocationData:self.userLocation];
 }
@@ -132,19 +132,24 @@
     self.userLocation.location = location.location;
 //    实现该方法，否则定位图标不会出现
     [_mapView updateLocationData:self.userLocation];
-    //    location.rgcData
+    /**
+     location.rgcData  雷雷 这里的啊 location.location.coordinate中的数组  就是取出这一个一个的点，完了添加到数组中，完了再绘制成一个实时的路线
+     绘制路线的方法在下面这个网站上
+     http://lbsyun.baidu.com/index.php?title=iossdk/guide/map-render/ployline
+     */
+    
     AFLog(@"self.userLocation.location ====== %f=====%f",self.userLocation.location.coordinate.latitude,self.userLocation.location.coordinate.longitude);
-    
-    CLLocationCoordinate2D coor;
-    coor.latitude = location.location.coordinate.latitude;
-    coor.longitude = location.location.coordinate.longitude;
-//    NSValue *value  =  [NSValue value:&coor withObjCType:@encode(CLLocationCoordinate2D)];
-    NSValue *value = [NSValue value:&coor withObjCType:@encode(CLLocationCoordinate2D)];
-    
-    [_coordinateArray addObject: [NSString stringWithFormat:@"%f",coor.latitude]];
-    [_coordinateArray1 addObject:[NSString stringWithFormat:@"%f",coor.longitude]];
 
-//    [_coordinateArray addObject:value];
+//    结构体添加到可变数组中  这个却不到值
+//    CLLocationCoordinate2D coor;
+//    coor.latitude = location.location.coordinate.latitude;
+//    coor.longitude = location.location.coordinate.longitude;
+//    NSValue *value = [NSValue value:&coor withObjCType:@encode(CLLocationCoordinate2D)];
+//    //    [_coordinateArray addObject:value];
+//
+//    [_coordinateArray addObject: [NSString stringWithFormat:@"%f",coor.latitude]];
+//    [_coordinateArray1 addObject:[NSString stringWithFormat:@"%f",coor.longitude]];
+
     
 //
 //    CLLocationCoordinate2D coor[2] = {0};
@@ -154,6 +159,7 @@
 //
 //    BMKPolyline * polyLine = [BMKPolyline polylineWithCoordinates:coor count:2];
 //    [_mapView addOverlay:polyLine];
+//    地图绘制
     [self aaaaaa];
 }
 -(void)aaaaaa{
