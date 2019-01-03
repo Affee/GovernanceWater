@@ -595,7 +595,7 @@
         [self printAssetsName:assets];
     // 2.图片位置信息
     for (PHAsset *phAsset in assets) {
-        NSLog(@"location====!!!====:%@",phAsset.location);   
+        NSLog(@"location====!!!  ====:%@",phAsset.location);
     }
     
     

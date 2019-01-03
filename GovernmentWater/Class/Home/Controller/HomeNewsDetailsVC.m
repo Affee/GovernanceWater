@@ -35,8 +35,7 @@
 {
     __weak typeof (self) weakSelf = self;
     if (_tableViewW == nil) {
-        //    _tableViewW = [[UITableView alloc]initWithFrame:CGRectMake(0, WRNavigationBar.navBarBottom, KKScreenHeight, KKScreenHeight - WRNavigationBar.navBarBottom)];
-        _tableViewW = [[UITableView alloc]initWithFrame:CGRectMake(0, WRNavigationBar.navBarBottom, KKScreenHeight, KKScreenHeight - WRNavigationBar.navBarBottom) style:UITableViewStylePlain];
+        _tableViewW = [[UITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight, self.view.frame.size.width, self.view.frame.size.height - KKBarHeight - KKiPhoneXSafeAreaDValue) style:UITableViewStylePlain];
         _tableViewW.delegate = self;
         _tableViewW.dataSource = self;
         _tableViewW.separatorStyle = UITableViewCellEditingStyleNone;

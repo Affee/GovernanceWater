@@ -88,19 +88,7 @@
         }
     }
     
-    
-//    UITableView *tableView = [[UITableView alloc]init];
-//    _tableView = tableView;
-//    CGRect frame = CGRectMake(0, 100+[self navBarBottom], self.view.frame.size.width, self.view.frame.size.height - [self navBarBottom]);
-//
-//    tableView = [[UITableView alloc] initWithFrame:frame
-//                                             style:UITableViewStylePlain];
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
-//    //去掉tableView的横线
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    CGRect frame = CGRectMake(0, [self navBarBottom], self.view.frame.size.width, self.view.frame.size.height - [self navBarBottom]);
+    CGRect frame = CGRectMake(0, KKBarHeight, self.view.frame.size.width, self.view.frame.size.height - KKNavBarHeight - KKiPhoneXSafeAreaDValue);
     _tableView = [[UITableView alloc] initWithFrame:frame
                                               style:UITableViewStyleGrouped];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
@@ -328,14 +316,6 @@
 }
 
 
-- (int)navBarBottom
-{
-    if ([WRNavigationBar isIphoneX]) {
-        return 88;
-    } else {
-        return 64;
-    }
-}
 
 
 @end

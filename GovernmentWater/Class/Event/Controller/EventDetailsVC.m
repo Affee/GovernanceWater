@@ -230,7 +230,7 @@ static NSMutableArray *_allSessionTask;
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        CGRect frame = CGRectMake(0, [self navBarBottom], self.view.frame.size.width, self.view.frame.size.height - [self navBarBottom]);
+        CGRect frame = CGRectMake(0, KKBarHeight, self.view.frame.size.width, self.view.frame.size.height - KKNavBarHeight - KKiPhoneXSafeAreaDValue);
         _tableView = [[UITableView alloc] initWithFrame:frame
                                                   style:UITableViewStyleGrouped];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
@@ -242,13 +242,6 @@ static NSMutableArray *_allSessionTask;
 }
 
 
-- (int)navBarBottom
-{
-    if ([WRNavigationBar isIphoneX]) {
-        return 88;
-    } else {
-        return 64;
-    }
-}
+
 
 @end

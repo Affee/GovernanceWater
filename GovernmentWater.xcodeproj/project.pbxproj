@@ -45,7 +45,7 @@
 		F657865B219AB897003D87EA /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578653219AB896003D87EA /* StringUtil.m */; };
 		F657865C219AB897003D87EA /* DateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578654219AB896003D87EA /* DateUtil.m */; };
 		F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578660219ABAEA003D87EA /* HomeViewController.m */; };
-		F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578663219ABB0F003D87EA /* ViewRiverVC.m */; };
+		F6578664219ABB0F003D87EA /* ViewRiverVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6578663219ABB0F003D87EA /* ViewRiverVC.mm */; };
 		F6578667219ABB23003D87EA /* EventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578666219ABB23003D87EA /* EventVC.m */; };
 		F657866A219ABB37003D87EA /* MineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6578669219ABB37003D87EA /* MineVC.m */; };
 		F669DA7621AEA3B300CAE242 /* BRInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DA7521AEA3B300CAE242 /* BRInfoModel.m */; };
@@ -276,7 +276,7 @@
 		F657865F219ABAEA003D87EA /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		F6578660219ABAEA003D87EA /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		F6578662219ABB0F003D87EA /* ViewRiverVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewRiverVC.h; sourceTree = "<group>"; };
-		F6578663219ABB0F003D87EA /* ViewRiverVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewRiverVC.m; sourceTree = "<group>"; };
+		F6578663219ABB0F003D87EA /* ViewRiverVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewRiverVC.mm; sourceTree = "<group>"; };
 		F6578665219ABB23003D87EA /* EventVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVC.h; sourceTree = "<group>"; };
 		F6578666219ABB23003D87EA /* EventVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVC.m; sourceTree = "<group>"; };
 		F6578668219ABB37003D87EA /* MineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineVC.h; sourceTree = "<group>"; };
@@ -655,7 +655,7 @@
 			isa = PBXGroup;
 			children = (
 				F6578662219ABB0F003D87EA /* ViewRiverVC.h */,
-				F6578663219ABB0F003D87EA /* ViewRiverVC.m */,
+				F6578663219ABB0F003D87EA /* ViewRiverVC.mm */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1448,7 +1448,7 @@
 				F669DAB321B6809700CAE242 /* CLLThreeTreeTableViewCell.m in Sources */,
 				F6C92B6B21A94B3400EE05D1 /* TZPhotoPickerController.m in Sources */,
 				F6C92B2621A6F5F200EE05D1 /* PPNetworkCache.m in Sources */,
-				F6578664219ABB0F003D87EA /* ViewRiverVC.m in Sources */,
+				F6578664219ABB0F003D87EA /* ViewRiverVC.mm in Sources */,
 				F6C92B6621A94B3400EE05D1 /* TZImageCropManager.m in Sources */,
 				F6C92B2721A6F5F200EE05D1 /* PPNetworkHelper.m in Sources */,
 				F669DAB421B6809700CAE242 /* ChapterTableViewCell.m in Sources */,

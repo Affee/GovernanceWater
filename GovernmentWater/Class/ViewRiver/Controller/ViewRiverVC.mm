@@ -18,11 +18,18 @@
 @property (nonatomic, strong) BMKMapView *mapView;//当前界面的mapView
 @property (nonatomic, strong) BMKLocationManager *locationManager;//定位对象
 @property (nonatomic, strong) UIButton *customButton;//开始结束
-@property (nonatomic, strong) BMKUserLocation *userLocation;//当前对象
+@property (nonatomic, strong) BMKUserLocation *userLocation;//当前对象userLocation
 
 @property (nonatomic, strong) BMKPolyline *polyLine;//线的绘制和删除
 
+@property (nonatomic, strong) BMKLocation *preLocation;//
+
+
 @property (retain, nonatomic) NSMutableArray *posArrays;
+
+@property (nonatomic, assign) NSTimeInterval sumTime;
+
+@property (nonatomic, assign) CGFloat sumDistance;
 
 
 
@@ -34,6 +41,7 @@
 
 
 @implementation ViewRiverVC
+
 #pragma mark - View life cycle
 -(void)viewDidLoad
 {
@@ -87,6 +95,10 @@
 {
     [self.locationManager startUpdatingLocation];
     [self.locationManager startUpdatingHeading];
+    
+    
+    self.sumTime = 0;
+    self.sumDistance = 0;
 }
 
 #pragma mark --右item
@@ -132,58 +144,100 @@
     if (!location) {
         return;
     }
+    
+    
+    
+    
     self.userLocation.location = location.location;
 //    实现该方法，否则定位图标不会出现
     [_mapView updateLocationData:self.userLocation];
+    
+    if (location.location.horizontalAccuracy > kCLLocationAccuracyHundredMeters) {
+        return;
+    }
+    
+    
+    
     /**
-     location.rgcData  雷雷 这里的啊 location.location.coordinate中的数组  就是取出这一个一个的点，完了添加到数组中，完了再绘制成一个实时的路线
+     location.location.coordinate中的数组  就是取出这一个一个的点，完了添加到数组中，完了再绘制成一个实时的路线
      绘制路线的方法在下面这个网站上
      http://lbsyun.baidu.com/index.php?title=iossdk/guide/map-render/ployline
      */
     
     AFLog(@"self.userLocation.location ====== %f=====%f",self.userLocation.location.coordinate.latitude,self.userLocation.location.coordinate.longitude);
 
-    
+//把坐标点放到数组中
     [self.posArrays addObject:location.location];
-
-//    结构体添加到可变数组中  这个却不到值
-//    CLLocationCoordinate2D coor;
-//    coor.latitude = location.location.coordinate.latitude;
-//    coor.longitude = location.location.coordinate.longitude;
-//    NSValue *value = [NSValue value:&coor withObjCType:@encode(CLLocationCoordinate2D)];
-//    //    [_coordinateArray addObject:value];
-//
-    
-   
-    
-    
-    [_mapView removeOverlay:_polyLine];
-    int num = 10;
-    CLLocationCoordinate2D coor[1000] = {0};
-    for (int i = 0; i<num ; i++) {
-        coor[i].latitude =  location.location.coordinate.latitude+0.001*i;
-        coor[i].longitude = location.location.coordinate.longitude+ 0.001*i;
-    }
-    _polyLine = [BMKPolyline polylineWithCoordinates:coor count:10];
-    [_mapView addOverlay:_polyLine];
-
-    
+    //    绘制轨迹
     [self xxxxxx];
+    // GPS精度定位准确无误，那么就来开始记录轨迹吧
+//    [self startTrailRouteWithUserLocation:location];
 }
+
+-(void)startTrailRouteWithUserLocation:(BMKLocation *)location
+{
+//    如果不是第一个点，
+    if (self.userLocation) {
+        NSTimeInterval dtime = [location.location.timestamp timeIntervalSinceDate:self.userLocation.location.timestamp];
+        CGFloat distance = [location.location distanceFromLocation:self.userLocation.location];
+        
+        if (distance < 1) {
+            NSLog(@"与前一记录点距离小于1m，直接返回该方法");
+            return;
+        }
+        
+        self.sumDistance += distance;
+        // 累加步行距离
+        self.sumDistance += distance;
+//        self.stateView.distanceLabel.text = [NSString stringWithFormat:@"%.3f",self.sumDistance / 1000.0];
+//        NSLog(@"步行总距离为:%f",self.sumDistance);
+//
+//        // 计算移动速度
+//        CGFloat speed = distance / dtime;
+//        self.stateView.speedLabel.text = [NSString stringWithFormat:@"%.3f",speed];
+//        NSLog(@"步行的当前移动速度为:%.3f", speed);
+        
+        [self.posArrays addObject:location.location];
+
+    }
+    
+ 
+}
+
 -(void)xxxxxx
 {
-    NSInteger count   = self.posArrays.count;
     
-    CLLocationCoordinate2D coor[1000] = {0};
-    for (int i = 0; i<count ; i++) {
-        coor[i].latitude = _posArrays[i];
-        [self.posArrays enumerateObjectsUsingBlock:^(CLLocation *location, NSUInteger idx, BOOL *stop) {
-            coor[i] =
-        }];
+    
+    NSInteger count   = self.posArrays.count;
+    BMKMapPoint *tempPoints = new BMKMapPoint[count];
+    
+    [self.posArrays enumerateObjectsUsingBlock:^(CLLocation *location, NSUInteger idx, BOOL *stop) {
+        BMKMapPoint locationPoint = BMKMapPointForCoordinate(location.coordinate);
+        tempPoints[idx] = locationPoint;
+    }];
+    
+    //移除原有的绘图
+    if (self.polyLine) {
+        [self.mapView removeOverlay:self.polyLine];
     }
     
+    // 通过points构建BMKPolyline
+    self.polyLine = [BMKPolyline polylineWithPoints:tempPoints count:count];
+    
+    //添加路线,绘图
+    if (self.polyLine) {
+        [self.mapView addOverlay:self.polyLine];
+    }
+    
+    // 清空 tempPoints 内存
+    delete []tempPoints;
+    
+//    [self mapViewFitPolyLine:self.polyLine];
     
 }
+
+
+
 
 -(void)BMKLocationManager:(BMKLocationManager *)manager didFailWithError:(NSError *)error
 {
@@ -194,7 +248,7 @@
     if ([overlay isKindOfClass:[BMKPolyline class]]){
         BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
         polylineView.strokeColor = [UIColor redColor];
-        polylineView.lineWidth = 5.0f;
+        polylineView.lineWidth = 2.0f;
         return polylineView;
     }
     return nil;
