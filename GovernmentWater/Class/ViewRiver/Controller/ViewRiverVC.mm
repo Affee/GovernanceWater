@@ -33,8 +33,13 @@
 
 
 
+@property (nonatomic, strong) NSTimer *timer;
 
 //@property (nonatomic, strong) BMKPolyline *polyLine;
+//开始 结束按钮
+@property (nonatomic, strong) UIBarButtonItem *serviceButton;
+
+
 
 
 @end
@@ -49,7 +54,6 @@
     [self configUI];
     [self createMapView];
 
-
     [self setupLocationManager];
     
 }
@@ -57,8 +61,35 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.mapView viewWillAppear];
+    self.mapView.delegate = self;
+    
+    
+    [self resumeTimer];
 //    _coordinateArray = nil;
 //    _coordinateArray1 = nil;
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+//    MODE 这个等下去暂停按钮上 传递数据
+    [self.mapView viewWillDisappear];
+    self.mapView.delegate = nil;
+    [self pauseTimer];
+}
+-(void)resumeTimer
+{
+    if (self.timer) {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+    _timer = [NSTimer scheduledTimerWithTimeInterval:self.locationManager.locationTimeout target:self selector:@selector(drawLine) userInfo:nil repeats:YES];
+}
+-(void)pauseTimer
+{
+    [self.timer invalidate];
+    self.timer = nil;
 }
 #pragma mark --Config UI
 -(void)configUI
@@ -70,6 +101,11 @@
 //    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"首页icon copy"]];
     [self.customNavBar wr_setRightButtonWithTitle:[NSString stringWithFormat:@"截图"] titleColor:[UIColor whiteColor]];
     [self.customNavBar.onClickRightButton addTarget:self action:@selector(RightbtnClick) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    self.toolbarItems = @[flexSpace,self.serviceButton,flexSpace];
+    
+    
 
 }
 -(void)createMapView
@@ -161,7 +197,6 @@
     /**
      location.location.coordinate中的数组  就是取出这一个一个的点，完了添加到数组中，完了再绘制成一个实时的路线
      绘制路线的方法在下面这个网站上
-     http://lbsyun.baidu.com/index.php?title=iossdk/guide/map-render/ployline
      */
     
     AFLog(@"self.userLocation.location ====== %f=====%f",self.userLocation.location.coordinate.latitude,self.userLocation.location.coordinate.longitude);
@@ -209,6 +244,7 @@
     
     
     NSInteger count   = self.posArrays.count;
+    //    这是C语言的声明  记得把.m改成.mm
     BMKMapPoint *tempPoints = new BMKMapPoint[count];
     
     [self.posArrays enumerateObjectsUsingBlock:^(CLLocation *location, NSUInteger idx, BOOL *stop) {
@@ -252,6 +288,12 @@
         return polylineView;
     }
     return nil;
+}
+#pragma mark ----定时器中的绘图
+//绘图
+-(void)drawLine
+{
+    AFLog(@"绘图绘图啦");
 }
 
 #pragma mark ----Lazy Loading  get/setter
@@ -336,5 +378,31 @@
         _posArrays = [NSMutableArray array];
     }
     return _posArrays;
+}
+-(NSTimer *)timer
+{
+    if (!_timer) {
+        _timer =[[NSTimer alloc]init];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:self.locationManager.locationTimeout target:self selector:@selector(drawLine) userInfo:nil repeats:YES];
+    }
+    return _timer;
+}
+-(UIBarButtonItem *)serviceButton
+{
+    if (!_serviceButton) {
+        self.title = @"开始";
+        _serviceButton = [[UIBarButtonItem alloc] initWithTitle:@"开始巡河" style:UIBarButtonItemStylePlain target:self action:@selector(serviceButtonTapped)];
+//        _serviceButton = [[UIBarButtonItem alloc] initWithTitle:@"开始" style:UIBarButtonItemStylePlain target:self action:@selector(serviceButtonTapped)];
+        
+    }
+    return _serviceButton;
+}
+
+/**
+ 点击开始 获取经纬度
+ */
+-(void)serviceButtonTapped
+{
+    
 }
 @end

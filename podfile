@@ -18,6 +18,5 @@ pod 'Reachability', '~> 3.2'
 pod 'IQKeyboardManager'
 pod 'YYKit'
 pod 'SDCycleScrollView','~> 1.75'
-
+pod 'BaiduMapKit'
 end
-
