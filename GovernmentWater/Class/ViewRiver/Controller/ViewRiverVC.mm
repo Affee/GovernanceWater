@@ -37,7 +37,12 @@
 
 //@property (nonatomic, strong) BMKPolyline *polyLine;
 //开始 结束按钮
-@property (nonatomic, strong) UIBarButtonItem *serviceButton;
+@property (nonatomic, strong) UIButton *startButton;
+
+@property (nonatomic, strong) UIImageView  *screenShotImageView;
+
+
+
 
 
 
@@ -61,13 +66,16 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    float btnWidth = 60.0f;
+    _startButton = [[UIButton alloc]initWithFrame:CGRectMake((KKScreenWidth - btnWidth)/2, KKScreenHeight - KKiPhoneXSafeAreaDValue - 150, btnWidth, btnWidth)];
+    [self.view addSubview:_startButton];
+    [_startButton setBackgroundImage:[UIImage imageNamed:@"start"] forState:UIControlStateNormal];
+    [_startButton setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
+    [_startButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView viewWillAppear];
     self.mapView.delegate = self;
-    
-    
     [self resumeTimer];
-//    _coordinateArray = nil;
-//    _coordinateArray1 = nil;
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -97,17 +105,64 @@
     self.customNavBar.title = @"连续定位";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view insertSubview:self.customNavBar aboveSubview:self.mapView];
-    UIBarButtonItem *customButton = [[UIBarButtonItem alloc]initWithCustomView:self.customButton];
+//    UIBarButtonItem *customButton = [[UIBarButtonItem alloc]initWithCustomView:self.customButton];
 //    [self.customNavBar wr_setRightButtonWithImage:[UIImage imageNamed:@"首页icon copy"]];
     [self.customNavBar wr_setRightButtonWithTitle:[NSString stringWithFormat:@"截图"] titleColor:[UIColor whiteColor]];
     [self.customNavBar.onClickRightButton addTarget:self action:@selector(RightbtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
+//    self.customNavBar.onClickRightButton = ^{
+//        AFLog(@"啦啦啦");
+//        /**
+//         获得地图当前可视区域截图
+//         返回地图view范围内的截取的UIImage
+//         */
+//        UIImage *regionImage = [_mapView takeSnapshot];
+//        UIImageWriteToSavedPhotosAlbum(regionImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+//    };
+}
 
-    UIBarButtonItem *flexSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    self.toolbarItems = @[flexSpace,self.serviceButton,flexSpace];
+#pragma mark ----开始结束以及截图
+-(void)buttonClicked:(UIButton *)button
+{
+    _startButton.selected = !_startButton.isSelected;
+    if (!_startButton.selected) {
+        AFLog(@"结束战斗");
+        /**
+         获得地图当前可视区域截图
+         返回地图view范围内的截取的UIImage
+         */
+        UIImage *regionImage = [_mapView takeSnapshot];
+        UIImageWriteToSavedPhotosAlbum(regionImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+    }else{
+        AFLog(@"开始啦");
+    }
+}
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    AFLog(@"%@",image);
     
     
+    NSString *message = @"check";
+    if (error) {
+        message = @"保存到相册失败!";
+    } else {
+        message = @"保存到相册成功!";
+    }
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"地图截图" message:message preferredStyle:UIAlertControllerStyleActionSheet];
+//    UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:nil];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [SVProgressHUD showWithStatus:@"上传事件中。。。。。"];
+    }];
+    [alert  addAction:action];
+    
+//MODE 这个是图片处理的地方
+//    _screenShotImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, -240, alert.view.width, alert.view.width*1.25)];
+//    _screenShotImageView.image = image;
+//    [alert.view addSubview:_screenShotImageView];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 
 }
+
 -(void)createMapView
 {
 //        讲mapView添加到当前的视图中
@@ -142,11 +197,7 @@
 {
     AFLog(@"截图custom");
 }
-#pragma mark --截图 Responding eventss
--(void)clickCustomButton
-{
-    AFLog(@"截图1");
-}
+
 #pragma mark - BMKLocationManagerDelegate
 
 /**
@@ -199,12 +250,11 @@
      绘制路线的方法在下面这个网站上
      */
     
-    AFLog(@"self.userLocation.location ====== %f=====%f",self.userLocation.location.coordinate.latitude,self.userLocation.location.coordinate.longitude);
+//    AFLog(@"self.userLocation.location ====== %f=====%f",self.userLocation.location.coordinate.latitude,self.userLocation.location.coordinate.longitude);
 
 //把坐标点放到数组中
     [self.posArrays addObject:location.location];
-    //    绘制轨迹
-    [self xxxxxx];
+
     // GPS精度定位准确无误，那么就来开始记录轨迹吧
 //    [self startTrailRouteWithUserLocation:location];
 }
@@ -238,11 +288,25 @@
     
  
 }
-
--(void)xxxxxx
+-(void)BMKLocationManager:(BMKLocationManager *)manager didFailWithError:(NSError *)error
 {
-    
-    
+    AFLog(@"====定位失败");
+}
+
+- (BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id <BMKOverlay>)overlay{
+    if ([overlay isKindOfClass:[BMKPolyline class]]){
+        BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
+        polylineView.strokeColor = [UIColor redColor];
+        polylineView.lineWidth = 2.0f;
+        return polylineView;
+    }
+    return nil;
+}
+#pragma mark ----定时器中的绘图
+//绘图
+-(void)drawLine
+{
+    //    绘制轨迹
     NSInteger count   = self.posArrays.count;
     //    这是C语言的声明  记得把.m改成.mm
     BMKMapPoint *tempPoints = new BMKMapPoint[count];
@@ -268,33 +332,37 @@
     // 清空 tempPoints 内存
     delete []tempPoints;
     
-//    [self mapViewFitPolyLine:self.polyLine];
-    
+    //    [self mapViewFitPolyLine:self.polyLine];
 }
 
-
-
-
--(void)BMKLocationManager:(BMKLocationManager *)manager didFailWithError:(NSError *)error
-{
-    AFLog(@"====定位失败");
-}
-
-- (BMKOverlayView *)mapView:(BMKMapView *)mapView viewForOverlay:(id <BMKOverlay>)overlay{
-    if ([overlay isKindOfClass:[BMKPolyline class]]){
-        BMKPolylineView* polylineView = [[BMKPolylineView alloc] initWithOverlay:overlay];
-        polylineView.strokeColor = [UIColor redColor];
-        polylineView.lineWidth = 2.0f;
-        return polylineView;
+//根据polyline设置地图范围
+- (void)mapViewFitPolyLine:(BMKPolyline *) polyLine {
+    CGFloat leftTopX, leftTopY, rightBottomX, rightBottomY;
+    if (polyLine.pointCount < 1) {
+        return;
     }
-    return nil;
+    BMKMapPoint pt = polyLine.points[0];
+    // 左上角顶点
+    leftTopX = pt.x;
+    leftTopY = pt.y;
+    // 右下角顶点
+    rightBottomX = pt.x;
+    rightBottomY = pt.y;
+    for (int i = 1; i < polyLine.pointCount; i++) {
+        BMKMapPoint pt = polyLine.points[i];
+        leftTopX = pt.x < leftTopX ? pt.x : leftTopX;
+        leftTopY = pt.y < leftTopY ? pt.y : leftTopY;
+        rightBottomX = pt.x > rightBottomX ? pt.x : rightBottomX;
+        rightBottomY = pt.y > rightBottomY ? pt.y : rightBottomY;
+    }
+    BMKMapRect rect;
+    rect.origin = BMKMapPointMake(leftTopX, leftTopY);
+    rect.size = BMKMapSizeMake(rightBottomX - leftTopX, rightBottomY - leftTopY);
+    UIEdgeInsets padding = UIEdgeInsetsMake(30, 0, 100, 0);
+    BMKMapRect fitRect = [_mapView mapRectThatFits:rect edgePadding:padding];
+    [_mapView setVisibleMapRect:fitRect];
 }
-#pragma mark ----定时器中的绘图
-//绘图
--(void)drawLine
-{
-    AFLog(@"绘图绘图啦");
-}
+
 
 #pragma mark ----Lazy Loading  get/setter
 -(BMKMapView *)mapView
@@ -304,18 +372,7 @@
     }
     return _mapView;
 }
--(UIButton *)customButton
-{
-    if (!_customButton) {
-        _customButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [_customButton setTitle:@"截图" forState:UIControlStateNormal];
-        [_customButton setTitle:@"截图" forState:UIControlStateHighlighted];
-        [_customButton.titleLabel setFont:[UIFont systemFontOfSize:17]];
-        [_customButton setFrame:CGRectMake(0, 3, 69, 20)];
-        [_customButton addTarget:self action:@selector(clickCustomButton) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _customButton;
-}
+
 
 -(BMKUserLocation *)userLocation
 {
@@ -387,22 +444,17 @@
     }
     return _timer;
 }
--(UIBarButtonItem *)serviceButton
+-(UIButton *)startButton
 {
-    if (!_serviceButton) {
-        self.title = @"开始";
-        _serviceButton = [[UIBarButtonItem alloc] initWithTitle:@"开始巡河" style:UIBarButtonItemStylePlain target:self action:@selector(serviceButtonTapped)];
-//        _serviceButton = [[UIBarButtonItem alloc] initWithTitle:@"开始" style:UIBarButtonItemStylePlain target:self action:@selector(serviceButtonTapped)];
-        
+    if (!_startButton) {
+        _startButton = [[UIButton alloc]init];
     }
-    return _serviceButton;
+    return _startButton;
 }
 
-/**
- 点击开始 获取经纬度
- */
--(void)serviceButtonTapped
-{
-    
-}
+
 @end
+
+
+//UIWindow *window =  [UIApplication sharedApplication].windows[0];
+//[window addSubview:_addBtn];

@@ -100,6 +100,7 @@
     [self loadData];
     __weak __typeof(self) weakSelf = self;
 
+    
 
 
     [self requestData];
