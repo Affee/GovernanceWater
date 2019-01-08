@@ -28,6 +28,8 @@
 #define URL_Copywriting_GetCopywritingListPC KKStringWithFormat(@"%@/copywriting/getCopywritingListPC", Base_Url)
 //轮播图http://139.219.4.43:8080/copywriting/getBannerList
 #define URL_Copywriting_GetBannerList  KKStringWithFormat(@"%@/copywriting/getBannerList", Base_Url)
+//巡河获取 巡河id  /riverCruise/start
+#define URL_River_CruiseS_Start KKStringWithFormat(@"%@/riverCruise/start", Base_Url)
 
 
 

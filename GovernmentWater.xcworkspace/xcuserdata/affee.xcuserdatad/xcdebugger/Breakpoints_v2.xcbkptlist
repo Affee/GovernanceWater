@@ -52,7 +52,7 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "568378795.179881"
+                  timestampString = "568623818.5253071"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "121"
@@ -67,7 +67,7 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "568378795.181675"
+                  timestampString = "568623818.527115"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "105"
@@ -82,7 +82,7 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Home/Controller/HomeViewController.m"
-                  timestampString = "568378795.1834199"
+                  timestampString = "568623818.529277"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "123"
@@ -313,6 +313,179 @@
             startingLineNumber = "207"
             endingLineNumber = "207"
             landmarkName = "-onStopGather:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+            timestampString = "568623818.355846"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "-StartRiverCruise"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31-[ViewRiverVC StartRiverCruise]_block_invoke"
+                  moduleName = "GovernmentWater"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+                  timestampString = "568623818.548481"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "444">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31-[ViewRiverVC StartRiverCruise]_block_invoke"
+                  moduleName = "GovernmentWater"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+                  timestampString = "568623818.550332"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.159"
+                  moduleName = "GovernmentWater"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+                  timestampString = "568623818.552063"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "24">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31-[ViewRiverVC StartRiverCruise]_block_invoke.163"
+                  moduleName = "GovernmentWater"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+                  timestampString = "568623818.553947"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "171"
+                  endingLineNumber = "171"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+            timestampString = "568623818.35628"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "-StartRiverCruise"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+            timestampString = "568623818.356562"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "-StartRiverCruise"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewRiverVC StartRiverCruise]"
+                  moduleName = "GovernmentWater"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+                  timestampString = "568623818.564492"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__31-[ViewRiverVC StartRiverCruise]_block_invoke"
+                  moduleName = "GovernmentWater"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+                  timestampString = "568623818.5664001"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.160"
+                  moduleName = "GovernmentWater"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+                  timestampString = "568623818.568217"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/ViewRiver/Controller/ViewRiverVC.mm"
+            timestampString = "568623818.3568031"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "-StartRiverCruise"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -75,7 +75,6 @@
     [_startButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.mapView viewWillAppear];
     self.mapView.delegate = self;
-    [self resumeTimer];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -84,7 +83,6 @@
 //    MODE 这个等下去暂停按钮上 传递数据
     [self.mapView viewWillDisappear];
     self.mapView.delegate = nil;
-    [self pauseTimer];
 }
 -(void)resumeTimer
 {
@@ -92,7 +90,9 @@
         [self.timer invalidate];
         self.timer = nil;
     }
-    _timer = [NSTimer scheduledTimerWithTimeInterval:self.locationManager.locationTimeout target:self selector:@selector(drawLine) userInfo:nil repeats:YES];
+    dispatch_async(MAIN_QUEUE, ^{
+        _timer = [NSTimer scheduledTimerWithTimeInterval:self.locationManager.locationTimeout target:self selector:@selector(drawLine) userInfo:nil repeats:YES];
+    });
 }
 -(void)pauseTimer
 {
@@ -120,47 +120,86 @@
 //        UIImageWriteToSavedPhotosAlbum(regionImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
 //    };
 }
-
-#pragma mark ----开始结束以及截图
+#pragma mark ----开始结束按钮 以及截图
 -(void)buttonClicked:(UIButton *)button
 {
     _startButton.selected = !_startButton.isSelected;
     if (!_startButton.selected) {
         AFLog(@"结束战斗");
+//        关闭时间
+        [self pauseTimer];
         /**
          获得地图当前可视区域截图
          返回地图view范围内的截取的UIImage
          */
         UIImage *regionImage = [_mapView takeSnapshot];
         UIImageWriteToSavedPhotosAlbum(regionImage, self, @selector(image:didFinishSavingWithError:contextInfo:), NULL);
+        
+        
     }else{
         AFLog(@"开始啦");
+//    巡河开始
+        NSString *message = @"巡河开始之后，自动追寻巡河轨迹";
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确认开始巡河？" message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确认开始" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self StartRiverCruise];
+        }];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消巡河" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            AFLog(@"取消巡河");
+        }];
+        [alert addAction:okAction];           // A
+        [alert addAction:cancelAction];       // B
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
+
+-(void)StartRiverCruise
+{
+//获取巡河ID
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+
+    [PPNetworkHelper POST:URL_River_CruiseS_Start parameters:nil success:^(id responseObject) {
+        if ([responseObject[@"status"] isEqual:@203]) {
+            //    time 开始运行 花轨迹
+            [self resumeTimer];
+            
+            NSString *cruiseId = responseObject[@"cruiseId"];
+            AFLog(@"巡河IDcruiseId====%@",cruiseId);
+            
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    AFLog(@"%@",image);
-    
-    
+//    截图的图片image
     NSString *message = @"check";
     if (error) {
         message = @"保存到相册失败!";
     } else {
         message = @"保存到相册成功!";
     }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"地图截图" message:message preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"等待上传数据" message:message preferredStyle:UIAlertControllerStyleAlert];
 //    UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:nil];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [SVProgressHUD showWithStatus:@"上传事件中。。。。。"];
+            //        强制刷新百度地图
+            [_mapView mapForceRefresh];
+            //        截图之后，开始上床数据
+            [self postRiverCruiseData];
     }];
     [alert  addAction:action];
-    
 //MODE 这个是图片处理的地方
 //    _screenShotImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, -240, alert.view.width, alert.view.width*1.25)];
 //    _screenShotImageView.image = image;
 //    [alert.view addSubview:_screenShotImageView];
-    
     [self presentViewController:alert animated:YES completion:nil];
+}
 
+-(void)postRiverCruiseData
+{
+    [SVProgressHUD showWithStatus:@"上传事件中。。。。。"];
+    [SVProgressHUD dismissWithDelay:1.0];
 }
 
 -(void)createMapView
