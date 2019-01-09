@@ -14,6 +14,9 @@
  开发者可通过BMKMapViewDelegate获取mapView的回调方法，BMKLocationManagerDelegate   BMKContinueLocationPage.m
  */
 @interface ViewRiverVC ()<BMKMapViewDelegate,BMKLocationManagerDelegate>
+{
+    NSArray *_upImages;
+}
 
 @property (nonatomic, strong) BMKMapView *mapView;//当前界面的mapView
 @property (nonatomic, strong) BMKLocationManager *locationManager;//定位对象
@@ -31,8 +34,6 @@
 
 @property (nonatomic, assign) CGFloat sumDistance;
 
-
-
 @property (nonatomic, strong) NSTimer *timer;
 
 //@property (nonatomic, strong) BMKPolyline *polyLine;
@@ -42,6 +43,7 @@
 @property (nonatomic, strong) UIImageView  *screenShotImageView;
 
 
+@property (nonatomic, assign) NSArray *uploadArr;
 
 
 
@@ -90,9 +92,7 @@
         [self.timer invalidate];
         self.timer = nil;
     }
-    dispatch_async(MAIN_QUEUE, ^{
         _timer = [NSTimer scheduledTimerWithTimeInterval:self.locationManager.locationTimeout target:self selector:@selector(drawLine) userInfo:nil repeats:YES];
-    });
 }
 -(void)pauseTimer
 {
@@ -173,7 +173,9 @@
     }];
 }
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-//    截图的图片image
+    _uploadArr = [NSArray arrayWithObject:image];
+    
+    //    截图的图片image
     NSString *message = @"check";
     if (error) {
         message = @"保存到相册失败!";
@@ -183,8 +185,12 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"等待上传数据" message:message preferredStyle:UIAlertControllerStyleAlert];
 //    UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:nil];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"我知道了" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //        强制刷新百度地图
-            [_mapView mapForceRefresh];
+//            //        强制刷新百度地图
+//            [_mapView mapForceRefresh];
+            //移除原有的绘图
+            if (self.polyLine) {
+                [self.mapView removeOverlay:self.polyLine];
+            }
             //        截图之后，开始上床数据
             [self postRiverCruiseData];
     }];
@@ -195,11 +201,28 @@
 //    [alert.view addSubview:_screenShotImageView];
     [self presentViewController:alert animated:YES completion:nil];
 }
-
+//巡河结束上传数据 巡河id 截图 以及定位数据
 -(void)postRiverCruiseData
 {
-    [SVProgressHUD showWithStatus:@"上传事件中。。。。。"];
-    [SVProgressHUD dismissWithDelay:1.0];
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+    NSDictionary *dict = @{
+                           @"id":@349,
+                           @"trajectory":_posArrays,
+                           };
+//    _uploadArr
+    [PPNetworkHelper uploadImagesWithURL:URL_River_CruiseS_End parameters:dict name:@"filename.png" images:nil fileNames:nil imageScale:0.5 imageType:@"png" progress:^(NSProgress *progress) {
+        
+        [SVProgressHUD showWithStatus:@"上传事件中。。。。。"];
+        [SVProgressHUD dismissWithDelay:1.0];
+        
+    } success:^(id responseObject) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    
+  
 }
 
 -(void)createMapView
@@ -491,9 +514,4 @@
     return _startButton;
 }
 
-
 @end
-
-
-//UIWindow *window =  [UIApplication sharedApplication].windows[0];
-//[window addSubview:_addBtn];

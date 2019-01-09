@@ -26,7 +26,6 @@
 {
     NSArray *_dataArray;
     int buttonY;
-    NSMutableDictionary *_requestData;
     NSInteger _pages;
 }
 
@@ -100,8 +99,6 @@
     [self loadData];
     __weak __typeof(self) weakSelf = self;
 
-    
-
 
     [self requestData];
     
@@ -126,7 +123,7 @@
 }
 #pragma mark ----获取数据
 -(void)loadData{
-    self.infoModel.addressStr = @"默认地址>默认事件>默认情况";
+    self.infoModel.addressStr = @"上报事件>我的处理>待处理";
 }
 -(void)requestData
 {
@@ -229,7 +226,7 @@
         _eventHeaderView.backgroundColor = KKWhiteColor;
         _eventTypeLabel = [[UILabel alloc] init];
         _eventTypeLabel.font = [UIFont affeeBlodFont:17];
-        _eventTypeLabel.text = @"默认全部>事件选择>事件分类";
+        _eventTypeLabel.text = @"上报事件>我的处理>待处理";
         _eventTypeLabel.textColor = KKColorPurple;
         _eventTypeLabel.backgroundColor =  KKWhiteColor;
         
@@ -295,7 +292,32 @@
         NSLog(@"省[%@]：%@，%@", @(province.index), province.code, province.name);
         NSLog(@"市[%@]：%@，%@", @(city.index), city.code, city.name);
         NSLog(@"区[%@]：%@，%@", @(area.index), area.code, area.name);
-        NSLog(@"--------------------");
+//        请求放到这里
+//        [self requestData];
+        NSDictionary *dict  = @{
+                                @"nature":province.code,
+                                @"type":city.code,
+                                @"status":area.code
+                                };
+        [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+        [SVProgressHUD show];
+        [PPNetworkHelper GET:Event_GetList_URL parameters:dict responseCache:^(id responseCache) {
+            
+        } success:^(id responseObject) {
+            //            _recordsMArr =  responseObject[@"records"];
+            for (NSDictionary *dict in responseObject[@"records"]) {
+                [_recordsMArr addObject:dict];
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableView reloadData];
+            });
+            [SVProgressHUD dismiss];
+        } failure:^(NSError *error) {
+            
+        }];
+
+        
     } cancelBlock:^{
         NSLog(@"点击了背景视图或取消按钮");
     }];

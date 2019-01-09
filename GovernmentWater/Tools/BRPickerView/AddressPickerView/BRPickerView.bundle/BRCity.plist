@@ -4,250 +4,7 @@
 <array>
 	<dict>
 		<key>code</key>
-		<string>140000</string>
-		<key>name</key>
-		<string>上报事件</string>
-		<key>citylist</key>
-		<array>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>140830</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>140881</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>140882</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的处理</string>
-				<key>code</key>
-				<string>140800</string>
-			</dict>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>140931</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>140932</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>140981</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的上报</string>
-				<key>code</key>
-				<string>140900</string>
-			</dict>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>待查核</string>
-						<key>code</key>
-						<string>141032</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>待反馈</string>
-						<key>code</key>
-						<string>141033</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>141034</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>141081</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>141082</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的派发</string>
-				<key>code</key>
-				<string>141000</string>
-			</dict>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>待查核</string>
-						<key>code</key>
-						<string>141128</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>待反馈</string>
-						<key>code</key>
-						<string>141129</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>141130</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>141181</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>141182</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我应知晓</string>
-				<key>code</key>
-				<string>141100</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>code</key>
-		<string>140000</string>
-		<key>name</key>
-		<string>督办事件</string>
-		<key>citylist</key>
-		<array>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>140830</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>140881</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>140882</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的处理</string>
-				<key>code</key>
-				<string>140800</string>
-			</dict>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>140931</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>140932</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>140981</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的上报</string>
-				<key>code</key>
-				<string>140900</string>
-			</dict>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>待查核</string>
-						<key>code</key>
-						<string>141032</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>待反馈</string>
-						<key>code</key>
-						<string>141033</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>141034</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>141081</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>141082</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的派发</string>
-				<key>code</key>
-				<string>141000</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>code</key>
-		<string>140000</string>
+		<string>0</string>
 		<key>name</key>
 		<string>群众举报</string>
 		<key>citylist</key>
@@ -257,73 +14,19 @@
 				<array>
 					<dict>
 						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>140830</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>140881</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>140882</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的处理</string>
-				<key>code</key>
-				<string>140800</string>
-			</dict>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>140931</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>140932</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>140981</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的上报</string>
-				<key>code</key>
-				<string>140900</string>
-			</dict>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
 						<string>待查核</string>
 						<key>code</key>
-						<string>141032</string>
+						<string>0</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>待反馈</string>
 						<key>code</key>
-						<string>141033</string>
+						<string>1</string>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>待处理</string>
+						<string>2</string>
 						<key>code</key>
 						<string>141034</string>
 					</dict>
@@ -331,19 +34,19 @@
 						<key>name</key>
 						<string>处理中</string>
 						<key>code</key>
-						<string>141081</string>
+						<string>3</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>已处理</string>
 						<key>code</key>
-						<string>141082</string>
+						<string>4</string>
 					</dict>
 				</array>
 				<key>name</key>
-				<string>我的派发</string>
+				<string>我的处理</string>
 				<key>code</key>
-				<string>141000</string>
+				<string>0</string>
 			</dict>
 			<dict>
 				<key>arealist</key>
@@ -352,45 +55,123 @@
 						<key>name</key>
 						<string>待查核</string>
 						<key>code</key>
-						<string>141128</string>
+						<string>0</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>待反馈</string>
 						<key>code</key>
-						<string>141129</string>
+						<string>1</string>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>待处理</string>
+						<string>2</string>
 						<key>code</key>
-						<string>141130</string>
+						<string>141034</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>处理中</string>
 						<key>code</key>
-						<string>141181</string>
+						<string>3</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>已处理</string>
 						<key>code</key>
-						<string>141182</string>
+						<string>4</string>
+					</dict>
+				</array>
+				<key>name</key>
+				<string>我的上报</string>
+				<key>code</key>
+				<string>1</string>
+			</dict>
+			<dict>
+				<key>arealist</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>待查核</string>
+						<key>code</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>待反馈</string>
+						<key>code</key>
+						<string>1</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>2</string>
+						<key>code</key>
+						<string>141034</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>处理中</string>
+						<key>code</key>
+						<string>3</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>已处理</string>
+						<key>code</key>
+						<string>4</string>
+					</dict>
+				</array>
+				<key>name</key>
+				<string>我的派发</string>
+				<key>code</key>
+				<string>2</string>
+			</dict>
+			<dict>
+				<key>arealist</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>待查核</string>
+						<key>code</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>待反馈</string>
+						<key>code</key>
+						<string>1</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>2</string>
+						<key>code</key>
+						<string>141034</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>处理中</string>
+						<key>code</key>
+						<string>3</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>已处理</string>
+						<key>code</key>
+						<string>4</string>
 					</dict>
 				</array>
 				<key>name</key>
 				<string>我应知晓</string>
 				<key>code</key>
-				<string>141100</string>
+				<string>3</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>code</key>
-		<string>140000</string>
+		<string>1</string>
 		<key>name</key>
-		<string>上报事件1</string>
+		<string>上报事件</string>
 		<key>citylist</key>
 		<array>
 			<dict>
@@ -398,73 +179,19 @@
 				<array>
 					<dict>
 						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>140830</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>140881</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>140882</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的处理</string>
-				<key>code</key>
-				<string>140800</string>
-			</dict>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>待处理</string>
-						<key>code</key>
-						<string>140931</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>处理中</string>
-						<key>code</key>
-						<string>140932</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>已处理</string>
-						<key>code</key>
-						<string>140981</string>
-					</dict>
-				</array>
-				<key>name</key>
-				<string>我的上报</string>
-				<key>code</key>
-				<string>140900</string>
-			</dict>
-			<dict>
-				<key>arealist</key>
-				<array>
-					<dict>
-						<key>name</key>
 						<string>待查核</string>
 						<key>code</key>
-						<string>141032</string>
+						<string>0</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>待反馈</string>
 						<key>code</key>
-						<string>141033</string>
+						<string>1</string>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>待处理</string>
+						<string>2</string>
 						<key>code</key>
 						<string>141034</string>
 					</dict>
@@ -472,19 +199,19 @@
 						<key>name</key>
 						<string>处理中</string>
 						<key>code</key>
-						<string>141081</string>
+						<string>3</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>已处理</string>
 						<key>code</key>
-						<string>141082</string>
+						<string>4</string>
 					</dict>
 				</array>
 				<key>name</key>
-				<string>我的派发</string>
+				<string>我的处理</string>
 				<key>code</key>
-				<string>141000</string>
+				<string>0</string>
 			</dict>
 			<dict>
 				<key>arealist</key>
@@ -493,37 +220,280 @@
 						<key>name</key>
 						<string>待查核</string>
 						<key>code</key>
-						<string>141128</string>
+						<string>0</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>待反馈</string>
 						<key>code</key>
-						<string>141129</string>
+						<string>1</string>
 					</dict>
 					<dict>
 						<key>name</key>
-						<string>待处理</string>
+						<string>2</string>
 						<key>code</key>
-						<string>141130</string>
+						<string>141034</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>处理中</string>
 						<key>code</key>
-						<string>141181</string>
+						<string>3</string>
 					</dict>
 					<dict>
 						<key>name</key>
 						<string>已处理</string>
 						<key>code</key>
-						<string>141182</string>
+						<string>4</string>
+					</dict>
+				</array>
+				<key>name</key>
+				<string>我的上报</string>
+				<key>code</key>
+				<string>1</string>
+			</dict>
+			<dict>
+				<key>arealist</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>待查核</string>
+						<key>code</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>待反馈</string>
+						<key>code</key>
+						<string>1</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>2</string>
+						<key>code</key>
+						<string>141034</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>处理中</string>
+						<key>code</key>
+						<string>3</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>已处理</string>
+						<key>code</key>
+						<string>4</string>
+					</dict>
+				</array>
+				<key>name</key>
+				<string>我的派发</string>
+				<key>code</key>
+				<string>2</string>
+			</dict>
+			<dict>
+				<key>arealist</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>待查核</string>
+						<key>code</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>待反馈</string>
+						<key>code</key>
+						<string>1</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>2</string>
+						<key>code</key>
+						<string>141034</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>处理中</string>
+						<key>code</key>
+						<string>3</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>已处理</string>
+						<key>code</key>
+						<string>4</string>
 					</dict>
 				</array>
 				<key>name</key>
 				<string>我应知晓</string>
 				<key>code</key>
-				<string>141100</string>
+				<string>3</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>code</key>
+		<string>2</string>
+		<key>name</key>
+		<string>督办事件</string>
+		<key>citylist</key>
+		<array>
+			<dict>
+				<key>arealist</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>待查核</string>
+						<key>code</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>待反馈</string>
+						<key>code</key>
+						<string>1</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>2</string>
+						<key>code</key>
+						<string>待处理</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>处理中</string>
+						<key>code</key>
+						<string>3</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>已处理</string>
+						<key>code</key>
+						<string>4</string>
+					</dict>
+				</array>
+				<key>name</key>
+				<string>我的处理</string>
+				<key>code</key>
+				<string>0</string>
+			</dict>
+			<dict>
+				<key>arealist</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>待查核</string>
+						<key>code</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>待反馈</string>
+						<key>code</key>
+						<string>1</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>2</string>
+						<key>code</key>
+						<string>141034</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>处理中</string>
+						<key>code</key>
+						<string>3</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>已处理</string>
+						<key>code</key>
+						<string>4</string>
+					</dict>
+				</array>
+				<key>name</key>
+				<string>我的上报</string>
+				<key>code</key>
+				<string>1</string>
+			</dict>
+			<dict>
+				<key>arealist</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>待查核</string>
+						<key>code</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>待反馈</string>
+						<key>code</key>
+						<string>1</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>2</string>
+						<key>code</key>
+						<string>141034</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>处理中</string>
+						<key>code</key>
+						<string>3</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>已处理</string>
+						<key>code</key>
+						<string>4</string>
+					</dict>
+				</array>
+				<key>name</key>
+				<string>我的派发</string>
+				<key>code</key>
+				<string>2</string>
+			</dict>
+			<dict>
+				<key>arealist</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>待查核</string>
+						<key>code</key>
+						<string>0</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>待反馈</string>
+						<key>code</key>
+						<string>1</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>2</string>
+						<key>code</key>
+						<string>141034</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>处理中</string>
+						<key>code</key>
+						<string>3</string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>已处理</string>
+						<key>code</key>
+						<string>4</string>
+					</dict>
+				</array>
+				<key>name</key>
+				<string>我应知晓</string>
+				<key>code</key>
+				<string>3</string>
 			</dict>
 		</array>
 	</dict>

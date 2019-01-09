@@ -144,7 +144,8 @@
     [self.namenikeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.imgvIcon);
         make.left.equalTo(self.imgvIcon.mas_right).offset(10);
-        make.width.greaterThanOrEqualTo(@30).priorityHigh();
+//        make.width.greaterThanOrEqualTo(@30).priorityHigh();
+        make.right.equalTo(self.contentView).offset(-Padding);
         make.height.equalTo(@25);
     }];
     

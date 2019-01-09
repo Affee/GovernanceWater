@@ -30,6 +30,8 @@
 #define URL_Copywriting_GetBannerList  KKStringWithFormat(@"%@/copywriting/getBannerList", Base_Url)
 //巡河获取 巡河id  /riverCruise/start
 #define URL_River_CruiseS_Start KKStringWithFormat(@"%@/riverCruise/start", Base_Url)
+//巡河结束上传数据 巡河id 截图 以及定位数据
+#define URL_River_CruiseS_End KKStringWithFormat(@"%@/riverCruise/end", Base_Url)
 
 
 
