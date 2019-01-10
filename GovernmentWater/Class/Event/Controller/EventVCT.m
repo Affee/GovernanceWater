@@ -13,7 +13,7 @@
 #import "DOPDropDownMenu.h"
 
 static NSString *cellIdentifier = @"EventVE.EventListCell";
-#define HeaderHeight 50//顶部筛选的高度
+#define HeaderHeight 40//顶部筛选的高度
 
 @interface EventVCT ()<UITableViewDataSource,UITableViewDelegate,DOPDropDownMenuDelegate,DOPDropDownMenuDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -59,20 +59,11 @@ static NSString *cellIdentifier = @"EventVE.EventListCell";
 //    添加方法以及别的东西
     [self.view  addSubview:self.tableView];
     
-}
--(void)createTableView
-{
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    [_tableView registerClass:[EventListCell class] forCellReuseIdentifier:cellIdentifier];
-    
-    
-    
-    
-//    _eventHeaderView = [[DOPDropDownMenu alloc]initWithFrame:CGRectMake(0, KKBarHeight, KKScreenWidth, 50)];
-    _eventHeaderView = [[DOPDropDownMenu alloc]initWithOrigin:CGPointMake(0, 64) andHeight:50];
+    //    _eventHeaderView = [[DOPDropDownMenu alloc]initWithFrame:CGRectMake(0, KKBarHeight, KKScreenWidth, 50)];
+    _eventHeaderView = [[DOPDropDownMenu alloc]initWithOrigin:CGPointMake(0, 64) andHeight:HeaderHeight];
     _eventHeaderView.backgroundColor = [UIColor redColor];
-    _tableView.tableHeaderView = _eventHeaderView;
+    [self.view addSubview:_eventHeaderView];
+    
     _eventHeaderView.delegate = self;
     _eventHeaderView.dataSource = self;
     _eventHeaderView.finishedBlock=^(DOPIndexPath *indexPath){
@@ -85,6 +76,17 @@ static NSString *cellIdentifier = @"EventVE.EventListCell";
     //     创建menu 第一次显示 不会调用点击代理，可以用这个手动调用
     //    [menu selectDefalutIndexPath];
     [_eventHeaderView selectIndexPath:[DOPIndexPath indexPathWithCol:0 row:0 item:0]];
+    
+}
+-(void)createTableView
+{
+    _tableView.dataSource = self;
+    _tableView.delegate = self;
+    [_tableView registerClass:[EventListCell class] forCellReuseIdentifier:cellIdentifier];
+    
+    
+    
+
     
 }
 
@@ -187,7 +189,7 @@ static NSString *cellIdentifier = @"EventVE.EventListCell";
 -(UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight, KKScreenWidth, KKScreenHeight - KKBarHeight - KKiPhoneXSafeAreaDValue) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight + HeaderHeight*2, KKScreenWidth, KKScreenHeight - KKBarHeight - KKiPhoneXSafeAreaDValue) style:UITableViewStylePlain];
     }
     return _tableView;
 }
