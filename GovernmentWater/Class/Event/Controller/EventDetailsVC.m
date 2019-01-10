@@ -40,11 +40,12 @@ static NSMutableArray *_allSessionTask;
     [super viewDidLoad];
     AFLog(@"EventID ==%@",_eventID);
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.customNavBar.title = @"事件详情";
+//    self.customNavBar.title = @"事件详情";
+//    self.customNavBar.hidden = YES;
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
     [self.view addSubview:_tableView];
     self.customNavBar.titleLabelColor = [UIColor whiteColor];
-    [self wr_setNavBarBackgroundAlpha:1];
+    [self wr_setNavBarBackgroundAlpha:0];
 
 //    初始化
     _detailArr = [[NSMutableArray alloc]initWithObjects:@" ", @" ",@" ",@" ",@" ",nil];
@@ -230,7 +231,7 @@ static NSMutableArray *_allSessionTask;
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        CGRect frame = CGRectMake(0, KKBarHeight, self.view.frame.size.width, self.view.frame.size.height - KKNavBarHeight - KKiPhoneXSafeAreaDValue);
+        CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - KKNavBarHeight - KKiPhoneXSafeAreaDValue);
         _tableView = [[UITableView alloc] initWithFrame:frame
                                                   style:UITableViewStyleGrouped];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线

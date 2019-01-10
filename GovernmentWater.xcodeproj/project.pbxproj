@@ -63,6 +63,14 @@
 		F669DAB321B6809700CAE242 /* CLLThreeTreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DAAD21B6809700CAE242 /* CLLThreeTreeTableViewCell.m */; };
 		F669DAB421B6809700CAE242 /* ChapterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DAAE21B6809700CAE242 /* ChapterTableViewCell.m */; };
 		F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F669DAB621B7814000CAE242 /* MemberListVC.m */; };
+		F68D9E5021E7222C00E0C959 /* WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E4321E7222C00E0C959 /* WMPageController.m */; };
+		F68D9E5121E7222C00E0C959 /* UIViewController+WMPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E4421E7222C00E0C959 /* UIViewController+WMPageController.m */; };
+		F68D9E5221E7222C00E0C959 /* WMMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E4A21E7222C00E0C959 /* WMMenuItem.m */; };
+		F68D9E5321E7222C00E0C959 /* WMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E4B21E7222C00E0C959 /* WMScrollView.m */; };
+		F68D9E5421E7222C00E0C959 /* WMMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E4C21E7222C00E0C959 /* WMMenuView.m */; };
+		F68D9E5521E7222C00E0C959 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E4D21E7222C00E0C959 /* WMProgressView.m */; };
+		F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E5721E7236700E0C959 /* EventVCC.m */; };
+		F68D9E5E21E7296200E0C959 /* HandleEventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E5D21E7296200E0C959 /* HandleEventVC.m */; };
 		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
 		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
 		F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F695C1D821A28E5100E93F1A /* BRPickerView.bundle */; };
@@ -311,6 +319,22 @@
 		F669DAB021B6809700CAE242 /* ChapterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChapterTableViewCell.h; sourceTree = "<group>"; };
 		F669DAB521B7813F00CAE242 /* MemberListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberListVC.h; sourceTree = "<group>"; };
 		F669DAB621B7814000CAE242 /* MemberListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberListVC.m; sourceTree = "<group>"; };
+		F68D9E4321E7222C00E0C959 /* WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPageController.m; sourceTree = "<group>"; };
+		F68D9E4421E7222C00E0C959 /* UIViewController+WMPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WMPageController.m"; sourceTree = "<group>"; };
+		F68D9E4621E7222C00E0C959 /* WMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMScrollView.h; sourceTree = "<group>"; };
+		F68D9E4721E7222C00E0C959 /* WMMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuItem.h; sourceTree = "<group>"; };
+		F68D9E4821E7222C00E0C959 /* WMMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMMenuView.h; sourceTree = "<group>"; };
+		F68D9E4921E7222C00E0C959 /* WMProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMProgressView.h; sourceTree = "<group>"; };
+		F68D9E4A21E7222C00E0C959 /* WMMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuItem.m; sourceTree = "<group>"; };
+		F68D9E4B21E7222C00E0C959 /* WMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMScrollView.m; sourceTree = "<group>"; };
+		F68D9E4C21E7222C00E0C959 /* WMMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMMenuView.m; sourceTree = "<group>"; };
+		F68D9E4D21E7222C00E0C959 /* WMProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMProgressView.m; sourceTree = "<group>"; };
+		F68D9E4E21E7222C00E0C959 /* WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPageController.h; sourceTree = "<group>"; };
+		F68D9E4F21E7222C00E0C959 /* UIViewController+WMPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WMPageController.h"; sourceTree = "<group>"; };
+		F68D9E5621E7236700E0C959 /* EventVCC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCC.h; sourceTree = "<group>"; };
+		F68D9E5721E7236700E0C959 /* EventVCC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCC.m; sourceTree = "<group>"; };
+		F68D9E5C21E7296200E0C959 /* HandleEventVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandleEventVC.h; sourceTree = "<group>"; };
+		F68D9E5D21E7296200E0C959 /* HandleEventVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandleEventVC.m; sourceTree = "<group>"; };
 		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		F695C1D521A28E5100E93F1A /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
 		F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
@@ -703,6 +727,10 @@
 				F669DAB621B7814000CAE242 /* MemberListVC.m */,
 				F60B343C21E5DECA00D504BF /* EventVCT.h */,
 				F60B343D21E5DECA00D504BF /* EventVCT.m */,
+				F68D9E5621E7236700E0C959 /* EventVCC.h */,
+				F68D9E5721E7236700E0C959 /* EventVCC.m */,
+				F68D9E5C21E7296200E0C959 /* HandleEventVC.h */,
+				F68D9E5D21E7296200E0C959 /* HandleEventVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -854,6 +882,7 @@
 		F657863121992589003D87EA /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				F68D9E4221E7222B00E0C959 /* WMPageController */,
 				F60B343F21E5E5B000D504BF /* DOPDropDownMean */,
 				F6C92B7421A9506900EE05D1 /* FLAnimatedImage */,
 				F6C92B4421A94B3400EE05D1 /* TZImagePickerController */,
@@ -944,6 +973,33 @@
 				F669DAA521B67D5E00CAE242 /* json */,
 			);
 			path = "SelectPerson(选择处理人)";
+			sourceTree = "<group>";
+		};
+		F68D9E4221E7222B00E0C959 /* WMPageController */ = {
+			isa = PBXGroup;
+			children = (
+				F68D9E4321E7222C00E0C959 /* WMPageController.m */,
+				F68D9E4421E7222C00E0C959 /* UIViewController+WMPageController.m */,
+				F68D9E4521E7222C00E0C959 /* WMMenuView */,
+				F68D9E4E21E7222C00E0C959 /* WMPageController.h */,
+				F68D9E4F21E7222C00E0C959 /* UIViewController+WMPageController.h */,
+			);
+			path = WMPageController;
+			sourceTree = "<group>";
+		};
+		F68D9E4521E7222C00E0C959 /* WMMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				F68D9E4621E7222C00E0C959 /* WMScrollView.h */,
+				F68D9E4721E7222C00E0C959 /* WMMenuItem.h */,
+				F68D9E4821E7222C00E0C959 /* WMMenuView.h */,
+				F68D9E4921E7222C00E0C959 /* WMProgressView.h */,
+				F68D9E4A21E7222C00E0C959 /* WMMenuItem.m */,
+				F68D9E4B21E7222C00E0C959 /* WMScrollView.m */,
+				F68D9E4C21E7222C00E0C959 /* WMMenuView.m */,
+				F68D9E4D21E7222C00E0C959 /* WMProgressView.m */,
+			);
+			path = WMMenuView;
 			sourceTree = "<group>";
 		};
 		F695C1D221A28E5100E93F1A /* BRPickerView */ = {
@@ -1452,14 +1508,17 @@
 				F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */,
 				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
 				F6C92B3421A7976000EE05D1 /* AFLoginModel.m in Sources */,
+				F68D9E5E21E7296200E0C959 /* HandleEventVC.m in Sources */,
 				F6FD299321D474AB002B7276 /* PDFVC.m in Sources */,
 				F695C28F21A54C3C00E93F1A /* ReportVC.m in Sources */,
 				F6A5C706219D487D00EB846F /* EventListCell.m in Sources */,
 				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
+				F68D9E5521E7222C00E0C959 /* WMProgressView.m in Sources */,
 				F657866A219ABB37003D87EA /* MineVC.m in Sources */,
 				F669DAA921B6802A00CAE242 /* CLLThreeTreeModel.m in Sources */,
 				F657865C219AB897003D87EA /* DateUtil.m in Sources */,
 				F6C92B7021A94B3400EE05D1 /* UIView+Layout.m in Sources */,
+				F68D9E5121E7222C00E0C959 /* UIViewController+WMPageController.m in Sources */,
 				F60B343E21E5DECA00D504BF /* EventVCT.m in Sources */,
 				F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */,
 				F6C92B6E21A94B3400EE05D1 /* TZProgressView.m in Sources */,
@@ -1485,9 +1544,11 @@
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
 				F602733C21C9F21400B39E6C /* NewsCell.m in Sources */,
+				F68D9E5321E7222C00E0C959 /* WMScrollView.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F618207B21CC8A5700F22C2B /* HomeNewsDetailsVC.m in Sources */,
 				F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */,
+				F68D9E5021E7222C00E0C959 /* WMPageController.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
@@ -1498,9 +1559,11 @@
 				F6C92B7921A9506900EE05D1 /* FLAnimatedImage.m in Sources */,
 				F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */,
 				F6C92B7321A9505100EE05D1 /* LxGridViewFlowLayout.m in Sources */,
+				F68D9E5221E7222C00E0C959 /* WMMenuItem.m in Sources */,
 				F6C92B6F21A94B3400EE05D1 /* TZVideoPlayerController.m in Sources */,
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
 				F6C92B3921A92A5D00EE05D1 /* TextAndImagesCell.m in Sources */,
+				F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */,
 				F6C92B6D21A94B3400EE05D1 /* TZPhotoPreviewController.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
@@ -1530,6 +1593,7 @@
 				F6C92B3D21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.m in Sources */,
 				F6C92B6421A94B3400EE05D1 /* TZAssetModel.m in Sources */,
 				F6C92B6921A94B3400EE05D1 /* TZImagePickerController.m in Sources */,
+				F68D9E5421E7222C00E0C959 /* WMMenuView.m in Sources */,
 				F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

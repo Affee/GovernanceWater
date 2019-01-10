@@ -118,7 +118,7 @@
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 #define kTableViewCellHeight 43
-#define kTableViewHeight 300
+#define kTableViewHeight 343
 #define kButtomImageViewHeight 21
 
 #define kTextColor [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]
@@ -361,7 +361,7 @@
         _origin = origin;
         _currentSelectedMenudIndex = -1;
         self.show = NO;
-        _fontSize = 14;
+        _fontSize = 15;
         _cellStyle = UITableViewCellStyleValue1;
         _separatorColor = kSeparatorColor;
         _separatorHeighPercent = 0.5;
