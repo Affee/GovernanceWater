@@ -34,13 +34,14 @@ static NSMutableArray *_allSessionTask;
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
+    //    数据请求
+    [self getListData];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     AFLog(@"EventID ==%@",_eventID);
     self.automaticallyAdjustsScrollViewInsets = NO;
-//    self.customNavBar.title = @"事件详情";
+    self.title = @"事件详情";
 //    self.customNavBar.hidden = YES;
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
     [self.view addSubview:_tableView];
@@ -53,8 +54,7 @@ static NSMutableArray *_allSessionTask;
     _RequestDict = [[NSDictionary alloc]init];
     _UserEventListArr = [[NSMutableArray alloc]init];
 
-    //    数据请求
-    [self getListData];
+
 }
 //获取列别
 -(void)getListData{
@@ -78,7 +78,6 @@ static NSMutableArray *_allSessionTask;
         _detailArr = [[NSMutableArray alloc]initWithObjects:model.updateTime,model.isUrgen,model.riverName,model.eventPlace,model.typeName,nil];
         
         
-        
         dispatch_async(dispatch_get_main_queue(), ^{
             [_tableView reloadData];
             //                NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:2];
@@ -89,29 +88,6 @@ static NSMutableArray *_allSessionTask;
         
     }];
     
-//    [PPNetworkHelper GET:Event_FindById_URL parameters:dict success:^(id responseObject) {
-//
-//        for (NSDictionary *dict in responseObject[@"userEventList"]) {
-//            [_UserEventListArr addObject:dict];
-//
-//        }
-//        _RequestDict = responseObject[@"event"];
-//        EventDetailModel *model = [EventDetailModel modelWithDictionary:responseObject[@"event"]];
-////        移除并重新添加
-//        [_detailArr removeAllObjects];
-//        _detailArr = [[NSMutableArray alloc]initWithObjects:model.updateTime,model.isUrgen,model.riverName,model.eventPlace,model.typeName,nil];
-//
-//
-//
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                [_tableView reloadData];
-////                NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:2];
-////                [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
-//            });
-//        [SVProgressHUD dismiss];
-//    } failure:^(NSError *error) {
-//
-//    }];
 }
 + (NSMutableArray *)allSessionTask {
     if (!_allSessionTask) {

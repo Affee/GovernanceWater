@@ -59,23 +59,6 @@ static NSString *cellIdentifier = @"EventVE.EventListCell";
 //    添加方法以及别的东西
     [self.view  addSubview:self.tableView];
     
-    //    _eventHeaderView = [[DOPDropDownMenu alloc]initWithFrame:CGRectMake(0, KKBarHeight, KKScreenWidth, 50)];
-    _eventHeaderView = [[DOPDropDownMenu alloc]initWithOrigin:CGPointMake(0, 64) andHeight:HeaderHeight];
-    _eventHeaderView.backgroundColor = [UIColor redColor];
-    [self.view addSubview:_eventHeaderView];
-    
-    _eventHeaderView.delegate = self;
-    _eventHeaderView.dataSource = self;
-    _eventHeaderView.finishedBlock=^(DOPIndexPath *indexPath){
-        if (indexPath.item >= 0) {
-            NSLog(@"收起:点击了 %ld - %ld - %ld 项目",(long)indexPath.column,(long)indexPath.row,(long)indexPath.item);
-        }else {
-            NSLog(@"收起:点击了 %ld - %ld 项目",(long)indexPath.column,(long)indexPath.row);
-        }
-    };
-    //     创建menu 第一次显示 不会调用点击代理，可以用这个手动调用
-    //    [menu selectDefalutIndexPath];
-    [_eventHeaderView selectIndexPath:[DOPIndexPath indexPathWithCol:0 row:0 item:0]];
     
 }
 -(void)createTableView

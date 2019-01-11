@@ -30,7 +30,7 @@
 -(void)creatControls{
     self.eventTextView = [[UITextView alloc]init];
     self.eventTextView.layer.borderWidth  = 1.0f;
-    self.eventTextView.layer.cornerRadius = 5.0f;
+//    self.eventTextView.layer.cornerRadius = 5.0f;
     self.eventTextView.font = [UIFont systemFontOfSize:15];
     self.eventTextView.layer.borderColor = KKColorLightGray.CGColor;
     self.eventTextView.zw_placeHolder = @"请填写相处理的信息。";

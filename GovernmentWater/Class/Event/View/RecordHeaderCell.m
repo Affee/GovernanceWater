@@ -31,6 +31,13 @@
 {
     self.eventLabel.text = model.eventContent;
     AFLog(@"%@=====",model.eventContent);
+//    NSMutableArray *arr = [[NSMutableArray alloc]init];
+//    for (int i = 0; i<model.enclosureList.count; i++) {
+//        [arr addObject:model.enclosureList[i]];
+//    }
+//    [NSURL URLWithString:@"%@",model.enclosureList[0]]
+    [self.imgvIcon sd_setImageWithURL:@"http://42.159.84.255/group1/M00/00/0E/CgABBlw4GQOAW3iqAAG085CUcyg658.jpg" placeholderImage:KKPlaceholderImage];
+
 //     NSMutableArray *imageArr = [NSMutableArray array];
 //    _imageArr = [NSMutableArray arrayWithObjects:@"首页icon copy", nil];
 //    _imageArr = [NSMutableArray arrayWithObject:model.enclosureList];
@@ -67,6 +74,16 @@
         make.right.equalTo(self.contentView).offset(-Padding);
         make.height.greaterThanOrEqualTo(@20).priorityHigh();//优先级 high
         //        make.bottom.equalTo(_addressLabel.mas_top).offset(-Padding).priorityLow;// 低
+    }];
+    self.imgvIcon = [[UIImageView alloc]init];
+    [self.imgvIcon setImage:KKPlaceholderImage];
+    //        [self.imgvIcon setImageWithURL:imageArr[i] placeholder:KKPlaceholderImage];
+    [self.contentView addSubview:self.imgvIcon];
+    [self.imgvIcon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.contentView).offset(Padding);
+        make.bottom.equalTo(self.contentView).offset(-Padding);
+        make.width.equalTo(@((KKScreenWidth - Padding*4)/3));
+        make.height.equalTo(@(((KKScreenWidth - Padding*4)/3)*3/4));
     }];
 
 //    MODE 蛋疼的图片

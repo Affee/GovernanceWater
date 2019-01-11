@@ -19,13 +19,13 @@
     self.namenikeLabel.text = model.eventContent;
     //    MODE
     long timeLong = [[ NSString stringWithFormat:@" %@ ",model.createTime] longValue];
-    self.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh:mm:ss"];
+    self.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"MM-dd hh:mm:ss"];
     if ([DateUtil isEqual:model.eventPlace]) {
         self.addressLabel.text = @"贵州遵义";
     }
     
     self.addressLabel.text = model.eventPlace;
-    self.sewageLabel.text = model.typeName;
+    self.sewageLabel.text = [NSString stringWithFormat:@"%@",model.typeName];
     self.eventLabel.text = model.eventContent;
     self.selectionStyle=UITableViewCellSelectionStyleNone;
     //    紧急事件
@@ -54,10 +54,11 @@
 //    self.namenikeLabel.font = KKFont16;
 //        加粗
     self.namenikeLabel.font = [UIFont affeeBlodFont:16];
+    self.namenikeLabel.textAlignment = NSTextAlignmentLeft;
 //    self.namenikeLabel.backgroundColor = KKColorLightGray;
 //    self.namenikeLabel.textColor = KKColorPurple;
     self.namenikeLabel.text = @"黄蕾";
-    self.namenikeLabel.numberOfLines = 0;
+//    self.namenikeLabel.numberOfLines = 0;
     self.imgvIcon = [[UIImageView alloc]init];
     self.imgvIcon.layer.cornerRadius =  25;
     self.imgvIcon.layer.masksToBounds = YES;
@@ -65,7 +66,7 @@
     
     UILabel *timeLabel = [[UILabel alloc] init];
     _timeLabel = timeLabel;
-    timeLabel.text = @"2018年7月25日 10:23";
+    timeLabel.text = @"7月25日 10:23";
     timeLabel.font = KKFont14;
 /*污水*/
     UILabel *sewageLabel = [[UILabel alloc] init];
@@ -99,7 +100,7 @@
     eventLabel.font = KKFont16;
     eventLabel.textColor = KKColorLightGray;
     eventLabel.text = @"我曾经跨过山和大海";
-    eventLabel.numberOfLines = 0;
+    eventLabel.numberOfLines = 2;
 
     [self.contentView addSubview:timeLabel];
     [self.contentView addSubview:sewageLabel];
@@ -121,8 +122,8 @@
     [self.namenikeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.imgvIcon);
         make.left.equalTo(self.imgvIcon.mas_right).offset(10);
-//        make.width.equalTo(@100);
-        make.width.greaterThanOrEqualTo(@30).priorityHigh();
+        make.width.equalTo(@200);
+//        make.width.greaterThanOrEqualTo(@30).priorityHigh();
         make.height.equalTo(@25);
     }];
 

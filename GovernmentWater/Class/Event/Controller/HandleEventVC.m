@@ -10,6 +10,7 @@
 #import "EventListCell.h"
 #import "EventVCModel.h"
 #import "EventDetailsVC.h"
+#import "EventVCC.h"
 
 @interface HandleEventVC ()
 @property (nonatomic, strong) NSMutableArray *recordsMArr;
@@ -23,6 +24,10 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    AFLog(@"IDDDDD=====%@===%@====%@",self.natureID,self.typeID,self.statusID);
+    
+    _recordsMArr  = [NSMutableArray array];
+    [self requestData];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -31,9 +36,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    _recordsMArr  = [NSMutableArray array];
-    [self requestData];
+    
+   
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.rowHeight = 130;
     
@@ -43,7 +47,12 @@
 {
     [SVProgressHUD show];
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-    [PPNetworkHelper GET:Event_GetList_URL parameters:nil responseCache:^(id responseCache) {
+    NSDictionary *dict = @{
+                           @"status":_statusID,
+                           @"nature":_natureID,
+                           @"type":_typeID,
+                           };
+    [PPNetworkHelper GET:Event_GetList_URL parameters:dict responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
         //            _recordsMArr =  responseObject[@"records"];

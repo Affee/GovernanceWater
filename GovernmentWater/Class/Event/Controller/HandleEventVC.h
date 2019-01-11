@@ -12,6 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface HandleEventVC : UITableViewController
 
+@property (nonatomic, copy) NSString *natureID;
+@property (nonatomic, copy) NSString *typeID;
+@property (nonatomic,copy) NSString *statusID;
+
+
+
 @end
 
 NS_ASSUME_NONNULL_END

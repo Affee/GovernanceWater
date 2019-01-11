@@ -119,7 +119,7 @@
     [alarmImg sd_setImageWithURL:[NSURL URLWithString:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=880022206,1994082184&fm=27&gp=0.jpg"] placeholderImage:KKPlaceholderImage];
     UILabel *eventLabel = [[UILabel alloc] init];
     _eventLabel = eventLabel;
-    eventLabel.font = KKFont16;
+    eventLabel.font = KKFont14;
     eventLabel.textColor = KKColorLightGray;
     eventLabel.text = @"我曾经跨过山和大海";
     eventLabel.numberOfLines = 2;

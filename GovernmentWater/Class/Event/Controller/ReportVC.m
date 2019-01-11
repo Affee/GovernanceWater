@@ -72,10 +72,6 @@
     [self configCollectionView];
 }
 #pragma mark ======post提交
-
-
-
-
 -(void)Clidklandings{
     NSDictionary *dict = @{
                            @"eventContent":@"123",
@@ -114,7 +110,7 @@
 
 #pragma mark - tableview delegate / dataSource
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 5;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -122,10 +118,8 @@
     if (section == 0) {
         return 1;
     }else if (section == 1){
-        return 1;
-    }else if (section == 2){
         return 4;
-    }else if (section == 1){
+    }else if (section == 2){
         return 1;
     }else{
         return 1;
@@ -137,7 +131,7 @@
 {
     if(indexPath.section ==0 && indexPath.row ==0){
         return 100+(KKScreenWidth - 12)/3;
-    }else if (indexPath.section == 3){
+    }else if (indexPath.section == 2){
         return 80;
     }else{
         return 60;
@@ -147,7 +141,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if (section == 0) {
         return 50;
-    }else if (section == 3)
+    }else if (section == 2)
     {
         return 50;
     }
@@ -167,7 +161,7 @@
         case 0:
             titleLabel.text = @"问题";
             break;
-        case 3:
+        case 2:
             titleLabel.text = @"处理人";
             break;
         default:
@@ -191,16 +185,6 @@
             big.backgroundColor = [UIColor clearColor];
             return cell;
         }else if (indexPath.section == 1){
-            static NSString *NCells=@"NCells";
-            UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCells];
-            if (cell  == nil) {
-                cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NCells];
-            }
-            cell.textLabel.text  = @"附件";
-            cell.textLabel.font = [UIFont affeeBlodFont:16];
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            return cell;
-        }else if (indexPath.section == 2){
             static NSString *NCell=@"NCell";
             UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:NCell];
             if (cell  == nil) {
@@ -211,7 +195,7 @@
             cell.textLabel.font = [UIFont affeeBlodFont:16];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             return cell;
-        }else if (indexPath.section == 3){
+        }else if (indexPath.section == 2){
             static  NSString *DealingC = @"DealingC";
             DealingCell *cell = [tableView dequeueReusableCellWithIdentifier:DealingC];
             if (!cell){
@@ -252,20 +236,16 @@
 #pragma mark ----tableView get/setter
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        CGRect frame = CGRectMake(0, KKBarHeight, self.view.frame.size.width, self.view.frame.size.height - KKBarHeight- KKiPhoneXSafeAreaDValue );
+        CGRect frame = CGRectMake(0, KKBarHeight, KKScreenWidth, KKScreenHeight - KKBarHeight- KKiPhoneXSafeAreaDValue );
         _tableView = [[UITableView alloc] initWithFrame:frame
                                                   style:UITableViewStyleGrouped];
-        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;//分割线
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }
     return _tableView;
 }
-
-
-
-
 
 
 
@@ -542,8 +522,6 @@
     [_selectedAssets addObject:asset];
     [_selectedPhotos addObject:image];
     
-    NSMutableArray *arr = [NSMutableArray array];
-
     AFLog(@"_selectedPhotos===%@",_selectedPhotos);
     [_collectionView reloadData];
     
