@@ -29,6 +29,9 @@
 #import "AFGetImageAsset.h"
 #import "CLLThreeTreeViewController.h"
 #import "DealingCell.h"
+#import "TypeListVC.h"
+#import "EventPlaceVCViewController.h"
+#import "LocationVC.h"
 
 
 @interface ReportVC ()<UITableViewDelegate, UITableViewDataSource,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
@@ -57,8 +60,17 @@
 
 @implementation ReportVC
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    AFLog(@"%@",_typeName);
+    [_tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    _typeName = @"默认";
+    
     self.navigationController.navigationBar.backgroundColor = KKBlueColor;
 
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
@@ -79,7 +91,7 @@
                            @"riverId":@2,
                            @"eventPlace":@2,
                            @"eventNature":@2,
-                           @"typeId":@2,
+                           @"typeId":_typeID,
                            @"handleId":@5,
                            @"flag":@0,
                            };
@@ -194,6 +206,10 @@
             cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row]];
             cell.textLabel.font = [UIFont affeeBlodFont:16];
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            if (indexPath.row == 3) {
+                cell.detailTextLabel.text = _typeName;
+            }
+            
             return cell;
         }else if (indexPath.section == 2){
             static  NSString *DealingC = @"DealingC";
@@ -227,10 +243,27 @@
     return nil;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    CLLThreeTreeViewController *characterVC = [[CLLThreeTreeViewController alloc]init];
-    characterVC.title = @"朋友列表";
-    characterVC.view.backgroundColor = [UIColor yellowColor];
-    [self.navigationController pushViewController:characterVC animated:YES];
+    if (indexPath.section == 1 && indexPath.row == 3) {
+            TypeListVC *typeVc = [[TypeListVC alloc]init];
+            typeVc.title = @"事件类型";
+            typeVc.view.backgroundColor = [UIColor whiteColor];
+            [self.navigationController pushViewController:typeVc animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 0){
+            EventPlaceVCViewController *ev = [[EventPlaceVCViewController alloc]init];
+            ev.title = @"河道选择";
+            ev.view.backgroundColor = [UIColor whiteColor];
+            [self.navigationController pushViewController:ev animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row ==2){
+            LocationVC *loc= [[LocationVC alloc]init];
+            loc.title =@"定位地址";
+            loc.view.backgroundColor = [UIColor whiteColor];
+            [self.navigationController pushViewController:loc animated:YES];
+    }else{
+            CLLThreeTreeViewController *characterVC = [[CLLThreeTreeViewController alloc]init];
+            characterVC.title = @"朋友列表";
+            characterVC.view.backgroundColor = [UIColor yellowColor];
+            [self.navigationController pushViewController:characterVC animated:YES];
+    }
 }
 
 #pragma mark ----tableView get/setter
@@ -246,6 +279,10 @@
     }
     return _tableView;
 }
+
+
+
+
 
 
 
@@ -522,6 +559,7 @@
     [_selectedAssets addObject:asset];
     [_selectedPhotos addObject:image];
     
+
     AFLog(@"_selectedPhotos===%@",_selectedPhotos);
     [_collectionView reloadData];
     

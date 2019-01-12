@@ -12,6 +12,7 @@
 #import "EventDetailsVC.h"
 #import "EventVCC.h"
 
+
 @interface HandleEventVC ()
 @property (nonatomic, strong) NSMutableArray *recordsMArr;
 
@@ -93,7 +94,6 @@
         cell = [[EventListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
-    
     cell.model = eventVCModel;
     return cell;
 }
@@ -103,6 +103,7 @@
 //    vc.pageController = (WMPageController *)self.parentViewController;
 //    [self.navigationController pushViewController:vc animated:YES];
     
+
     EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
     EventDetailsVC *eventDetailsVC = [[EventDetailsVC alloc]init];
     //    MODE 这个后期再搞吧
@@ -110,7 +111,6 @@
     eventDetailsVC.customNavBar.title = @"事件详情";
     eventDetailsVC.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:eventDetailsVC animated:YES];
-    AFLog(@"sssss");
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

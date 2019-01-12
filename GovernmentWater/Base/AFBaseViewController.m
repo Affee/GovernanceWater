@@ -22,7 +22,6 @@
     self.navigationController.navigationBar.hidden = YES;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setupNavBar];
-    
 }
 
 -(void)setupNavBar{

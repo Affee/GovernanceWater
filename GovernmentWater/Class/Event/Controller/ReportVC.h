@@ -11,6 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ReportVC : AFBaseViewController
+//发现传递值
+@property(nonatomic,copy)NSString *typeID;
+//返回的值
+@property (nonatomic, copy) NSString *typeName;
+
 
 @end
 

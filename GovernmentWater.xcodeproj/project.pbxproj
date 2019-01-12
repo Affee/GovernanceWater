@@ -71,6 +71,14 @@
 		F68D9E5521E7222C00E0C959 /* WMProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E4D21E7222C00E0C959 /* WMProgressView.m */; };
 		F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E5721E7236700E0C959 /* EventVCC.m */; };
 		F68D9E5E21E7296200E0C959 /* HandleEventVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E5D21E7296200E0C959 /* HandleEventVC.m */; };
+		F68D9E6521E9D0EB00E0C959 /* TypeListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E6421E9D0EB00E0C959 /* TypeListVC.m */; };
+		F68D9E6821E9D29600E0C959 /* TypeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E6721E9D29600E0C959 /* TypeListModel.m */; };
+		F68D9E6B21E9E13400E0C959 /* EventPlaceVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E6A21E9E13400E0C959 /* EventPlaceVCViewController.m */; };
+		F68D9E7221E9E34E00E0C959 /* YUFoldingSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E6D21E9E34D00E0C959 /* YUFoldingSectionHeader.m */; };
+		F68D9E7321E9E34E00E0C959 /* YUFolding_arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = F68D9E6E21E9E34D00E0C959 /* YUFolding_arrow.png */; };
+		F68D9E7421E9E34E00E0C959 /* YUFoldingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E7121E9E34E00E0C959 /* YUFoldingTableView.m */; };
+		F68D9E7721E9EE4D00E0C959 /* LocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E7621E9EE4D00E0C959 /* LocationVC.m */; };
+		F68D9E7A21EA034E00E0C959 /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E7921EA034E00E0C959 /* LocationModel.m */; };
 		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
 		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
 		F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F695C1D821A28E5100E93F1A /* BRPickerView.bundle */; };
@@ -335,6 +343,21 @@
 		F68D9E5721E7236700E0C959 /* EventVCC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCC.m; sourceTree = "<group>"; };
 		F68D9E5C21E7296200E0C959 /* HandleEventVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HandleEventVC.h; sourceTree = "<group>"; };
 		F68D9E5D21E7296200E0C959 /* HandleEventVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HandleEventVC.m; sourceTree = "<group>"; };
+		F68D9E6321E9D0EB00E0C959 /* TypeListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeListVC.h; sourceTree = "<group>"; };
+		F68D9E6421E9D0EB00E0C959 /* TypeListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypeListVC.m; sourceTree = "<group>"; };
+		F68D9E6621E9D29600E0C959 /* TypeListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeListModel.h; sourceTree = "<group>"; };
+		F68D9E6721E9D29600E0C959 /* TypeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypeListModel.m; sourceTree = "<group>"; };
+		F68D9E6921E9E13400E0C959 /* EventPlaceVCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventPlaceVCViewController.h; sourceTree = "<group>"; };
+		F68D9E6A21E9E13400E0C959 /* EventPlaceVCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventPlaceVCViewController.m; sourceTree = "<group>"; };
+		F68D9E6D21E9E34D00E0C959 /* YUFoldingSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUFoldingSectionHeader.m; sourceTree = "<group>"; };
+		F68D9E6E21E9E34D00E0C959 /* YUFolding_arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YUFolding_arrow.png; sourceTree = "<group>"; };
+		F68D9E6F21E9E34E00E0C959 /* YUFoldingSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUFoldingSectionHeader.h; sourceTree = "<group>"; };
+		F68D9E7021E9E34E00E0C959 /* YUFoldingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YUFoldingTableView.h; sourceTree = "<group>"; };
+		F68D9E7121E9E34E00E0C959 /* YUFoldingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YUFoldingTableView.m; sourceTree = "<group>"; };
+		F68D9E7521E9EE4D00E0C959 /* LocationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationVC.h; sourceTree = "<group>"; };
+		F68D9E7621E9EE4D00E0C959 /* LocationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationVC.m; sourceTree = "<group>"; };
+		F68D9E7821EA034E00E0C959 /* LocationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
+		F68D9E7921EA034E00E0C959 /* LocationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
 		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		F695C1D521A28E5100E93F1A /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
 		F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
@@ -677,6 +700,10 @@
 				F669DA9D21B65D0600CAE242 /* RegionModel.m */,
 				F669DA9F21B6701E00CAE242 /* TownModel.h */,
 				F669DAA021B6701E00CAE242 /* TownModel.m */,
+				F68D9E6621E9D29600E0C959 /* TypeListModel.h */,
+				F68D9E6721E9D29600E0C959 /* TypeListModel.m */,
+				F68D9E7821EA034E00E0C959 /* LocationModel.h */,
+				F68D9E7921EA034E00E0C959 /* LocationModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -714,6 +741,7 @@
 		586D1D8BAF610DCE10E26F48 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F68D9E6C21E9E24900E0C959 /* Floding(折叠) */,
 				F669DA8721B51B5C00CAE242 /* SelectPerson(选择处理人) */,
 				F6578665219ABB23003D87EA /* EventVC.h */,
 				F6578666219ABB23003D87EA /* EventVC.m */,
@@ -731,6 +759,12 @@
 				F68D9E5721E7236700E0C959 /* EventVCC.m */,
 				F68D9E5C21E7296200E0C959 /* HandleEventVC.h */,
 				F68D9E5D21E7296200E0C959 /* HandleEventVC.m */,
+				F68D9E6321E9D0EB00E0C959 /* TypeListVC.h */,
+				F68D9E6421E9D0EB00E0C959 /* TypeListVC.m */,
+				F68D9E6921E9E13400E0C959 /* EventPlaceVCViewController.h */,
+				F68D9E6A21E9E13400E0C959 /* EventPlaceVCViewController.m */,
+				F68D9E7521E9EE4D00E0C959 /* LocationVC.h */,
+				F68D9E7621E9EE4D00E0C959 /* LocationVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1000,6 +1034,18 @@
 				F68D9E4D21E7222C00E0C959 /* WMProgressView.m */,
 			);
 			path = WMMenuView;
+			sourceTree = "<group>";
+		};
+		F68D9E6C21E9E24900E0C959 /* Floding(折叠) */ = {
+			isa = PBXGroup;
+			children = (
+				F68D9E6E21E9E34D00E0C959 /* YUFolding_arrow.png */,
+				F68D9E6F21E9E34E00E0C959 /* YUFoldingSectionHeader.h */,
+				F68D9E6D21E9E34D00E0C959 /* YUFoldingSectionHeader.m */,
+				F68D9E7021E9E34E00E0C959 /* YUFoldingTableView.h */,
+				F68D9E7121E9E34E00E0C959 /* YUFoldingTableView.m */,
+			);
+			path = "Floding(折叠)";
 			sourceTree = "<group>";
 		};
 		F695C1D221A28E5100E93F1A /* BRPickerView */ = {
@@ -1440,6 +1486,7 @@
 				F6FD294C21D38EFD002B7276 /* DVDirectory.cfg in Resources */,
 				F6FD296A21D38EFD002B7276 /* icon_action_paopao_middle_right_highlighted.png in Resources */,
 				F6FD297721D38EFD002B7276 /* icon_compass.png in Resources */,
+				F68D9E7321E9E34E00E0C959 /* YUFolding_arrow.png in Resources */,
 				F6FD294B21D38EFD002B7276 /* map.sty in Resources */,
 				F6FD294721D38EFD002B7276 /* map.sty in Resources */,
 				F6FD296221D38EFD002B7276 /* pin_red.png in Resources */,
@@ -1530,6 +1577,7 @@
 				F6C92B6621A94B3400EE05D1 /* TZImageCropManager.m in Sources */,
 				F6C92B2721A6F5F200EE05D1 /* PPNetworkHelper.m in Sources */,
 				F669DAB421B6809700CAE242 /* ChapterTableViewCell.m in Sources */,
+				F68D9E7721E9EE4D00E0C959 /* LocationVC.m in Sources */,
 				F6C92B3021A796B800EE05D1 /* PPInterfacedConst.m in Sources */,
 				F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */,
 				F669DAB221B6809700CAE242 /* ChapterHeader.m in Sources */,
@@ -1540,6 +1588,7 @@
 				F695C29821A68FC300E93F1A /* JMDropMenu.m in Sources */,
 				F6578658219AB897003D87EA /* UIColor+Affee.m in Sources */,
 				F6C92B6C21A94B3400EE05D1 /* TZPhotoPreviewCell.m in Sources */,
+				F68D9E7A21EA034E00E0C959 /* LocationModel.m in Sources */,
 				F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
@@ -1550,6 +1599,7 @@
 				F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */,
 				F68D9E5021E7222C00E0C959 /* WMPageController.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
+				F68D9E6521E9D0EB00E0C959 /* TypeListVC.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
 				F6388CF221C25A1C00186D72 /* YYConst.mm in Sources */,
@@ -1563,15 +1613,18 @@
 				F6C92B6F21A94B3400EE05D1 /* TZVideoPlayerController.m in Sources */,
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
 				F6C92B3921A92A5D00EE05D1 /* TextAndImagesCell.m in Sources */,
+				F68D9E6B21E9E13400E0C959 /* EventPlaceVCViewController.m in Sources */,
 				F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */,
 				F6C92B6D21A94B3400EE05D1 /* TZPhotoPreviewController.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
+				F68D9E7221E9E34E00E0C959 /* YUFoldingSectionHeader.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
 				F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */,
+				F68D9E7421E9E34E00E0C959 /* YUFoldingTableView.m in Sources */,
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,
 				F669DA7C21AFF06400CAE242 /* userEventList.m in Sources */,
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
@@ -1581,6 +1634,7 @@
 				F669DA7921AF8F2200CAE242 /* EventDetailModel.m in Sources */,
 				F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */,
 				F6FD29B821DCA99F002B7276 /* YYHistoryTrackPoint.m in Sources */,
+				F68D9E6821E9D29600E0C959 /* TypeListModel.m in Sources */,
 				F6C92B4021A9308300EE05D1 /* UITextView+ZWLimitCounter.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,
 				F669DA9E21B65D0600CAE242 /* RegionModel.m in Sources */,

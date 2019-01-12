@@ -32,7 +32,8 @@
 #define URL_River_CruiseS_Start KKStringWithFormat(@"%@/riverCruise/start", Base_Url)
 //巡河结束上传数据 巡河id 截图 以及定位数据
 #define URL_River_CruiseS_End KKStringWithFormat(@"%@/riverCruise/end", Base_Url)
-
+// /event/getTypeList  事件类型列表
+#define URL_Event_getTypeList KKStringWithFormat(@"%@/event/getTypeList", Base_Url)
 
 
 #endif /* KKDomian_h */
