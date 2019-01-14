@@ -42,7 +42,7 @@
 }
 -(void)setupNavBar{
     [self.view addSubview:self.customNavBar];
-    //    设置自定义导航北京图片
+    //    设置自定义导航背景图片
     self.customNavBar.barBackgroundImage = [UIImage imageNamed:@"NavBarBG"];
     //        设置导航标题栏的颜色
     self.customNavBar.titleLabelColor = [UIColor whiteColor];

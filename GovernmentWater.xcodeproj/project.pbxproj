@@ -79,6 +79,13 @@
 		F68D9E7421E9E34E00E0C959 /* YUFoldingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E7121E9E34E00E0C959 /* YUFoldingTableView.m */; };
 		F68D9E7721E9EE4D00E0C959 /* LocationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E7621E9EE4D00E0C959 /* LocationVC.m */; };
 		F68D9E7A21EA034E00E0C959 /* LocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E7921EA034E00E0C959 /* LocationModel.m */; };
+		F68D9E7D21EC334E00E0C959 /* EventPlaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E7C21EC334D00E0C959 /* EventPlaceModel.m */; };
+		F68D9E8121EC892100E0C959 /* MainListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8021EC892100E0C959 /* MainListVC.m */; };
+		F68D9E8421EC8E6400E0C959 /* OrganizationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8321EC8E6400E0C959 /* OrganizationVC.m */; };
+		F68D9E8721EC8E7E00E0C959 /* OfficeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8621EC8E7E00E0C959 /* OfficeVC.m */; };
+		F68D9E8A21EC8ED000E0C959 /* UnitListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8921EC8ED000E0C959 /* UnitListVC.m */; };
+		F68D9E8D21EC97DF00E0C959 /* OfficeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8C21EC97DF00E0C959 /* OfficeModel.m */; };
+		F68D9E9021EC9C0E00E0C959 /* UnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */; };
 		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
 		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
 		F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F695C1D821A28E5100E93F1A /* BRPickerView.bundle */; };
@@ -358,6 +365,20 @@
 		F68D9E7621E9EE4D00E0C959 /* LocationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationVC.m; sourceTree = "<group>"; };
 		F68D9E7821EA034E00E0C959 /* LocationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationModel.h; sourceTree = "<group>"; };
 		F68D9E7921EA034E00E0C959 /* LocationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationModel.m; sourceTree = "<group>"; };
+		F68D9E7B21EC334D00E0C959 /* EventPlaceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventPlaceModel.h; sourceTree = "<group>"; };
+		F68D9E7C21EC334D00E0C959 /* EventPlaceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventPlaceModel.m; sourceTree = "<group>"; };
+		F68D9E7F21EC892100E0C959 /* MainListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainListVC.h; sourceTree = "<group>"; };
+		F68D9E8021EC892100E0C959 /* MainListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainListVC.m; sourceTree = "<group>"; };
+		F68D9E8221EC8E6400E0C959 /* OrganizationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrganizationVC.h; sourceTree = "<group>"; };
+		F68D9E8321EC8E6400E0C959 /* OrganizationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrganizationVC.m; sourceTree = "<group>"; };
+		F68D9E8521EC8E7E00E0C959 /* OfficeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfficeVC.h; sourceTree = "<group>"; };
+		F68D9E8621EC8E7E00E0C959 /* OfficeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfficeVC.m; sourceTree = "<group>"; };
+		F68D9E8821EC8ED000E0C959 /* UnitListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitListVC.h; sourceTree = "<group>"; };
+		F68D9E8921EC8ED000E0C959 /* UnitListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitListVC.m; sourceTree = "<group>"; };
+		F68D9E8B21EC97DF00E0C959 /* OfficeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfficeModel.h; sourceTree = "<group>"; };
+		F68D9E8C21EC97DF00E0C959 /* OfficeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfficeModel.m; sourceTree = "<group>"; };
+		F68D9E8E21EC9C0E00E0C959 /* UnitModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitModel.h; sourceTree = "<group>"; };
+		F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitModel.m; sourceTree = "<group>"; };
 		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		F695C1D521A28E5100E93F1A /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
 		F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
@@ -704,6 +725,12 @@
 				F68D9E6721E9D29600E0C959 /* TypeListModel.m */,
 				F68D9E7821EA034E00E0C959 /* LocationModel.h */,
 				F68D9E7921EA034E00E0C959 /* LocationModel.m */,
+				F68D9E7B21EC334D00E0C959 /* EventPlaceModel.h */,
+				F68D9E7C21EC334D00E0C959 /* EventPlaceModel.m */,
+				F68D9E8B21EC97DF00E0C959 /* OfficeModel.h */,
+				F68D9E8C21EC97DF00E0C959 /* OfficeModel.m */,
+				F68D9E8E21EC9C0E00E0C959 /* UnitModel.h */,
+				F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -765,6 +792,14 @@
 				F68D9E6A21E9E13400E0C959 /* EventPlaceVCViewController.m */,
 				F68D9E7521E9EE4D00E0C959 /* LocationVC.h */,
 				F68D9E7621E9EE4D00E0C959 /* LocationVC.m */,
+				F68D9E7F21EC892100E0C959 /* MainListVC.h */,
+				F68D9E8021EC892100E0C959 /* MainListVC.m */,
+				F68D9E8221EC8E6400E0C959 /* OrganizationVC.h */,
+				F68D9E8321EC8E6400E0C959 /* OrganizationVC.m */,
+				F68D9E8521EC8E7E00E0C959 /* OfficeVC.h */,
+				F68D9E8621EC8E7E00E0C959 /* OfficeVC.m */,
+				F68D9E8821EC8ED000E0C959 /* UnitListVC.h */,
+				F68D9E8921EC8ED000E0C959 /* UnitListVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1569,6 +1604,7 @@
 				F60B343E21E5DECA00D504BF /* EventVCT.m in Sources */,
 				F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */,
 				F6C92B6E21A94B3400EE05D1 /* TZProgressView.m in Sources */,
+				F68D9E8421EC8E6400E0C959 /* OrganizationVC.m in Sources */,
 				F6C92B6221A94B3400EE05D1 /* NSBundle+TZImagePicker.m in Sources */,
 				F669DAB321B6809700CAE242 /* CLLThreeTreeTableViewCell.m in Sources */,
 				F6C92B6B21A94B3400EE05D1 /* TZPhotoPickerController.m in Sources */,
@@ -1590,12 +1626,14 @@
 				F6C92B6C21A94B3400EE05D1 /* TZPhotoPreviewCell.m in Sources */,
 				F68D9E7A21EA034E00E0C959 /* LocationModel.m in Sources */,
 				F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */,
+				F68D9E9021EC9C0E00E0C959 /* UnitModel.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
 				F602733C21C9F21400B39E6C /* NewsCell.m in Sources */,
 				F68D9E5321E7222C00E0C959 /* WMScrollView.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F618207B21CC8A5700F22C2B /* HomeNewsDetailsVC.m in Sources */,
+				F68D9E8D21EC97DF00E0C959 /* OfficeModel.m in Sources */,
 				F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */,
 				F68D9E5021E7222C00E0C959 /* WMPageController.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
@@ -1616,6 +1654,7 @@
 				F68D9E6B21E9E13400E0C959 /* EventPlaceVCViewController.m in Sources */,
 				F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */,
 				F6C92B6D21A94B3400EE05D1 /* TZPhotoPreviewController.m in Sources */,
+				F68D9E8721EC8E7E00E0C959 /* OfficeVC.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
@@ -1628,6 +1667,7 @@
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,
 				F669DA7C21AFF06400CAE242 /* userEventList.m in Sources */,
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
+				F68D9E8A21EC8ED000E0C959 /* UnitListVC.m in Sources */,
 				F695C1EA21A28E7B00E93F1A /* BRDatePickerView.m in Sources */,
 				F695C28921A4FB9A00E93F1A /* DealingCell.m in Sources */,
 				F6C92B6A21A94B3400EE05D1 /* TZLocationManager.m in Sources */,
@@ -1638,6 +1678,7 @@
 				F6C92B4021A9308300EE05D1 /* UITextView+ZWLimitCounter.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,
 				F669DA9E21B65D0600CAE242 /* RegionModel.m in Sources */,
+				F68D9E7D21EC334E00E0C959 /* EventPlaceModel.m in Sources */,
 				F669DA7621AEA3B300CAE242 /* BRInfoModel.m in Sources */,
 				F60B344221E5E5C900D504BF /* DOPDropDownMenu.m in Sources */,
 				F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */,
@@ -1645,6 +1686,7 @@
 				F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */,
 				F6C92B6521A94B3400EE05D1 /* TZGifPhotoPreviewController.m in Sources */,
 				F6C92B3D21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.m in Sources */,
+				F68D9E8121EC892100E0C959 /* MainListVC.m in Sources */,
 				F6C92B6421A94B3400EE05D1 /* TZAssetModel.m in Sources */,
 				F6C92B6921A94B3400EE05D1 /* TZImagePickerController.m in Sources */,
 				F68D9E5421E7222C00E0C959 /* WMMenuView.m in Sources */,

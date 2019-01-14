@@ -16,6 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 //返回的值
 @property (nonatomic, copy) NSString *typeName;
 
+@property (nonatomic, copy) NSString *riverID;
+@property (nonatomic, copy) NSString *riverName;
+
+@property (nonatomic, copy) NSString *eventLocation;
+
+
 
 @end
 

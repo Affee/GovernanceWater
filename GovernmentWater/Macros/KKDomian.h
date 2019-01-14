@@ -34,6 +34,12 @@
 #define URL_River_CruiseS_End KKStringWithFormat(@"%@/riverCruise/end", Base_Url)
 // /event/getTypeList  事件类型列表
 #define URL_Event_getTypeList KKStringWithFormat(@"%@/event/getTypeList", Base_Url)
+// river/getList  河流列表
+#define URL_River_GetList KKStringWithFormat(@"%@/river/getList", Base_Url)
+// /event/getOfficeMembeAll 根据办公室id显示下面的所有人 APP
+#define URL_Event_GetOfficeMembeAll KKStringWithFormat(@"%@/event/getOfficeMembeAll", Base_Url)
+// /event/getResponsibleMember  根据责任单位id显示下面的责任单位员作为处理人 APP
+#define URL_Event_GetResponsibleMember KKStringWithFormat(@"%@/event/getResponsibleMember", Base_Url)
 
 
 #endif /* KKDomian_h */

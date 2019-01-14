@@ -32,7 +32,7 @@
 #import "TypeListVC.h"
 #import "EventPlaceVCViewController.h"
 #import "LocationVC.h"
-
+#import "MainListVC.h"
 
 @interface ReportVC ()<UITableViewDelegate, UITableViewDataSource,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
 {
@@ -70,6 +70,9 @@
     [super viewDidLoad];
     
     _typeName = @"默认";
+//    _riverID = @"请选择河流";
+    _riverName = @"请选择河流";
+    _eventLocation = @"请选择地址";
     
     self.navigationController.navigationBar.backgroundColor = KKBlueColor;
 
@@ -88,7 +91,7 @@
     NSDictionary *dict = @{
                            @"eventContent":@"123",
                            @"isUrgen":@1,
-                           @"riverId":@2,
+                           @"riverId":_riverID,
                            @"eventPlace":@2,
                            @"eventNature":@2,
                            @"typeId":_typeID,
@@ -208,7 +211,13 @@
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             if (indexPath.row == 3) {
                 cell.detailTextLabel.text = _typeName;
+            }else if (indexPath.row == 1){
+                cell.detailTextLabel.text = _riverName;
+            }else if (indexPath.row == 2){
+                cell.detailTextLabel.text = _eventLocation;
+            }else{
             }
+            
             
             return cell;
         }else if (indexPath.section == 2){
@@ -248,7 +257,7 @@
             typeVc.title = @"事件类型";
             typeVc.view.backgroundColor = [UIColor whiteColor];
             [self.navigationController pushViewController:typeVc animated:YES];
-    }else if (indexPath.section == 1 && indexPath.row == 0){
+    }else if (indexPath.section == 1 && indexPath.row == 1){
             EventPlaceVCViewController *ev = [[EventPlaceVCViewController alloc]init];
             ev.title = @"河道选择";
             ev.view.backgroundColor = [UIColor whiteColor];
@@ -258,6 +267,11 @@
             loc.title =@"定位地址";
             loc.view.backgroundColor = [UIColor whiteColor];
             [self.navigationController pushViewController:loc animated:YES];
+    }else if (indexPath.section == 1 && indexPath.row == 0){
+        MainListVC *list = [[MainListVC alloc]init];
+        list.title = @"选择处理人";
+        list.view.backgroundColor = [UIColor whiteColor];
+        [self.navigationController pushViewController:list animated:YES];
     }else{
             CLLThreeTreeViewController *characterVC = [[CLLThreeTreeViewController alloc]init];
             characterVC.title = @"朋友列表";
@@ -269,7 +283,7 @@
 #pragma mark ----tableView get/setter
 - (UITableView *)tableView{
     if (_tableView == nil) {
-        CGRect frame = CGRectMake(0, KKBarHeight, KKScreenWidth, KKScreenHeight - KKBarHeight- KKiPhoneXSafeAreaDValue );
+        CGRect frame = CGRectMake(0, KKBarHeight, KKScreenWidth, KKScreenHeight - KKBarHeight- KKiPhoneXSafeAreaDValue - 64 );
         _tableView = [[UITableView alloc] initWithFrame:frame
                                                   style:UITableViewStyleGrouped];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;//分割线
