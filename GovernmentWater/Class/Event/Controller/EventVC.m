@@ -92,9 +92,10 @@
     }
     //    数组字典初始化
     _pages = 1;
-    _recordsMArr  = [NSMutableArray array];
     self.tableView.emptyDataSetSource = self;
     self.tableView.emptyDataSetDelegate = self;
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
+    _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线
     [self.view addSubview:_tableView];
     [self loadData];
     __weak __typeof(self) weakSelf = self;
@@ -133,6 +134,8 @@
         [PPNetworkHelper GET:Event_GetList_URL parameters:nil responseCache:^(id responseCache) {
             
         } success:^(id responseObject) {
+            _recordsMArr  = [NSMutableArray array];
+
             _pages++;
 //            _recordsMArr =  responseObject[@"records"];
             for (NSDictionary *dict in responseObject[@"records"]) {
@@ -304,7 +307,7 @@
         [PPNetworkHelper GET:Event_GetList_URL parameters:dict responseCache:^(id responseCache) {
             
         } success:^(id responseObject) {
-            //            _recordsMArr =  responseObject[@"records"];
+            _recordsMArr  = [NSMutableArray array];
             for (NSDictionary *dict in responseObject[@"records"]) {
                 [_recordsMArr addObject:dict];
             }
@@ -414,7 +417,7 @@
 }
 - (NSAttributedString *)titleForEmptyDataSet:(UIScrollView *)scrollView
 {
-    NSString *text = @"网络异常或者空数据";
+    NSString *text = @"没有数据";
     
     NSDictionary *attributes = @{NSFontAttributeName: [UIFont boldSystemFontOfSize:28.0f],
                                  NSForegroundColorAttributeName: [UIColor darkGrayColor]};
