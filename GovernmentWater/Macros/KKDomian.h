@@ -40,6 +40,8 @@
 #define URL_Event_GetOfficeMembeAll KKStringWithFormat(@"%@/event/getOfficeMembeAll", Base_Url)
 // /event/getResponsibleMember  根据责任单位id显示下面的责任单位员作为处理人 APP
 #define URL_Event_GetResponsibleMember KKStringWithFormat(@"%@/event/getResponsibleMember", Base_Url)
+// /event/getHandle根据行政区域显示下面的处理人信息APP
+#define URL_Event_GetHandle KKStringWithFormat(@"%@/event/getHandle", Base_Url)
 
 
 #endif /* KKDomian_h */

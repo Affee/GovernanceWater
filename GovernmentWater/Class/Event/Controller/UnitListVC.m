@@ -1,26 +1,25 @@
 //
-//  MemberListVC.m
+//  UnitListVC.m
 //  GovernmentWater
 //
-//  Created by affee on 2018/12/5.
-//  Copyright © 2018年 affee. All rights reserved.
+//  Created by affee on 14/01/2019.
+//  Copyright © 2019 affee. All rights reserved.
 //
 
-#import "MemberListVC.h"
-#import "MemberListModel.h"
+#import "UnitListVC.h"
+#import "UnitModel.h"
+#import "ReportVC.h"
 
-@interface MemberListVC ()<UITableViewDelegate,UITableViewDataSource>
+@interface UnitListVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *recordsMArr;
 
 
 
 
-
-
 @end
 
-@implementation MemberListVC
+@implementation UnitListVC
 - (void)viewDidLoad {
     [super viewDidLoad];
     //    self.customNavBar.title = @"事件类型";
@@ -33,17 +32,17 @@
     [self.view addSubview:_tableView];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线
-    
+
     [self requestData];
 }
 -(void)requestData
 {
     [SVProgressHUD show];
     NSDictionary *dict = @{
-                           @"regionId":self.regionID,
+                           @"size":@60,
                            };
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-    [PPNetworkHelper GET:URL_Event_GetHandle parameters:dict responseCache:^(id responseCache) {
+    [PPNetworkHelper GET:URL_Event_GetResponsibleMember parameters:dict responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
         
@@ -76,7 +75,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
     }
-    MemberListModel *model = [MemberListModel modelWithDictionary:_recordsMArr[indexPath.row]];
+    UnitModel *model = [UnitModel modelWithDictionary:_recordsMArr[indexPath.row]];
     cell.textLabel.text = model.realname;
     cell.detailTextLabel.text = model.post;
     //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -85,18 +84,13 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    ReportVC *repVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
-    //    TypeListModel *model = [TypeListModel modelWithDictionary:_recordsMArr[indexPath.row]];
-    //    repVC.typeID =  [NSString stringWithFormat:@"%ld",model.identifier];
-    //    repVC.typeName = model.typeName;
-    //
-    //    [self.navigationController popToViewController:repVC animated:YES];
-    MemberListModel *model = [MemberListModel modelWithDictionary:_recordsMArr[indexPath.row]];
-    NSString *ssstr = model.realname;
-    if (self.block) {
-        self.block(ssstr);
-    }
-    [self  dismissViewControllerAnimated:YES completion:nil];
+        ReportVC *repVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 3];
+        UnitModel *model = [UnitModel modelWithDictionary:_recordsMArr[indexPath.row]];
+        repVC.realname =  [NSString stringWithFormat:@"%@",model.realname];
+        repVC.handleId = model.identifier;
+    
+        [self.navigationController popToViewController:repVC animated:YES];
+    AFLog(@"点击办公室的人");
 }
 
 
@@ -114,5 +108,4 @@
     }
     return _recordsMArr;
 }
-
 @end

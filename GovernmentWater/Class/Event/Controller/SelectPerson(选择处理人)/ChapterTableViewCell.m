@@ -15,6 +15,7 @@
 
 @implementation ChapterTableViewCell
 
+
 - (void)awakeFromNib {
     // Initialization code
 }
@@ -115,13 +116,13 @@
     MemberListVC *memlist = [[MemberListVC alloc]init];
     memlist.view.backgroundColor = [UIColor whiteColor];
     memlist.customNavBar.title = [NSString stringWithFormat:@"%@",self.dataArray[indexPath.row]];
-    
-    
+    memlist.regionID = [NSString stringWithFormat:@"%@",self.chapterIdArray[indexPath.row]];
     NSString *strID =self.chapterIdArray[indexPath.row];
     NSLog(@"我是====%ld=====%@=======%@",(long)indexPath.row,strID,self.dataArray[indexPath.row]);
     
+//    [[self viewController] presentViewController:memlist animated:NO completion:nil];
     
-    
+    self.MoreSearchblock();
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

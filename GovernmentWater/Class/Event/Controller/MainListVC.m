@@ -10,6 +10,7 @@
 #import "OrganizationVC.h"
 #import "OfficeVC.h"
 #import "UnitListVC.h"
+#import "CLLThreeTreeViewController.h"
 
 
 @interface MainListVC ()<UITableViewDelegate,UITableViewDataSource>
@@ -61,10 +62,15 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row == 0) {
-        OrganizationVC *ori = [[OrganizationVC alloc]init];
-        ori.title = @"组织成员";
-        ori.view.backgroundColor = [UIColor whiteColor];
-        [self.navigationController pushViewController:ori animated:YES];
+//        OrganizationVC *ori = [[OrganizationVC alloc]init];
+//        ori.title = @"组织成员";
+//        ori.view.backgroundColor = [UIColor whiteColor];
+//        [self.navigationController pushViewController:ori animated:YES];
+//
+        CLLThreeTreeViewController *characterVC = [[CLLThreeTreeViewController alloc]init];
+        characterVC.title = @"组织成员";
+        characterVC.view.backgroundColor = [UIColor yellowColor];
+        [self.navigationController pushViewController:characterVC animated:YES];
     }else if (indexPath.row == 1){
         OfficeVC *off = [[OfficeVC alloc]init];
         off.title  = @"办公室";

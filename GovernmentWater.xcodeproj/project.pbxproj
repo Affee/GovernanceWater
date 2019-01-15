@@ -86,6 +86,7 @@
 		F68D9E8A21EC8ED000E0C959 /* UnitListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8921EC8ED000E0C959 /* UnitListVC.m */; };
 		F68D9E8D21EC97DF00E0C959 /* OfficeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8C21EC97DF00E0C959 /* OfficeModel.m */; };
 		F68D9E9021EC9C0E00E0C959 /* UnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */; };
+		F68D9E9321ED8D7D00E0C959 /* MemberListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9221ED8D7D00E0C959 /* MemberListModel.m */; };
 		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
 		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
 		F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F695C1D821A28E5100E93F1A /* BRPickerView.bundle */; };
@@ -379,6 +380,8 @@
 		F68D9E8C21EC97DF00E0C959 /* OfficeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfficeModel.m; sourceTree = "<group>"; };
 		F68D9E8E21EC9C0E00E0C959 /* UnitModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitModel.h; sourceTree = "<group>"; };
 		F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitModel.m; sourceTree = "<group>"; };
+		F68D9E9121ED8D7D00E0C959 /* MemberListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberListModel.h; sourceTree = "<group>"; };
+		F68D9E9221ED8D7D00E0C959 /* MemberListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberListModel.m; sourceTree = "<group>"; };
 		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		F695C1D521A28E5100E93F1A /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
 		F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
@@ -731,6 +734,8 @@
 				F68D9E8C21EC97DF00E0C959 /* OfficeModel.m */,
 				F68D9E8E21EC9C0E00E0C959 /* UnitModel.h */,
 				F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */,
+				F68D9E9121ED8D7D00E0C959 /* MemberListModel.h */,
+				F68D9E9221ED8D7D00E0C959 /* MemberListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1598,6 +1603,7 @@
 				F68D9E5521E7222C00E0C959 /* WMProgressView.m in Sources */,
 				F657866A219ABB37003D87EA /* MineVC.m in Sources */,
 				F669DAA921B6802A00CAE242 /* CLLThreeTreeModel.m in Sources */,
+				F68D9E9321ED8D7D00E0C959 /* MemberListModel.m in Sources */,
 				F657865C219AB897003D87EA /* DateUtil.m in Sources */,
 				F6C92B7021A94B3400EE05D1 /* UIView+Layout.m in Sources */,
 				F68D9E5121E7222C00E0C959 /* UIViewController+WMPageController.m in Sources */,

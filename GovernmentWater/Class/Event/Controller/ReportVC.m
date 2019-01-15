@@ -33,6 +33,7 @@
 #import "EventPlaceVCViewController.h"
 #import "LocationVC.h"
 #import "MainListVC.h"
+#import "MemberListVC.h"
 
 @interface ReportVC ()<UITableViewDelegate, UITableViewDataSource,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
 {
@@ -62,8 +63,14 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    MemberListVC *mem = [[MemberListVC alloc]init];
+    mem.block = ^(NSString *realNamestr) {
+        _realname = realNamestr;
+    };
+    
     AFLog(@"%@",_typeName);
     [_tableView reloadData];
+    
 }
 
 - (void)viewDidLoad {
@@ -73,6 +80,7 @@
 //    _riverID = @"请选择河流";
     _riverName = @"请选择河流";
     _eventLocation = @"请选择地址";
+    _realname = @"请选择处理人";
     
     self.navigationController.navigationBar.backgroundColor = KKBlueColor;
 
@@ -95,7 +103,7 @@
                            @"eventPlace":@2,
                            @"eventNature":@2,
                            @"typeId":_typeID,
-                           @"handleId":@5,
+                           @"handleId":[NSString stringWithFormat:@"%ld",(long)_handleId],
                            @"flag":@0,
                            };
 
@@ -217,8 +225,6 @@
                 cell.detailTextLabel.text = _eventLocation;
             }else{
             }
-            
-            
             return cell;
         }else if (indexPath.section == 2){
             static  NSString *DealingC = @"DealingC";
@@ -226,6 +232,7 @@
             if (!cell){
                 cell = [[DealingCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:DealingC];
             }
+            cell.nikenameLabel.text = _realname;
             cell.selectionStyle = UITableViewCellSeparatorStyleNone;
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             return cell;

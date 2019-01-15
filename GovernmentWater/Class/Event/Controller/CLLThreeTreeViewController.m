@@ -69,24 +69,24 @@
     [self getData];
 
     
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"json" ofType:nil];
-    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
-    self.dataSource = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-    
-    self.sectionOpen = [NSMutableArray array];
-    for (NSInteger i = 0; i < self.dataSource.count; i++) {
-        [self.sectionOpen addObject:@0];
-    }
-    
-    for (NSDictionary *dic1 in self.dataSource) {
-        NSArray *arr2 = dic1[@"sub"];
-        for (NSDictionary *dic2 in arr2) {
-            NSString *key = [NSString stringWithFormat:@"%@", dic2[@"chapterID"]];
-            CLLThreeTreeModel *model = [[CLLThreeTreeModel alloc] initWithDic:dic2];
-            model.isShow = NO;
-            [self.cellOpen setValue:model forKey:key];
-        }
-    }
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"json" ofType:nil];
+//    NSString *jsonString = [[NSString alloc] initWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
+//    self.dataSource = [NSJSONSerialization JSONObjectWithData:[jsonString dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+//
+//    self.sectionOpen = [NSMutableArray array];
+//    for (NSInteger i = 0; i < self.dataSource.count; i++) {
+//        [self.sectionOpen addObject:@0];
+//    }
+//
+//    for (NSDictionary *dic1 in self.dataSource) {
+//        NSArray *arr2 = dic1[@"sub"];
+//        for (NSDictionary *dic2 in arr2) {
+//            NSString *key = [NSString stringWithFormat:@"%@", dic2[@"chapterID"]];
+//            CLLThreeTreeModel *model = [[CLLThreeTreeModel alloc] initWithDic:dic2];
+//            model.isShow = NO;
+//            [self.cellOpen setValue:model forKey:key];
+//        }
+//    }
     
     CGRect frame = CGRectMake(0, KKBarHeight, self.view.frame.size.width, self.view.frame.size.height - KKNavBarHeight - KKiPhoneXSafeAreaDValue);
     _tableView = [[UITableView alloc] initWithFrame:frame
@@ -311,7 +311,6 @@
     
     
     [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
-    
     
 }
 

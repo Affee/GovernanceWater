@@ -28,7 +28,7 @@
     self.imgvIcon.layer.masksToBounds = YES;
     [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:KKPlaceholderImage];
     self.nikenameLabel = [[UILabel alloc] init];
-    self.nikenameLabel.textAlignment = NSTextAlignmentLeft;
+    self.nikenameLabel.textAlignment = NSTextAlignmentCenter;
     self.nikenameLabel.text = @"河村长";
     self.nikenameLabel.font = KKFont12;
     [self.contentView addSubview:self.imgvIcon];
