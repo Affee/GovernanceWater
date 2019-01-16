@@ -14,7 +14,8 @@
 #import "EventDetailModel.h"
 #import "userEventList.h"
 //        detailArr = @[_eventDict[@"updateTime"],_eventDict[@"isUrgen"],_eventDict[@"riverName"],_eventDict[@"eventPlace"],_eventDict[@"typeId"]];
-
+//long timeLong = [[ NSString stringWithFormat:@" %@ ",model.createTime] longValue];
+//self.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"MM-dd hh:mm:ss"];
 @interface EventDetailsVC ()<UITableViewDelegate, UITableViewDataSource>
 {
     NSMutableArray *_UserEventListArr;
@@ -53,8 +54,6 @@ static NSMutableArray *_allSessionTask;
     _UserEventListArr = [[NSMutableArray alloc]init];
     _RequestDict = [[NSDictionary alloc]init];
     _UserEventListArr = [[NSMutableArray alloc]init];
-
-
 }
 //获取列别
 -(void)getListData{
@@ -75,13 +74,12 @@ static NSMutableArray *_allSessionTask;
         EventDetailModel *model = [EventDetailModel modelWithDictionary:responseObject[@"event"]];
         //        移除并重新添加
         [_detailArr removeAllObjects];
+        
         _detailArr = [[NSMutableArray alloc]initWithObjects:model.updateTime,model.isUrgen,model.riverName,model.eventPlace,model.typeName,nil];
         
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [_tableView reloadData];
-            //                NSIndexSet *indexSet = [[NSIndexSet alloc]initWithIndex:2];
-            //                [_tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationAutomatic];
         });
         [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
@@ -207,7 +205,7 @@ static NSMutableArray *_allSessionTask;
 - (UITableView *)tableView
 {
     if (_tableView == nil) {
-        CGRect frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - KKNavBarHeight - KKiPhoneXSafeAreaDValue);
+        CGRect frame = CGRectMake(0, KKBarHeight, self.view.frame.size.width, self.view.frame.size.height - 2*KKBarHeight - KKiPhoneXSafeAreaDValue);
         _tableView = [[UITableView alloc] initWithFrame:frame
                                                   style:UITableViewStyleGrouped];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线

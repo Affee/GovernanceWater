@@ -42,6 +42,9 @@
 #define URL_Event_GetResponsibleMember KKStringWithFormat(@"%@/event/getResponsibleMember", Base_Url)
 // /event/getHandle根据行政区域显示下面的处理人信息APP
 #define URL_Event_GetHandle KKStringWithFormat(@"%@/event/getHandle", Base_Url)
+// http://139.219.4.43:8080/appManage/findByaboutOur2 关于我们
+#define URL_AppManage_FindByaboutOur2 KKStringWithFormat(@"%@/appManage/findByaboutOur2", Base_Url)
+
 
 
 #endif /* KKDomian_h */

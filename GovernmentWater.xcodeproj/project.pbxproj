@@ -87,6 +87,8 @@
 		F68D9E8D21EC97DF00E0C959 /* OfficeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8C21EC97DF00E0C959 /* OfficeModel.m */; };
 		F68D9E9021EC9C0E00E0C959 /* UnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */; };
 		F68D9E9321ED8D7D00E0C959 /* MemberListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9221ED8D7D00E0C959 /* MemberListModel.m */; };
+		F68D9E9621EED34900E0C959 /* AboutUSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9521EED34900E0C959 /* AboutUSVC.m */; };
+		F68D9E9C21EF098200E0C959 /* PersonTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9B21EF098200E0C959 /* PersonTableVC.m */; };
 		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
 		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
 		F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F695C1D821A28E5100E93F1A /* BRPickerView.bundle */; };
@@ -382,6 +384,10 @@
 		F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitModel.m; sourceTree = "<group>"; };
 		F68D9E9121ED8D7D00E0C959 /* MemberListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberListModel.h; sourceTree = "<group>"; };
 		F68D9E9221ED8D7D00E0C959 /* MemberListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberListModel.m; sourceTree = "<group>"; };
+		F68D9E9421EED34900E0C959 /* AboutUSVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUSVC.h; sourceTree = "<group>"; };
+		F68D9E9521EED34900E0C959 /* AboutUSVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUSVC.m; sourceTree = "<group>"; };
+		F68D9E9A21EF098200E0C959 /* PersonTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonTableVC.h; sourceTree = "<group>"; };
+		F68D9E9B21EF098200E0C959 /* PersonTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonTableVC.m; sourceTree = "<group>"; };
 		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		F695C1D521A28E5100E93F1A /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
 		F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
@@ -662,6 +668,10 @@
 				F6578669219ABB37003D87EA /* MineVC.m */,
 				F6FD299121D474AA002B7276 /* PDFVC.h */,
 				F6FD299221D474AB002B7276 /* PDFVC.m */,
+				F68D9E9421EED34900E0C959 /* AboutUSVC.h */,
+				F68D9E9521EED34900E0C959 /* AboutUSVC.m */,
+				F68D9E9A21EF098200E0C959 /* PersonTableVC.h */,
+				F68D9E9B21EF098200E0C959 /* PersonTableVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1660,6 +1670,7 @@
 				F68D9E6B21E9E13400E0C959 /* EventPlaceVCViewController.m in Sources */,
 				F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */,
 				F6C92B6D21A94B3400EE05D1 /* TZPhotoPreviewController.m in Sources */,
+				F68D9E9621EED34900E0C959 /* AboutUSVC.m in Sources */,
 				F68D9E8721EC8E7E00E0C959 /* OfficeVC.m in Sources */,
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
@@ -1680,6 +1691,7 @@
 				F669DA7921AF8F2200CAE242 /* EventDetailModel.m in Sources */,
 				F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */,
 				F6FD29B821DCA99F002B7276 /* YYHistoryTrackPoint.m in Sources */,
+				F68D9E9C21EF098200E0C959 /* PersonTableVC.m in Sources */,
 				F68D9E6821E9D29600E0C959 /* TypeListModel.m in Sources */,
 				F6C92B4021A9308300EE05D1 /* UITextView+ZWLimitCounter.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,

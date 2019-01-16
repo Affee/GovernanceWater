@@ -9,6 +9,8 @@
 #import "MineVC.h"
 #import "AppDelegate.h"
 #import "PDFVC.h"
+#import "AboutUSVC.h"
+#import "PersonTableVC.h"
 
 @interface MineVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -27,11 +29,81 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
+    [self configUI];
+}
+-(void)configUI
+{
+    [self.view  addSubview:_tableView];
+    UIImageView *imageV = [[UIImageView alloc]init];
+    imageV.layer.borderColor = KKBlueColor.CGColor;
+    imageV.layer.cornerRadius = 40.0f;
+    imageV.layer.masksToBounds = YES;
+//    imageV.clipsToBounds = YES;
+    imageV.layer.borderWidth = 2;
+
+    UILabel *nameLabel = [[UILabel alloc] init];
+    nameLabel.text = @"贺莲";
+    nameLabel.font = KKFont16;
+    nameLabel.textAlignment = NSTextAlignmentCenter;
+    
+    UILabel *detailLabel = [[UILabel alloc]init];
+    detailLabel.text = @"职务:高坪镇总河长";
+    detailLabel.font = KKFont14;
+    detailLabel.textAlignment = NSTextAlignmentCenter;
+    
+    
+    [_headerView addSubview:imageV];
+    [_headerView addSubview:nameLabel];
+    [_headerView addSubview:detailLabel];
+    
+    [imageV sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:KKPlaceholderImage];
+    [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(_headerView);
+        make.centerY.equalTo(_headerView).offset(-Padding2);
+        make.height.width.equalTo(@80);
+//        make.top.equalTo(landingBtn.mas_bottom).offset(30);
+//        make.centerX.equalTo(self.view).offset(-KKScreenWidth/4);
+//        make.width.equalTo(@(KKScreenWidth/4));
+//        make.height.equalTo(@24);
+
+    }];
+    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(_headerView);
+        make.top.equalTo(imageV.mas_bottom).offset(Padding/2);
+        make.height.equalTo(@20);
+        make.width.equalTo(@100);
+    }];
+    [detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(_headerView);
+        make.top.equalTo(nameLabel.mas_bottom).offset(Padding/2);
+        make.height.equalTo(@20);
+        make.width.equalTo(@140);
+    }];
+
+    
+    _headerView.userInteractionEnabled = YES;//别忘记了 允许点击
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pushVC:)];
+    [_headerView addGestureRecognizer:tapGesture];
+    [tapGesture setNumberOfTapsRequired:1];
+}
+-(void)pushVC:(UITapGestureRecognizer *)gesture{
+    PersonTableVC *pe = [[PersonTableVC alloc]init];
+    pe.customNavBar.title = @"个人信息";
+    pe.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:pe animated:YES];
+}
+-(NSInteger )numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 2;
 }
 
 -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    if (section == 0) {
+        return 3;
+    }else{
+        return 1;
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -45,13 +117,42 @@
         if (cell  == nil) {
             cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NCell];
         }
-        NSArray *arr = @[@"意见反馈",@"关于我们",@"清楚缓存",@"修改密码",@"消息提醒",];
+    if (indexPath.section == 0) {
+        NSArray *arr = @[@"意见反馈",@"关于我们",@"清楚缓存"];
         cell.textLabel.text = [NSString stringWithFormat:@"%@",arr[indexPath.row]];
+    }else{
+        cell.textLabel.text = @"修改密码";
+    }
         cell.textLabel.font = [UIFont affeeBlodFont:16];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section ==0) {
+        if (indexPath.row == 0) {
+            PersonTableVC *pe = [[PersonTableVC alloc]init];
+            pe.customNavBar.title = @"个人信息";
+            pe.view.backgroundColor = [UIColor whiteColor];
+            [self.navigationController pushViewController:pe animated:YES];
+        }else if (indexPath.row == 1){
+            AboutUSVC *ab = [[AboutUSVC alloc]init];
+            ab.customNavBar.title = @"关于我们";
+            ab.view.backgroundColor = [UIColor whiteColor];
+            [self.navigationController pushViewController:ab animated:YES];
+        }else{
+            [SVProgressHUD showImage:[UIImage imageNamed:@"addIcon"] status:@"清除缓存"];
+        }
+    }else if (indexPath.section == 1 ){
+        PDFVC *aaaaa = [[PDFVC alloc]init];
+        aaaaa.view.backgroundColor = [UIColor whiteColor];
+        aaaaa.customNavBar.title = @"预览";
+        [self.navigationController pushViewController:aaaaa animated:YES];
+    }
+    
 
+}
 
 
 
@@ -68,7 +169,6 @@
         _tableView.dataSource = self;
         _tableView.tableHeaderView = self.headerView;
         _tableView.tableFooterView = self.footView;
-        [self.view  addSubview:_tableView];
         
     }
     return _tableView;
@@ -77,10 +177,8 @@
 -(UIView *)headerView
 {
     if (!_headerView) {
-        CGRect frame = CGRectMake(0, 0, KKScreenWidth, 100);
+        CGRect frame = CGRectMake(0, 0, KKScreenWidth, 180);
         _headerView = [[UIView alloc]initWithFrame:frame];
-        _headerView.backgroundColor = KKBlueColor;
-        [_tableView addSubview:_headerView];
         }
     return _headerView;
 }
@@ -88,7 +186,6 @@
     if (!_footView) {
         CGRect frame = CGRectMake(0, 0, KKScreenWidth, 50);
         _footView = [[UIView alloc]initWithFrame:frame];
-        [_tableView addSubview:_footView];
         
         UIButton *delBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 5, KKScreenWidth-20, 40)];
         delBtn.backgroundColor = [UIColor redColor];
@@ -118,11 +215,5 @@
     [alertC addAction:cancel];
     [self presentViewController:alertC animated:YES completion:nil];
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    PDFVC *aaaaa = [[PDFVC alloc]init];
-    aaaaa.view.backgroundColor = [UIColor whiteColor];
-    aaaaa.customNavBar.title = @"预览";
-    [self.navigationController pushViewController:aaaaa animated:YES];
-}
+
 @end
