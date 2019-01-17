@@ -89,6 +89,9 @@
 		F68D9E9321ED8D7D00E0C959 /* MemberListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9221ED8D7D00E0C959 /* MemberListModel.m */; };
 		F68D9E9621EED34900E0C959 /* AboutUSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9521EED34900E0C959 /* AboutUSVC.m */; };
 		F68D9E9C21EF098200E0C959 /* PersonTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9B21EF098200E0C959 /* PersonTableVC.m */; };
+		F68D9EA021F01C7500E0C959 /* FeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9E21F01C7500E0C959 /* FeedbackVC.m */; };
+		F68D9EA121F01C7500E0C959 /* FeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68D9E9F21F01C7500E0C959 /* FeedbackVC.xib */; };
+		F68D9EA421F0628500E0C959 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9EA221F0628500E0C959 /* MyButton.m */; };
 		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
 		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
 		F695C1E821A28E7B00E93F1A /* BRPickerView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F695C1D821A28E5100E93F1A /* BRPickerView.bundle */; };
@@ -388,6 +391,11 @@
 		F68D9E9521EED34900E0C959 /* AboutUSVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUSVC.m; sourceTree = "<group>"; };
 		F68D9E9A21EF098200E0C959 /* PersonTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonTableVC.h; sourceTree = "<group>"; };
 		F68D9E9B21EF098200E0C959 /* PersonTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonTableVC.m; sourceTree = "<group>"; };
+		F68D9E9D21F01C7500E0C959 /* FeedbackVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackVC.h; sourceTree = "<group>"; };
+		F68D9E9E21F01C7500E0C959 /* FeedbackVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackVC.m; sourceTree = "<group>"; };
+		F68D9E9F21F01C7500E0C959 /* FeedbackVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackVC.xib; sourceTree = "<group>"; };
+		F68D9EA221F0628500E0C959 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButton.m; sourceTree = "<group>"; };
+		F68D9EA321F0628500E0C959 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
 		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
 		F695C1D521A28E5100E93F1A /* BRAddressModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRAddressModel.m; sourceTree = "<group>"; };
 		F695C1D621A28E5100E93F1A /* BRAddressPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressPickerView.h; sourceTree = "<group>"; };
@@ -672,6 +680,9 @@
 				F68D9E9521EED34900E0C959 /* AboutUSVC.m */,
 				F68D9E9A21EF098200E0C959 /* PersonTableVC.h */,
 				F68D9E9B21EF098200E0C959 /* PersonTableVC.m */,
+				F68D9E9D21F01C7500E0C959 /* FeedbackVC.h */,
+				F68D9E9E21F01C7500E0C959 /* FeedbackVC.m */,
+				F68D9E9F21F01C7500E0C959 /* FeedbackVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -989,6 +1000,8 @@
 				F6578653219AB896003D87EA /* StringUtil.m */,
 				F63AE32421ACD3CE001FB986 /* AFGetImageAsset.h */,
 				F63AE32521ACD3CE001FB986 /* AFGetImageAsset.m */,
+				F68D9EA321F0628500E0C959 /* MyButton.h */,
+				F68D9EA221F0628500E0C959 /* MyButton.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1497,6 +1510,7 @@
 				F6FD298721D38EFD002B7276 /* bnavi_icon_location_fixed@2x.png in Resources */,
 				F657861F2199202A003D87EA /* Assets.xcassets in Resources */,
 				F669DAA621B67D5F00CAE242 /* json in Resources */,
+				F68D9EA121F01C7500E0C959 /* FeedbackVC.xib in Resources */,
 				F6FD297221D38EFD002B7276 /* icon_center_point@2x.png in Resources */,
 				F6FD299021D38EFD002B7276 /* pin_red@2x.png in Resources */,
 				F6FD297B21D38EFD002B7276 /* icon_center_point.png in Resources */,
@@ -1675,6 +1689,7 @@
 				F6578661219ABAEA003D87EA /* HomeViewController.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
+				F68D9EA021F01C7500E0C959 /* FeedbackVC.m in Sources */,
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
 				F68D9E7221E9E34E00E0C959 /* YUFoldingSectionHeader.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
@@ -1684,6 +1699,7 @@
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,
 				F669DA7C21AFF06400CAE242 /* userEventList.m in Sources */,
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
+				F68D9EA421F0628500E0C959 /* MyButton.m in Sources */,
 				F68D9E8A21EC8ED000E0C959 /* UnitListVC.m in Sources */,
 				F695C1EA21A28E7B00E93F1A /* BRDatePickerView.m in Sources */,
 				F695C28921A4FB9A00E93F1A /* DealingCell.m in Sources */,

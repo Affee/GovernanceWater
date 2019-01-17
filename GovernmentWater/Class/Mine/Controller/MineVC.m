@@ -11,6 +11,7 @@
 #import "PDFVC.h"
 #import "AboutUSVC.h"
 #import "PersonTableVC.h"
+#import "FeedbackVC.h"
 
 @interface MineVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -132,10 +133,15 @@
 {
     if (indexPath.section ==0) {
         if (indexPath.row == 0) {
-            PersonTableVC *pe = [[PersonTableVC alloc]init];
-            pe.customNavBar.title = @"个人信息";
-            pe.view.backgroundColor = [UIColor whiteColor];
-            [self.navigationController pushViewController:pe animated:YES];
+//            PersonTableVC *pe = [[PersonTableVC alloc]init];
+//            pe.customNavBar.title = @"个人信息";
+//            pe.view.backgroundColor = [UIColor whiteColor];
+//            [self.navigationController pushViewController:pe animated:YES];
+            FeedbackVC *fv = [[FeedbackVC alloc]init];
+            fv.customNavBar.title = @"意见反馈";
+            fv.view.backgroundColor = [UIColor whiteColor];
+            [self.navigationController pushViewController:fv animated:YES];
+            
         }else if (indexPath.row == 1){
             AboutUSVC *ab = [[AboutUSVC alloc]init];
             ab.customNavBar.title = @"关于我们";
@@ -147,7 +153,7 @@
     }else if (indexPath.section == 1 ){
         PDFVC *aaaaa = [[PDFVC alloc]init];
         aaaaa.view.backgroundColor = [UIColor whiteColor];
-        aaaaa.customNavBar.title = @"预览";
+        aaaaa.customNavBar.title = @"修改密码";
         [self.navigationController pushViewController:aaaaa animated:YES];
     }
     

@@ -152,9 +152,7 @@ static NSString *cellIdentifier = @"EventVE.EventListCell";
         
     }];
 }
--(void)event:(UITapGestureRecognizer *)gesture{
-    AFLog(@"开始赛选啦");
-}
+
 #pragma mark - tableview delegate / dataSource 两个代理
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -12,11 +12,12 @@
 #import <SDCycleScrollView.h>
 #import "BannerModel.h"
 #import "HomeNewsDetailsVC.h"
+#import "MyButton.h"
 //@class BannerEntityEnclosure;
 
 //NSMutableDictionary *_requestData;
 
-
+#define ButtonHeight 80
 @interface HomeViewController ()<UITableViewDelegate, UITableViewDataSource,SDCycleScrollViewDelegate>
 {
     NSMutableDictionary *_requestData;
@@ -30,6 +31,8 @@
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic,strong) SDCycleScrollView *cycleScrollView2;
+@property (nonatomic, strong) NSMutableArray *masonryButtonArr;
+
 
 
 
@@ -45,7 +48,7 @@
     _bannerMArr = [[NSMutableArray alloc]init];
     _titleArr = [[NSMutableArray alloc]init];
     _identifierArr = [[NSMutableArray alloc]init];
-    
+
     self.customNavBar.title = @"首页";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view insertSubview:self.customNavBar aboveSubview:self.tableView];
@@ -54,7 +57,34 @@
     [self.view addSubview:self.tableView];
     [_tableView addSubview:_headerView];
     
-
+    
+    //        _masonryButtonArr = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
+    _masonryButtonArr = [NSMutableArray array];
+    NSArray *titleArr = @[@"组织成员",@"统计分析",@"实时监控",@"制度方案",@"咨询审核"];
+    NSArray *imageArr = @[@"Oval",@"Oval Copy",@"Oval Copy 2",@"Oval Copy 3",@"Oval Copy 4"];
+    for (int i = 0; i<titleArr.count; i++) {
+        UIButton *btn = [[UIButton alloc]init];
+        btn.backgroundColor = [UIColor yellowColor];
+//        [btn setTitle:[NSString stringWithFormat:@"%@",titleArr[i]] forState:UIControlStateNormal];
+////        为了平铺整t个图片
+//        UIImage *image2 = [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]];
+//        UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
+//        image2 = [image2 resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
+        btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]] forState:UIControlStateNormal];
+        [_headerView addSubview:btn];
+        [_masonryButtonArr addObject:btn];
+    }
+    // 实现masonry水平固定控件宽度方法
+    [self.masonryButtonArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:60 leadSpacing:10 tailSpacing:10];
+    
+    // 设置array的垂直方向的约束
+    [self.masonryButtonArr mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(_headerView).offset(-Padding);
+        make.height.equalTo(@60);
+    }];
+    
+    
 
 //列表和轮播图的接口
     [self getDate];
@@ -86,7 +116,7 @@
 }
 #pragma mark ---headerImage
 -(void)aaaaa{
-    _cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, KKScreenWidth, 200)  delegate:self placeholderImage:nil];
+    _cycleScrollView2 = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, KKScreenWidth, 200 )  delegate:self placeholderImage:nil];
     _cycleScrollView2.showPageControl = SDCycleScrollViewPageContolAlimentRight;
     _cycleScrollView2.titlesGroup = _titleArr;
     _cycleScrollView2.currentPageDotColor = [UIColor redColor];
@@ -136,14 +166,7 @@
     }
     return _tableView;
 }
--(UIView *)headerView
-{
-    if (!_headerView) {
-        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 200)];
-        _headerView.backgroundColor = [UIColor redColor];
-    }
-    return _headerView;
-}
+
 
 -(NSInteger )tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -190,6 +213,16 @@
     homeVC.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:homeVC animated:YES];
     
+}
+
+#pragma mark   
+-(UIView *)headerView
+{
+    if (!_headerView) {
+        _headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 200+ ButtonHeight)];
+        _headerView.backgroundColor = [UIColor redColor];
+    }
+    return _headerView;
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "PDFVC.h"
 #import <WebKit/WebKit.h>
 @interface PDFVC ()
+@property (nonatomic, strong) NSMutableArray *masonryButtonArr;
 
 @end
 
@@ -16,25 +17,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    
+    // 实现masonry水平固定控件宽度方法
+    [self.masonryButtonArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:80 leadSpacing:10 tailSpacing:10];
+    
+    // 设置array的垂直方向的约束
+    [self.masonryButtonArr mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@100);
+        make.height.equalTo(@80);
+    }];
+    
     //初始化myWebView
-    UIWebView *myWebView = [[UIWebView alloc] init];
-    myWebView.backgroundColor = [UIColor whiteColor];
-    NSURL *filePath = [NSURL URLWithString:@"http://139.219.4.43:8080/dist/#/appStatistic"];
-    NSURLRequest *request = [NSURLRequest requestWithURL: filePath];
-    [myWebView loadRequest:request];
-    //使文档的显示范围适合UIWebView的bounds
-    [myWebView setScalesPageToFit:YES];
+//    UIWebView *myWebView = [[UIWebView alloc] init];
+//    myWebView.backgroundColor = [UIColor whiteColor];
+//    NSURL *filePath = [NSURL URLWithString:@"http://139.219.4.43:8080/dist/#/appStatistic"];
+//    NSURLRequest *request = [NSURLRequest requestWithURL: filePath];
+//    [myWebView loadRequest:request];
+//    //使文档的显示范围适合UIWebView的bounds
+//    [myWebView setScalesPageToFit:YES];
 
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(NSMutableArray *)masonryButtonArr
+{
+    if(_masonryButtonArr)
+    {
+        //        _masonryButtonArr = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
+        _masonryButtonArr = [NSMutableArray array];
+        
+        for (int i = 0; i<4; i++) {
+            
+            UIButton *btn = [[UIButton alloc]init];
+            btn.backgroundColor = [UIColor yellowColor];
+            [btn setTitle:@"123" forState:UIControlStateNormal];
+            [self.view addSubview:btn];
+            [_masonryButtonArr addObject:btn];
+        }
+    }
+    return _masonryButtonArr;
 }
-*/
-
 @end

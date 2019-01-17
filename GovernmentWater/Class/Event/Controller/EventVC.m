@@ -152,9 +152,9 @@
 }
 -(void)addRefreshFooter
 {
-    __unsafe_unretained typeof(self) safeSelf = self;
+    KKWeakify(self)
 //    添加尾部控件
-    safeSelf.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         if (_recordsMArr.count >= 10) {
             [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
             AFLog(@"%ld",(long)_pages);
@@ -169,10 +169,10 @@
                 for (NSDictionary *dict in responseObject[@"records"]) {
                     [_recordsMArr insertObject:dict atIndex:_recordsMArr.count];
                 }
-                
+                KKStrongify(self)
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [_tableView reloadData];
-                    [safeSelf.tableView.mj_footer endRefreshing];
+                    [self.tableView.mj_footer endRefreshing];
                 });
             } failure:^(NSError *error) {
                 _pages--;
