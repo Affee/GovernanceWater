@@ -17,7 +17,7 @@
 //登陆接口
 #define Login_URL  KKStringWithFormat(@"%@/appLogin", Base_Url)
 //上传事件保洁、村河长、镇河长新建上报事件   /riverCruise/workerEvents
-#define WorkerEvents_URL  KKStringWithFormat(@"%@/riverCruise/workerEvents", Base_Url)
+#define URL_RiverCruise_WorkerEvents  KKStringWithFormat(@"%@/riverCruise/workerEvents", Base_Url)
 //获取时间列表
 #define Event_GetList_URL  KKStringWithFormat(@"%@/event/getList", Base_Url)
 // 根据事件id 查询事件详情

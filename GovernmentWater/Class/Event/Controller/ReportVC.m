@@ -43,7 +43,7 @@
     NSString *_uploadText;
     NSArray *_upImages;
     
-    NSMutableArray *_uploadImageMutArr;
+    NSArray *_uploadImageArr;
     
     CGFloat _itemWH;
     CGFloat _margin;
@@ -71,6 +71,8 @@
     AFLog(@"%@",_typeName);
     [_tableView reloadData];
     
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -91,29 +93,41 @@
     _upImages = [NSMutableArray array];
     _uploadText  = [[NSString alloc]init];
     
-    _uploadImageMutArr = [NSMutableArray array];
+    _uploadImageArr = [NSArray array];
     [self configCollectionView];
 }
 #pragma mark ======post提交
 -(void)Clidklandings{
     NSDictionary *dict = @{
-                           @"eventContent":@"123",
+                           @"eventContent":@"天蓝蓝地蓝蓝",
                            @"isUrgen":@1,
                            @"riverId":_riverID,
-                           @"eventPlace":@2,
-                           @"eventNature":@2,
+                           @"eventPlace":@"长城长",
+                           @"eventNature":@1,
                            @"typeId":_typeID,
-                           @"handleId":[NSString stringWithFormat:@"%ld",(long)_handleId],
+                           @"handleId":@31, //[NSString stringWithFormat:@"%ld",(long)_handleId],
                            @"flag":@0,
                            };
 
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-//    MODE  这个name 为空
+//    MODE  这个name 为空  _selectedAssets
     //      雷雷 1 这里啊 照片上传不上后台呀  嘤嘤嘤 用的是TZImagePickerController 下面有个回调方法 取出照片信息，你若是有时间帮我看下哈，不穿图片的话，其他数据都可以上传成功的
-    [PPNetworkHelper uploadImagesWithURL:WorkerEvents_URL parameters:dict name:@"filename.png" images:_uploadImageMutArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
+    [SVProgressHUD show];
+    [PPNetworkHelper uploadImagesWithURL:URL_RiverCruise_WorkerEvents parameters:dict name:@"filename.png" images:_uploadImageArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
         AFLog(@"上传成功1");
     } success:^(id responseObject) {
-        AFLog(@"上传成功2");
+        int sucStr = [responseObject[@"status"] intValue];
+        NSString *messStr = responseObject[@"message"];
+        if (sucStr == 203) {
+            [SVProgressHUD showWithStatus:messStr];
+        }else
+        {
+            AFLog(@"上传成功2");
+            [SVProgressHUD dismiss];
+            [self.navigationController popViewControllerAnimated:YES ];
+        }
+        
+     
     } failure:^(NSError *error) {
         AFLog(@"上传失败3");
     }];
@@ -464,12 +478,20 @@
     // You can get the photos by block, the same as by delegate.
     // 你可以通过block或者代理，来得到用户选择的照片.
     [imagePickerVc setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
-        for (UIImage *str in photos) {
-            [_uploadImageMutArr addObject:str];
-        }
+//        for (int i = 0; i<assets.count; i++) {
+//            AFLog(@"%@",assets[i][@"filename"]);
+//        }
+        
+//        for (UIImage *str in photos) {
+//            [_uploadImageArr addObject:str];
+//
+//        }
+        _uploadImageArr = photos;
     }];
   
     [self presentViewController:imagePickerVc animated:YES completion:nil];
+
+    
 }
 
 #pragma mark - UIImagePickerController
@@ -732,4 +754,5 @@
          NSLog(@"图片名字:%@",fileName);
     }
 }
+
 @end
