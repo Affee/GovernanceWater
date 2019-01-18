@@ -275,27 +275,27 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section == 1 && indexPath.row == 3) {
             TypeListVC *typeVc = [[TypeListVC alloc]init];
-            typeVc.title = @"事件类型";
+            typeVc.customNavBar.title = @"事件类型";
             typeVc.view.backgroundColor = [UIColor whiteColor];
             [self.navigationController pushViewController:typeVc animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 1){
             EventPlaceVCViewController *ev = [[EventPlaceVCViewController alloc]init];
-            ev.title = @"河道选择";
+            ev.customNavBar.title = @"河道选择";
             ev.view.backgroundColor = [UIColor whiteColor];
             [self.navigationController pushViewController:ev animated:YES];
     }else if (indexPath.section == 1 && indexPath.row ==2){
             LocationVC *loc= [[LocationVC alloc]init];
-            loc.title =@"定位地址";
+            loc.customNavBar.title =@"定位地址";
             loc.view.backgroundColor = [UIColor whiteColor];
             [self.navigationController pushViewController:loc animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 0){
         MainListVC *list = [[MainListVC alloc]init];
-        list.title = @"选择处理人";
+        list.customNavBar.title = @"选择处理人";
         list.view.backgroundColor = [UIColor whiteColor];
         [self.navigationController pushViewController:list animated:YES];
     }else{
             CLLThreeTreeViewController *characterVC = [[CLLThreeTreeViewController alloc]init];
-            characterVC.title = @"朋友列表";
+            characterVC.customNavBar.title = @"朋友列表";
             characterVC.view.backgroundColor = [UIColor yellowColor];
             [self.navigationController pushViewController:characterVC animated:YES];
     }

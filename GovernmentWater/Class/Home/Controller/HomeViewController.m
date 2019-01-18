@@ -13,6 +13,8 @@
 #import "BannerModel.h"
 #import "HomeNewsDetailsVC.h"
 #import "MyButton.h"
+#import "MainListVC.h"
+
 //@class BannerEntityEnclosure;
 
 //NSMutableDictionary *_requestData;
@@ -65,19 +67,15 @@
     for (int i = 0; i<titleArr.count; i++) {
         UIButton *btn = [[UIButton alloc]init];
         btn.backgroundColor = [UIColor yellowColor];
-//        [btn setTitle:[NSString stringWithFormat:@"%@",titleArr[i]] forState:UIControlStateNormal];
-////        为了平铺整t个图片
-//        UIImage *image2 = [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]];
-//        UIEdgeInsets insets = UIEdgeInsetsMake(0, 0, 0, 0);
-//        image2 = [image2 resizableImageWithCapInsets:insets resizingMode:UIImageResizingModeStretch];
         btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
-        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]] forState:UIControlStateNormal];
+        btn.tag = 1000+i;
+        [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]] forState:UIControlStateNormal];
+        [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [_headerView addSubview:btn];
         [_masonryButtonArr addObject:btn];
     }
     // 实现masonry水平固定控件宽度方法
     [self.masonryButtonArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:60 leadSpacing:10 tailSpacing:10];
-    
     // 设置array的垂直方向的约束
     [self.masonryButtonArr mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(_headerView).offset(-Padding);
@@ -89,6 +87,31 @@
 //列表和轮播图的接口
     [self getDate];
 //    [self getHeaderData];
+}
+#pragma mark ----中间button点击
+-(void)clickButton:(UIButton *)button
+{
+//    NSArray *titleArr = @[@"组织成员",@"统计分析",@"实时监控",@"制度方案",@"咨询审核"];
+
+    if (button.tag == 1000) {
+        [SVProgressHUD showErrorWithStatus:@"组织结构"];
+        MainListVC *list = [[MainListVC alloc]init];
+        list.customNavBar.title = @"选择处理人";
+        list.view.backgroundColor = [UIColor whiteColor];
+        [self.navigationController pushViewController:list animated:YES];
+    }else if (button.tag == 1001){
+        [SVProgressHUD showErrorWithStatus:@"统计分析"];
+    }else if (button.tag == 1002){
+        [SVProgressHUD showErrorWithStatus:@"实时监控"];
+    }else if (button.tag == 1003){
+        [SVProgressHUD showErrorWithStatus:@"制度方案"];
+    }else if (button.tag == 1004){
+        [SVProgressHUD showErrorWithStatus:@"咨询审核"];
+    }else{
+        
+    }
+        
+    
 }
 
 #pragma mark ----请求列表

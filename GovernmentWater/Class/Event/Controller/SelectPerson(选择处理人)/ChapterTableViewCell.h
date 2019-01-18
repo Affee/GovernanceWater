@@ -12,7 +12,6 @@
 
 @class ChapterExerciseViewController;
 @interface ChapterTableViewCell : UITableViewCell <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, copy)void(^MoreSearchblock)();
 @property (nonatomic, strong) UIImageView *imageView2;
 @property (nonatomic, strong) UILabel *chapterName2;
 

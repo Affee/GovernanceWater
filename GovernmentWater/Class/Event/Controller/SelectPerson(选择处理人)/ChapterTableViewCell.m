@@ -120,9 +120,8 @@
     NSString *strID =self.chapterIdArray[indexPath.row];
     NSLog(@"我是====%ld=====%@=======%@",(long)indexPath.row,strID,self.dataArray[indexPath.row]);
     
-//    [[self viewController] presentViewController:memlist animated:NO completion:nil];
+    [[self viewController] presentViewController:memlist animated:NO completion:nil];
     
-    self.MoreSearchblock();
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
