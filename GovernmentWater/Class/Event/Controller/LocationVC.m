@@ -41,6 +41,7 @@
     _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线
 
+
     [self.view addSubview:_tableView];
 //    [self requestData];
 }

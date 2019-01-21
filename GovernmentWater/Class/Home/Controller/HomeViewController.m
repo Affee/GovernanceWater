@@ -57,13 +57,13 @@
     
     
     [self.view addSubview:self.tableView];
-    [_tableView addSubview:_headerView];
+//    [_tableView addSubview:_headerView];
     
     
     //        _masonryButtonArr = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
     _masonryButtonArr = [NSMutableArray array];
     NSArray *titleArr = @[@"组织成员",@"统计分析",@"实时监控",@"制度方案",@"咨询审核"];
-    NSArray *imageArr = @[@"Oval",@"Oval Copy",@"Oval Copy 2",@"Oval Copy 3",@"Oval Copy 4"];
+    NSArray *imageArr = @[@"Oval",@"copy1",@"Oval Copy 2",@"分组 3",@"Oval Copy 4"];
     for (int i = 0; i<titleArr.count; i++) {
         UIButton *btn = [[UIButton alloc]init];
         btn.backgroundColor = [UIColor yellowColor];
@@ -94,7 +94,6 @@
 //    NSArray *titleArr = @[@"组织成员",@"统计分析",@"实时监控",@"制度方案",@"咨询审核"];
 
     if (button.tag == 1000) {
-        [SVProgressHUD showErrorWithStatus:@"组织结构"];
         MainListVC *list = [[MainListVC alloc]init];
         list.customNavBar.title = @"选择处理人";
         list.view.backgroundColor = [UIColor whiteColor];
@@ -197,7 +196,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 120;
+    return 110;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

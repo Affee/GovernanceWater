@@ -37,7 +37,11 @@ static NSString *cellIdentifier = @"EventVE.EventListCell";
 @end
 
 @implementation EventVCT
-
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     _recordsMArr  = [NSMutableArray array];

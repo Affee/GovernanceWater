@@ -87,11 +87,11 @@
 {
 
     
-    ReportVC *repVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 3];
-    OfficeModel *model = [OfficeModel modelWithDictionary:_recordsMArr[indexPath.row]];
-    repVC.handleId =  model.identifier;
-    repVC.realname = model.realname;
-    [self.navigationController popToViewController:repVC animated:YES];
+//    ReportVC *repVC = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 3];
+//    OfficeModel *model = [OfficeModel modelWithDictionary:_recordsMArr[indexPath.row]];
+//    repVC.handleId =  model.identifier;
+//    repVC.realname = model.realname;
+//    [self.navigationController popToViewController:self animated:YES];
     
 //    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:0] animated:YES];
 }

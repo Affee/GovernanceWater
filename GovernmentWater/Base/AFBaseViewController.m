@@ -50,7 +50,11 @@
     return _customNavBar;
 }
 
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [SVProgressHUD dismiss];
+}
 
 #pragma mark - ----------------------- 指示器 -----------------------
 
@@ -65,13 +69,6 @@
     }
 }
 
-/**
- 隐藏HUD
- */
-- (void)hideMyHud
-{
-    [SVProgressHUD dismiss];
-}
 
 
 

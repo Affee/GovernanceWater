@@ -24,10 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)showMyHud:(NSString *)statusStr;
 
-/**
- 隐藏HUD
- */
-- (void)hideMyHud;
+
 
 @end
 

@@ -91,27 +91,27 @@
     _timeLabel = timeLabel;
     timeLabel.text = @"2018年7月25日 10:23";
     timeLabel.font = KKFont14;
+    timeLabel.textColor = KKColorLightGray;
     /*污水*/
     UILabel *sewageLabel = [[UILabel alloc] init];
     _sewageLabel = sewageLabel;
     sewageLabel.text = @" 污水直排 ";
-    sewageLabel.textColor = KKWhiteColor;
+    sewageLabel.textColor = KKColorLightGray;
     sewageLabel.font = KKFont14;
-    //    sewageLabel.backgroundColor = KKColorLightGray;
-    sewageLabel.layer.backgroundColor = KKColorPurple.CGColor;
-    sewageLabel.layer.borderColor = KKBlueColor.CGColor;
-    sewageLabel.layer.borderWidth = 1;
-    sewageLabel.layer.cornerRadius = 5.0f;
+//    sewageLabel.layer.backgroundColor = KKColorPurple.CGColor;
+//    sewageLabel.layer.borderColor = KKBlueColor.CGColor;
+//    sewageLabel.layer.borderWidth = 1;
+//    sewageLabel.layer.cornerRadius = 5.0f;
     /*地区*/
     UILabel *addressLabel = [[UILabel alloc] init];
     _addressLabel = addressLabel;
     addressLabel.font = KKFont14;
-    addressLabel.textColor = KKWhiteColor;
-    addressLabel.layer.backgroundColor = KKColorPurple.CGColor;
+    addressLabel.textColor = KKColorLightGray;
+//    addressLabel.layer.backgroundColor = KKColorPurple.CGColor;
     addressLabel.text = @" 汇川区高平镇高平区 ";
-    addressLabel.layer.borderColor = KKBlueColor.CGColor;
-    addressLabel.layer.borderWidth = 1;
-    addressLabel.layer.cornerRadius = 5.0f;
+//    addressLabel.layer.borderColor = KKBlueColor.CGColor;
+//    addressLabel.layer.borderWidth = 1;
+//    addressLabel.layer.cornerRadius = 5.0f;
     
     /*图片*/
     UIImageView *alarmImg = [[UIImageView alloc] init];
@@ -138,7 +138,7 @@
         make.top.equalTo(self.contentView).offset(Padding);
         make.left.equalTo(self.contentView).offset(Padding);
         make.bottom.equalTo(self.contentView).offset(-Padding);
-        make.width.equalTo(self.imgvIcon.mas_height).multipliedBy(1.2);
+        make.width.equalTo(self.imgvIcon.mas_height).multipliedBy(1.4);
     }];
     
     [self.namenikeLabel mas_makeConstraints:^(MASConstraintMaker *make) {

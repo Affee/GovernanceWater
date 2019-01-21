@@ -25,7 +25,6 @@
 @interface EventVC ()<UITableViewDelegate,UITableViewDataSource,JMDropMenuDelegate,UIScrollViewDelegate,DZNEmptyDataSetDelegate,DZNEmptyDataSetSource>
 {
     NSArray *_dataArray;
-    int buttonY;
     NSInteger _pages;
 }
 
@@ -73,7 +72,6 @@
     _addBtn.backgroundColor = KKColorPurple;
     UIWindow *window =  [UIApplication sharedApplication].windows[0];
     [window addSubview:_addBtn];
-    buttonY = (int)_addBtn.frame.origin.y;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -131,6 +129,7 @@
         [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
     
         [SVProgressHUD show];
+        KKWeakify(self)
         [PPNetworkHelper GET:Event_GetList_URL parameters:nil responseCache:^(id responseCache) {
             
         } success:^(id responseObject) {
@@ -143,7 +142,8 @@
             }
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                [_tableView reloadData];
+                KKStrongify(self)
+                [self.tableView reloadData];
             });
             [SVProgressHUD dismiss];
         } failure:^(NSError *error) {
@@ -390,11 +390,7 @@
         repc.customNavBar.title = @"督办事件";
     }
 }
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-//    AFLog(@"=====%d",(int)_addBtn.frame.origin.y);
-    _addBtn.frame = CGRectMake(_addBtn.frame.origin.x, buttonY+self.tableView.contentOffset.y , _addBtn.frame.size.width, _addBtn.frame.size.height);
 
-}
 
 
 #pragma mark ------空白页处理

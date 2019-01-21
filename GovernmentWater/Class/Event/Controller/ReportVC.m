@@ -47,6 +47,11 @@
     
     CGFloat _itemWH;
     CGFloat _margin;
+    BOOL _isEmergency;
+     
+    
+    UIButton *_yesBtn;
+    UILabel *_noBtn;
 }
 
 @property (nonatomic, strong) UITableView *tableView;
@@ -83,6 +88,9 @@
     _riverName = @"请选择河流";
     _eventLocation = @"请选择地址";
     _realname = @"请选择处理人";
+    _isEmergency = 0;
+    _yesBtn.selected = NO;
+//    _noBtn.selected = YES;
     
     self.navigationController.navigationBar.backgroundColor = KKBlueColor;
 
@@ -100,7 +108,7 @@
 -(void)Clidklandings{
     NSDictionary *dict = @{
                            @"eventContent":@"天蓝蓝地蓝蓝",
-                           @"isUrgen":@1,
+                           @"isUrgen":[NSNumber numberWithBool:_isEmergency],
                            @"riverId":_riverID,
                            @"eventPlace":@"长城长",
                            @"eventNature":@1,
@@ -110,8 +118,7 @@
                            };
 
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-//    MODE  这个name 为空  _selectedAssets
-    //      雷雷 1 这里啊 照片上传不上后台呀  嘤嘤嘤 用的是TZImagePickerController 下面有个回调方法 取出照片信息，你若是有时间帮我看下哈，不穿图片的话，其他数据都可以上传成功的
+    //  1 这里啊 照片上传不上后台呀  嘤嘤嘤 用的是TZImagePickerController 下面有个回调方法 取出照片信息，你若是有时间帮我看下哈，不穿图片的话，其他数据都可以上传成功的
     [SVProgressHUD show];
     [PPNetworkHelper uploadImagesWithURL:URL_RiverCruise_WorkerEvents parameters:dict name:@"filename.png" images:_uploadImageArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
         AFLog(@"上传成功1");
@@ -239,6 +246,32 @@
                 cell.detailTextLabel.text = _eventLocation;
             }else{
             }
+//            紧急与否的选择
+            if (indexPath.row == 0) {
+                cell.accessoryType = UITableViewCellAccessoryNone;
+                _yesBtn = [[UIButton alloc]init];
+                [cell.contentView addSubview:_yesBtn];
+                [_yesBtn setBackgroundImage:[UIImage imageNamed:@"no"] forState:UIControlStateNormal];
+                [_yesBtn setBackgroundImage:[UIImage imageNamed:@"yes"] forState:UIControlStateSelected];
+                
+                _noBtn = [[UILabel alloc]init];
+                _noBtn.text = @"否";
+                _noBtn.font = [UIFont affeeBlodFont:18];
+                [cell.contentView addSubview:_noBtn];
+                [_noBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerY.equalTo(cell.contentView);
+                    make.height.width.equalTo(@30);
+                    make.right.equalTo(cell.contentView).offset(-Padding);
+                }];
+                [_yesBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+                    make.centerY.equalTo(cell.contentView);
+                    make.height.width.equalTo(@25);
+                    make.right.equalTo(_noBtn.mas_left).offset(-Padding);
+                }];
+                
+                [_yesBtn addTarget:self action:@selector(ClickYesBtn) forControlEvents:UIControlEventTouchUpInside];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }else if (indexPath.section == 2){
             static  NSString *DealingC = @"DealingC";
@@ -289,15 +322,28 @@
             loc.view.backgroundColor = [UIColor whiteColor];
             [self.navigationController pushViewController:loc animated:YES];
     }else if (indexPath.section == 1 && indexPath.row == 0){
+        _yesBtn.selected = !_yesBtn.isSelected;
+        if (!_yesBtn.selected) {
+            _isEmergency = 0;
+            //        _noBtn.selected = YES;
+            _noBtn.textColor = [UIColor lightGrayColor];
+            _noBtn.text = @"否";
+        }else{
+            _isEmergency = 1;
+            //        _noBtn.selected = NO;
+            _noBtn.textColor = [UIColor redColor];
+            _noBtn.text = @"是";
+        }
+    }else if (indexPath.section == 2){
         MainListVC *list = [[MainListVC alloc]init];
         list.customNavBar.title = @"选择处理人";
         list.view.backgroundColor = [UIColor whiteColor];
         [self.navigationController pushViewController:list animated:YES];
     }else{
-            CLLThreeTreeViewController *characterVC = [[CLLThreeTreeViewController alloc]init];
-            characterVC.customNavBar.title = @"朋友列表";
-            characterVC.view.backgroundColor = [UIColor yellowColor];
-            [self.navigationController pushViewController:characterVC animated:YES];
+//            CLLThreeTreeViewController *characterVC = [[CLLThreeTreeViewController alloc]init];
+//            characterVC.customNavBar.title = @"朋友列表";
+//            characterVC.view.backgroundColor = [UIColor yellowColor];
+//            [self.navigationController pushViewController:characterVC animated:YES];
     }
 }
 
@@ -309,6 +355,7 @@
                                                   style:UITableViewStyleGrouped];
         _tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;//分割线
         _tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         _tableView.delegate = self;
         _tableView.dataSource = self;
     }
@@ -752,6 +799,26 @@
     for (PHAsset *asset in assets) {
         fileName = [asset valueForKey:@"filename"];
          NSLog(@"图片名字:%@",fileName);
+    }
+}
+
+
+#pragma mark ----紧急与否的选择
+//[yesBtn addTarget:self action:@selector(ClickYesBtn) forControlEvents:UIControlEventTouchUpInside];
+//[noBtn addTarget:self action:@selector(ClickNoBtn) forControlEvents:UIControlEventTouchUpInside];
+-(void)ClickYesBtn
+{
+    _yesBtn.selected = !_yesBtn.isSelected;
+    if (!_yesBtn.selected) {
+        _isEmergency = 0;
+//        _noBtn.selected = YES;
+        _noBtn.textColor = [UIColor lightGrayColor];
+        _noBtn.text = @"否";
+    }else{
+        _isEmergency = 1;
+//        _noBtn.selected = NO;
+        _noBtn.textColor = [UIColor redColor];
+        _noBtn.text = @"是";
     }
 }
 

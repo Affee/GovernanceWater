@@ -475,7 +475,7 @@
          注意: 单次定位超时时间从确定了定位权限(非kCLAuthorizationStatusNotDetermined状态)
          后开始计算。
          */
-        _locationManager.locationTimeout = 10;
+        _locationManager.locationTimeout = 2;
         
 //        _locationManager.distanceFilter = kCLDistanceFilterNone;
     }
