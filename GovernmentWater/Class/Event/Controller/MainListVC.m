@@ -16,6 +16,8 @@
 @interface MainListVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *recordsMArr;
+@property (nonatomic, strong) UIView *headerView;
+
 
 
 
@@ -34,6 +36,17 @@
     _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线
 
     [self.view addSubview:_tableView];
+    _tableView.tableHeaderView = self.headerView;
+    _tableView.tableHeaderView.height = 30;
+    
+//    创建搜索栏
+    UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 30)];
+    searchBar.placeholder = @"请输入要搜索的内容";
+    searchBar.layer.cornerRadius = 15.0f;
+    searchBar.layer.borderColor = KKBlueColor.CGColor;
+    searchBar.layer.borderWidth = 1;
+    [_headerView addSubview:searchBar];
+
 }
 
 #pragma mark - tableview delegate / dataSource 两个代理
@@ -92,6 +105,13 @@
         _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight, KKScreenWidth, KKScreenHeight - KKBarHeight - KKiPhoneXSafeAreaDValue) style:UITableViewStylePlain];
     }
     return _tableView;
+}
+-(UIView *)headerView
+{
+    if (!_headerView) {
+        _headerView = [[UIView  alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 30)];
+    }
+    return _headerView;
 }
 -(NSMutableArray *)recordsMArr
 {
