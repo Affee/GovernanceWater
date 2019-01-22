@@ -226,6 +226,7 @@
 		F6FD29A821D76905002B7276 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD29A721D76905002B7276 /* libc++.tbd */; };
 		F6FD29AA21D76986002B7276 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F6FD29A921D76985002B7276 /* mapapi.bundle */; };
 		F6FD29B821DCA99F002B7276 /* YYHistoryTrackPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD29B721DCA99F002B7276 /* YYHistoryTrackPoint.m */; };
+		F6FF86A621F70286000265BD /* QDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FF86A521F70286000265BD /* QDSearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -579,6 +580,8 @@
 		F6FD29A921D76985002B7276 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		F6FD29B621DCA99F002B7276 /* YYHistoryTrackPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYHistoryTrackPoint.h; sourceTree = "<group>"; };
 		F6FD29B721DCA99F002B7276 /* YYHistoryTrackPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYHistoryTrackPoint.m; sourceTree = "<group>"; };
+		F6FF86A421F70286000265BD /* QDSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QDSearchViewController.h; sourceTree = "<group>"; };
+		F6FF86A521F70286000265BD /* QDSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QDSearchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -676,6 +679,8 @@
 				F6578669219ABB37003D87EA /* MineVC.m */,
 				F6FD299121D474AA002B7276 /* PDFVC.h */,
 				F6FD299221D474AB002B7276 /* PDFVC.m */,
+				F6FF86A421F70286000265BD /* QDSearchViewController.h */,
+				F6FF86A521F70286000265BD /* QDSearchViewController.m */,
 				F68D9E9421EED34900E0C959 /* AboutUSVC.h */,
 				F68D9E9521EED34900E0C959 /* AboutUSVC.m */,
 				F68D9E9A21EF098200E0C959 /* PersonTableVC.h */,
@@ -1595,6 +1600,7 @@
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/QMUIKit/QMUIKit/QMUIResources/QMUIResources.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1602,6 +1608,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/QMUIResources.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1691,6 +1698,7 @@
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
 				F68D9EA021F01C7500E0C959 /* FeedbackVC.m in Sources */,
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
+				F6FF86A621F70286000265BD /* QDSearchViewController.m in Sources */,
 				F68D9E7221E9E34E00E0C959 /* YUFoldingSectionHeader.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,

@@ -7,55 +7,33 @@
 //
 
 #import "PDFVC.h"
-#import <WebKit/WebKit.h>
-@interface PDFVC ()
-@property (nonatomic, strong) NSMutableArray *masonryButtonArr;
-
-@end
+#import "QDSearchViewController.h"
 
 @implementation PDFVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //    创建搜索栏
+    UISearchBar *searchBar = [[UISearchBar alloc]initWithFrame:CGRectMake(0, KKBarHeight+10, KKScreenWidth, 30)];
+    searchBar.placeholder = @"请输入要搜索的内容";
+    searchBar.layer.cornerRadius = 15.0f;
+    searchBar.layer.borderColor = KKBlueColor.CGColor;
+    searchBar.layer.borderWidth = 1;
+    [self.view addSubview:searchBar];
     
+    self.title = @"修改密";
     
-    // 实现masonry水平固定控件宽度方法
-    [self.masonryButtonArr mas_distributeViewsAlongAxis:MASAxisTypeHorizontal withFixedItemLength:80 leadSpacing:10 tailSpacing:10];
-    
-    // 设置array的垂直方向的约束
-    [self.masonryButtonArr mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@100);
-        make.height.equalTo(@80);
-    }];
-    
-    //初始化myWebView
-//    UIWebView *myWebView = [[UIWebView alloc] init];
-//    myWebView.backgroundColor = [UIColor whiteColor];
-//    NSURL *filePath = [NSURL URLWithString:@"http://139.219.4.43:8080/dist/#/appStatistic"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL: filePath];
-//    [myWebView loadRequest:request];
-//    //使文档的显示范围适合UIWebView的bounds
-//    [myWebView setScalesPageToFit:YES];
+ 
+
 
 }
-
--(NSMutableArray *)masonryButtonArr
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    if(_masonryButtonArr)
-    {
-        //        _masonryButtonArr = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4", nil];
-        _masonryButtonArr = [NSMutableArray array];
-        
-        for (int i = 0; i<4; i++) {
-            
-            UIButton *btn = [[UIButton alloc]init];
-            btn.backgroundColor = [UIColor yellowColor];
-            [btn setTitle:@"123" forState:UIControlStateNormal];
-            [self.view addSubview:btn];
-            [_masonryButtonArr addObject:btn];
-        }
-    }
-    return _masonryButtonArr;
+    QDSearchViewController *qq = [[QDSearchViewController alloc]init];
+    qq.view.backgroundColor  = KKWhiteColor;
+    [self.navigationController pushViewController:qq animated:YES];
 }
+
+
 @end
