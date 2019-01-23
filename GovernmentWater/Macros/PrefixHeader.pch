@@ -103,6 +103,16 @@
 //#import "TLHttpManager.h"//带缓存的请求
 //#import <UIImageView+WebCache.h>
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import <QMUIKit/QMUIKit.h>
+//QMUI 配置
+#import "QDCommonUI.h"
+#import "QDUIHelper.h"
+#import "QDThemeManager.h"
+
+
 #endif
 
 //--------------- 自定义高效率的 NSLog

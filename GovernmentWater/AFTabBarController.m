@@ -10,8 +10,8 @@
 #import "HomeViewController.h"
 #import "ViewRiverVC.h"
 #import "EventVC.h"
-#import "MineVC.h"
 #import "AFBaseNavigationController.h"
+#import "MineViewController.h"
 
 
 @interface AFTabBarController ()
@@ -26,10 +26,10 @@
     self.view.backgroundColor = [UIColor greenColor];
 }
 -(void)addChildVC{
-    NSArray *norImage = @[@"首页icon copy",@"服务icon copy",@"挖矿icon copy",@"我的icon copy",@"挖矿icon copy"];
-    NSArray *selImage = @[@"首页icon_pressed copy",@"服务icon_pressed copy",@"挖矿icon_pressed copy",@"我的icon_pressed copy",@"挖矿icon_pressed copy"];
-    NSArray *childVC =  @[@"HomeViewController",@"ViewRiverVC",@"EventVCT",@"MineVC",@"EventVC"];
-    NSArray *titleArray = @[@"首页",@"巡河",@"事件",@"我的",@"事件2"];
+    NSArray *norImage = @[@"首页icon copy",@"服务icon copy",@"挖矿icon copy",@"我的icon copy"];
+    NSArray *selImage = @[@"首页icon_pressed copy",@"服务icon_pressed copy",@"挖矿icon_pressed copy",@"我的icon_pressed copy"];
+    NSArray *childVC =  @[@"HomeViewController",@"ViewRiverVC",@"EventVC",@"MineViewController"];
+    NSArray *titleArray = @[@"首页",@"巡河",@"事件",@"我的"];
     
     NSMutableArray *arrayM = [NSMutableArray array];
     

@@ -1,16 +1,16 @@
 //
-//  MineTCV.h
+//  ChangeMineViewController.h
 //  GovernmentWater
 //
 //  Created by affee on 23/01/2019.
 //  Copyright © 2019 affee. All rights reserved.
 //
 
-#import "KKBaseTableViewController.h"
+#import "QDCommonGroupListViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MineTCV : KKBaseTableViewController
+@interface ChangeMineViewController : QDCommonGroupListViewController
 
 @end
 

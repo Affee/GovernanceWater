@@ -80,7 +80,7 @@
 -(instancetype)initWithStyle:(UITableViewStyle)style
 {
     if (self = [super initWithStyle:style]) {
-        self.shouldShowSearchBar = YES;
+//        self.shouldShowSearchBar = YES;
         self.keywords = @[@"组织成员", @"办公室", @"责任单位", @"Health", @"Function", @"Supports", @"Healthy", @"Fat", @"Metabolism", @"Nuturally"];
         self.searchResultsKeywords = [[NSMutableArray alloc]init];
         self.statusBarStyle = [super preferredStatusBarStyle];
