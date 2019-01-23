@@ -104,12 +104,21 @@
 		F695C28921A4FB9A00E93F1A /* DealingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28821A4FB9A00E93F1A /* DealingCell.m */; };
 		F695C28F21A54C3C00E93F1A /* ReportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28E21A54C3C00E93F1A /* ReportVC.m */; };
 		F695C29821A68FC300E93F1A /* JMDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C29721A68FC000E93F1A /* JMDropMenu.m */; };
-		F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
 		F6A5C706219D487D00EB846F /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C705219D487D00EB846F /* EventListCell.m */; };
 		F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C708219D5C6400EB846F /* EventListCellModel.m */; };
 		F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C70B219D750400EB846F /* EventDetailsVC.m */; };
+		F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */; };
+		F6B8005121F822F000230DDE /* KKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005021F822F000230DDE /* KKBaseTableViewController.m */; };
+		F6B8005421F8242A00230DDE /* MineTCV.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005321F8242A00230DDE /* MineTCV.m */; };
+		F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005721F83AF400230DDE /* QDCommonViewController.m */; };
+		F6B8006521F83AF800230DDE /* QDCommonListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005821F83AF500230DDE /* QDCommonListViewController.m */; };
+		F6B8006621F83AF800230DDE /* QDTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005B21F83AF500230DDE /* QDTabBarViewController.m */; };
+		F6B8006721F83AF800230DDE /* QDCommonGroupListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005C21F83AF600230DDE /* QDCommonGroupListViewController.m */; };
+		F6B8006821F83AF800230DDE /* QDCommonGridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005F21F83AF600230DDE /* QDCommonGridViewController.m */; };
+		F6B8006921F83AF800230DDE /* QDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8006221F83AF700230DDE /* QDNavigationController.m */; };
+		F6B8006A21F83AF800230DDE /* QDCommonTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8006321F83AF800230DDE /* QDCommonTableViewController.m */; };
 		F6C92B2621A6F5F200EE05D1 /* PPNetworkCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2321A6F5F200EE05D1 /* PPNetworkCache.m */; };
 		F6C92B2721A6F5F200EE05D1 /* PPNetworkHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2521A6F5F200EE05D1 /* PPNetworkHelper.m */; };
 		F6C92B3021A796B800EE05D1 /* PPInterfacedConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2D21A796B700EE05D1 /* PPInterfacedConst.m */; };
@@ -213,7 +222,6 @@
 		F6FD298E21D38EFD002B7276 /* icon_action_paopao_middle_left.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FD294221D38EFC002B7276 /* icon_action_paopao_middle_left.png */; };
 		F6FD298F21D38EFD002B7276 /* icon_action_paopao_middle_right@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FD294321D38EFC002B7276 /* icon_action_paopao_middle_right@2x.png */; };
 		F6FD299021D38EFD002B7276 /* pin_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6FD294421D38EFC002B7276 /* pin_red@2x.png */; };
-		F6FD299321D474AB002B7276 /* PDFVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6FD299221D474AB002B7276 /* PDFVC.m */; };
 		F6FD299D21D76865002B7276 /* BaiduMapAPI_Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD299421D7685E002B7276 /* BaiduMapAPI_Utils.framework */; };
 		F6FD299E21D76865002B7276 /* BaiduMapAPI_Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD299521D7685F002B7276 /* BaiduMapAPI_Base.framework */; };
 		F6FD299F21D76865002B7276 /* BaiduMapAPI_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6FD299621D76862002B7276 /* BaiduMapAPI_Map.framework */; };
@@ -422,8 +430,6 @@
 		F695C28E21A54C3C00E93F1A /* ReportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportVC.m; sourceTree = "<group>"; };
 		F695C29621A68FC000E93F1A /* JMDropMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMDropMenu.h; sourceTree = "<group>"; };
 		F695C29721A68FC000E93F1A /* JMDropMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMDropMenu.m; sourceTree = "<group>"; };
-		F6A5C6F7219AD9DA00EB846F /* AFTwoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFTwoViewController.h; sourceTree = "<group>"; };
-		F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFTwoViewController.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F6A5C6FC219BF7F700EB846F /* AFLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFLoginVC.h; sourceTree = "<group>"; };
 		F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFLoginVC.m; sourceTree = "<group>"; };
@@ -435,6 +441,26 @@
 		F6A5C708219D5C6400EB846F /* EventListCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventListCellModel.m; sourceTree = "<group>"; };
 		F6A5C70A219D750400EB846F /* EventDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailsVC.h; sourceTree = "<group>"; };
 		F6A5C70B219D750400EB846F /* EventDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailsVC.m; sourceTree = "<group>"; };
+		F6B8004C21F8168C00230DDE /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
+		F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
+		F6B8004F21F822F000230DDE /* KKBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKBaseTableViewController.h; sourceTree = "<group>"; };
+		F6B8005021F822F000230DDE /* KKBaseTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKBaseTableViewController.m; sourceTree = "<group>"; };
+		F6B8005221F8242A00230DDE /* MineTCV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineTCV.h; sourceTree = "<group>"; };
+		F6B8005321F8242A00230DDE /* MineTCV.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineTCV.m; sourceTree = "<group>"; };
+		F6B8005621F83AF400230DDE /* QDTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDTabBarViewController.h; sourceTree = "<group>"; };
+		F6B8005721F83AF400230DDE /* QDCommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCommonViewController.m; sourceTree = "<group>"; };
+		F6B8005821F83AF500230DDE /* QDCommonListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCommonListViewController.m; sourceTree = "<group>"; };
+		F6B8005921F83AF500230DDE /* QDNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDNavigationController.h; sourceTree = "<group>"; };
+		F6B8005A21F83AF500230DDE /* QDCommonGroupListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCommonGroupListViewController.h; sourceTree = "<group>"; };
+		F6B8005B21F83AF500230DDE /* QDTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDTabBarViewController.m; sourceTree = "<group>"; };
+		F6B8005C21F83AF600230DDE /* QDCommonGroupListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCommonGroupListViewController.m; sourceTree = "<group>"; };
+		F6B8005D21F83AF600230DDE /* QDCommonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCommonViewController.h; sourceTree = "<group>"; };
+		F6B8005E21F83AF600230DDE /* QDCommonGridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCommonGridViewController.h; sourceTree = "<group>"; };
+		F6B8005F21F83AF600230DDE /* QDCommonGridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCommonGridViewController.m; sourceTree = "<group>"; };
+		F6B8006021F83AF700230DDE /* QDCommonListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCommonListViewController.h; sourceTree = "<group>"; };
+		F6B8006121F83AF700230DDE /* QDCommonTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCommonTableViewController.h; sourceTree = "<group>"; };
+		F6B8006221F83AF700230DDE /* QDNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDNavigationController.m; sourceTree = "<group>"; };
+		F6B8006321F83AF800230DDE /* QDCommonTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDCommonTableViewController.m; sourceTree = "<group>"; };
 		F6C92B2221A6F5F200EE05D1 /* PPNetworkCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkCache.h; sourceTree = "<group>"; };
 		F6C92B2321A6F5F200EE05D1 /* PPNetworkCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPNetworkCache.m; sourceTree = "<group>"; };
 		F6C92B2421A6F5F200EE05D1 /* PPNetworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPNetworkHelper.h; sourceTree = "<group>"; };
@@ -565,8 +591,6 @@
 		F6FD294221D38EFC002B7276 /* icon_action_paopao_middle_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_action_paopao_middle_left.png; sourceTree = "<group>"; };
 		F6FD294321D38EFC002B7276 /* icon_action_paopao_middle_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_action_paopao_middle_right@2x.png"; sourceTree = "<group>"; };
 		F6FD294421D38EFC002B7276 /* pin_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin_red@2x.png"; sourceTree = "<group>"; };
-		F6FD299121D474AA002B7276 /* PDFVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PDFVC.h; sourceTree = "<group>"; };
-		F6FD299221D474AB002B7276 /* PDFVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PDFVC.m; sourceTree = "<group>"; };
 		F6FD299421D7685E002B7276 /* BaiduMapAPI_Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Utils.framework; sourceTree = "<group>"; };
 		F6FD299521D7685F002B7276 /* BaiduMapAPI_Base.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Base.framework; sourceTree = "<group>"; };
 		F6FD299621D76862002B7276 /* BaiduMapAPI_Map.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BaiduMapAPI_Map.framework; sourceTree = "<group>"; };
@@ -677,8 +701,6 @@
 			children = (
 				F6578668219ABB37003D87EA /* MineVC.h */,
 				F6578669219ABB37003D87EA /* MineVC.m */,
-				F6FD299121D474AA002B7276 /* PDFVC.h */,
-				F6FD299221D474AB002B7276 /* PDFVC.m */,
 				F6FF86A421F70286000265BD /* QDSearchViewController.h */,
 				F6FF86A521F70286000265BD /* QDSearchViewController.m */,
 				F68D9E9421EED34900E0C959 /* AboutUSVC.h */,
@@ -688,6 +710,8 @@
 				F68D9E9D21F01C7500E0C959 /* FeedbackVC.h */,
 				F68D9E9E21F01C7500E0C959 /* FeedbackVC.m */,
 				F68D9E9F21F01C7500E0C959 /* FeedbackVC.xib */,
+				F6B8005221F8242A00230DDE /* MineTCV.h */,
+				F6B8005321F8242A00230DDE /* MineTCV.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -969,12 +993,14 @@
 		F65786302199256B003D87EA /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				F6B8005521F83A1500230DDE /* BaseControllers */,
+				F6B8004B21F8168C00230DDE /* QMUIConfigurationTemplate */,
 				F657864021993076003D87EA /* AFBaseViewController.h */,
 				F657864121993076003D87EA /* AFBaseViewController.m */,
 				F6578643219AA3A7003D87EA /* AFBaseNavigationController.h */,
 				F6578644219AA3A7003D87EA /* AFBaseNavigationController.m */,
-				F6A5C6F7219AD9DA00EB846F /* AFTwoViewController.h */,
-				F6A5C6F8219AD9DA00EB846F /* AFTwoViewController.m */,
+				F6B8004F21F822F000230DDE /* KKBaseTableViewController.h */,
+				F6B8005021F822F000230DDE /* KKBaseTableViewController.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1190,6 +1216,36 @@
 				F6C92B3321A7976000EE05D1 /* AFLoginModel.m */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		F6B8004B21F8168C00230DDE /* QMUIConfigurationTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				F6B8004C21F8168C00230DDE /* QMUIConfigurationTemplate.h */,
+				F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */,
+			);
+			path = QMUIConfigurationTemplate;
+			sourceTree = "<group>";
+		};
+		F6B8005521F83A1500230DDE /* BaseControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F6B8005E21F83AF600230DDE /* QDCommonGridViewController.h */,
+				F6B8005F21F83AF600230DDE /* QDCommonGridViewController.m */,
+				F6B8005A21F83AF500230DDE /* QDCommonGroupListViewController.h */,
+				F6B8005C21F83AF600230DDE /* QDCommonGroupListViewController.m */,
+				F6B8006021F83AF700230DDE /* QDCommonListViewController.h */,
+				F6B8005821F83AF500230DDE /* QDCommonListViewController.m */,
+				F6B8006121F83AF700230DDE /* QDCommonTableViewController.h */,
+				F6B8006321F83AF800230DDE /* QDCommonTableViewController.m */,
+				F6B8005D21F83AF600230DDE /* QDCommonViewController.h */,
+				F6B8005721F83AF400230DDE /* QDCommonViewController.m */,
+				F6B8005921F83AF500230DDE /* QDNavigationController.h */,
+				F6B8006221F83AF700230DDE /* QDNavigationController.m */,
+				F6B8005621F83AF400230DDE /* QDTabBarViewController.h */,
+				F6B8005B21F83AF500230DDE /* QDTabBarViewController.m */,
+			);
+			path = BaseControllers;
 			sourceTree = "<group>";
 		};
 		F6C92B2121A6F5F200EE05D1 /* PPNetworkHelper */ = {
@@ -1627,7 +1683,6 @@
 				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
 				F6C92B3421A7976000EE05D1 /* AFLoginModel.m in Sources */,
 				F68D9E5E21E7296200E0C959 /* HandleEventVC.m in Sources */,
-				F6FD299321D474AB002B7276 /* PDFVC.m in Sources */,
 				F695C28F21A54C3C00E93F1A /* ReportVC.m in Sources */,
 				F6A5C706219D487D00EB846F /* EventListCell.m in Sources */,
 				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
@@ -1648,6 +1703,7 @@
 				F6C92B2621A6F5F200EE05D1 /* PPNetworkCache.m in Sources */,
 				F6578664219ABB0F003D87EA /* ViewRiverVC.mm in Sources */,
 				F6C92B6621A94B3400EE05D1 /* TZImageCropManager.m in Sources */,
+				F6B8006921F83AF800230DDE /* QDNavigationController.m in Sources */,
 				F6C92B2721A6F5F200EE05D1 /* PPNetworkHelper.m in Sources */,
 				F669DAB421B6809700CAE242 /* ChapterTableViewCell.m in Sources */,
 				F68D9E7721E9EE4D00E0C959 /* LocationVC.m in Sources */,
@@ -1664,6 +1720,7 @@
 				F68D9E7A21EA034E00E0C959 /* LocationModel.m in Sources */,
 				F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */,
 				F68D9E9021EC9C0E00E0C959 /* UnitModel.m in Sources */,
+				F6B8006721F83AF800230DDE /* QDCommonGroupListViewController.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
 				F602733C21C9F21400B39E6C /* NewsCell.m in Sources */,
@@ -1671,11 +1728,14 @@
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F618207B21CC8A5700F22C2B /* HomeNewsDetailsVC.m in Sources */,
 				F68D9E8D21EC97DF00E0C959 /* OfficeModel.m in Sources */,
+				F6B8006521F83AF800230DDE /* QDCommonListViewController.m in Sources */,
 				F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */,
+				F6B8006A21F83AF800230DDE /* QDCommonTableViewController.m in Sources */,
 				F68D9E5021E7222C00E0C959 /* WMPageController.m in Sources */,
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F68D9E6521E9D0EB00E0C959 /* TypeListVC.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
+				F6B8006821F83AF800230DDE /* QDCommonGridViewController.m in Sources */,
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
 				F6388CF221C25A1C00186D72 /* YYConst.mm in Sources */,
 				F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */,
@@ -1686,6 +1746,7 @@
 				F6C92B7321A9505100EE05D1 /* LxGridViewFlowLayout.m in Sources */,
 				F68D9E5221E7222C00E0C959 /* WMMenuItem.m in Sources */,
 				F6C92B6F21A94B3400EE05D1 /* TZVideoPlayerController.m in Sources */,
+				F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */,
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
 				F6C92B3921A92A5D00EE05D1 /* TextAndImagesCell.m in Sources */,
 				F68D9E6B21E9E13400E0C959 /* EventPlaceVCViewController.m in Sources */,
@@ -1697,11 +1758,13 @@
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
 				F68D9EA021F01C7500E0C959 /* FeedbackVC.m in Sources */,
+				F6B8005421F8242A00230DDE /* MineTCV.m in Sources */,
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
 				F6FF86A621F70286000265BD /* QDSearchViewController.m in Sources */,
 				F68D9E7221E9E34E00E0C959 /* YUFoldingSectionHeader.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
+				F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */,
 				F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */,
 				F68D9E7421E9E34E00E0C959 /* YUFoldingTableView.m in Sources */,
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,
@@ -1727,12 +1790,13 @@
 				F657861721992027003D87EA /* AppDelegate.m in Sources */,
 				F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */,
 				F6C92B6521A94B3400EE05D1 /* TZGifPhotoPreviewController.m in Sources */,
+				F6B8006621F83AF800230DDE /* QDTabBarViewController.m in Sources */,
 				F6C92B3D21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.m in Sources */,
 				F68D9E8121EC892100E0C959 /* MainListVC.m in Sources */,
 				F6C92B6421A94B3400EE05D1 /* TZAssetModel.m in Sources */,
 				F6C92B6921A94B3400EE05D1 /* TZImagePickerController.m in Sources */,
 				F68D9E5421E7222C00E0C959 /* WMMenuView.m in Sources */,
-				F6A5C6F9219AD9DA00EB846F /* AFTwoViewController.m in Sources */,
+				F6B8005121F822F000230DDE /* KKBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

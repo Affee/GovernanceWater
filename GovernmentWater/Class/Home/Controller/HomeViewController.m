@@ -65,11 +65,17 @@
     NSArray *titleArr = @[@"组织成员",@"统计分析",@"实时监控",@"制度方案",@"咨询审核"];
     NSArray *imageArr = @[@"Oval",@"copy1",@"Oval Copy 2",@"分组 3",@"Oval Copy 4"];
     for (int i = 0; i<titleArr.count; i++) {
-        UIButton *btn = [[UIButton alloc]init];
+        QMUIButton *btn = [[QMUIButton alloc]init];
+        btn.imagePosition = QMUIButtonImagePositionTop;
+        [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]] forState:UIControlStateNormal];
+        btn.qmui_borderPosition = QMUIViewBorderPositionTop | QMUIViewBorderPositionBottom;
+        btn.titleLabel.font = UIFontMake(12);
+        
+        [btn setTitle:@"点赞" forState:UIControlStateNormal];
         btn.backgroundColor = [UIColor yellowColor];
         btn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         btn.tag = 1000+i;
-        [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]] forState:UIControlStateNormal];
+//        [btn setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]] forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(clickButton:) forControlEvents:UIControlEventTouchUpInside];
         [_headerView addSubview:btn];
         [_masonryButtonArr addObject:btn];

@@ -8,10 +8,10 @@
 
 #import "MineVC.h"
 #import "AppDelegate.h"
-#import "PDFVC.h"
 #import "AboutUSVC.h"
 #import "PersonTableVC.h"
 #import "FeedbackVC.h"
+#import "QDSearchViewController.h"
 
 @interface MineVC ()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -23,6 +23,16 @@
 @end
 
 @implementation MineVC
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+}
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -151,10 +161,9 @@
             [SVProgressHUD showImage:[UIImage imageNamed:@"addIcon"] status:@"清除缓存"];
         }
     }else if (indexPath.section == 1 ){
-        PDFVC *aaaaa = [[PDFVC alloc]init];
-        aaaaa.view.backgroundColor = [UIColor whiteColor];
-        aaaaa.customNavBar.title = @"修改密码";
-        [self.navigationController pushViewController:aaaaa animated:YES];
+        QDSearchViewController *qq = [[QDSearchViewController alloc]init];
+        qq.view.backgroundColor  = KKWhiteColor;
+        [self.navigationController pushViewController:qq animated:YES];
     }
     
 

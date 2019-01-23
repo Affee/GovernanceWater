@@ -19,4 +19,5 @@ pod 'IQKeyboardManager'
 pod 'YYKit'
 pod 'SDCycleScrollView','~> 1.75'
 pod 'BaiduMapKit'
+pod 'QMUIKit'
 end

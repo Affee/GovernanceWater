@@ -7,10 +7,17 @@
 //
 
 #import "QDSearchViewController.h"
+#import "OrganizationVC.h"
+#import "OfficeVC.h"
+#import "UnitListVC.h"
+#import "CLLThreeTreeViewController.h"
+
 
 @interface QDRecentSearchView : UIView
 @property (nonatomic, strong) QMUILabel *titleLabel;
 @property (nonatomic, strong) QMUIFloatLayoutView *floatLayoutView;
+@property (nonatomic, strong) NSMutableArray *recordsMArr;
+
 @end
 @implementation QDRecentSearchView
 
@@ -74,7 +81,7 @@
 {
     if (self = [super initWithStyle:style]) {
         self.shouldShowSearchBar = YES;
-        self.keywords = @[@"Helps", @"Maintain", @"Liver", @"Health", @"Function", @"Supports", @"Healthy", @"Fat", @"Metabolism", @"Nuturally"];
+        self.keywords = @[@"组织成员", @"办公室", @"责任单位", @"Health", @"Function", @"Supports", @"Healthy", @"Fat", @"Metabolism", @"Nuturally"];
         self.searchResultsKeywords = [[NSMutableArray alloc]init];
         self.statusBarStyle = [super preferredStatusBarStyle];
     }
@@ -82,6 +89,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"组织成员";
     // QMUISearchController 有两种使用方式，一种是独立使用，一种是集成到 QMUICommonTableViewController 里使用。为了展示它的使用方式，这里使用第一种，不理会 QMUICommonTableViewController 内部自带的 QMUISearchController
     self.mySearchController = [[QMUISearchController alloc] initWithContentsViewController:self];
     self.mySearchController.searchResultsDelegate = self;
@@ -120,12 +128,29 @@
         }
         cell.textLabel.attributedText = attributedString;
     }
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     [cell updateCellAppearanceWithIndexPath:indexPath];
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        CLLThreeTreeViewController *characterVC = [[CLLThreeTreeViewController alloc]init];
+        characterVC.title = @"组织成员";
+        characterVC.view.backgroundColor = [UIColor yellowColor];
+        [self.navigationController pushViewController:characterVC animated:YES];
+    }else if (indexPath.row == 1){
+        OfficeVC *off = [[OfficeVC alloc]init];
+        off.title  = @"办公室";
+        off.view.backgroundColor = [UIColor whiteColor];
+        [self.navigationController pushViewController:off animated:YES];
+    }else if (indexPath.row == 2){
+        UnitListVC *lis = [[UnitListVC alloc]init];
+        lis.title = @"责任单位";
+        lis.view.backgroundColor = [UIColor whiteColor];
+        [self.navigationController pushViewController:lis animated:YES];
+    }
 }
 #pragma mark - <QMUISearchControllerDelegate>
 -(void)searchController:(QMUISearchController *)searchController updateResultsForSearchString:(NSString *)searchString
