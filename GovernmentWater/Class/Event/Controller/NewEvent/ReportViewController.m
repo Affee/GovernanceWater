@@ -126,12 +126,16 @@
         make.height.equalTo(@40);
     }];
 //    self.textView 布局
-    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.tableView.tableHeaderView).offset(Padding);
         make.left.equalTo(self.tableView.tableHeaderView).offset(Padding);
         make.right.equalTo(self.tableView.tableHeaderView).offset(-Padding);
         make.bottom.equalTo(self.tableView.tableHeaderView).offset(-Padding);
         make.height.equalTo(@100);
     }];
     
+//    UIView *headerView = self.tableView.tableHeaderView;
+//    [self.tableView layoutIfNeeded];
+//    self.tableView.tableHeaderView = headerView;
 }
 @end
