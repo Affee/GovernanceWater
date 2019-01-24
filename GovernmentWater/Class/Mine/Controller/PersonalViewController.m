@@ -142,36 +142,25 @@
     return @" ";
 //    return nil;
 }
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if (indexPath.section == 0) {
-//        AFLog(@"hahah");
-//    }else if (indexPath.section == 1 && indexPath.row == 1){
-//        AFLog(@"2");
-//    }else{
-//        AFLog(@"3");
-//    }
-//}
-//-(void)didSelectCellWithTitle:(NSString *)title
-//{
-//    UIViewController *viewController = nil;
-//    if ([title isEqualToString:@"意见反馈"]) {
-//        viewController = [[FeedbackVC alloc]init];
-//    }else if ([title isEqualToString:@"关于我们"]){
-//        viewController = [[AboutUSVC alloc]init];
-//    }else if ([title isEqualToString:@"清楚缓存"]){
-//        //        [SVProgressHUD showWithStatus:@"清楚缓存"];
-//        viewController = [[QDSearchViewController alloc]init];
-//    }else if ([title isEqualToString:@"修改密码"]){
-//        viewController = [[PersonalViewController alloc]init];
-//    }
-//    viewController.title = title;
-//    [self.navigationController pushViewController:viewController animated:YES];
-//}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    QMUITableViewCell *cell = (QMUITableViewCell *)[super tableView:tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.textLabel.text = @"ssss";
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        cell.detailTextLabel.text = @"标题1";
+    }else if (indexPath.row == 1){
+        cell.detailTextLabel.text = @"啦啦啦";
+    }
+    return cell;
+}
 - (void)handleCheckmarkCellEvent:(QMUIStaticTableViewCellData *)cellData {
     AFLog(@"asdasdada");
 }
 
 
 
+
 @end
+//@interface QDCellHeightCacheViewController : QDCommonTableViewController
+

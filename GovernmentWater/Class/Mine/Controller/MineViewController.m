@@ -46,12 +46,14 @@
     viewController.title = title;
     [self.navigationController pushViewController:viewController animated:YES];
 }
-
+-(void)setupToolbarItems
+{
+    [super setupToolbarItems];
+    self.title = @"我的";
+}
 -(void)initTableView
 {
     [super initTableView];
-    
-    self.title = @"我的";
     self.tableView.tableHeaderView = self.headerView;
     self.tableView.tableFooterView = self.footView;
    

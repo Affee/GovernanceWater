@@ -122,8 +122,10 @@
 		F6B3A6FC21F8419600131536 /* QDAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A6F121F8419600131536 /* QDAnimationViewController.m */; };
 		F6B3A6FD21F8419600131536 /* QDReplicatorLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A6F721F8419600131536 /* QDReplicatorLayerViewController.m */; };
 		F6B3A70321F862B300131536 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70221F862B300131536 /* MineViewController.m */; };
-		F6B3A70621F8822E00131536 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70521F8822E00131536 /* PersonalViewController.m */; };
 		F6B3A70921F899A200131536 /* ChangeMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70821F899A200131536 /* ChangeMineViewController.m */; };
+		F6B3A70F21F9545E00131536 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70D21F9545E00131536 /* PersonalViewController.m */; };
+		F6B3A71321F99EB500131536 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71221F99EB500131536 /* EventViewController.m */; };
+		F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71521F9C22000131536 /* ReportViewController.m */; };
 		F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */; };
 		F6B8005121F822F000230DDE /* KKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005021F822F000230DDE /* KKBaseTableViewController.m */; };
 		F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005721F83AF400230DDE /* QDCommonViewController.m */; };
@@ -482,10 +484,14 @@
 		F6B3A6F721F8419600131536 /* QDReplicatorLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDReplicatorLayerViewController.m; sourceTree = "<group>"; };
 		F6B3A70121F862B300131536 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		F6B3A70221F862B300131536 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
-		F6B3A70421F8822E00131536 /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
-		F6B3A70521F8822E00131536 /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		F6B3A70721F899A200131536 /* ChangeMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeMineViewController.h; sourceTree = "<group>"; };
 		F6B3A70821F899A200131536 /* ChangeMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeMineViewController.m; sourceTree = "<group>"; };
+		F6B3A70D21F9545E00131536 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		F6B3A70E21F9545E00131536 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		F6B3A71121F99EB500131536 /* EventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		F6B3A71221F99EB500131536 /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		F6B3A71421F9C22000131536 /* ReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
+		F6B3A71521F9C22000131536 /* ReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
 		F6B8004C21F8168C00230DDE /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
 		F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
 		F6B8004F21F822F000230DDE /* KKBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKBaseTableViewController.h; sourceTree = "<group>"; };
@@ -744,8 +750,8 @@
 			children = (
 				F6B3A70121F862B300131536 /* MineViewController.h */,
 				F6B3A70221F862B300131536 /* MineViewController.m */,
-				F6B3A70421F8822E00131536 /* PersonalViewController.h */,
-				F6B3A70521F8822E00131536 /* PersonalViewController.m */,
+				F6B3A70E21F9545E00131536 /* PersonalViewController.h */,
+				F6B3A70D21F9545E00131536 /* PersonalViewController.m */,
 				F6B3A70721F899A200131536 /* ChangeMineViewController.h */,
 				F6B3A70821F899A200131536 /* ChangeMineViewController.m */,
 				F6FF86A421F70286000265BD /* QDSearchViewController.h */,
@@ -900,6 +906,7 @@
 				F68D9E8621EC8E7E00E0C959 /* OfficeVC.m */,
 				F68D9E8821EC8ED000E0C959 /* UnitListVC.h */,
 				F68D9E8921EC8ED000E0C959 /* UnitListVC.m */,
+				F6B3A71021F99E8B00131536 /* NewEvent */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1312,6 +1319,17 @@
 				F6B3A6F721F8419600131536 /* QDReplicatorLayerViewController.m */,
 			);
 			path = Animation;
+			sourceTree = "<group>";
+		};
+		F6B3A71021F99E8B00131536 /* NewEvent */ = {
+			isa = PBXGroup;
+			children = (
+				F6B3A71121F99EB500131536 /* EventViewController.h */,
+				F6B3A71221F99EB500131536 /* EventViewController.m */,
+				F6B3A71421F9C22000131536 /* ReportViewController.h */,
+				F6B3A71521F9C22000131536 /* ReportViewController.m */,
+			);
+			path = NewEvent;
 			sourceTree = "<group>";
 		};
 		F6B8004B21F8168C00230DDE /* QMUIConfigurationTemplate */ = {
@@ -1823,13 +1841,14 @@
 				F6B8006721F83AF800230DDE /* QDCommonGroupListViewController.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
+				F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */,
 				F602733C21C9F21400B39E6C /* NewsCell.m in Sources */,
 				F6B3A6DF21F83FFF00131536 /* QMUIConfigurationTemplateGrapefruit.m in Sources */,
 				F68D9E5321E7222C00E0C959 /* WMScrollView.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F618207B21CC8A5700F22C2B /* HomeNewsDetailsVC.m in Sources */,
 				F68D9E8D21EC97DF00E0C959 /* OfficeModel.m in Sources */,
-				F6B3A70621F8822E00131536 /* PersonalViewController.m in Sources */,
+				F6B3A70F21F9545E00131536 /* PersonalViewController.m in Sources */,
 				F6B8006521F83AF800230DDE /* QDCommonListViewController.m in Sources */,
 				F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */,
 				F6B8006A21F83AF800230DDE /* QDCommonTableViewController.m in Sources */,
@@ -1883,6 +1902,7 @@
 				F669DA7921AF8F2200CAE242 /* EventDetailModel.m in Sources */,
 				F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */,
 				F6FD29B821DCA99F002B7276 /* YYHistoryTrackPoint.m in Sources */,
+				F6B3A71321F99EB500131536 /* EventViewController.m in Sources */,
 				F6B3A6E921F8401100131536 /* UIImageEffects.m in Sources */,
 				F68D9E9C21EF098200E0C959 /* PersonTableVC.m in Sources */,
 				F68D9E6821E9D29600E0C959 /* TypeListModel.m in Sources */,

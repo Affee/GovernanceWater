@@ -12,6 +12,9 @@
 #import "EventVC.h"
 #import "AFBaseNavigationController.h"
 #import "MineViewController.h"
+#import "QDCommonUI.h"
+
+#import "EventViewController.h"
 
 
 @interface AFTabBarController ()
@@ -23,13 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addChildVC];
-    self.view.backgroundColor = [UIColor greenColor];
+ 
 }
 -(void)addChildVC{
-    NSArray *norImage = @[@"首页icon copy",@"服务icon copy",@"挖矿icon copy",@"我的icon copy"];
-    NSArray *selImage = @[@"首页icon_pressed copy",@"服务icon_pressed copy",@"挖矿icon_pressed copy",@"我的icon_pressed copy"];
-    NSArray *childVC =  @[@"HomeViewController",@"ViewRiverVC",@"EventVC",@"MineViewController"];
-    NSArray *titleArray = @[@"首页",@"巡河",@"事件",@"我的"];
+    NSArray *norImage = @[@"首页icon copy",@"首页icon copy",@"服务icon copy",@"挖矿icon copy",@"我的icon copy"];
+    NSArray *selImage = @[@"首页icon_pressed copy",@"首页icon_pressed copy",@"服务icon_pressed copy",@"挖矿icon_pressed copy",@"我的icon_pressed copy"];
+    NSArray *childVC =  @[@"EventViewController",@"HomeViewController",@"ViewRiverVC",@"EventVC",@"MineViewController"];
+    NSArray *titleArray = @[@"事件1",@"首页",@"巡河",@"事件",@"我的"];
     
     NSMutableArray *arrayM = [NSMutableArray array];
     
@@ -48,6 +51,8 @@
     [[UITabBarItem appearance]setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:11], NSForegroundColorAttributeName:[UIColor lightGrayColor]}forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:11], NSForegroundColorAttributeName:[UIColor blueColor]} forState:UIControlStateSelected];
     self.viewControllers = arrayM;
+    
+    
 }
 
 @end

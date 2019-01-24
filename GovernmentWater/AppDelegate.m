@@ -38,6 +38,8 @@
     
 //    百度地图
     [self baiduConfiguration];
+    
+    
     return YES;
 }
 
