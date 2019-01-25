@@ -1,5 +1,5 @@
 //
-//  EventPlaceViewController.h
+//  RiverViewController.h
 //  GovernmentWater
 //
 //  Created by affee on 25/01/2019.
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EventPlaceViewController : QDCommonTableViewController
+@interface RiverViewController : QDCommonTableViewController
 
 @end
 

@@ -12,26 +12,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
 }
-//-(void)setModel:(EventVCModel *)model
-//{
-//    self.namenikeLabel.text = model.eventContent;
-//    //    MODE
-//    long timeLong = [[ NSString stringWithFormat:@" %@ ",model.createTime] longValue];
-//    self.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"yyyy-MM-dd hh:mm:ss"];
-//    if ([DateUtil isEqual:model.eventPlace]) {
-//        self.addressLabel.text = @"贵州遵义";
-//    }
-//
-//    self.addressLabel.text = model.eventPlace;
-//    self.sewageLabel.text = model.typeName;
-//    self.eventLabel.text = model.eventContent;
-//    self.selectionStyle=UITableViewCellSelectionStyleNone;
-//    //    紧急事件
-//    if ([model.isUrgen  isEqual: @"0"]) {
-//        self.alarmImg.hidden = YES;
-//    }
-//}
-
 -(void)setModel:(NewsEventModel *)model
 {
     self.namenikeLabel.text = model.informationTitle;
@@ -48,15 +28,6 @@
     NSDictionary *dict  = arr[0];
     NSString *str = dict[@"enclosureUrl"];
     [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:KKPlaceholderImage];
-    
-    
-//    for (NSDictionary *dict  in arr[0]) {
-    
-//        [self.alarmImg setImageWithURL:[NSURL URLWithString:@"%@",dict[@"enclosureURL"]] placeholder:KKPlaceholderImage];
-//    }
-//    NSURL *url = [NSURL URLWithString:model.entityEnclosures[0].enclosureURL];
-//    [self.alarmImg sd_setImageWithURL:url placeholderImage:KKPlaceholderImage];
-
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -75,11 +46,8 @@
 #pragma mark 控件的创建和布局
 -(void)createControls{
     self.namenikeLabel = [[UILabel alloc]init];
-    //    self.namenikeLabel.font = KKFont16;
-    //        加粗
     self.namenikeLabel.font = [UIFont affeeBlodFont:16];
-    //    self.namenikeLabel.backgroundColor = KKColorLightGray;
-    //    self.namenikeLabel.textColor = KKColorPurple;
+
     self.namenikeLabel.text = @"黄蕾";
     self.namenikeLabel.numberOfLines = 0;
     self.imgvIcon = [[UIImageView alloc]init];
@@ -185,6 +153,9 @@
         make.height.greaterThanOrEqualTo(@20).priorityHigh();//优先级 high
         //        make.bottom.equalTo(_addressLabel.mas_top).offset(-Padding).priorityLow;// 低
     }];
+}
+-(void)layoutSubviews
+{
     
 }
 @end

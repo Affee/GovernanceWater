@@ -128,7 +128,9 @@
 		F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71521F9C22000131536 /* ReportViewController.m */; };
 		F6B3A71921FACDFF00131536 /* TypeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71821FACDFF00131536 /* TypeListViewController.m */; };
 		F6B3A71C21FACF3A00131536 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71B21FACF3A00131536 /* LocationViewController.m */; };
-		F6B3A71F21FACF7900131536 /* EventPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71E21FACF7900131536 /* EventPlaceViewController.m */; };
+		F6B3A72221FB023700131536 /* RiverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A72121FB023700131536 /* RiverViewController.m */; };
+		F6B3A72421FB080300131536 /* rightJiantou@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F6B3A72321FB080300131536 /* rightJiantou@3x.png */; };
+		F6B3A72721FB0C6400131536 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A72621FB0C6400131536 /* HomeCell.m */; };
 		F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */; };
 		F6B8005121F822F000230DDE /* KKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005021F822F000230DDE /* KKBaseTableViewController.m */; };
 		F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005721F83AF400230DDE /* QDCommonViewController.m */; };
@@ -499,8 +501,11 @@
 		F6B3A71821FACDFF00131536 /* TypeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypeListViewController.m; sourceTree = "<group>"; };
 		F6B3A71A21FACF3A00131536 /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
 		F6B3A71B21FACF3A00131536 /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
-		F6B3A71D21FACF7900131536 /* EventPlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventPlaceViewController.h; sourceTree = "<group>"; };
-		F6B3A71E21FACF7900131536 /* EventPlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventPlaceViewController.m; sourceTree = "<group>"; };
+		F6B3A72021FB023700131536 /* RiverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RiverViewController.h; sourceTree = "<group>"; };
+		F6B3A72121FB023700131536 /* RiverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RiverViewController.m; sourceTree = "<group>"; };
+		F6B3A72321FB080300131536 /* rightJiantou@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightJiantou@3x.png"; sourceTree = "<group>"; };
+		F6B3A72521FB0C6400131536 /* HomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
+		F6B3A72621FB0C6400131536 /* HomeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
 		F6B8004C21F8168C00230DDE /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
 		F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
 		F6B8004F21F822F000230DDE /* KKBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKBaseTableViewController.h; sourceTree = "<group>"; };
@@ -813,6 +818,8 @@
 			children = (
 				F602733A21C9F21400B39E6C /* NewsCell.h */,
 				F602733B21C9F21400B39E6C /* NewsCell.m */,
+				F6B3A72521FB0C6400131536 /* HomeCell.h */,
+				F6B3A72621FB0C6400131536 /* HomeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1019,6 +1026,7 @@
 				F657863721992D3B003D87EA /* AFTabBarController.m */,
 				F657861B21992027003D87EA /* Main.storyboard */,
 				F657861E2199202A003D87EA /* Assets.xcassets */,
+				F6B3A72321FB080300131536 /* rightJiantou@3x.png */,
 				F65786202199202A003D87EA /* LaunchScreen.storyboard */,
 				F65786232199202A003D87EA /* Info.plist */,
 				F65786242199202A003D87EA /* main.m */,
@@ -1341,8 +1349,8 @@
 				F6B3A71821FACDFF00131536 /* TypeListViewController.m */,
 				F6B3A71A21FACF3A00131536 /* LocationViewController.h */,
 				F6B3A71B21FACF3A00131536 /* LocationViewController.m */,
-				F6B3A71D21FACF7900131536 /* EventPlaceViewController.h */,
-				F6B3A71E21FACF7900131536 /* EventPlaceViewController.m */,
+				F6B3A72021FB023700131536 /* RiverViewController.h */,
+				F6B3A72121FB023700131536 /* RiverViewController.m */,
 			);
 			path = NewEvent;
 			sourceTree = "<group>";
@@ -1708,6 +1716,7 @@
 				F6FD296E21D38EFD002B7276 /* icon_action_paopao_middle_right.png in Resources */,
 				F6FD297C21D38EFD002B7276 /* lineDashTexture.png in Resources */,
 				F6FD296121D38EFD002B7276 /* icon_action_paopao_middle_left_highlighted.png in Resources */,
+				F6B3A72421FB080300131536 /* rightJiantou@3x.png in Resources */,
 				F6FD297F21D38EFD002B7276 /* bnavi_icon_location_fixed.png in Resources */,
 				F6FD298321D38EFD002B7276 /* icon_compass_background@2x.png in Resources */,
 				F6FD298621D38EFD002B7276 /* pin_green@2x.png in Resources */,
@@ -1857,6 +1866,7 @@
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
 				F6B3A71921FACDFF00131536 /* TypeListViewController.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
+				F6B3A72221FB023700131536 /* RiverViewController.m in Sources */,
 				F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */,
 				F602733C21C9F21400B39E6C /* NewsCell.m in Sources */,
 				F6B3A6DF21F83FFF00131536 /* QMUIConfigurationTemplateGrapefruit.m in Sources */,
@@ -1882,7 +1892,6 @@
 				F6C92B7921A9506900EE05D1 /* FLAnimatedImage.m in Sources */,
 				F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */,
 				F6C92B7321A9505100EE05D1 /* LxGridViewFlowLayout.m in Sources */,
-				F6B3A71F21FACF7900131536 /* EventPlaceViewController.m in Sources */,
 				F68D9E5221E7222C00E0C959 /* WMMenuItem.m in Sources */,
 				F6C92B6F21A94B3400EE05D1 /* TZVideoPlayerController.m in Sources */,
 				F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */,
@@ -1898,6 +1907,7 @@
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
 				F68D9EA021F01C7500E0C959 /* FeedbackVC.m in Sources */,
 				F6B3A6EA21F8401100131536 /* QDCommonUI.m in Sources */,
+				F6B3A72721FB0C6400131536 /* HomeCell.m in Sources */,
 				F6B3A6F921F8419600131536 /* QDRippleAnimationViewController.m in Sources */,
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
 				F6FF86A621F70286000265BD /* QDSearchViewController.m in Sources */,

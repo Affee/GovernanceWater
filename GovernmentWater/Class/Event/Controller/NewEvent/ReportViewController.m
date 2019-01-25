@@ -9,7 +9,7 @@
 #import "ReportViewController.h"
 #import "TypeListViewController.h"
 #import "LocationViewController.h"
-#import "EventPlaceViewController.h"
+#import "RiverViewController.h"
 @interface ReportViewController ()<QMUITextViewDelegate>
 @property (nonatomic, copy) NSArray<NSString*> *dataSource;
 @property (nonatomic, copy) NSString *names;
@@ -33,7 +33,7 @@
 
 -(void)didInitialize{
     [super didInitialize];
-    self.dataSource = @[@"紧急程度",
+    self.dataSource = @[@"是否紧急",
                         @"事件类型",
                         @"河道",
                         @"地址"];
@@ -81,7 +81,7 @@
         viewController = [[TypeListViewController alloc]init];
         viewController.title = @"事件类型";
     }else if (indexPath.row == 2){
-        viewController = [[EventPlaceViewController alloc]init];
+        viewController = [[RiverViewController alloc]init];
         viewController.title = @"河道";
     }else if (indexPath.row == 3){
         viewController = [[LocationViewController alloc]init];

@@ -14,6 +14,7 @@
 #import "HomeNewsDetailsVC.h"
 #import "MyButton.h"
 #import "MainListVC.h"
+#import "HomeCell.h"
 
 //@class BannerEntityEnclosure;
 
@@ -64,7 +65,7 @@
     _masonryButtonArr = [NSMutableArray array];
     NSArray *titleArr = @[@"组织成员",@"统计分析",@"实时监控",@"制度方案",@"咨询审核"];
     NSArray *imageArr = @[@"Oval",@"copy1",@"Oval Copy 2",@"分组 3",@"Oval Copy 4"];
-    for (int i = 0; i<titleArr.count; i++) {
+    for (int i = 0; i<imageArr.count; i++) {
         QMUIButton *btn = [[QMUIButton alloc]init];
         btn.imagePosition = QMUIButtonImagePositionTop;
         [btn setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@",imageArr[i]]] forState:UIControlStateNormal];
@@ -208,9 +209,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
     static NSString *ID = @"EventListCell";
-    NewsCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    HomeCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
-        cell = [[NewsCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cell = [[HomeCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
     }
     NewsEventModel *model = [NewsEventModel modelWithDictionary:_recordsMArr[indexPath.row]];
     cell.model = model;

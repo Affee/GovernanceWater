@@ -146,7 +146,7 @@ id YUSafeObject(NSArray *array, NSInteger index) {
     }
 //    return [UIColor colorWithRed:102/255.f green:102/255.f blue:255/255.f alpha:1.f];
 //        return [UIColor colorWithRed:244/255.f green:244/255.f blue:244/255.f alpha:1.f];
-        return KKBlueColor;
+        return UIColorBlue;
 }
 - (NSString *)titleForSection:(NSInteger )section
 {
@@ -160,7 +160,7 @@ id YUSafeObject(NSArray *array, NSInteger index) {
     if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:fontForTitleInSection:)]) {
         return [_foldingDelegate yuFoldingTableView:self fontForTitleInSection:section];
     }
-    return [UIFont boldSystemFontOfSize:16];
+    return UIFontMake(13) ;
 }
 - (UIColor *)titleColorForSection:(NSInteger )section
 {
@@ -181,7 +181,7 @@ id YUSafeObject(NSArray *array, NSInteger index) {
     if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:fontForDescriptionInSection:)]) {
         return [_foldingDelegate yuFoldingTableView:self fontForDescriptionInSection:section];
     }
-    return [UIFont boldSystemFontOfSize:13];
+    return UIFontMake(15);
 }
 
 - (UIColor *)descriptionColorForSection:(NSInteger )section
@@ -197,7 +197,7 @@ id YUSafeObject(NSArray *array, NSInteger index) {
     if (_foldingDelegate && [_foldingDelegate respondsToSelector:@selector(yuFoldingTableView:arrowImageForSection:)]) {
         return [_foldingDelegate yuFoldingTableView:self arrowImageForSection:section];
     }
-    return [UIImage imageNamed:@"icon_chose_arrow_nor"];
+    return [UIImage imageNamed:@"rightJiantou"];
 }
 
 #pragma mark - UITableViewDelegate / UITableViewDataSource
