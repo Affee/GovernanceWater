@@ -126,6 +126,9 @@
 		F6B3A70F21F9545E00131536 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70D21F9545E00131536 /* PersonalViewController.m */; };
 		F6B3A71321F99EB500131536 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71221F99EB500131536 /* EventViewController.m */; };
 		F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71521F9C22000131536 /* ReportViewController.m */; };
+		F6B3A71921FACDFF00131536 /* TypeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71821FACDFF00131536 /* TypeListViewController.m */; };
+		F6B3A71C21FACF3A00131536 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71B21FACF3A00131536 /* LocationViewController.m */; };
+		F6B3A71F21FACF7900131536 /* EventPlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71E21FACF7900131536 /* EventPlaceViewController.m */; };
 		F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */; };
 		F6B8005121F822F000230DDE /* KKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005021F822F000230DDE /* KKBaseTableViewController.m */; };
 		F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005721F83AF400230DDE /* QDCommonViewController.m */; };
@@ -492,6 +495,12 @@
 		F6B3A71221F99EB500131536 /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		F6B3A71421F9C22000131536 /* ReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
 		F6B3A71521F9C22000131536 /* ReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportViewController.m; sourceTree = "<group>"; };
+		F6B3A71721FACDFF00131536 /* TypeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TypeListViewController.h; sourceTree = "<group>"; };
+		F6B3A71821FACDFF00131536 /* TypeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TypeListViewController.m; sourceTree = "<group>"; };
+		F6B3A71A21FACF3A00131536 /* LocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationViewController.h; sourceTree = "<group>"; };
+		F6B3A71B21FACF3A00131536 /* LocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
+		F6B3A71D21FACF7900131536 /* EventPlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventPlaceViewController.h; sourceTree = "<group>"; };
+		F6B3A71E21FACF7900131536 /* EventPlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventPlaceViewController.m; sourceTree = "<group>"; };
 		F6B8004C21F8168C00230DDE /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
 		F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
 		F6B8004F21F822F000230DDE /* KKBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKBaseTableViewController.h; sourceTree = "<group>"; };
@@ -1328,6 +1337,12 @@
 				F6B3A71221F99EB500131536 /* EventViewController.m */,
 				F6B3A71421F9C22000131536 /* ReportViewController.h */,
 				F6B3A71521F9C22000131536 /* ReportViewController.m */,
+				F6B3A71721FACDFF00131536 /* TypeListViewController.h */,
+				F6B3A71821FACDFF00131536 /* TypeListViewController.m */,
+				F6B3A71A21FACF3A00131536 /* LocationViewController.h */,
+				F6B3A71B21FACF3A00131536 /* LocationViewController.m */,
+				F6B3A71D21FACF7900131536 /* EventPlaceViewController.h */,
+				F6B3A71E21FACF7900131536 /* EventPlaceViewController.m */,
 			);
 			path = NewEvent;
 			sourceTree = "<group>";
@@ -1840,6 +1855,7 @@
 				F68D9E9021EC9C0E00E0C959 /* UnitModel.m in Sources */,
 				F6B8006721F83AF800230DDE /* QDCommonGroupListViewController.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
+				F6B3A71921FACDFF00131536 /* TypeListViewController.m in Sources */,
 				F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */,
 				F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */,
 				F602733C21C9F21400B39E6C /* NewsCell.m in Sources */,
@@ -1866,6 +1882,7 @@
 				F6C92B7921A9506900EE05D1 /* FLAnimatedImage.m in Sources */,
 				F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */,
 				F6C92B7321A9505100EE05D1 /* LxGridViewFlowLayout.m in Sources */,
+				F6B3A71F21FACF7900131536 /* EventPlaceViewController.m in Sources */,
 				F68D9E5221E7222C00E0C959 /* WMMenuItem.m in Sources */,
 				F6C92B6F21A94B3400EE05D1 /* TZVideoPlayerController.m in Sources */,
 				F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */,
@@ -1915,6 +1932,7 @@
 				F669DA7621AEA3B300CAE242 /* BRInfoModel.m in Sources */,
 				F60B344221E5E5C900D504BF /* DOPDropDownMenu.m in Sources */,
 				F6B3A6DC21F83FFF00131536 /* QDThemeManager.m in Sources */,
+				F6B3A71C21FACF3A00131536 /* LocationViewController.m in Sources */,
 				F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */,
 				F657861721992027003D87EA /* AppDelegate.m in Sources */,
 				F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */,
