@@ -7,7 +7,6 @@
 //
 
 #import "AFTabBarController.h"
-#import "HomeViewController.h"
 #import "ViewRiverVC.h"
 #import "EventVC.h"
 #import "AFBaseNavigationController.h"
@@ -15,7 +14,8 @@
 #import "QDCommonUI.h"
 
 #import "EventViewController.h"
-
+#import "HomeNewsViewController.h"
+#import "QDNavigationController.h"
 
 @interface AFTabBarController ()
 
@@ -26,12 +26,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self addChildVC];
+    
  
 }
 -(void)addChildVC{
     NSArray *norImage = @[@"首页icon copy",@"首页icon copy",@"服务icon copy",@"挖矿icon copy",@"我的icon copy"];
     NSArray *selImage = @[@"首页icon_pressed copy",@"首页icon_pressed copy",@"服务icon_pressed copy",@"挖矿icon_pressed copy",@"我的icon_pressed copy"];
-    NSArray *childVC =  @[@"EventViewController",@"HomeViewController",@"ViewRiverVC",@"EventVC",@"MineViewController"];
+    NSArray *childVC =  @[@"EventViewController",@"HomeNewsViewController",@"ViewRiverVC",@"EventVC",@"MineViewController"];
     NSArray *titleArray = @[@"事件1",@"首页",@"巡河",@"事件",@"我的"];
     
     NSMutableArray *arrayM = [NSMutableArray array];
@@ -41,7 +42,7 @@
         UIViewController * vc = [[cls alloc]init];
         vc.tabBarItem.title = titleArray[i];
         vc.tabBarItem.image = [UIImage imageNamed:norImage[i]];
-        AFBaseNavigationController *navc = [[AFBaseNavigationController alloc] initWithRootViewController:vc];
+        QDNavigationController *navc = [[QDNavigationController alloc] initWithRootViewController:vc];
         navc.navigationBar.translucent = NO;
         //设置原始图片
         vc.tabBarItem.selectedImage = [[UIImage imageNamed:selImage[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

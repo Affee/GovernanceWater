@@ -39,7 +39,7 @@
     _namenikeLabel = [[UILabel alloc] qmui_initWithFont:UIFontBoldMake(15) textColor:UIColorGray2] ;
     [self.contentView addSubview:self.namenikeLabel];
     
-    _eventLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(14) textColor:UIColorGray];
+    _eventLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(15) textColor:UIColorGray];
     _eventLabel.numberOfLines = 2;
     [self.contentView addSubview:self.eventLabel];
     
@@ -99,8 +99,7 @@
         make.top.equalTo(_namenikeLabel.mas_bottom).offset(Padding/2);
         make.left.equalTo(_namenikeLabel);
         make.right.equalTo(self.contentView).offset(-Padding);
-        make.height.greaterThanOrEqualTo(@20).priorityHigh();//优先级 high
-        //        make.bottom.equalTo(_addressLabel.mas_top).offset(-Padding).priorityLow;// 低
+        make.height.greaterThanOrEqualTo(@30).priorityHigh();//优先级 high
     }];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

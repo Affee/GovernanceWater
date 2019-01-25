@@ -69,7 +69,7 @@ static NSString *identifer = @"cell";
 {
     ReportViewController *repc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
     TypeListModel *model = [TypeListModel modelWithDictionary:_recordsMArr[indexPath.row]];
-    repc.typeID =  [NSString stringWithFormat:@"%ld",model.identifier];
+    repc.typeID =  [NSString stringWithFormat:@"%ld",(long)model.identifier];
     repc.typeName = model.typeName;
     [self.navigationController popToViewController:repc animated:YES];
 }
