@@ -7,22 +7,46 @@
 //
 
 #import "MineViewController.h"
-#import "AboutUSVC.h"
-#import "FeedbackVC.h"
+#import "FeedbackViewController.h"
 #import "PersonalViewController.h"
 #import "AppDelegate.h"
 #import "QDSearchViewController.h"
 #import "ChangeMineViewController.h"
-
-
+#import "AboutUsViewController.h"
+#import "UserBaseMessagerModel.h"
 
 @interface MineViewController ()
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIView *footView;
+@property (nonatomic, strong) UIImageView *imageV;
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UILabel *detailLabel;
 @end
 
 @implementation MineViewController
-
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [self requestData];
+}
+-(void)requestData
+{
+//    __weak __typeof(self)weakSelf = self;
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+    [PPNetworkHelper GET:URL_User_GetUserByToken parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        UserBaseMessagerModel *model = [UserBaseMessagerModel modelWithDictionary:responseObject];
+        _nameLabel.text = model.realname;
+        _detailLabel.text = model.username;
+        NSString *strs= responseObject[@"avatar"];
+        [_imageV sd_setImageWithURL:[NSURL URLWithString:strs] placeholderImage:KKPlaceholderImage];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [weakSelf.tableView reloadData];
+//        });
+    } failure:^(NSError *error) {
+        
+    }];
+}
 -(void)initDataSource
 {
     self.dataSource =@[ @"意见反馈",
@@ -30,81 +54,75 @@
                         @"清楚缓存",
                         @"修改密码"];
 }
--(void)didSelectCellWithTitle:(NSString *)title
-{
+-(void)didSelectCellWithTitle:(NSString *)title{
     UIViewController *viewController = nil;
     if ([title isEqualToString:@"意见反馈"]) {
-        viewController = [[FeedbackVC alloc]init];
+        viewController = [[FeedbackViewController alloc]init];
     }else if ([title isEqualToString:@"关于我们"]){
-        viewController = [[AboutUSVC alloc]init];
+        viewController = [[AboutUsViewController alloc]init];
     }else if ([title isEqualToString:@"清楚缓存"]){
-//        [SVProgressHUD showWithStatus:@"清楚缓存"];
         viewController = [[QDSearchViewController alloc]init];
     }else if ([title isEqualToString:@"修改密码"]){
         viewController = [[ChangeMineViewController alloc]init];
     }
     viewController.title = title;
+    viewController.view.backgroundColor = UIColorWhite;
     [self.navigationController pushViewController:viewController animated:YES];
 }
--(void)setupToolbarItems
-{
+-(void)setupToolbarItems{
     [super setupToolbarItems];
     self.title = @"我的";
 }
--(void)initTableView
-{
-    [super initTableView];
-    self.tableView.tableHeaderView = self.headerView;
-    self.tableView.tableFooterView = self.footView;
-   
-    UIImageView *imageV = [[UIImageView alloc]init];
-    imageV.layer.borderColor = KKBlueColor.CGColor;
-    imageV.layer.cornerRadius = 40.0f;
-    imageV.layer.masksToBounds = YES;
-    //    imageV.clipsToBounds = YES;
-    imageV.layer.borderWidth = 2;
+-(void)initSubviews{
+    [super initSubviews];
+    _imageV = [[UIImageView alloc]init];
+    _imageV.layer.borderColor = UIColorBlue.CGColor;
+    _imageV.layer.cornerRadius = 40.0f;
+    _imageV.layer.masksToBounds = YES;
+    _imageV.layer.borderWidth = 2;
     
-    UILabel *nameLabel = [[UILabel alloc] init];
-    nameLabel.text = @"贺莲";
-    nameLabel.font = KKFont16;
-    nameLabel.textAlignment = NSTextAlignmentCenter;
+    _nameLabel = [[UILabel alloc] init];
+    _nameLabel.font = KKFont16;
+    _nameLabel.textAlignment = NSTextAlignmentCenter;
     
-    UILabel *detailLabel = [[UILabel alloc]init];
-    detailLabel.text = @"职务:高坪镇总河长";
-    detailLabel.font = KKFont14;
-    detailLabel.textAlignment = NSTextAlignmentCenter;
+    _detailLabel = [[UILabel alloc]init];
+    _detailLabel.font = KKFont14;
+    _detailLabel.textAlignment = NSTextAlignmentCenter;
     
     
-    [_headerView addSubview:imageV];
-    [_headerView addSubview:nameLabel];
-    [_headerView addSubview:detailLabel];
+    [_headerView addSubview:_imageV];
+    [_headerView addSubview:_nameLabel];
+    [_headerView addSubview:_detailLabel];
     
-    [imageV sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:KKPlaceholderImage];
-    [imageV mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_imageV mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_headerView);
         make.centerY.equalTo(_headerView).offset(-Padding2);
         make.height.width.equalTo(@80);
     }];
-    [nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_headerView);
-        make.top.equalTo(imageV.mas_bottom).offset(Padding/2);
+        make.top.equalTo(_imageV.mas_bottom).offset(Padding/2);
         make.height.equalTo(@20);
         make.width.equalTo(@100);
     }];
-    [detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_detailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(_headerView);
-        make.top.equalTo(nameLabel.mas_bottom).offset(Padding/2);
+        make.top.equalTo(_nameLabel.mas_bottom).offset(Padding/2);
         make.height.equalTo(@20);
         make.width.equalTo(@140);
     }];
-    _headerView.userInteractionEnabled = YES;//别忘记了 允许点击
+    _imageV.userInteractionEnabled = YES;//别忘记了 允许点击
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(pushVC:)];
-    [_headerView addGestureRecognizer:tapGesture];
+    [_imageV addGestureRecognizer:tapGesture];
     [tapGesture setNumberOfTapsRequired:1];
-
+}
+-(void)initTableView{
+    [super initTableView];
+    self.tableView.tableHeaderView = self.headerView;
+    self.tableView.tableFooterView = self.footView;
 }
 -(void)pushVC:(UITapGestureRecognizer *)gesture{
-    PersonalViewController *pe = [[PersonalViewController alloc]init];
+    PersonalViewController *pe = [[PersonalViewController alloc]initWithStyle:UITableViewStyleGrouped];
     pe.title = @"个人信息";
     pe.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:pe animated:YES];
@@ -120,8 +138,7 @@
     return 50;
 }
 
--(UIView *)headerView
-{
+-(UIView *)headerView{
     if (!_headerView) {
         CGRect frame = CGRectMake(0, 0, KKScreenWidth, 180);
         _headerView = [[UIView alloc]initWithFrame:frame];

@@ -83,10 +83,6 @@
 		F68D9E8D21EC97DF00E0C959 /* OfficeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8C21EC97DF00E0C959 /* OfficeModel.m */; };
 		F68D9E9021EC9C0E00E0C959 /* UnitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */; };
 		F68D9E9321ED8D7D00E0C959 /* MemberListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9221ED8D7D00E0C959 /* MemberListModel.m */; };
-		F68D9E9621EED34900E0C959 /* AboutUSVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9521EED34900E0C959 /* AboutUSVC.m */; };
-		F68D9E9C21EF098200E0C959 /* PersonTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9B21EF098200E0C959 /* PersonTableVC.m */; };
-		F68D9EA021F01C7500E0C959 /* FeedbackVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9E9E21F01C7500E0C959 /* FeedbackVC.m */; };
-		F68D9EA121F01C7500E0C959 /* FeedbackVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68D9E9F21F01C7500E0C959 /* FeedbackVC.xib */; };
 		F68D9EA421F0628500E0C959 /* MyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F68D9EA221F0628500E0C959 /* MyButton.m */; };
 		F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D521A28E5100E93F1A /* BRAddressModel.m */; };
 		F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C1D721A28E5100E93F1A /* BRAddressPickerView.m */; };
@@ -120,7 +116,6 @@
 		F6B3A6FD21F8419600131536 /* QDReplicatorLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A6F721F8419600131536 /* QDReplicatorLayerViewController.m */; };
 		F6B3A70321F862B300131536 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70221F862B300131536 /* MineViewController.m */; };
 		F6B3A70921F899A200131536 /* ChangeMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70821F899A200131536 /* ChangeMineViewController.m */; };
-		F6B3A70F21F9545E00131536 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70D21F9545E00131536 /* PersonalViewController.m */; };
 		F6B3A71321F99EB500131536 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71221F99EB500131536 /* EventViewController.m */; };
 		F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71521F9C22000131536 /* ReportViewController.m */; };
 		F6B3A71921FACDFF00131536 /* TypeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71821FACDFF00131536 /* TypeListViewController.m */; };
@@ -130,6 +125,10 @@
 		F6B3A72721FB0C6400131536 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A72621FB0C6400131536 /* HomeCell.m */; };
 		F6B3A72A21FB225F00131536 /* HomeNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A72921FB225F00131536 /* HomeNewsViewController.m */; };
 		F6B3A73021FB3A9A00131536 /* HomeNewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A72F21FB3A9A00131536 /* HomeNewsDetailsViewController.m */; };
+		F6B3A73321FBF48300131536 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A73221FBF48300131536 /* AboutUsViewController.m */; };
+		F6B3A73621FBFEB800131536 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A73521FBFEB800131536 /* FeedbackViewController.m */; };
+		F6B3A73921FC01D100131536 /* UserBaseMessagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A73821FC01D100131536 /* UserBaseMessagerModel.m */; };
+		F6B3A74521FC3F7100131536 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A74421FC3F7100131536 /* PersonalViewController.m */; };
 		F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */; };
 		F6B8005121F822F000230DDE /* KKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005021F822F000230DDE /* KKBaseTableViewController.m */; };
 		F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005721F83AF400230DDE /* QDCommonViewController.m */; };
@@ -408,13 +407,6 @@
 		F68D9E8F21EC9C0E00E0C959 /* UnitModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitModel.m; sourceTree = "<group>"; };
 		F68D9E9121ED8D7D00E0C959 /* MemberListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MemberListModel.h; sourceTree = "<group>"; };
 		F68D9E9221ED8D7D00E0C959 /* MemberListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MemberListModel.m; sourceTree = "<group>"; };
-		F68D9E9421EED34900E0C959 /* AboutUSVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUSVC.h; sourceTree = "<group>"; };
-		F68D9E9521EED34900E0C959 /* AboutUSVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUSVC.m; sourceTree = "<group>"; };
-		F68D9E9A21EF098200E0C959 /* PersonTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonTableVC.h; sourceTree = "<group>"; };
-		F68D9E9B21EF098200E0C959 /* PersonTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonTableVC.m; sourceTree = "<group>"; };
-		F68D9E9D21F01C7500E0C959 /* FeedbackVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackVC.h; sourceTree = "<group>"; };
-		F68D9E9E21F01C7500E0C959 /* FeedbackVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackVC.m; sourceTree = "<group>"; };
-		F68D9E9F21F01C7500E0C959 /* FeedbackVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedbackVC.xib; sourceTree = "<group>"; };
 		F68D9EA221F0628500E0C959 /* MyButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyButton.m; sourceTree = "<group>"; };
 		F68D9EA321F0628500E0C959 /* MyButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyButton.h; sourceTree = "<group>"; };
 		F695C1D421A28E5100E93F1A /* BRAddressModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRAddressModel.h; sourceTree = "<group>"; };
@@ -484,8 +476,6 @@
 		F6B3A70221F862B300131536 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
 		F6B3A70721F899A200131536 /* ChangeMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeMineViewController.h; sourceTree = "<group>"; };
 		F6B3A70821F899A200131536 /* ChangeMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeMineViewController.m; sourceTree = "<group>"; };
-		F6B3A70D21F9545E00131536 /* PersonalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
-		F6B3A70E21F9545E00131536 /* PersonalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		F6B3A71121F99EB500131536 /* EventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		F6B3A71221F99EB500131536 /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		F6B3A71421F9C22000131536 /* ReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
@@ -503,6 +493,14 @@
 		F6B3A72921FB225F00131536 /* HomeNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeNewsViewController.m; sourceTree = "<group>"; };
 		F6B3A72E21FB3A9A00131536 /* HomeNewsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeNewsDetailsViewController.h; sourceTree = "<group>"; };
 		F6B3A72F21FB3A9A00131536 /* HomeNewsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeNewsDetailsViewController.m; sourceTree = "<group>"; };
+		F6B3A73121FBF48300131536 /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		F6B3A73221FBF48300131536 /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
+		F6B3A73421FBFEB800131536 /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		F6B3A73521FBFEB800131536 /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
+		F6B3A73721FC01D100131536 /* UserBaseMessagerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserBaseMessagerModel.h; sourceTree = "<group>"; };
+		F6B3A73821FC01D100131536 /* UserBaseMessagerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserBaseMessagerModel.m; sourceTree = "<group>"; };
+		F6B3A74321FC3F7100131536 /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
+		F6B3A74421FC3F7100131536 /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
 		F6B8004C21F8168C00230DDE /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
 		F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
 		F6B8004F21F822F000230DDE /* KKBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKBaseTableViewController.h; sourceTree = "<group>"; };
@@ -752,6 +750,8 @@
 		586D13978A7AC7C9760FE276 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F6B3A73721FC01D100131536 /* UserBaseMessagerModel.h */,
+				F6B3A73821FC01D100131536 /* UserBaseMessagerModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -761,19 +761,16 @@
 			children = (
 				F6B3A70121F862B300131536 /* MineViewController.h */,
 				F6B3A70221F862B300131536 /* MineViewController.m */,
-				F6B3A70E21F9545E00131536 /* PersonalViewController.h */,
-				F6B3A70D21F9545E00131536 /* PersonalViewController.m */,
+				F6B3A74321FC3F7100131536 /* PersonalViewController.h */,
+				F6B3A74421FC3F7100131536 /* PersonalViewController.m */,
 				F6B3A70721F899A200131536 /* ChangeMineViewController.h */,
 				F6B3A70821F899A200131536 /* ChangeMineViewController.m */,
 				F6FF86A421F70286000265BD /* QDSearchViewController.h */,
 				F6FF86A521F70286000265BD /* QDSearchViewController.m */,
-				F68D9E9421EED34900E0C959 /* AboutUSVC.h */,
-				F68D9E9521EED34900E0C959 /* AboutUSVC.m */,
-				F68D9E9A21EF098200E0C959 /* PersonTableVC.h */,
-				F68D9E9B21EF098200E0C959 /* PersonTableVC.m */,
-				F68D9E9D21F01C7500E0C959 /* FeedbackVC.h */,
-				F68D9E9E21F01C7500E0C959 /* FeedbackVC.m */,
-				F68D9E9F21F01C7500E0C959 /* FeedbackVC.xib */,
+				F6B3A73121FBF48300131536 /* AboutUsViewController.h */,
+				F6B3A73221FBF48300131536 /* AboutUsViewController.m */,
+				F6B3A73421FBFEB800131536 /* FeedbackViewController.h */,
+				F6B3A73521FBFEB800131536 /* FeedbackViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1703,7 +1700,6 @@
 				F6FD298721D38EFD002B7276 /* bnavi_icon_location_fixed@2x.png in Resources */,
 				F657861F2199202A003D87EA /* Assets.xcassets in Resources */,
 				F669DAA621B67D5F00CAE242 /* json in Resources */,
-				F68D9EA121F01C7500E0C959 /* FeedbackVC.xib in Resources */,
 				F6FD297221D38EFD002B7276 /* icon_center_point@2x.png in Resources */,
 				F6FD299021D38EFD002B7276 /* pin_red@2x.png in Resources */,
 				F6FD297B21D38EFD002B7276 /* icon_center_point.png in Resources */,
@@ -1866,9 +1862,9 @@
 				F6B3A6DF21F83FFF00131536 /* QMUIConfigurationTemplateGrapefruit.m in Sources */,
 				F68D9E5321E7222C00E0C959 /* WMScrollView.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
+				F6B3A74521FC3F7100131536 /* PersonalViewController.m in Sources */,
 				F6B3A73021FB3A9A00131536 /* HomeNewsDetailsViewController.m in Sources */,
 				F68D9E8D21EC97DF00E0C959 /* OfficeModel.m in Sources */,
-				F6B3A70F21F9545E00131536 /* PersonalViewController.m in Sources */,
 				F6B8006521F83AF800230DDE /* QDCommonListViewController.m in Sources */,
 				F669DAB721B7814000CAE242 /* MemberListVC.m in Sources */,
 				F6B8006A21F83AF800230DDE /* QDCommonTableViewController.m in Sources */,
@@ -1892,23 +1888,24 @@
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
 				F6C92B3921A92A5D00EE05D1 /* TextAndImagesCell.m in Sources */,
 				F68D9E6B21E9E13400E0C959 /* EventPlaceVCViewController.m in Sources */,
+				F6B3A73321FBF48300131536 /* AboutUsViewController.m in Sources */,
 				F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */,
 				F6C92B6D21A94B3400EE05D1 /* TZPhotoPreviewController.m in Sources */,
-				F68D9E9621EED34900E0C959 /* AboutUSVC.m in Sources */,
 				F68D9E8721EC8E7E00E0C959 /* OfficeVC.m in Sources */,
 				F695C1E921A28E7B00E93F1A /* BRBaseView.m in Sources */,
 				F6C92B6721A94B3400EE05D1 /* TZImageManager.m in Sources */,
-				F68D9EA021F01C7500E0C959 /* FeedbackVC.m in Sources */,
 				F6B3A6EA21F8401100131536 /* QDCommonUI.m in Sources */,
 				F6B3A72721FB0C6400131536 /* HomeCell.m in Sources */,
 				F6B3A6F921F8419600131536 /* QDRippleAnimationViewController.m in Sources */,
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
 				F6FF86A621F70286000265BD /* QDSearchViewController.m in Sources */,
+				F6B3A73921FC01D100131536 /* UserBaseMessagerModel.m in Sources */,
 				F68D9E7221E9E34E00E0C959 /* YUFoldingSectionHeader.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
 				F6B3A6F821F8419600131536 /* QDActivityIndicator.m in Sources */,
 				F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */,
+				F6B3A73621FBFEB800131536 /* FeedbackViewController.m in Sources */,
 				F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */,
 				F68D9E7421E9E34E00E0C959 /* YUFoldingTableView.m in Sources */,
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,
@@ -1925,7 +1922,6 @@
 				F6FD29B821DCA99F002B7276 /* YYHistoryTrackPoint.m in Sources */,
 				F6B3A71321F99EB500131536 /* EventViewController.m in Sources */,
 				F6B3A6E921F8401100131536 /* UIImageEffects.m in Sources */,
-				F68D9E9C21EF098200E0C959 /* PersonTableVC.m in Sources */,
 				F68D9E6821E9D29600E0C959 /* TypeListModel.m in Sources */,
 				F6C92B4021A9308300EE05D1 /* UITextView+ZWLimitCounter.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,

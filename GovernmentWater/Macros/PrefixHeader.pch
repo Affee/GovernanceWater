@@ -168,7 +168,7 @@
 
 //获取图片资源
 #define KKGetImage(imageName) [UIImage imageNamed:[NSString stringWithFormat:@"%@",imageName]]
-#define KKPlaceholderImage [UIImage imageNamed:[NSString stringWithFormat:@"首页icon copy"]]
+#define KKPlaceholderImage [UIImage imageNamed:[NSString stringWithFormat:@"addIcon"]]
 
 
 //if (imageArr != nil && ![imageArr isKindOfClass:[NSNull class]] && imageArr.count != 0){

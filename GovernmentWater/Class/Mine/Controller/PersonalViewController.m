@@ -2,165 +2,180 @@
 //  PersonalViewController.m
 //  GovernmentWater
 //
-//  Created by affee on 23/01/2019.
+//  Created by affee on 26/01/2019.
 //  Copyright © 2019 affee. All rights reserved.
 //
 
 #import "PersonalViewController.h"
+#import "UserBaseMessagerModel.h"
+#import "StringUtil.h"
+static NSString *identifer = @"cell";
 
 @interface PersonalViewController ()
+@property (nonatomic, strong) UserBaseMessagerModel *model;
+
+@property (nonatomic, strong) NSArray *arr0;
+@property (nonatomic, strong) NSArray *arr1;
+@property (nonatomic, strong) NSArray *arr2;
+//@property (nonatomic, strong) NSMutableArray *requestArr;
+
+
 
 @end
 
 @implementation PersonalViewController
 
--(void)initTableView
-{
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _arr0 = @[@"头像",@"姓名",@"性别",@"出生日期"];
+    _arr1 = @[@"角色",@"职务",@"主要领导",@"行政级别",@"行政区域",@"管理的河库"];
+    _arr2 = @[@"账号"];
+    [self requestData];
+}
+-(void)didInitialize{
+    [super didInitialize];
+    _model = [[UserBaseMessagerModel alloc]init];
+}
+-(void)initTableView{
     [super initTableView];
-    QMUIStaticTableViewCellDataSource * dataSource = [[QMUIStaticTableViewCellDataSource alloc]initWithCellDataSections: @[
-//                                                                                                                           section0
-  @[
-      ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 0;
-        d.text = @"姓名";
-        d.detailText  = @"gg";
-        d.style = UITableViewCellStyleValue1;
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    }),
-      ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 1;
-        d.text = @"性别";
-        d.style = UITableViewCellStyleValue1;
-        d.detailText = @"haha";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    }),
-      ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 2;
-        d.text = @"出生日期";
-        d.style = UITableViewCellStyleValue1;
-        d.detailText = @"haha";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    }),
-      ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 3;
-        d.text = @"民族";
-        d.style = UITableViewCellStyleValue1;
-        d.detailText = @"haha";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    })
-                                                                                                                               ],
-                                                                                                                           // section2
-                                                                                                                           @[
-                                                                                                                               ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 4;
-        d.text = @"河长类型";
-        d.detailText = @"haha";
-        d.style = UITableViewCellStyleValue1;
-        d.detailText = @"haha";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    }),
-                                                                                                                               ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 5;
-        d.text = @"职务";
-        d.style = UITableViewCellStyleValue1;
-        d.detailText = @"haha";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    }),
-                                                                                                                               ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 6;
-        d.text = @"主要领导";
-        d.style = UITableViewCellStyleValue1;
-        d.detailText = @"haha";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    }),                                                                                                                  ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 7;
-        d.text = @"行政级别";
-        d.style = UITableViewCellStyleValue1;
-        d.detailText = @"haha";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    }),                                                                                                                    ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 8;
-        d.text = @"担任河长，护长的河湖";
-        d.style = UITableViewCellStyleValue1;
-        d.detailText = @"haha";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    })],
-//  section
-    @[
-      ({
-        QMUIStaticTableViewCellData *d = [[QMUIStaticTableViewCellData alloc] init];
-        d.identifier = 9;
-        d.text = @"账号信息";
-        d.style = UITableViewCellStyleValue1;
-        d.detailText = @"haha";
-        d.didSelectTarget = self;
-        d.didSelectAction = @selector(handleCheckmarkCellEvent:);
-        d;
-    })
-      ]
-  
+}
+-(void)initSubviews{
+    [super initSubviews];
+}
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+}
+-(void)requestData{
+    __weak __typeof(self)weakSelf = self;
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+    [PPNetworkHelper GET:URL_User_GetUserByToken parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+       _model  = [UserBaseMessagerModel modelWithDictionary:responseObject];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+        });
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
-                                                                                                                           ]];
-//    吧数据塞给tableview即可
-    self.tableView.qmui_staticCellDataSource = dataSource;
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 3;
 }
-- (void)handleDisclosureIndicatorCellEvent:(QMUIStaticTableViewCellData *)cellData {
-    // cell 的点击事件，注意第一个参数的类型是 QMUIStaticTableViewCellData
-    [QMUITips showWithText:[NSString stringWithFormat:@"点击了 %@", cellData.text] inView:self.view hideAfterDelay:1.2];
-}
-#pragma mark - <UITableViewDataSource, UITableViewDelegate>
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//    return section == 1 ? @" " : nil;
-    return @" ";
-//    return nil;
-}
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    QMUITableViewCell *cell = (QMUITableViewCell *)[super tableView:tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
-    cell.textLabel.text = @"ssss";
-    if (indexPath.section == 0 && indexPath.row == 0) {
-        cell.detailTextLabel.text = @"标题1";
-    }else if (indexPath.row == 1){
-        cell.detailTextLabel.text = @"啦啦啦";
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    switch (section) {
+        case 0:
+            return _arr0.count;
+            break;
+        case 1:
+            return _arr1.count;
+            break;
+        case 2:
+            return _arr2.count;
+            break;
+        default:
+            break;
     }
+    return 0;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath.row == 0) {
+        return 100;
+    }
+    return 50;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:identifer];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifer];
+    }
+    if (indexPath.section == 0) {
+        cell.textLabel.text = _arr0[indexPath.row];
+        if (indexPath.row == 0) {
+            UIImageView *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 80, 80)];
+//            [accessoryView setImage:[UIImage imageNamed:@"addBlue"]];
+            accessoryView.layer.borderColor = UIColorSeparator.CGColor;
+            accessoryView.layer.borderWidth = PixelOne;
+            accessoryView.contentMode = UIViewContentModeScaleAspectFill;
+            accessoryView.clipsToBounds = YES;
+//            accessoryView.image = self.selectedAvatarImage;
+            cell.accessoryView = accessoryView;
+            NSString *strs= _model.avatar;
+            [accessoryView sd_setImageWithURL:[NSURL URLWithString:strs] placeholderImage:KKPlaceholderImage];
+        }
+        if ([StringUtil isEmpty:[NSString stringWithFormat:@"%ld",(long)_model.identifier]]) {
+            cell.detailTextLabel.text = @"空";
+        }else{
+            switch (indexPath.row) {
+                case 1:
+                    cell.detailTextLabel.text = _model.realname;
+                    break;
+                case 2:
+                    cell.detailTextLabel.text = _model.sex == 1 ? @"男" : @"女";
+                    break;
+                case 3:
+                    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",_model.birthday];
+                default:
+                    break;
+            }
+        }
+        
+    }else if (indexPath.section == 1){
+        cell.textLabel.text = _arr1[indexPath.row];
+        if ([StringUtil isEmpty:[NSString stringWithFormat:@"%ld",(long)_model.identifier]]) {
+            cell.detailTextLabel.text = @"空";
+        }else{
+            switch (indexPath.row) {
+                case 0:
+                    cell.detailTextLabel.text = _model.roleName;
+                    break;
+                case 1:
+//                    cell.detailTextLabel.text = _model.sex == 0 ? @"男" : @"女";
+                    cell.detailTextLabel.text = _model.post;
+                    break;
+                case 2:
+                    cell.detailTextLabel.text = _model.leaderName;
+                    break;
+                case 3:
+                    cell.detailTextLabel.text = _model.adminlevelID;
+                    break;
+                case 4:
+                    cell.detailTextLabel.text = _model.adminlevelName;
+                    break;
+                case 5:
+                    cell.detailTextLabel.text = _model.riverID;
+                    break;
+                case 6:
+                    cell.detailTextLabel.text = _model.riverList;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }else if (indexPath.section ==2){
+        cell.textLabel.text = _arr2[indexPath.row];
+        if ([StringUtil isEmpty:[NSString stringWithFormat:@"%ld",(long)_model.identifier]]) {
+            cell.detailTextLabel.text = @"空";
+        }else{
+            cell.detailTextLabel.text = _model.mobile;
+            }
+    }
+   
+    cell.textLabel.font = UIFontMake(16);
+    cell.detailTextLabel.font = UIFontMake(14);
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.accessoryType = UIAccessibilityTraitNone;
     return cell;
 }
-- (void)handleCheckmarkCellEvent:(QMUIStaticTableViewCellData *)cellData {
-    AFLog(@"asdasdada");
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [SVProgressHUD showErrorWithStatus:@"请联系有管理人员进行添加"];
+}
+- (void)showEmptyView {
+    if (!self.emptyView) {
+        self.emptyView = [[QMUIEmptyView alloc] initWithFrame:self.view.bounds];
+    }
+    [self.view addSubview:self.emptyView];
 }
 
-
-
-
 @end
-//@interface QDCellHeightCacheViewController : QDCommonTableViewController
-

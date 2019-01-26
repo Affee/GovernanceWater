@@ -37,7 +37,7 @@
     static NSString *identifierNormal = @"cellNormal";
     QMUITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifierNormal];
     if (!cell) {
-        cell = [[QMUITableViewCell alloc] initForTableView:tableView withStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifierNormal];
+        cell = [[QMUITableViewCell alloc] initForTableView:tableView withStyle:UITableViewCellStyleValue1 reuseIdentifier:identifierNormal];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     NSString *keyName = [self keyNameAtIndexPath:indexPath];

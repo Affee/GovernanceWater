@@ -7,16 +7,22 @@
 //
 
 #import "ChangeMineViewController.h"
+#import "UserBaseMessagerModel.h"
 
 static NSString * const kSectionTitleForNormal = @"1";
 static NSString * const kSectionTitleForSelection = @"2";
 static NSString * const kSectionTitleForTextField = @"3";
+static NSString *identifer = @"cell";
 
 @interface ChangeMineViewController ()
 {
     NSString *_sssstr;
+    NSString *_str;
 }
 @property(nonatomic, weak) QMUIDialogTextFieldViewController *currentTextFieldDialogViewController;
+@property (nonatomic, strong) UserBaseMessagerModel *model;
+@property (nonatomic, strong) NSDictionary *dict;
+
 
 @end
 
@@ -24,41 +30,99 @@ static NSString * const kSectionTitleForTextField = @"3";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    _sssstr = @"sdadaadsda";
+    [self requestData];
 }
--(void)initTableView
+-(void)viewDidLoad{
+    [super viewDidLoad];
+    [self.tableView reloadData];
+}
+-(void)didInitialize
 {
-    [super initTableView];
-     _sssstr = @"sadaada";
+    [super didInitialize];
+    _dict = [[NSDictionary alloc]init];
+    _sssstr = @"sdadaadsda";
+    _model = [[UserBaseMessagerModel alloc]init];
+    
+}
+
+-(void)requestData{
+        __weak __typeof(self)weakSelf = self;
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+    [PPNetworkHelper GET:URL_User_GetUserByToken parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        _model = [UserBaseMessagerModel modelWithDictionary:responseObject];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf.tableView reloadData];
+            [weakSelf.tableView reloadRowAtIndexPath:indexPath withRowAnimation:UITableViewRowAnimationFade];
+        });
+        AFLog(@"姓名====%@",_model.username);
+    } failure:^(NSError *error) {
+        
+    }];
 }
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     if (self = [super initWithStyle:style]) {
         self.dataSource = [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
                            kSectionTitleForNormal, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                    @"普通弹窗", @"aaaaa",
-                                                    @"支持自定义样式", @"可通过 appearance 方式来统一修改全局样式",
+                                                    @"头像", @" ",
+                                                    @"姓名", [NSString stringWithFormat:@"%@",_model.username],
+                                                    @"出生日期", [NSString stringWithFormat:@"%@",_model.birthday],
                                                     nil],
                            kSectionTitleForSelection, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                       @"列表弹窗", @"支持显示一个列表",
-                                                       @"支持单选", @"最多只能勾选一个 item，不可不选",
-                                                       @"支持多选", @"可同时勾选多个 item，可全部取消勾选",
+                                                       @"角色", @"村河长",
+                                                       @"职务", @"支书",
+                                                       @"主要领导", @"其他",
+                                                       @"行政级别",@"村级",
+                                                       @"行政区域",@"海螺村",
+                                                       @"管理的河库",@"湘江",
                                                        nil],
                            kSectionTitleForTextField, [[QMUIOrderedDictionary alloc] initWithKeysAndObjects:
-                                                       @"输入框弹窗", @"",
-                                                       @"支持通过键盘 Return 按键触发弹窗提交按钮事件", @"默认开启，当需要自己管理输入框 shouldReturn 事件时请将其关闭",
-                                                       @"支持自动控制提交按钮的 enable 状态", @"默认开启，只要文字不为空则允许点击",
-                                                       @"支持自定义提交按钮的 enable 状态", @"通过 block 来控制状态",
+                                                       @"账号", @"1231231321",
                                                        nil],
                            nil];
     }
     return self;
 }
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section == 0 && indexPath == 0) {
+        return 100;
+    }
     return 50;
+}
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    return @" ";
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return CGFLOAT_MIN;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 10.0f;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
+    NSString *title = [self keyNameAtIndexPath:indexPath];
+    if ([title isEqualToString:@"头像"]) {
+        UIImageView *accessoryView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        accessoryView.layer.borderColor = UIColorSeparator.CGColor;
+        accessoryView.layer.borderWidth = PixelOne;
+        accessoryView.contentMode = UIViewContentModeScaleAspectFill;
+        accessoryView.clipsToBounds = YES;
+        cell.accessoryView = accessoryView;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    cell.textLabel.font = UIFontMake(15);
+    cell.detailTextLabel.font = UIFontMake(15);
+    return cell;
 }
 - (void)didSelectCellWithTitle:(NSString *)title {
     [self.tableView qmui_clearsSelection];
+    if ([title isEqualToString:@"头像"]) {
+        [SVProgressHUD showErrorWithStatus:@"选择头像"];
+    }
     
     if ([title isEqualToString:@"普通弹窗"]) {
         [self showNormalDialogViewController];
@@ -329,6 +393,5 @@ static NSString * const kSectionTitleForTextField = @"3";
     [dialogViewController show];
     self.currentTextFieldDialogViewController = dialogViewController;
 }
-
 
 @end

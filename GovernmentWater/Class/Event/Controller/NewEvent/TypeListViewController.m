@@ -5,6 +5,47 @@
 //  Created by affee on 25/01/2019.
 //  Copyright © 2019 affee. All rights reserved.
 //
+//#pragma mark - tableview delegate / dataSource
+//-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    return 4;
+//}
+//
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//{
+//    if (section == 0) {
+//        return 1;
+//    }else if (section == 1){
+//        return 4;
+//    }else if (section == 2){
+//        return 1;
+//    }else{
+//        return 1;
+//    }
+//    return 0;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if(indexPath.section ==0 && indexPath.row ==0){
+//        return 100+(KKScreenWidth - 12)/3;
+//    }else if (indexPath.section == 2){
+//        return 80;
+//    }else{
+//        return 60;
+//    }
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+//    if (section == 0) {
+//        return 50;
+//    }else if (section == 2)
+//    {
+//        return 50;
+//    }
+//    else{
+//        return 0;
+//    }
+//}
 
 #import "TypeListViewController.h"
 #import "TypeListModel.h"
@@ -25,7 +66,7 @@ static NSString *identifer = @"cell";
     _recordsMArr = [NSMutableArray array];
     [self requestData];
 }
-
+//QDCommonListViewController
 -(void)requestData
 {
     [SVProgressHUD show];

@@ -44,6 +44,8 @@
 #define URL_Event_GetHandle KKStringWithFormat(@"%@/event/getHandle", Base_Url)
 // http://139.219.4.43:8080/appManage/findByaboutOur2 关于我们
 #define URL_AppManage_FindByaboutOur2 KKStringWithFormat(@"%@/appManage/findByaboutOur2", Base_Url)
+//  获得当前登录用户信息 http://139.219.4.43:8080/user/getUserByToken
+#define URL_User_GetUserByToken KKStringWithFormat(@"%@/user/getUserByToken", Base_Url)
 
 
 

@@ -87,6 +87,7 @@
     }
     return NO;
 }
+//
 
 //去掉语音中的 ，和 。符号
 +(NSString *)diviceStrInfo:(NSString *)strInfo
