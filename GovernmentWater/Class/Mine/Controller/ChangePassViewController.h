@@ -1,16 +1,16 @@
 //
-//  FeedbackViewController.h
+//  ChangePassViewController.h
 //  GovernmentWater
 //
 //  Created by affee on 28/01/2019.
 //  Copyright © 2019 affee. All rights reserved.
 //
 
-#import "QDCommonViewController.h"
+#import "QMUICommonViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FeedbackViewController : QDCommonViewController
+@interface ChangePassViewController : QMUICommonViewController
 
 @end
 

@@ -34,7 +34,6 @@
 {
     self = [super init];
     if (self) {
-        AFLog(@"2eq");
         self.bigView = UIView.new;
         _bigView.backgroundColor = KKWhiteColor;
         [self.view addSubview:_bigView];

@@ -11,7 +11,7 @@
 #import "PersonalViewController.h"
 #import "AppDelegate.h"
 #import "QDSearchViewController.h"
-#import "ChangeMineViewController.h"
+#import "ChangePassViewController.h"
 #import "AboutUsViewController.h"
 #import "UserBaseMessagerModel.h"
 
@@ -63,7 +63,7 @@
     }else if ([title isEqualToString:@"清楚缓存"]){
         viewController = [[QDSearchViewController alloc]init];
     }else if ([title isEqualToString:@"修改密码"]){
-        viewController = [[ChangeMineViewController alloc]init];
+        viewController = [[ChangePassViewController alloc]init];
     }
     viewController.title = title;
     viewController.view.backgroundColor = UIColorWhite;

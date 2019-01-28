@@ -12,7 +12,6 @@
 #import "RiverViewController.h"
 @interface ReportViewController ()<QMUITextViewDelegate>
 @property (nonatomic, copy) NSArray<NSString*> *dataSource;
-@property (nonatomic, copy) NSString *names;
 @property (nonatomic, strong) QMUIFillButton *fillButton1;
 @property (nonatomic, strong) QMUITextView *textView;
 @property (nonatomic, strong) UIView *headerView;
@@ -37,7 +36,7 @@
                         @"事件类型",
                         @"河道",
                         @"地址"];
-    self.names = @"请选择河道";
+    self.riverID = @"请选择河道";
     self.typeName = @"请选择事件类型";
     self.eventLocation = @"请选择地址";
 }
@@ -63,10 +62,11 @@
         cell.accessoryType = QMUIStaticTableViewCellAccessoryTypeSwitch;
     }
     if (indexPath.row == 1) {
+        //                    cell.detailTextLabel.text = _model.sex == 0 ? @"男" : @"女";
         cell.detailTextLabel.text = self.typeName;
     }
     if (indexPath.row == 2) {
-        cell.detailTextLabel.text = self.names;
+        cell.detailTextLabel.text = self.riverName;
     }
     if (indexPath.row == 3) {
         cell.detailTextLabel.text = self.eventLocation;

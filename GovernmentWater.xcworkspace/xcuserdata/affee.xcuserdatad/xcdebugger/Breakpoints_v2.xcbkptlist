@@ -84,89 +84,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-            timestampString = "570189277.623291"
+            timestampString = "570340032.56751"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-requestData"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ChangeMineViewController requestData]"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-                  timestampString = "570185321.222501"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "404">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__39-[ChangeMineViewController requestData]_block_invoke"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-                  timestampString = "570185321.22446"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__39-[ChangeMineViewController requestData]_block_invoke_2"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-                  timestampString = "570185321.226266"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "56">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.64"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-                  timestampString = "570185321.228097"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-            timestampString = "570189277.624032"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "-requestData"
             landmarkType = "7">
          </BreakpointContent>
@@ -178,75 +100,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-            timestampString = "570189277.624444"
+            timestampString = "570340032.568277"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
             landmarkName = "-requestData"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__39-[ChangeMineViewController requestData]_block_invoke_2"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-                  timestampString = "570185321.239585"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "532">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__39-[ChangeMineViewController requestData]_block_invoke_2"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-                  timestampString = "570185321.241429"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "612">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_.63"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-                  timestampString = "570185321.243299"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__39-[ChangeMineViewController requestData]_block_invoke.66"
-                  moduleName = "GovernmentWater"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangeMineViewController.m"
-                  timestampString = "570185321.245111"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "56">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -256,7 +116,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-            timestampString = "570189277.624787"
+            timestampString = "570362795.400079"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -272,7 +132,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-            timestampString = "570189277.625319"
+            timestampString = "570362795.400466"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -288,7 +148,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-            timestampString = "570189277.625617"
+            timestampString = "570362795.400547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "52"
@@ -304,12 +164,12 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-                  timestampString = "570185321.260368"
+                  timestampString = "570354726.5793279"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "396">
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "404">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -319,11 +179,11 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-                  timestampString = "570185321.2625951"
+                  timestampString = "570354726.581274"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
                   offsetFromSymbolStart = "56">
                </Location>
                <Location
@@ -334,27 +194,27 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-                  timestampString = "570185321.264637"
+                  timestampString = "570354726.583374"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "51"
-                  endingLineNumber = "51"
-                  offsetFromSymbolStart = "64">
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "24">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_.69"
+                  symbolName = "__destroy_helper_block_.73"
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-                  timestampString = "570185321.266645"
+                  timestampString = "570354726.5858361"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "50"
-                  endingLineNumber = "50"
-                  offsetFromSymbolStart = "16">
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "20">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -366,7 +226,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-            timestampString = "570189277.625913"
+            timestampString = "570362795.400616"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "55"
@@ -382,12 +242,12 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-                  timestampString = "570185321.273736"
+                  timestampString = "570354726.591988"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
-                  offsetFromSymbolStart = "120">
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "160">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -397,11 +257,11 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-                  timestampString = "570185321.275671"
+                  timestampString = "570354726.594075"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "53"
-                  endingLineNumber = "53"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
                   offsetFromSymbolStart = "20">
                </Location>
                <Location
@@ -412,14 +272,110 @@
                   moduleName = "GovernmentWater"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/PersonalViewController.m"
-                  timestampString = "570185321.278093"
+                  timestampString = "570354726.596034"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "52"
-                  endingLineNumber = "52"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
                   offsetFromSymbolStart = "16">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/Mine/Controller/ChangePassViewController.m"
+            timestampString = "570362795.400686"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "-clickpassWordSure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/Mine/Controller/ChangePassViewController.m"
+            timestampString = "570362795.400913"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "-clickpassWordSure:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[ChangePassViewController clickpassWordSure:]_block_invoke"
+                  moduleName = "GovernmentWater"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangePassViewController.m"
+                  timestampString = "570354726.607231"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "119"
+                  endingLineNumber = "119"
+                  offsetFromSymbolStart = "272">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[ChangePassViewController clickpassWordSure:]_block_invoke_2"
+                  moduleName = "GovernmentWater"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/affee/GovernanceWater/GovernmentWater/Class/Mine/Controller/ChangePassViewController.m"
+                  timestampString = "570354726.6091371"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "121"
+                  endingLineNumber = "121"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/Mine/Controller/ChangePassViewController.m"
+            timestampString = "570362795.400969"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "-clickpassWordSure:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GovernmentWater/Class/Mine/Controller/ChangePassViewController.m"
+            timestampString = "570362795.401021"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "-clickpassWordSure:"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

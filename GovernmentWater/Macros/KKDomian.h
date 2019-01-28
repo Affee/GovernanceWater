@@ -46,6 +46,12 @@
 #define URL_AppManage_FindByaboutOur2 KKStringWithFormat(@"%@/appManage/findByaboutOur2", Base_Url)
 //  获得当前登录用户信息 http://139.219.4.43:8080/user/getUserByToken
 #define URL_User_GetUserByToken KKStringWithFormat(@"%@/user/getUserByToken", Base_Url)
+// /user/updatePasswd APP修改密码
+#define URL_User_updatePasswd KKStringWithFormat(@"%@/user/updatePasswd", Base_Url)
+// /appManage/feedback 系统意见反馈
+#define URL_appManage_Feedback KKStringWithFormat(@"%@/appManage/feedback", Base_Url)
+
+
 
 
 

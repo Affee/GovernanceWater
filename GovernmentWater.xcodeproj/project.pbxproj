@@ -115,7 +115,6 @@
 		F6B3A6FC21F8419600131536 /* QDAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A6F121F8419600131536 /* QDAnimationViewController.m */; };
 		F6B3A6FD21F8419600131536 /* QDReplicatorLayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A6F721F8419600131536 /* QDReplicatorLayerViewController.m */; };
 		F6B3A70321F862B300131536 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70221F862B300131536 /* MineViewController.m */; };
-		F6B3A70921F899A200131536 /* ChangeMineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A70821F899A200131536 /* ChangeMineViewController.m */; };
 		F6B3A71321F99EB500131536 /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71221F99EB500131536 /* EventViewController.m */; };
 		F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71521F9C22000131536 /* ReportViewController.m */; };
 		F6B3A71921FACDFF00131536 /* TypeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A71821FACDFF00131536 /* TypeListViewController.m */; };
@@ -126,9 +125,10 @@
 		F6B3A72A21FB225F00131536 /* HomeNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A72921FB225F00131536 /* HomeNewsViewController.m */; };
 		F6B3A73021FB3A9A00131536 /* HomeNewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A72F21FB3A9A00131536 /* HomeNewsDetailsViewController.m */; };
 		F6B3A73321FBF48300131536 /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A73221FBF48300131536 /* AboutUsViewController.m */; };
-		F6B3A73621FBFEB800131536 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A73521FBFEB800131536 /* FeedbackViewController.m */; };
 		F6B3A73921FC01D100131536 /* UserBaseMessagerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A73821FC01D100131536 /* UserBaseMessagerModel.m */; };
 		F6B3A74521FC3F7100131536 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A74421FC3F7100131536 /* PersonalViewController.m */; };
+		F6B3A74821FEB33000131536 /* ChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A74721FEB33000131536 /* ChangePassViewController.m */; };
+		F6B3A74E21FF01C600131536 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A74D21FF01C600131536 /* FeedbackViewController.m */; };
 		F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */; };
 		F6B8005121F822F000230DDE /* KKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005021F822F000230DDE /* KKBaseTableViewController.m */; };
 		F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005721F83AF400230DDE /* QDCommonViewController.m */; };
@@ -474,8 +474,6 @@
 		F6B3A6F721F8419600131536 /* QDReplicatorLayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDReplicatorLayerViewController.m; sourceTree = "<group>"; };
 		F6B3A70121F862B300131536 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
 		F6B3A70221F862B300131536 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
-		F6B3A70721F899A200131536 /* ChangeMineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeMineViewController.h; sourceTree = "<group>"; };
-		F6B3A70821F899A200131536 /* ChangeMineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeMineViewController.m; sourceTree = "<group>"; };
 		F6B3A71121F99EB500131536 /* EventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		F6B3A71221F99EB500131536 /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		F6B3A71421F9C22000131536 /* ReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportViewController.h; sourceTree = "<group>"; };
@@ -495,12 +493,14 @@
 		F6B3A72F21FB3A9A00131536 /* HomeNewsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeNewsDetailsViewController.m; sourceTree = "<group>"; };
 		F6B3A73121FBF48300131536 /* AboutUsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
 		F6B3A73221FBF48300131536 /* AboutUsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
-		F6B3A73421FBFEB800131536 /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
-		F6B3A73521FBFEB800131536 /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		F6B3A73721FC01D100131536 /* UserBaseMessagerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserBaseMessagerModel.h; sourceTree = "<group>"; };
 		F6B3A73821FC01D100131536 /* UserBaseMessagerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserBaseMessagerModel.m; sourceTree = "<group>"; };
 		F6B3A74321FC3F7100131536 /* PersonalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersonalViewController.h; sourceTree = "<group>"; };
 		F6B3A74421FC3F7100131536 /* PersonalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalViewController.m; sourceTree = "<group>"; };
+		F6B3A74621FEB33000131536 /* ChangePassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePassViewController.h; sourceTree = "<group>"; };
+		F6B3A74721FEB33000131536 /* ChangePassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePassViewController.m; sourceTree = "<group>"; };
+		F6B3A74C21FF01C600131536 /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
+		F6B3A74D21FF01C600131536 /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		F6B8004C21F8168C00230DDE /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
 		F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
 		F6B8004F21F822F000230DDE /* KKBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKBaseTableViewController.h; sourceTree = "<group>"; };
@@ -763,14 +763,14 @@
 				F6B3A70221F862B300131536 /* MineViewController.m */,
 				F6B3A74321FC3F7100131536 /* PersonalViewController.h */,
 				F6B3A74421FC3F7100131536 /* PersonalViewController.m */,
-				F6B3A70721F899A200131536 /* ChangeMineViewController.h */,
-				F6B3A70821F899A200131536 /* ChangeMineViewController.m */,
+				F6B3A74621FEB33000131536 /* ChangePassViewController.h */,
+				F6B3A74721FEB33000131536 /* ChangePassViewController.m */,
 				F6FF86A421F70286000265BD /* QDSearchViewController.h */,
 				F6FF86A521F70286000265BD /* QDSearchViewController.m */,
 				F6B3A73121FBF48300131536 /* AboutUsViewController.h */,
 				F6B3A73221FBF48300131536 /* AboutUsViewController.m */,
-				F6B3A73421FBFEB800131536 /* FeedbackViewController.h */,
-				F6B3A73521FBFEB800131536 /* FeedbackViewController.m */,
+				F6B3A74C21FF01C600131536 /* FeedbackViewController.h */,
+				F6B3A74D21FF01C600131536 /* FeedbackViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1840,7 +1840,6 @@
 				F68D9E7721E9EE4D00E0C959 /* LocationVC.m in Sources */,
 				F6C92B3021A796B800EE05D1 /* PPInterfacedConst.m in Sources */,
 				F695C1E721A28E7B00E93F1A /* BRAddressPickerView.m in Sources */,
-				F6B3A70921F899A200131536 /* ChangeMineViewController.m in Sources */,
 				F669DAB221B6809700CAE242 /* ChapterHeader.m in Sources */,
 				F6C92B7A21A9506900EE05D1 /* FLAnimatedImageView.m in Sources */,
 				F657865B219AB897003D87EA /* StringUtil.m in Sources */,
@@ -1905,10 +1904,11 @@
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,
 				F6B3A6F821F8419600131536 /* QDActivityIndicator.m in Sources */,
 				F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */,
-				F6B3A73621FBFEB800131536 /* FeedbackViewController.m in Sources */,
+				F6B3A74E21FF01C600131536 /* FeedbackViewController.m in Sources */,
 				F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */,
 				F68D9E7421E9E34E00E0C959 /* YUFoldingTableView.m in Sources */,
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,
+				F6B3A74821FEB33000131536 /* ChangePassViewController.m in Sources */,
 				F669DA7C21AFF06400CAE242 /* userEventList.m in Sources */,
 				F6578659219AB897003D87EA /* UIFont+Affee.m in Sources */,
 				F68D9EA421F0628500E0C959 /* MyButton.m in Sources */,
