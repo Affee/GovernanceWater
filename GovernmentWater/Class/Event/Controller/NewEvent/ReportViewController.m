@@ -36,7 +36,7 @@
                         @"事件类型",
                         @"河道",
                         @"地址"];
-    self.riverID = @"请选择河道";
+    self.riverName = @"请选择河道";
     self.typeName = @"请选择事件类型";
     self.eventLocation = @"请选择地址";
 }
