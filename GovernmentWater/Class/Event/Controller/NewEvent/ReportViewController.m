@@ -25,6 +25,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "FLAnimatedImage.h"
 
+#import "EventChossViewController.h"
 @interface ReportViewController ()<QMUITextViewDelegate,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
 {
     NSMutableArray *_selectedPhotos;
@@ -109,7 +110,14 @@
    
 }
 -(void)clickFillButton2:(QMUIButton *)sender{
-    [SVProgressHUD showErrorWithStatus:@"上报"];
+//    [SVProgressHUD showErrorWithStatus:@"上报"];
+//    if ([StringUtil isEmpty:_typeName] || [StringUtil isEmpty:_riverName] || [StringUtil isEmpty:_eventLocation] || _uploadImageArr == nil ||[_uploadImageArr isKindOfClass:[NSNull class]] || _uploadImageArr.count == 0) {
+//        [SVProgressHUD showErrorWithStatus:@"请填写完整信息"];
+//    }else{
+        EventChossViewController *eventChossViewController = [[EventChossViewController alloc]initWithStyle:UITableViewStyleGrouped];
+        eventChossViewController.title = @"理人和协办人";
+        [self.navigationController pushViewController:eventChossViewController animated:YES];
+//    }
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSource.count;
@@ -132,7 +140,6 @@
         cell.accessoryType = QMUIStaticTableViewCellAccessoryTypeSwitch;
     }
     if (indexPath.row == 1) {
-        //                    cell.detailTextLabel.text = _model.sex == 0 ? @"男" : @"女";
         cell.detailTextLabel.text = self.typeName == nil ? @"请选择事件类型":self.typeName;
     }
     if (indexPath.row == 2) {
@@ -162,24 +169,18 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     [QMUITips showWithText:[NSString stringWithFormat:@"点击了第 %@ 行的按钮", @(indexPath.row)] inView:self.view hideAfterDelay:1.2];
 }
--(UIView *)footerView{
-    if (!_footerView) {
-        _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 350)];
-        _footerView.backgroundColor = UIColorRed;
-        [self.tableView setTableFooterView:_footerView];
-    }
-    return _footerView;
-}
+
 //只负责init 不负责布局
 -(void)initSubviews
 {
     [super initSubviews];
-    self.tableView.height = KKScreenHeight - KKBarHeight;
     _headerView = [[UIView alloc]init];
     _headerView.backgroundColor = [UIColor whiteColor];
     [self.tableView setTableHeaderView:_headerView];
- 
 
+    _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 200)];
+    _footerView.backgroundColor = UIColorWhite;
+    [self.tableView setTableFooterView:_footerView];
     
 //    问题
     self.titleLabel = [[QMUILabel alloc]init];
@@ -268,14 +269,14 @@
     
     //    self.fillButton1 的布局
     [self.fillButton1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo((self.tableView.tableFooterView)).offset(Padding*4);
-        make.left.equalTo(self.tableView.tableFooterView).offset(Padding);
-        make.right.equalTo((self.tableView.tableFooterView)).offset(-Padding);
+        make.top.equalTo(_footerView).offset(Padding*2);
+        make.left.equalTo(_footerView).offset(Padding);
+        make.right.equalTo(_footerView).offset(-Padding);
         make.height.equalTo(@44);
     }];
     //    self.fillButton2 的布局
     [self.fillButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.fillButton1.mas_bottom).offset(Padding*2);
+        make.top.equalTo(self.fillButton1.mas_bottom).offset(Padding);
         make.left.equalTo(self.fillButton1);
         make.right.equalTo(self.fillButton1);
         make.height.equalTo(@44);
