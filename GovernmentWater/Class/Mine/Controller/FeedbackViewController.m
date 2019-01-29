@@ -167,10 +167,8 @@
         int sucStr = [responseObject[@"status"] intValue];
         NSString *messStr = responseObject[@"message"];
         if (sucStr == 200) {
-            [SVProgressHUD showErrorWithStatus:messStr];
-            [SVProgressHUD dismissWithCompletion:^{
-                [self.navigationController popViewControllerAnimated:YES];
-            }];
+            [SVProgressHUD showProgress:1.2 status:messStr];
+            [self.navigationController popViewControllerAnimated:YES];
         }else{
             [SVProgressHUD showErrorWithStatus:messStr];
         }
@@ -243,7 +241,6 @@
 - (void)pushTZImagePickerController {
     TZImagePickerController *imagePickerVc = [[TZImagePickerController alloc] initWithMaxImagesCount:3 columnNumber:3 delegate:self pushPhotoPickerVc:YES];
 //    imagePickerVc.navigationBar.translucent = NO;
-    imagePickerVc.isSelectOriginalPhoto = _isSelectOriginalPhoto;
 #pragma mark - 五类个性化设置，这些参数都可以不传，此时会走默认设置
     imagePickerVc.isSelectOriginalPhoto = _isSelectOriginalPhoto;
     // 1.设置目前已经选中的图片数组
@@ -542,11 +539,6 @@
 }
 
 
-//QMUIText 监听
-- (void)textView:(QMUITextView *)textView didPreventTextChangeInRange:(NSRange)range replacementText:(NSString *)replacementText {
-    [QMUITips showWithText:[NSString stringWithFormat:@"文字不能超过 %@ 个字符", @(textView.maximumTextLength)] inView:self.view hideAfterDelay:2.0];
-}
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (UIImagePickerController *)imagePickerVc {
@@ -569,5 +561,11 @@
     }
     return _imagePickerVc;
 }
+//QMUIText 监听
+- (void)textView:(QMUITextView *)textView didPreventTextChangeInRange:(NSRange)range replacementText:(NSString *)replacementText {
+    [QMUITips showWithText:[NSString stringWithFormat:@"文字不能超过 %@ 个字符", @(textView.maximumTextLength)] inView:self.view hideAfterDelay:2.0];
+}
+
+
 
 @end

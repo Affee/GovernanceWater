@@ -50,6 +50,8 @@
 #define URL_User_updatePasswd KKStringWithFormat(@"%@/user/updatePasswd", Base_Url)
 // /appManage/feedback 系统意见反馈
 #define URL_appManage_Feedback KKStringWithFormat(@"%@/appManage/feedback", Base_Url)
+// /riverCruiseNew/reportEvents 新建上报事件
+#define URL_RiverCruiseNew_ReportEvents KKStringWithFormat(@"%@/riverCruiseNew/reportEvents", Base_Url)
 
 
 
