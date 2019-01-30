@@ -22,9 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 //地址
 @property (nonatomic, copy) NSString *eventLocation;
 
-//处理人的名字 和id
-@property (nonatomic, copy) NSString *realname;
-@property (nonatomic, assign) NSInteger handleId;
 
 @end
 

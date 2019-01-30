@@ -11,6 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventChooseViewController : QDCommonTableViewController
+@property (nonatomic, copy) NSString *riverID;
+
+@property (nonatomic, copy) NSString *realname;
 
 @end
 

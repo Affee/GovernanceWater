@@ -88,7 +88,6 @@
 //        UnitModel *model = [UnitModel modelWithDictionary:_recordsMArr[indexPath.row]];
 //        repVC.realname =  [NSString stringWithFormat:@"%@",model.realname];
 //        repVC.handleId = model.identifier;
-    
 //        [self.navigationController popToViewController:repVC animated:YES];
     [self.navigationController popViewControllerAnimated:YES];
     AFLog(@"点击办公室的人");

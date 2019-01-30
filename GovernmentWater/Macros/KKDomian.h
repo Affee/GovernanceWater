@@ -52,8 +52,12 @@
 #define URL_appManage_Feedback KKStringWithFormat(@"%@/appManage/feedback", Base_Url)
 // /riverCruiseNew/reportEvents 新建上报事件
 #define URL_RiverCruiseNew_ReportEvents KKStringWithFormat(@"%@/riverCruiseNew/reportEvents", Base_Url)
-
-
+///eventChooseNew/getMemberListSB 河长或保洁列表(上报按钮)
+#define URL_EventChooseNew_GetMemberListSB KKStringWithFormat(@"%@/eventChooseNew/getMemberListSB", Base_Url)
+// /eventChooseNew/getOfficeList 办公室列表
+#define URL_EventChooseNew_GetOfficeList KKStringWithFormat(@"%@/eventChooseNew/getOfficeList", Base_Url)
+// /eventChooseNew/getResponsibleList 责任单位列表
+#define URL_EventChooseNew_GetResponsibleList KKStringWithFormat(@"%@/eventChooseNew/getResponsibleList", Base_Url)
 
 
 

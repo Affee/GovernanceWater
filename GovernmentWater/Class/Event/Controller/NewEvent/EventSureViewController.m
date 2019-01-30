@@ -8,6 +8,7 @@
 
 #import "EventSureViewController.h"
 #import "EventChooseViewController.h"
+#import "QDNavigationController.h"
 
 static NSString *identifier = @"cell";
 
@@ -18,28 +19,43 @@ static NSString *identifier = @"cell";
 @end
 
 @implementation EventSureViewController
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
 -(void)didInitialize{
     [super didInitialize];
     _secionArr = @[@"截止时间",@"主要处理人",@"协办处理人"];
+    _realname = nil;
+    _handleId = nil;
 }
-//-(NSString *)titleForSection:(NSInteger)section{
-//    return _secionArr[section];
-//}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView *bigView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 40)];
-    bigView.backgroundColor = TableViewGroupedBackgroundColor;
+    bigView.backgroundColor = UIColorGray9;
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 100, 30)];
     titleLabel.textAlignment = NSTextAlignmentLeft;
     titleLabel.font = UIFontMake(16);
     [bigView addSubview:titleLabel];
-    return _secionArr[section];
+    switch (section) {
+        case 0:
+            titleLabel.text = @"截止时间";
+            break;
+        case 1:
+            titleLabel.text = @"主要处理人";
+            break;
+        case 2:
+            titleLabel.text = @"协办处理人";
+            break;
+        default:
+            break;
+    }
     return bigView;
 }
 
 -(CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 0.01f;
+    return CGFLOAT_MIN;
 }
 -(NSInteger )numberOfSectionsInTableView:(UITableView *)tableView{
     return _secionArr.count;
@@ -54,12 +70,12 @@ static NSString *identifier = @"cell";
     return 1;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 60;
+    return 40;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[QMUITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        cell = [[QMUITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     }
     if (indexPath.section == 0) {
         QMUILabel *lb = [[QMUILabel alloc]qmui_initWithFont:UIFontMake(14) textColor:UIColorGray6];
@@ -81,15 +97,16 @@ static NSString *identifier = @"cell";
             make.width.height.mas_equalTo(@40);
         }];
     }else{
-    
+        cell.textLabel.text = self.realname == nil ? @"选择处理人":self.realname;
+        cell.detailTextLabel.text = self.handleId;
     }
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     EventChooseViewController *ev = [[EventChooseViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    ev.riverID = self.riverID;
     ev.title = @"选择处理人";
     [self.navigationController pushViewController:ev animated:YES];
 }
 
 @end
-

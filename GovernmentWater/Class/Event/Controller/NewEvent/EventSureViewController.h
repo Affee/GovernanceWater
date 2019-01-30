@@ -11,6 +11,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface EventSureViewController : QDCommonGroupListViewController
+@property (nonatomic, copy) NSString *riverID;
+
+
+
+//处理人的名字 和id
+@property (nonatomic, copy) NSString *realname;
+@property (nonatomic, copy) NSString *handleId;
 
 @end
 

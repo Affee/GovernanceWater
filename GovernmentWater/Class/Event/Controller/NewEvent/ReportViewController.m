@@ -114,13 +114,16 @@
 //    if ([StringUtil isEmpty:_typeName] || [StringUtil isEmpty:_riverName] || [StringUtil isEmpty:_eventLocation] || _uploadImageArr == nil ||[_uploadImageArr isKindOfClass:[NSNull class]] || _uploadImageArr.count == 0) {
 //        [SVProgressHUD showErrorWithStatus:@"请填写完整信息"];
 //    }else{
-//        EventChooseViewController *eventChossViewController = [[EventChooseViewController alloc]init];
-//        eventChossViewController.title = @"理人和协办人";
-//        [self.navigationController pushViewController:eventChossViewController animated:YES];
-//    }
     EventSureViewController *eventSureViewController = [[EventSureViewController alloc]initWithStyle:UITableViewStyleGrouped];
     eventSureViewController.title = @"督办";
+    eventSureViewController.riverID = self.riverID;
     [self.navigationController pushViewController:eventSureViewController animated:YES];
+//    }
+//    EventSureViewController *eventSureViewController = [[EventSureViewController alloc]initWithStyle:UITableViewStyleGrouped];
+//    eventSureViewController.title = @"督办";
+//    eventSureViewController.riverID = self.riverID;
+//
+//    [self.navigationController pushViewController:eventSureViewController animated:YES];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSource.count;
