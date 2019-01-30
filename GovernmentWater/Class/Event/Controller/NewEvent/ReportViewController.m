@@ -25,7 +25,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "FLAnimatedImage.h"
 
-#import "EventChossViewController.h"
+#import "EventSureViewController.h"
 @interface ReportViewController ()<QMUITextViewDelegate,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
 {
     NSMutableArray *_selectedPhotos;
@@ -114,10 +114,13 @@
 //    if ([StringUtil isEmpty:_typeName] || [StringUtil isEmpty:_riverName] || [StringUtil isEmpty:_eventLocation] || _uploadImageArr == nil ||[_uploadImageArr isKindOfClass:[NSNull class]] || _uploadImageArr.count == 0) {
 //        [SVProgressHUD showErrorWithStatus:@"请填写完整信息"];
 //    }else{
-        EventChossViewController *eventChossViewController = [[EventChossViewController alloc]initWithStyle:UITableViewStyleGrouped];
-        eventChossViewController.title = @"理人和协办人";
-        [self.navigationController pushViewController:eventChossViewController animated:YES];
+//        EventChooseViewController *eventChossViewController = [[EventChooseViewController alloc]init];
+//        eventChossViewController.title = @"理人和协办人";
+//        [self.navigationController pushViewController:eventChossViewController animated:YES];
 //    }
+    EventSureViewController *eventSureViewController = [[EventSureViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    eventSureViewController.title = @"督办";
+    [self.navigationController pushViewController:eventSureViewController animated:YES];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSource.count;

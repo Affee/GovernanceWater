@@ -129,7 +129,8 @@
 		F6B3A74521FC3F7100131536 /* PersonalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A74421FC3F7100131536 /* PersonalViewController.m */; };
 		F6B3A74821FEB33000131536 /* ChangePassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A74721FEB33000131536 /* ChangePassViewController.m */; };
 		F6B3A74E21FF01C600131536 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A74D21FF01C600131536 /* FeedbackViewController.m */; };
-		F6B3A7572200733000131536 /* EventChossViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A7562200733000131536 /* EventChossViewController.m */; };
+		F6B3A75D220153CD00131536 /* EventSureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A75C220153CD00131536 /* EventSureViewController.m */; };
+		F6B3A760220167CE00131536 /* EventChooseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A75F220167CE00131536 /* EventChooseViewController.m */; };
 		F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */; };
 		F6B8005121F822F000230DDE /* KKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005021F822F000230DDE /* KKBaseTableViewController.m */; };
 		F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B8005721F83AF400230DDE /* QDCommonViewController.m */; };
@@ -502,8 +503,10 @@
 		F6B3A74721FEB33000131536 /* ChangePassViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePassViewController.m; sourceTree = "<group>"; };
 		F6B3A74C21FF01C600131536 /* FeedbackViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		F6B3A74D21FF01C600131536 /* FeedbackViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
-		F6B3A7552200733000131536 /* EventChossViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventChossViewController.h; sourceTree = "<group>"; };
-		F6B3A7562200733000131536 /* EventChossViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventChossViewController.m; sourceTree = "<group>"; };
+		F6B3A75B220153CD00131536 /* EventSureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventSureViewController.h; sourceTree = "<group>"; };
+		F6B3A75C220153CD00131536 /* EventSureViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventSureViewController.m; sourceTree = "<group>"; };
+		F6B3A75E220167CE00131536 /* EventChooseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventChooseViewController.h; sourceTree = "<group>"; };
+		F6B3A75F220167CE00131536 /* EventChooseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventChooseViewController.m; sourceTree = "<group>"; };
 		F6B8004C21F8168C00230DDE /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
 		F6B8004D21F8168C00230DDE /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
 		F6B8004F21F822F000230DDE /* KKBaseTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKBaseTableViewController.h; sourceTree = "<group>"; };
@@ -1346,8 +1349,10 @@
 				F6B3A71B21FACF3A00131536 /* LocationViewController.m */,
 				F6B3A72021FB023700131536 /* RiverViewController.h */,
 				F6B3A72121FB023700131536 /* RiverViewController.m */,
-				F6B3A7552200733000131536 /* EventChossViewController.h */,
-				F6B3A7562200733000131536 /* EventChossViewController.m */,
+				F6B3A75B220153CD00131536 /* EventSureViewController.h */,
+				F6B3A75C220153CD00131536 /* EventSureViewController.m */,
+				F6B3A75E220167CE00131536 /* EventChooseViewController.h */,
+				F6B3A75F220167CE00131536 /* EventChooseViewController.m */,
 			);
 			path = NewEvent;
 			sourceTree = "<group>";
@@ -1865,7 +1870,6 @@
 				F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */,
 				F6B3A6DF21F83FFF00131536 /* QMUIConfigurationTemplateGrapefruit.m in Sources */,
 				F68D9E5321E7222C00E0C959 /* WMScrollView.m in Sources */,
-				F6B3A7572200733000131536 /* EventChossViewController.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F6B3A74521FC3F7100131536 /* PersonalViewController.m in Sources */,
 				F6B3A73021FB3A9A00131536 /* HomeNewsDetailsViewController.m in Sources */,
@@ -1886,12 +1890,14 @@
 				F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */,
 				F6C92B7921A9506900EE05D1 /* FLAnimatedImage.m in Sources */,
 				F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */,
+				F6B3A75D220153CD00131536 /* EventSureViewController.m in Sources */,
 				F6C92B7321A9505100EE05D1 /* LxGridViewFlowLayout.m in Sources */,
 				F68D9E5221E7222C00E0C959 /* WMMenuItem.m in Sources */,
 				F6C92B6F21A94B3400EE05D1 /* TZVideoPlayerController.m in Sources */,
 				F6B8004E21F8168C00230DDE /* QMUIConfigurationTemplate.m in Sources */,
 				F657865A219AB897003D87EA /* UIImage+Affee.m in Sources */,
 				F6C92B3921A92A5D00EE05D1 /* TextAndImagesCell.m in Sources */,
+				F6B3A760220167CE00131536 /* EventChooseViewController.m in Sources */,
 				F68D9E6B21E9E13400E0C959 /* EventPlaceVCViewController.m in Sources */,
 				F6B3A73321FBF48300131536 /* AboutUsViewController.m in Sources */,
 				F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */,
