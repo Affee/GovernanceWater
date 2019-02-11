@@ -96,6 +96,7 @@
 		F695C28921A4FB9A00E93F1A /* DealingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28821A4FB9A00E93F1A /* DealingCell.m */; };
 		F695C28F21A54C3C00E93F1A /* ReportVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C28E21A54C3C00E93F1A /* ReportVC.m */; };
 		F695C29821A68FC300E93F1A /* JMDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C29721A68FC000E93F1A /* JMDropMenu.m */; };
+		F69E670022116E2E00555F89 /* BaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E66FF22116E2E00555F89 /* BaseTabBarViewController.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
 		F6A5C706219D487D00EB846F /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C705219D487D00EB846F /* EventListCell.m */; };
@@ -436,6 +437,8 @@
 		F695C28E21A54C3C00E93F1A /* ReportVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportVC.m; sourceTree = "<group>"; };
 		F695C29621A68FC000E93F1A /* JMDropMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JMDropMenu.h; sourceTree = "<group>"; };
 		F695C29721A68FC000E93F1A /* JMDropMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JMDropMenu.m; sourceTree = "<group>"; };
+		F69E66FE22116E2E00555F89 /* BaseTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseTabBarViewController.h; sourceTree = "<group>"; };
+		F69E66FF22116E2E00555F89 /* BaseTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarViewController.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F6A5C6FC219BF7F700EB846F /* AFLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFLoginVC.h; sourceTree = "<group>"; };
 		F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFLoginVC.m; sourceTree = "<group>"; };
@@ -1022,6 +1025,8 @@
 				F657861621992027003D87EA /* AppDelegate.m */,
 				F657863621992D3B003D87EA /* AFTabBarController.h */,
 				F657863721992D3B003D87EA /* AFTabBarController.m */,
+				F69E66FE22116E2E00555F89 /* BaseTabBarViewController.h */,
+				F69E66FF22116E2E00555F89 /* BaseTabBarViewController.m */,
 				F657861B21992027003D87EA /* Main.storyboard */,
 				F657861E2199202A003D87EA /* Assets.xcassets */,
 				F6B3A72321FB080300131536 /* rightJiantou@3x.png */,
@@ -1885,6 +1890,7 @@
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
 				F6388CF221C25A1C00186D72 /* YYConst.mm in Sources */,
 				F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */,
+				F69E670022116E2E00555F89 /* BaseTabBarViewController.m in Sources */,
 				F6B3A70321F862B300131536 /* MineViewController.m in Sources */,
 				F669DAA421B67D2E00CAE242 /* CLLThreeTreeViewController.m in Sources */,
 				F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */,

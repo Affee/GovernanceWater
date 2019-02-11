@@ -692,6 +692,28 @@
 - (void)textView:(QMUITextView *)textView didPreventTextChangeInRange:(NSRange)range replacementText:(NSString *)replacementText {
     [QMUITips showWithText:[NSString stringWithFormat:@"文字不能超过 %@ 个字符", @(textView.maximumTextLength)] inView:self.view hideAfterDelay:2.0];
 }
-
+#pragma mark - UINavigationControllerBackButtonHandlerProtocol  拦截
+- (BOOL)shouldHoldBackButtonEvent {
+    return YES;
+}
+- (BOOL)canPopViewController {
+    // 这里不要做一些费时的操作，否则可能会卡顿。
+    if (self.textView.text.length > 0) {
+        [self.textView resignFirstResponder];
+        QMUIAlertController *alertController = [QMUIAlertController alertControllerWithTitle:@"是否返回？" message:@"返回后输入框的数据将不会自动保存" preferredStyle:QMUIAlertControllerStyleAlert];
+        QMUIAlertAction *backActioin = [QMUIAlertAction actionWithTitle:@"返回" style:QMUIAlertActionStyleCancel handler:^(QMUIAlertController *aAlertController, QMUIAlertAction *action) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
+        QMUIAlertAction *continueAction = [QMUIAlertAction actionWithTitle:@"继续编辑" style:QMUIAlertActionStyleDefault handler:^(QMUIAlertController *aAlertController, QMUIAlertAction *action) {
+            [self.textView becomeFirstResponder];
+        }];
+        [alertController addAction:backActioin];
+        [alertController addAction:continueAction];
+        [alertController showWithAnimated:YES];
+        return NO;
+    } else {
+        return YES;
+    }
+}
 
 @end

@@ -8,7 +8,7 @@
 
 #import "AFTabBarController.h"
 #import "ViewRiverVC.h"
-#import "EventVC.h"
+//#import "EventVC.h"
 #import "AFBaseNavigationController.h"
 #import "MineViewController.h"
 #import "QDCommonUI.h"
@@ -43,6 +43,7 @@
         vc.tabBarItem.title = titleArray[i];
         vc.tabBarItem.image = [UIImage imageNamed:norImage[i]];
         QDNavigationController *navc = [[QDNavigationController alloc] initWithRootViewController:vc];
+        
         navc.navigationBar.translucent = NO;
         //设置原始图片
         vc.tabBarItem.selectedImage = [[UIImage imageNamed:selImage[i]] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -52,6 +53,7 @@
     [[UITabBarItem appearance]setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:11], NSForegroundColorAttributeName:[UIColor lightGrayColor]}forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:11], NSForegroundColorAttributeName:[UIColor blueColor]} forState:UIControlStateSelected];
     self.viewControllers = arrayM;
+    self.hidesBottomBarWhenPushed = YES;
     
     
 }

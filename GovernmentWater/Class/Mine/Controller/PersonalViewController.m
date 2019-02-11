@@ -169,7 +169,7 @@ static NSString *identifer = @"cell";
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [SVProgressHUD showErrorWithStatus:@"请联系有管理人员进行添加"];
+    [SVProgressHUD showErrorWithStatus:@"请联系有管理人员进修改"];
 }
 - (void)showEmptyView {
     if (!self.emptyView) {
