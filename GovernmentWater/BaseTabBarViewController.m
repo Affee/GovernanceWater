@@ -9,10 +9,11 @@
 #import "BaseTabBarViewController.h"
 #import "ViewRiverVC.h"
 #import "MineViewController.h"
-#import "QDCommonUI.h"
 #import "EventViewController.h"
 #import "HomeNewsViewController.h"
 #import "QDNavigationController.h"
+#import "QDCommonUI.h"
+#import "EventVC.h"
 
 @interface BaseTabBarViewController ()
 
@@ -38,7 +39,27 @@
     ViewRiverVC *viewRiverVC = [[ViewRiverVC alloc]init];
     viewRiverVC.hidesBottomBarWhenPushed = NO;
     QDNavigationController *viewRiverNavController = [[QDNavigationController alloc]initWithRootViewController:viewRiverVC];
+    viewRiverNavController.tabBarItem = [QDUIHelper tabBarItemWithTitle:@"巡河" image:[UIImageMake(@"服务icon copy") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:UIImageMake(@"服务icon_pressed copy") tag:1];
+    AddAccessibilityHint(viewRiverNavController.tabBarItem, @"巡河的");
+//    事件
+    EventViewController *eventViewController = [[EventViewController alloc]init];
+    eventViewController.hidesBottomBarWhenPushed = NO;
+    QDNavigationController *eventNavController = [[QDNavigationController alloc]initWithRootViewController:eventViewController];
+    eventNavController.tabBarItem = [QDUIHelper tabBarItemWithTitle:@"事件" image:[UIImageMake(@"挖矿icon copy") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ] selectedImage:UIImageMake(@"挖矿icon_pressed copy") tag:2];
+    AddAccessibilityHint(eventNavController.tabBarItem, @"事件的");
+//    我的
+    MineViewController *mineViewController = [[MineViewController alloc]init];
+    mineViewController.hidesBottomBarWhenPushed = NO;
+    QDNavigationController *mineNavController = [[QDNavigationController alloc] initWithRootViewController:mineViewController];
+    mineNavController.tabBarItem = [QDUIHelper tabBarItemWithTitle:@"我的" image:[UIImageMake(@"我的icon copy") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:UIImageMake(@"我的icon_pressed copy") tag:3];
+    AddAccessibilityHint(mineNavController.tabBarItem, @"我的");
+//    事件2
+    EventVC *eve = [[EventVC alloc]init];
+    eve.hidesBottomBarWhenPushed = NO;
+    QDNavigationController *eventVCNavController = [[QDNavigationController alloc]initWithRootViewController:eve];
+    eventVCNavController.tabBarItem = [QDUIHelper tabBarItemWithTitle:@"事件2" image:[UIImageMake(@"我的icon copy") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:UIImageMake(@"我的icon_pressed copy") tag:4];
+    AddAccessibilityHint(eventVCNavController.tabBarItem, @"事件2");
     
-    
+    self.viewControllers = @[homeNewsNavController,viewRiverNavController,eventNavController,mineNavController,eventVCNavController];
 }
 @end

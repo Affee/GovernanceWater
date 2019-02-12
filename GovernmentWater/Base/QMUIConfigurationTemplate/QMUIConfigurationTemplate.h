@@ -1,19 +1,12 @@
-/*****
- * Tencent is pleased to support the open source community by making QMUI_iOS available.
- * Copyright (C) 2016-2019 THL A29 Limited, a Tencent company. All rights reserved.
- * Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
- * http://opensource.org/licenses/MIT
- * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
- *****/
-
 //
 //  QMUIConfigurationTemplate.h
 //
 //  Created by QMUI Team on 15/3/29.
+//  Copyright (c) 2015年 QMUI Team. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import <QMUIKit/QMUIKit.h>
+#import "QDThemeProtocol.h"
 
 /**
  *  QMUIConfigurationTemplate 是一份配置表，用于配合 QMUIConfiguration 来管理整个 App 的全局样式，使用方式：
@@ -23,6 +16,6 @@
  *  @warning 配置表的 class 名必须以 QMUIConfigurationTemplate 开头，并且实现 <QMUIConfigurationTemplateProtocol>，因为这两者是 QMUI 识别该 NSObject 是否为一份配置表的条件。
  *  @warning QMUI 2.3.0 之后，配置表改为自动运行，不需要再在某个地方手动运行了。
  */
-@interface QMUIConfigurationTemplate : NSObject <QMUIConfigurationTemplateProtocol>
+@interface QMUIConfigurationTemplate : NSObject<QDThemeProtocol>
 
 @end

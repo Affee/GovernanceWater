@@ -7,10 +7,11 @@
 // 开打开打滴滴滴
 
 #import "AppDelegate.h"
-#import "AFTabBarController.h"
+#import "BaseTabBarViewController.h"
+//#import "AFTabBarController.h"
 #import "AFLoginVC.h"
 #import <IQKeyboardManager.h>
-
+#import "QMUIConfigurationTemplate.h"
 #import <BMKLocationKit/BMKLocationComponent.h>
 
 @interface AppDelegate ()
@@ -38,8 +39,9 @@
     
 //    百度地图
     [self baiduConfiguration];
-    
-    
+//    主题
+//    [QDThemeManager sharedInstance].currentTheme = [QMUIConfigurationTemplate class];
+
     return YES;
 }
 
@@ -62,7 +64,7 @@
     if (!loginStr){
         self.window.rootViewController = [[AFLoginVC alloc] init];
     } else{
-        self.window.rootViewController = [[AFTabBarController alloc] init];
+        self.window.rootViewController = [[BaseTabBarViewController alloc] init];
     }
 //    self.window.rootViewController = [[AFTabBarController alloc]init];
     [self.window makeKeyAndVisible];
