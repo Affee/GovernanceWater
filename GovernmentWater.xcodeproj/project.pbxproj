@@ -102,6 +102,7 @@
 		F69E67112212B63000555F89 /* QMUIConfigurationTemplatePinkRose.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67082212B63000555F89 /* QMUIConfigurationTemplatePinkRose.m */; };
 		F69E67122212B63000555F89 /* QMUIConfigurationTemplateGrass.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E670A2212B63000555F89 /* QMUIConfigurationTemplateGrass.m */; };
 		F69E67132212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E670C2212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m */; };
+		F69E67172212DDE100555F89 /* AssistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67162212DDE100555F89 /* AssistViewController.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
 		F6A5C706219D487D00EB846F /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C705219D487D00EB846F /* EventListCell.m */; };
@@ -450,6 +451,8 @@
 		F69E670C2212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplateGrapefruit.m; sourceTree = "<group>"; };
 		F69E670D2212B63000555F89 /* QDThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDThemeManager.h; sourceTree = "<group>"; };
 		F69E670E2212B63000555F89 /* QMUIConfigurationTemplatePinkRose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplatePinkRose.h; sourceTree = "<group>"; };
+		F69E67152212DDE100555F89 /* AssistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssistViewController.h; sourceTree = "<group>"; };
+		F69E67162212DDE100555F89 /* AssistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssistViewController.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F6A5C6FC219BF7F700EB846F /* AFLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFLoginVC.h; sourceTree = "<group>"; };
 		F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFLoginVC.m; sourceTree = "<group>"; };
@@ -1359,6 +1362,8 @@
 				F6B3A75C220153CD00131536 /* EventSureViewController.m */,
 				F6B3A75E220167CE00131536 /* EventChooseViewController.h */,
 				F6B3A75F220167CE00131536 /* EventChooseViewController.m */,
+				F69E67152212DDE100555F89 /* AssistViewController.h */,
+				F69E67162212DDE100555F89 /* AssistViewController.m */,
 			);
 			path = NewEvent;
 			sourceTree = "<group>";
@@ -1918,6 +1923,7 @@
 				F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */,
 				F6FF86A621F70286000265BD /* QDSearchViewController.m in Sources */,
 				F6B3A73921FC01D100131536 /* UserBaseMessagerModel.m in Sources */,
+				F69E67172212DDE100555F89 /* AssistViewController.m in Sources */,
 				F68D9E7221E9E34E00E0C959 /* YUFoldingSectionHeader.m in Sources */,
 				F65786252199202A003D87EA /* main.m in Sources */,
 				F6578667219ABB23003D87EA /* EventVC.m in Sources */,

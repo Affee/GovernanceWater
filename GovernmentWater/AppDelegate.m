@@ -40,8 +40,7 @@
 //    百度地图
     [self baiduConfiguration];
 //    主题
-//    [QDThemeManager sharedInstance].currentTheme = [QMUIConfigurationTemplate class];
-
+  
     return YES;
 }
 

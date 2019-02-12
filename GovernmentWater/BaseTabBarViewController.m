@@ -23,7 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    // QD自定义的全局样式渲染
+    [QDCommonUI renderGlobalAppearances];
+    
     [self createTabBarController];
 }
 

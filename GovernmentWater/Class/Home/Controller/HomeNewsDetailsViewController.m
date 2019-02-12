@@ -31,9 +31,9 @@
     [self.view addSubview:_headerWebView];
 }
 -(void)getUrl{
-//    NSString *strrr = [NSString stringWithFormat:@"http://139.219.4.43:8080/copywriting/getCopywritingByIdInApp?copywritingId=%ld",(long)self.identifier];
-//    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:strrr]];
-    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://139.219.4.43:8080/dist/#/appStatistic"]];
+    NSString *strrr = [NSString stringWithFormat:@"http://139.219.4.43:8080/copywriting/getCopywritingByIdInApp?copywritingId=%ld",(long)self.identifier];
+    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:strrr]];
+//    NSURLRequest *request =[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://139.219.4.43:8080/dist/#/appStatistic"]];
     [_headerWebView loadRequest:request];
 }
 

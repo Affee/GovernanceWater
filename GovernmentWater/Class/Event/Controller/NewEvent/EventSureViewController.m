@@ -9,6 +9,7 @@
 #import "EventSureViewController.h"
 #import "EventChooseViewController.h"
 #import "QDNavigationController.h"
+#import "AssistViewController.h"
 
 static NSString *identifier = @"cell";
 
@@ -53,7 +54,9 @@ static NSString *identifier = @"cell";
     }
     return bigView;
 }
-
+//-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+//    return _secionArr[section];
+//}
 -(CGFloat )tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
     return CGFLOAT_MIN;
 }
@@ -75,27 +78,29 @@ static NSString *identifier = @"cell";
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[QMUITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        cell = [[QMUITableViewCell alloc]initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:identifier];
     }
     if (indexPath.section == 0) {
-        QMUILabel *lb = [[QMUILabel alloc]qmui_initWithFont:UIFontMake(14) textColor:UIColorGray6];
-        lb.text = @"请选择时间";
-        lb.textAlignment = NSTextAlignmentCenter;
-        [cell.contentView addSubview:lb];
-        [lb mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(cell.contentView).offset(Padding/2);
-            make.bottom.equalTo(cell.contentView).offset(-Padding/2);
-            make.centerX.equalTo(cell.contentView);
-            make.width.mas_equalTo(KKScreenWidth/2);
-        }];
-        UIImageView *img = [[UIImageView alloc]init];
-        img.image = KKPlaceholderImage;
-        [cell.contentView addSubview:img];
-        [cell.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(cell.contentView).offset(Padding);
-            make.right.equalTo(cell.contentView).offset(-Padding);
-            make.width.height.mas_equalTo(@40);
-        }];
+        cell.textLabel.text = self.realname == nil ? @"选择处理人":self.realname;
+        cell.detailTextLabel.text = self.handleId;
+//        QMUILabel *lb = [[QMUILabel alloc]qmui_initWithFont:UIFontMake(14) textColor:UIColorGray6];
+//        lb.text = @"请选择时间";
+//        lb.textAlignment = NSTextAlignmentCenter;
+//        [cell.contentView addSubview:lb];
+//        [lb mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(cell.contentView).offset(Padding/2);
+//            make.bottom.equalTo(cell.contentView).offset(-Padding/2);
+//            make.centerX.equalTo(cell.contentView);
+//            make.width.mas_equalTo(KKScreenWidth/2);
+//        }];
+//        UIImageView *img = [[UIImageView alloc]init];
+//        img.image = KKPlaceholderImage;
+//        [cell.contentView addSubview:img];
+//        [cell.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.equalTo(cell.contentView).offset(Padding);
+//            make.right.equalTo(cell.contentView).offset(-Padding);
+//            make.width.height.mas_equalTo(@40);
+//        }];
     }else{
         cell.textLabel.text = self.realname == nil ? @"选择处理人":self.realname;
         cell.detailTextLabel.text = self.handleId;
@@ -103,10 +108,22 @@ static NSString *identifier = @"cell";
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    EventChooseViewController *ev = [[EventChooseViewController alloc]initWithStyle:UITableViewStyleGrouped];
-    ev.riverID = self.riverID;
-    ev.title = @"选择处理人";
-    [self.navigationController pushViewController:ev animated:YES];
+    if (indexPath.section == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请选择时间"];
+    }else if (indexPath.section == 1){
+        [SVProgressHUD showErrorWithStatus:@"请选择处理人"];
+        //    EventChooseViewController *ev = [[EventChooseViewController alloc]initWithStyle:UITableViewStyleGrouped];
+        //    ev.riverID = self.riverID;
+        //    ev.title = @"选择处理人";
+        //    [self.navigationController pushViewController:ev animated:YES];
+    }else if (indexPath.section == 2){
+        AssistViewController *as = [[AssistViewController alloc]initWithStyle:UITableViewStyleGrouped];
+        [self.navigationController pushViewController:as animated:YES];
+    }
+//    EventChooseViewController *ev = [[EventChooseViewController alloc]initWithStyle:UITableViewStyleGrouped];
+//    ev.riverID = self.riverID;
+//    ev.title = @"选择处理人";
+//    [self.navigationController pushViewController:ev animated:YES];
 }
 
 @end
