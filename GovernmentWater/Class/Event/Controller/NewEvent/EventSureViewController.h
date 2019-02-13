@@ -18,7 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 //处理人的名字 和id
 @property (nonatomic, copy) NSString *realname;
 @property (nonatomic, copy) NSString *handleId;
-
+//选中协助人的数组
+@property (nonatomic, strong) NSMutableArray *selectMuArr;//选中的
 @end
 
 NS_ASSUME_NONNULL_END

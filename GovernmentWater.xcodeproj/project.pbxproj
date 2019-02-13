@@ -103,6 +103,7 @@
 		F69E67122212B63000555F89 /* QMUIConfigurationTemplateGrass.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E670A2212B63000555F89 /* QMUIConfigurationTemplateGrass.m */; };
 		F69E67132212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E670C2212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m */; };
 		F69E67172212DDE100555F89 /* AssistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67162212DDE100555F89 /* AssistViewController.m */; };
+		F69E671F2213F68000555F89 /* MoreCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
 		F6A5C706219D487D00EB846F /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C705219D487D00EB846F /* EventListCell.m */; };
@@ -453,6 +454,8 @@
 		F69E670E2212B63000555F89 /* QMUIConfigurationTemplatePinkRose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplatePinkRose.h; sourceTree = "<group>"; };
 		F69E67152212DDE100555F89 /* AssistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssistViewController.h; sourceTree = "<group>"; };
 		F69E67162212DDE100555F89 /* AssistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssistViewController.m; sourceTree = "<group>"; };
+		F69E671D2213F68000555F89 /* MoreCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreCellTableViewCell.h; sourceTree = "<group>"; };
+		F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreCellTableViewCell.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F6A5C6FC219BF7F700EB846F /* AFLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFLoginVC.h; sourceTree = "<group>"; };
 		F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFLoginVC.m; sourceTree = "<group>"; };
@@ -804,6 +807,8 @@
 				F6C92B4121A94AA200EE05D1 /* TZTestCell.m */,
 				F6C92B7221A9505100EE05D1 /* LxGridViewFlowLayout.h */,
 				F6C92B7121A9505100EE05D1 /* LxGridViewFlowLayout.m */,
+				F69E671D2213F68000555F89 /* MoreCellTableViewCell.h */,
+				F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1901,6 +1906,7 @@
 				F669DAA421B67D2E00CAE242 /* CLLThreeTreeViewController.m in Sources */,
 				F695C1EB21A28E7B00E93F1A /* NSDate+BRPickerView.m in Sources */,
 				F6C92B7921A9506900EE05D1 /* FLAnimatedImage.m in Sources */,
+				F69E671F2213F68000555F89 /* MoreCellTableViewCell.m in Sources */,
 				F695C28321A42F2800E93F1A /* RecordHeaderCell.m in Sources */,
 				F6B3A75D220153CD00131536 /* EventSureViewController.m in Sources */,
 				F6C92B7321A9505100EE05D1 /* LxGridViewFlowLayout.m in Sources */,

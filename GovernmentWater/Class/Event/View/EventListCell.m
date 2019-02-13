@@ -23,7 +23,6 @@
     if ([DateUtil isEqual:model.eventPlace]) {
         self.addressLabel.text = @"贵州遵义";
     }
-    
     self.addressLabel.text = model.eventPlace;
     self.sewageLabel.text = [NSString stringWithFormat:@"%@",model.typeName];
     self.eventLabel.text = model.eventContent;

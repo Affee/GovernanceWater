@@ -11,6 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface AssistViewController : QDCommonTableViewController
+@property (nonatomic, copy) NSString *riverID;
+
+@property (nonatomic, copy) NSString *realname;
+//选中的数组
+@property (nonatomic, strong) NSMutableArray *selectMuArr;//选中的
 
 @end
 

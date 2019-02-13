@@ -121,9 +121,9 @@ static NSString *identifier = @"cell";
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    QMUITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
+        cell = [[QMUITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:identifier];
     }
     if (indexPath.section == 0) {
         UserBaseMessagerModel *model = [UserBaseMessagerModel modelWithDictionary:_arr0[indexPath.row]];
@@ -144,26 +144,30 @@ static NSString *identifier = @"cell";
     cell.textLabel.font = UIFontMake(15);
     cell.detailTextLabel.font = UIFontMake(14);
     cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     return cell;
 }
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    EventSureViewController * evc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
-//    NSString *realName = nil;
-//    NSString *handleId = nil;
-//    if (indexPath.section == 0) {
-//        UserBaseMessagerModel *model = [UserBaseMessagerModel modelWithDictionary:_arr0[indexPath.row]];
-//        handleId = [NSString stringWithFormat:@"%ld",(long)model.identifier];
-//    }else if (indexPath.section == 1){
-//        UserBaseMessagerModel *model = [UserBaseMessagerModel modelWithDictionary:_arr1[indexPath.row]];
-//        handleId = [NSString stringWithFormat:@"%ld",(long)model.identifier];
-//    }else if (indexPath.section == 2){
-//        UserBaseMessagerModel *model = [UserBaseMessagerModel modelWithDictionary:_arr2[indexPath.row]];
-//        handleId = [NSString stringWithFormat:@"%ld",(long)model.identifier];
-//    }
-//    evc.realname = realName;
-//    evc.handleId = handleId;
-//    [self.navigationController popToViewController:evc animated:YES];
-//}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    EventSureViewController * evc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
+    NSString *realName = nil;
+    NSString *handleId = nil;
+    if (indexPath.section == 0) {
+        UserBaseMessagerModel *model = [UserBaseMessagerModel modelWithDictionary:_arr0[indexPath.row]];
+        handleId = [NSString stringWithFormat:@"%ld",(long)model.identifier];
+        realName = [NSString stringWithFormat:@"%@",model.realname];
+    }else if (indexPath.section == 1){
+        UserBaseMessagerModel *model = [UserBaseMessagerModel modelWithDictionary:_arr1[indexPath.row]];
+        handleId = [NSString stringWithFormat:@"%ld",(long)model.identifier];
+        realName = [NSString stringWithFormat:@"%@",model.realname];
+    }else if (indexPath.section == 2){
+        UserBaseMessagerModel *model = [UserBaseMessagerModel modelWithDictionary:_arr2[indexPath.row]];
+        handleId = [NSString stringWithFormat:@"%ld",(long)model.identifier];
+        realName = [NSString stringWithFormat:@"%@",model.realname];
+    }
+    evc.realname = realName;
+    evc.handleId = handleId;
+    [self.navigationController popToViewController:evc animated:YES];
+}
 
 @end
 

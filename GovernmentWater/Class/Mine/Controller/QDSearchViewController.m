@@ -17,6 +17,8 @@
 @property (nonatomic, strong) QMUILabel *titleLabel;
 @property (nonatomic, strong) QMUIFloatLayoutView *floatLayoutView;
 @property (nonatomic, strong) NSMutableArray *recordsMArr;
+@property (nonatomic, strong) QMUIFillButton *sureButton;
+
 
 @end
 @implementation QDRecentSearchView

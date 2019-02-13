@@ -172,6 +172,7 @@
 
 
 //if (imageArr != nil && ![imageArr isKindOfClass:[NSNull class]] && imageArr.count != 0){
+//if (_selectIndexs == nil || [_selectIndexs isKindOfClass:[NSNull class]] || _selectIndexs.count == 0) {
 
 
 #endif /* PrefixHeader_pch */
