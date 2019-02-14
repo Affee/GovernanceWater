@@ -72,4 +72,8 @@ static NSString *identifer = @"cell";
     repc.typeName = model.typeName;
     [self.navigationController popToViewController:repc animated:YES];
 }
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [SVProgressHUD dismiss];
+}
 @end

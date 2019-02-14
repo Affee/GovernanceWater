@@ -20,6 +20,7 @@
 {
     [super setupToolbarItems];
     self.title = @"事件";
+    [self.navigationController setToolbarHidden:YES animated:YES];
 }
 
 -(void)initSubviews{

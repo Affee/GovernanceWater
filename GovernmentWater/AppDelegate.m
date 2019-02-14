@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "BaseTabBarViewController.h"
-//#import "AFTabBarController.h"
 #import "AFLoginVC.h"
 #import <IQKeyboardManager.h>
 #import "QMUIConfigurationTemplate.h"

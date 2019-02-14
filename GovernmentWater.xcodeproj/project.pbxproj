@@ -33,7 +33,6 @@
 		F657861F2199202A003D87EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F657861E2199202A003D87EA /* Assets.xcassets */; };
 		F65786222199202A003D87EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F65786202199202A003D87EA /* LaunchScreen.storyboard */; };
 		F65786252199202A003D87EA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F65786242199202A003D87EA /* main.m */; };
-		F657863821992D3B003D87EA /* AFTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863721992D3B003D87EA /* AFTabBarController.m */; };
 		F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863B21992D6F003D87EA /* WRCustomNavigationBar.m */; };
 		F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F657863D21992D6F003D87EA /* WRNavigationBar.m */; };
 		F657864221993076003D87EA /* AFBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F657864121993076003D87EA /* AFBaseViewController.m */; };
@@ -104,6 +103,7 @@
 		F69E67132212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E670C2212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m */; };
 		F69E67172212DDE100555F89 /* AssistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67162212DDE100555F89 /* AssistViewController.m */; };
 		F69E671F2213F68000555F89 /* MoreCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */; };
+		F69E6757221515D600555F89 /* ReportPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E6756221515D600555F89 /* ReportPeopleViewController.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
 		F6A5C706219D487D00EB846F /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C705219D487D00EB846F /* EventListCell.m */; };
@@ -149,8 +149,6 @@
 		F6C92B3121A796B800EE05D1 /* PPHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B2F21A796B800EE05D1 /* PPHTTPRequest.m */; };
 		F6C92B3421A7976000EE05D1 /* AFLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B3321A7976000EE05D1 /* AFLoginModel.m */; };
 		F6C92B3921A92A5D00EE05D1 /* TextAndImagesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B3821A92A5D00EE05D1 /* TextAndImagesCell.m */; };
-		F6C92B3D21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B3B21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.m */; };
-		F6C92B4021A9308300EE05D1 /* UITextView+ZWLimitCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B3E21A9308200EE05D1 /* UITextView+ZWLimitCounter.m */; };
 		F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B4121A94AA200EE05D1 /* TZTestCell.m */; };
 		F6C92B6221A94B3400EE05D1 /* NSBundle+TZImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B4621A94B3400EE05D1 /* NSBundle+TZImagePicker.m */; };
 		F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C92B4821A94B3400EE05D1 /* TZAssetCell.m */; };
@@ -313,8 +311,6 @@
 		F65786212199202A003D87EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F65786232199202A003D87EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F65786242199202A003D87EA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F657863621992D3B003D87EA /* AFTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFTabBarController.h; sourceTree = "<group>"; };
-		F657863721992D3B003D87EA /* AFTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFTabBarController.m; sourceTree = "<group>"; };
 		F657863A21992D6F003D87EA /* WRCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCustomNavigationBar.h; sourceTree = "<group>"; };
 		F657863B21992D6F003D87EA /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
 		F657863C21992D6F003D87EA /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
@@ -456,6 +452,8 @@
 		F69E67162212DDE100555F89 /* AssistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssistViewController.m; sourceTree = "<group>"; };
 		F69E671D2213F68000555F89 /* MoreCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreCellTableViewCell.h; sourceTree = "<group>"; };
 		F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreCellTableViewCell.m; sourceTree = "<group>"; };
+		F69E6755221515D600555F89 /* ReportPeopleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportPeopleViewController.h; sourceTree = "<group>"; };
+		F69E6756221515D600555F89 /* ReportPeopleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportPeopleViewController.m; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F6A5C6FC219BF7F700EB846F /* AFLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFLoginVC.h; sourceTree = "<group>"; };
 		F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFLoginVC.m; sourceTree = "<group>"; };
@@ -547,10 +545,6 @@
 		F6C92B3521A7DDC500EE05D1 /* KKDomian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKDomian.h; sourceTree = "<group>"; };
 		F6C92B3721A92A5D00EE05D1 /* TextAndImagesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextAndImagesCell.h; sourceTree = "<group>"; };
 		F6C92B3821A92A5D00EE05D1 /* TextAndImagesCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextAndImagesCell.m; sourceTree = "<group>"; };
-		F6C92B3B21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+ZWPlaceHolder.m"; sourceTree = "<group>"; };
-		F6C92B3C21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+ZWPlaceHolder.h"; sourceTree = "<group>"; };
-		F6C92B3E21A9308200EE05D1 /* UITextView+ZWLimitCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+ZWLimitCounter.m"; sourceTree = "<group>"; };
-		F6C92B3F21A9308300EE05D1 /* UITextView+ZWLimitCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+ZWLimitCounter.h"; sourceTree = "<group>"; };
 		F6C92B4121A94AA200EE05D1 /* TZTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZTestCell.m; sourceTree = "<group>"; };
 		F6C92B4221A94AA200EE05D1 /* TZTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZTestCell.h; sourceTree = "<group>"; };
 		F6C92B4521A94B3400EE05D1 /* NSBundle+TZImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+TZImagePicker.h"; sourceTree = "<group>"; };
@@ -1031,8 +1025,6 @@
 				F657862E21992561003D87EA /* Class */,
 				F657861521992027003D87EA /* AppDelegate.h */,
 				F657861621992027003D87EA /* AppDelegate.m */,
-				F657863621992D3B003D87EA /* AFTabBarController.h */,
-				F657863721992D3B003D87EA /* AFTabBarController.m */,
 				F69E66FE22116E2E00555F89 /* BaseTabBarViewController.h */,
 				F69E66FF22116E2E00555F89 /* BaseTabBarViewController.m */,
 				F657861B21992027003D87EA /* Main.storyboard */,
@@ -1095,7 +1087,6 @@
 				F60B343F21E5E5B000D504BF /* DOPDropDownMean */,
 				F6C92B7421A9506900EE05D1 /* FLAnimatedImage */,
 				F6C92B4421A94B3400EE05D1 /* TZImagePickerController */,
-				F6C92B3A21A92FA100EE05D1 /* UITextView */,
 				F6C92B2121A6F5F200EE05D1 /* PPNetworkHelper */,
 				F695C29521A68FC000E93F1A /* JMDropMenu */,
 				F695C1D221A28E5100E93F1A /* BRPickerView */,
@@ -1369,6 +1360,8 @@
 				F6B3A75F220167CE00131536 /* EventChooseViewController.m */,
 				F69E67152212DDE100555F89 /* AssistViewController.h */,
 				F69E67162212DDE100555F89 /* AssistViewController.m */,
+				F69E6755221515D600555F89 /* ReportPeopleViewController.h */,
+				F69E6756221515D600555F89 /* ReportPeopleViewController.m */,
 			);
 			path = NewEvent;
 			sourceTree = "<group>";
@@ -1424,17 +1417,6 @@
 				F6C92B2D21A796B700EE05D1 /* PPInterfacedConst.m */,
 			);
 			path = HTTPRequestLayer;
-			sourceTree = "<group>";
-		};
-		F6C92B3A21A92FA100EE05D1 /* UITextView */ = {
-			isa = PBXGroup;
-			children = (
-				F6C92B3C21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.h */,
-				F6C92B3B21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.m */,
-				F6C92B3F21A9308300EE05D1 /* UITextView+ZWLimitCounter.h */,
-				F6C92B3E21A9308200EE05D1 /* UITextView+ZWLimitCounter.m */,
-			);
-			path = UITextView;
 			sourceTree = "<group>";
 		};
 		F6C92B4421A94B3400EE05D1 /* TZImagePickerController */ = {
@@ -1837,11 +1819,11 @@
 				F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */,
 				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
 				F69E67032212A9FB00555F89 /* QMUIConfigurationTemplate.m in Sources */,
+				F69E6757221515D600555F89 /* ReportPeopleViewController.m in Sources */,
 				F6C92B3421A7976000EE05D1 /* AFLoginModel.m in Sources */,
 				F68D9E5E21E7296200E0C959 /* HandleEventVC.m in Sources */,
 				F695C28F21A54C3C00E93F1A /* ReportVC.m in Sources */,
 				F6A5C706219D487D00EB846F /* EventListCell.m in Sources */,
-				F657863821992D3B003D87EA /* AFTabBarController.m in Sources */,
 				F68D9E5521E7222C00E0C959 /* WMProgressView.m in Sources */,
 				F669DAA921B6802A00CAE242 /* CLLThreeTreeModel.m in Sources */,
 				F68D9E9321ED8D7D00E0C959 /* MemberListModel.m in Sources */,
@@ -1955,7 +1937,6 @@
 				F6B3A71321F99EB500131536 /* EventViewController.m in Sources */,
 				F6B3A6E921F8401100131536 /* UIImageEffects.m in Sources */,
 				F68D9E6821E9D29600E0C959 /* TypeListModel.m in Sources */,
-				F6C92B4021A9308300EE05D1 /* UITextView+ZWLimitCounter.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,
 				F669DA9E21B65D0600CAE242 /* RegionModel.m in Sources */,
 				F6B3A6FA21F8419600131536 /* QDAllAnimationViewController.m in Sources */,
@@ -1969,7 +1950,6 @@
 				F657863E21992D6F003D87EA /* WRCustomNavigationBar.m in Sources */,
 				F6C92B6521A94B3400EE05D1 /* TZGifPhotoPreviewController.m in Sources */,
 				F6B8006621F83AF800230DDE /* QDTabBarViewController.m in Sources */,
-				F6C92B3D21A92FEB00EE05D1 /* UITextView+ZWPlaceHolder.m in Sources */,
 				F6B3A6E821F8401100131536 /* QDUIHelper.m in Sources */,
 				F68D9E8121EC892100E0C959 /* MainListVC.m in Sources */,
 				F6C92B6421A94B3400EE05D1 /* TZAssetModel.m in Sources */,

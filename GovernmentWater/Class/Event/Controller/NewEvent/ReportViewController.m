@@ -24,6 +24,7 @@
 #import "TZAssetCell.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "FLAnimatedImage.h"
+#import "ReportPeopleViewController.h"
 
 #import "EventSureViewController.h"
 @interface ReportViewController ()<QMUITextViewDelegate,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
@@ -38,6 +39,8 @@
 @property (nonatomic, copy) NSArray<NSString*> *dataSource;
 @property (nonatomic, strong) QMUIFillButton *fillButton1;
 @property (nonatomic, strong) QMUIFillButton *fillButton2;
+@property (nonatomic, strong) QMUIFillButton *fillButton3;
+
 
 
 @property (nonatomic, strong) QMUITextView *textView;
@@ -53,6 +56,9 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImagePickerController *imagePickerVc;
 @property (strong, nonatomic) CLLocation *location;
+
+@property (nonatomic, strong) NSMutableDictionary *messageDict;
+
 
 @end
 
@@ -74,7 +80,10 @@
     _riverName = nil;
     _eventLocation = nil;
     _uploadImageArr = nil;
+    _messageDict = nil;
+    _isEnabled = NO;
 }
+//处理按钮
 -(void)clickFillButton1:(QMUIButton *)sender{
     if ([StringUtil isEmpty:_typeName] || [StringUtil isEmpty:_riverName] || [StringUtil isEmpty:_eventLocation] || _uploadImageArr == nil ||[_uploadImageArr isKindOfClass:[NSNull class]] || _uploadImageArr.count == 0) {
         [SVProgressHUD showErrorWithStatus:@"请填写完整信息"];
@@ -84,11 +93,11 @@
         NSDictionary *para = @{
                                @"eventContent":_textView.text,
                                @"eventPlace":self.eventLocation,
-                               @"isUrgen":@1,
+                               @"isUrgen":@1,//是否紧急(0:一般，1：紧急)
                                @"typeId":_typeID,
                                @"riverId":_riverID,
-                               @"eventNature":@1,
-                               @"flag":@1,
+                               @"eventNature":@1,//事件性质(0:群众举报，1：上报，2：督办)
+                               @"flag":@1,//按钮判断标识（0：上报按钮，1：处理按钮，2：交办按钮）
                                };
         [PPNetworkHelper uploadImagesWithURL:URL_RiverCruiseNew_ReportEvents parameters:para name:@"filename.png" images:_uploadImageArr fileNames:nil imageScale:0.5 imageType:@"jpg" progress:^(NSProgress *progress) {
             
@@ -107,23 +116,45 @@
             
         }];
     }
-   
 }
+//上报按钮
 -(void)clickFillButton2:(QMUIButton *)sender{
-//    [SVProgressHUD showErrorWithStatus:@"上报"];
-//    if ([StringUtil isEmpty:_typeName] || [StringUtil isEmpty:_riverName] || [StringUtil isEmpty:_eventLocation] || _uploadImageArr == nil ||[_uploadImageArr isKindOfClass:[NSNull class]] || _uploadImageArr.count == 0) {
-//        [SVProgressHUD showErrorWithStatus:@"请填写完整信息"];
-//    }else{
+    if ([StringUtil isEmpty:_typeName] || [StringUtil isEmpty:_riverName] || [StringUtil isEmpty:_eventLocation] || _uploadImageArr == nil ||[_uploadImageArr isKindOfClass:[NSNull class]] || _uploadImageArr.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请填写完整信息"];
+    }else{
+    NSDictionary *dict = @{
+                           @"eventContent":_textView.text,
+                           @"eventPlace":self.eventLocation,
+                           @"isUrgen":@1,//是否紧急(0:一般，1：紧急)
+                           @"typeId":_typeID,
+                           @"riverId":_riverID,
+                           @"eventNature":@2,//事件性质(0:群众举报，1：上报，2：督办)
+                           @"flag":@0,//按钮判断标识（0：上报按钮，1：处理按钮，2：交办按钮）
+                           };
+    ReportPeopleViewController *reportPeopleViewController = [[ReportPeopleViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    reportPeopleViewController.title = @"选择上报人";
+    reportPeopleViewController.sureDict  = [NSMutableDictionary dictionaryWithDictionary:dict];//把数组中的元素添加到可变数组中
+    reportPeopleViewController.uploadImageArr = _uploadImageArr;
+    reportPeopleViewController.riverID = self.riverID;
+    [self.navigationController pushViewController:reportPeopleViewController animated:YES];
+    }
+}
+//交办n按钮
+-(void)clickFillButton3:(QMUIButton *)sender{
     EventSureViewController *eventSureViewController = [[EventSureViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    NSDictionary *dict = @{
+                           @"eventContent":_textView.text,
+                           @"eventPlace":self.eventLocation,
+                           @"isUrgen":[NSNumber numberWithBool:_isEnabled],//是否紧急(0:一般，1：紧急)
+                           @"typeId":_typeID,
+                           @"riverId":_riverID,
+                           @"eventNature":@2,//事件性质(0:群众举报，1：上报，2：督办)
+                           @"flag":@1,//按钮判断标识（0：上报按钮，1：处理按钮，2：交办按钮）
+                           };
     eventSureViewController.title = @"督办";
+    eventSureViewController.sureDict = dict;
     eventSureViewController.riverID = self.riverID;
     [self.navigationController pushViewController:eventSureViewController animated:YES];
-//    }
-//    EventSureViewController *eventSureViewController = [[EventSureViewController alloc]initWithStyle:UITableViewStyleGrouped];
-//    eventSureViewController.title = @"督办";
-//    eventSureViewController.riverID = self.riverID;
-//
-//    [self.navigationController pushViewController:eventSureViewController animated:YES];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSource.count;
@@ -144,6 +175,7 @@
     cell.detailTextLabel.text = nil;
     if (indexPath.row == 0 ) {
         cell.accessoryType = QMUIStaticTableViewCellAccessoryTypeSwitch;
+        cell.detailTextLabel.text = self.isEnabled == NO ? @"否":@"是";
     }
     if (indexPath.row == 1) {
         cell.detailTextLabel.text = self.typeName == nil ? @"请选择事件类型":self.typeName;
@@ -159,6 +191,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        [self showNormalSelectionDialogViewController];
+    }
     UIViewController *viewController = nil;
     if (indexPath.row == 1) {
         viewController = [[TypeListViewController alloc]init];
@@ -184,7 +219,7 @@
     _headerView.backgroundColor = [UIColor whiteColor];
     [self.tableView setTableHeaderView:_headerView];
 
-    _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 200)];
+    _footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 260)];
     _footerView.backgroundColor = UIColorWhite;
     [self.tableView setTableFooterView:_footerView];
     
@@ -234,14 +269,21 @@
     self.fillButton1.titleLabel.font = UIFontMake(16);
     [self.fillButton1 setTitle:@"处理" forState:UIControlStateNormal];
     [self.fillButton1 addTarget:self action:@selector(clickFillButton1:) forControlEvents:UIControlEventTouchUpInside];
-    [self.tableView.tableFooterView addSubview:self.fillButton1];
+    [_footerView addSubview:self.fillButton1];
 
     _fillButton2 = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
     self.fillButton2.cornerRadius = 3;
     self.fillButton2.titleLabel.font = UIFontMake(16);
     [self.fillButton2 setTitle:@"上报" forState:UIControlStateNormal];
     [self.fillButton2 addTarget:self action:@selector(clickFillButton2:) forControlEvents:UIControlEventTouchUpInside];
-    [self.tableView.tableFooterView addSubview:self.fillButton2];
+    [_footerView addSubview:self.fillButton2];
+    
+    _fillButton3 = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//交办按钮
+    self.fillButton3.cornerRadius = 3;
+    self.fillButton3.titleLabel.font = UIFontMake(16);
+    [self.fillButton3 setTitle:@"交办" forState:UIControlStateNormal];
+    [self.fillButton3 addTarget:self action:@selector(clickFillButton3:) forControlEvents:UIControlEventTouchUpInside];
+    [_footerView addSubview:self.fillButton3];
 }
 //布局的相关代码写在 viewDidLayoutSubviews
 -(void)viewDidLayoutSubviews
@@ -282,9 +324,17 @@
     }];
     //    self.fillButton2 的布局
     [self.fillButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.fillButton1.mas_bottom).offset(Padding);
+        make.top.equalTo(self.fillButton1.mas_bottom).offset(2*Padding);
         make.left.equalTo(self.fillButton1);
         make.right.equalTo(self.fillButton1);
+        make.height.equalTo(@44);
+    }];
+    
+    //    self.fillButton3 的布局
+    [self.fillButton3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.fillButton2.mas_bottom).offset(2*Padding);
+        make.left.equalTo(self.fillButton2);
+        make.right.equalTo(self.fillButton2);
         make.height.equalTo(@44);
     }];
     
@@ -304,6 +354,30 @@
     }];
 }
 
+//事件的紧急与否
+-(void)showNormalSelectionDialogViewController{
+    __unsafe_unretained typeof(self) safeSelf = self;
+
+    QMUIDialogSelectionViewController *dialogViewController = [[QMUIDialogSelectionViewController alloc] init];
+    dialogViewController.title = @"事件紧急与否";
+    dialogViewController.items = @[@"是", @"否"];
+    dialogViewController.cellForItemBlock = ^(QMUIDialogSelectionViewController *aDialogViewController, QMUITableViewCell *cell, NSUInteger itemIndex) {
+        cell.accessoryType = UITableViewCellAccessoryNone;// 移除点击时默认加上右边的checkbox
+    };
+    dialogViewController.heightForItemBlock = ^CGFloat (QMUIDialogSelectionViewController *aDialogViewController, NSUInteger itemIndex) {
+        return 54;// 修改默认的行高，默认为 TableViewCellNormalHeight
+    };
+    dialogViewController.didSelectItemBlock = ^(QMUIDialogSelectionViewController *aDialogViewController, NSUInteger itemIndex) {
+        if (itemIndex == 0) {
+            _isEnabled = YES;
+        }else if (itemIndex == 1){
+            _isEnabled = NO;
+        }
+        [safeSelf.tableView reloadData];
+        [aDialogViewController hide];
+    };
+    [dialogViewController show];
+}
 
 #pragma mark UICollectionView
 

@@ -8,12 +8,13 @@
 
 
 #import "AFLoginVC.h"
-#import "AFTabBarController.h"
+//#import "AFTabBarController.h"
 #import "AppDelegate.h"
 #import "FrogetVC.h"
 #import "PPNetworkHelper.h"
 #import "PPHTTPRequest.h"
 #import "PPInterfacedConst.h"
+#import "BaseTabBarViewController.h"
 
 @interface AFLoginVC ()
 
@@ -206,7 +207,7 @@
                     
                     AFLog(@"账号为===%@\n密码为===%@",_phoneTF.text,_passwordTF.text);
                     [[NSUserDefaults standardUserDefaults] setObject:@"loginSuccess" forKey:@"loginSuccess"];
-                    AFTabBarController *aftabBar = [[AFTabBarController alloc]init];
+                    BaseTabBarViewController *aftabBar = [[BaseTabBarViewController alloc]init];
                     AppDelegate *dele = (AppDelegate *)[UIApplication sharedApplication].delegate;
                     dele.window.rootViewController = aftabBar;
                     

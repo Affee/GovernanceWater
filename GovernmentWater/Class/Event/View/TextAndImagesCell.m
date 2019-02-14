@@ -7,8 +7,6 @@
 //
 
 #import "TextAndImagesCell.h"
-#import "UITextView+ZWPlaceHolder.h"
-#import "UITextView+ZWLimitCounter.h"
 //#import <ZWLimitCounter/UITextView+ZWLimitCounter.h>
 
 
@@ -33,8 +31,8 @@
 //    self.eventTextView.layer.cornerRadius = 5.0f;
     self.eventTextView.font = [UIFont systemFontOfSize:15];
     self.eventTextView.layer.borderColor = KKColorLightGray.CGColor;
-    self.eventTextView.zw_placeHolder = @"请填写相处理的信息。";
-    self.eventTextView.zw_limitCount = 60;
+//    self.eventTextView.zw_placeHolder = @"请填写相处理的信息。";
+//    self.eventTextView.zw_limitCount = 60;
     
     [self.contentView addSubview:self.eventTextView];
     
