@@ -21,6 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *riverName;
 //地址
 @property (nonatomic, copy) NSString *eventLocation;
+//紧急与否
+@property (nonatomic, assign) BOOL isEnabled;
+
 
 
 @end

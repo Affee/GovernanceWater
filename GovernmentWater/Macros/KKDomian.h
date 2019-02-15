@@ -58,7 +58,8 @@
 #define URL_EventChooseNew_GetOfficeList KKStringWithFormat(@"%@/eventChooseNew/getOfficeList", Base_Url)
 // /eventChooseNew/getResponsibleList 责任单位列表
 #define URL_EventChooseNew_GetResponsibleList KKStringWithFormat(@"%@/eventChooseNew/getResponsibleList", Base_Url)
-
+// /eventNew/getList 事件分页列表
+#define URL_EventNew_GetList KKStringWithFormat(@"%@/eventNew/getList", Base_Url)
 
 
 #endif /* KKDomian_h */

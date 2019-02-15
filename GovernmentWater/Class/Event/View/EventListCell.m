@@ -49,56 +49,29 @@
 
 #pragma mark 控件的创建和布局
 -(void)createControls{
-    self.namenikeLabel = [[UILabel alloc]init];
-//    self.namenikeLabel.font = KKFont16;
-//        加粗
-    self.namenikeLabel.font = [UIFont affeeBlodFont:16];
+    self.namenikeLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(16) textColor:UIColorGray2];
     self.namenikeLabel.textAlignment = NSTextAlignmentLeft;
-//    self.namenikeLabel.backgroundColor = KKColorLightGray;
-//    self.namenikeLabel.textColor = KKColorPurple;
-    self.namenikeLabel.text = @"黄蕾";
-//    self.namenikeLabel.numberOfLines = 0;
     self.imgvIcon = [[UIImageView alloc]init];
     self.imgvIcon.layer.cornerRadius =  25;
     self.imgvIcon.layer.masksToBounds = YES;
     [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:KKPlaceholderImage];
     
-    UILabel *timeLabel = [[UILabel alloc] init];
+    UILabel *timeLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(14) textColor:UIColorGray2];
     _timeLabel = timeLabel;
-    timeLabel.text = @"7月25日 10:23";
-    timeLabel.font = KKFont14;
 /*污水*/
-    UILabel *sewageLabel = [[UILabel alloc] init];
+    UILabel *sewageLabel = [[UILabel alloc]qmui_initWithFont:UIFontMake(14) textColor:UIColorBlue];
     _sewageLabel = sewageLabel;
-    sewageLabel.text = @" 污水直排 ";
-    sewageLabel.textColor = KKWhiteColor;
-    sewageLabel.font = KKFont14;
-//    sewageLabel.backgroundColor = KKColorLightGray;
-    sewageLabel.layer.backgroundColor = KKColorPurple.CGColor;
-    sewageLabel.layer.borderColor = KKBlueColor.CGColor;
-    sewageLabel.layer.borderWidth = 1;
-    sewageLabel.layer.cornerRadius = 5.0f;
 /*地区*/
-     UILabel *addressLabel = [[UILabel alloc] init];
+     UILabel *addressLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(14) textColor:UIColorBlue];
      _addressLabel = addressLabel;
-     addressLabel.font = KKFont14;
-     addressLabel.textColor = KKWhiteColor;
-     addressLabel.layer.backgroundColor = KKColorPurple.CGColor;
-     addressLabel.text = @" 汇川区高平镇高平区 ";
-    addressLabel.layer.borderColor = KKBlueColor.CGColor;
-    addressLabel.layer.borderWidth = 1;
-    addressLabel.layer.cornerRadius = 5.0f;
 
     /*图片*/
     UIImageView *alarmImg = [[UIImageView alloc] init];
     _alarmImg = alarmImg;
     [alarmImg sd_setImageWithURL:[NSURL URLWithString:@"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=880022206,1994082184&fm=27&gp=0.jpg"] placeholderImage:KKPlaceholderImage];
 
-    UILabel *eventLabel = [[UILabel alloc] init];
+    UILabel *eventLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(16) textColor:UIColorGray1];
     _eventLabel = eventLabel;
-    eventLabel.font = KKFont16;
-    eventLabel.textColor = KKColorLightGray;
-    eventLabel.text = @"我曾经跨过山和大海";
     eventLabel.numberOfLines = 2;
 
     [self.contentView addSubview:timeLabel];
