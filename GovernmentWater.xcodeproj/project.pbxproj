@@ -104,6 +104,8 @@
 		F69E67172212DDE100555F89 /* AssistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67162212DDE100555F89 /* AssistViewController.m */; };
 		F69E671F2213F68000555F89 /* MoreCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */; };
 		F69E6757221515D600555F89 /* ReportPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E6756221515D600555F89 /* ReportPeopleViewController.m */; };
+		F69E67AA221AB96900555F89 /* BRTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67A9221AB96900555F89 /* BRTextField.m */; };
+		F69E67AD221ABA2600555F89 /* NSDate+BRAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67AC221ABA2600555F89 /* NSDate+BRAdd.m */; };
 		F6A5C6FE219BF7F700EB846F /* AFLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */; };
 		F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C702219C5D6900EB846F /* FrogetVC.m */; };
 		F6A5C706219D487D00EB846F /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C705219D487D00EB846F /* EventListCell.m */; };
@@ -454,6 +456,10 @@
 		F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreCellTableViewCell.m; sourceTree = "<group>"; };
 		F69E6755221515D600555F89 /* ReportPeopleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReportPeopleViewController.h; sourceTree = "<group>"; };
 		F69E6756221515D600555F89 /* ReportPeopleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReportPeopleViewController.m; sourceTree = "<group>"; };
+		F69E67A8221AB96900555F89 /* BRTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BRTextField.h; sourceTree = "<group>"; };
+		F69E67A9221AB96900555F89 /* BRTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BRTextField.m; sourceTree = "<group>"; };
+		F69E67AB221ABA2600555F89 /* NSDate+BRAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+BRAdd.h"; sourceTree = "<group>"; };
+		F69E67AC221ABA2600555F89 /* NSDate+BRAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+BRAdd.m"; sourceTree = "<group>"; };
 		F6A5C6FA219ADB2200EB846F /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F6A5C6FC219BF7F700EB846F /* AFLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFLoginVC.h; sourceTree = "<group>"; };
 		F6A5C6FD219BF7F700EB846F /* AFLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AFLoginVC.m; sourceTree = "<group>"; };
@@ -1223,6 +1229,10 @@
 				F695C1D921A28E5100E93F1A /* Base */,
 				F695C1DC21A28E5100E93F1A /* BRPickerView.h */,
 				F695C1DD21A28E5100E93F1A /* BRPickerViewMacro.h */,
+				F69E67A8221AB96900555F89 /* BRTextField.h */,
+				F69E67A9221AB96900555F89 /* BRTextField.m */,
+				F69E67AB221ABA2600555F89 /* NSDate+BRAdd.h */,
+				F69E67AC221ABA2600555F89 /* NSDate+BRAdd.m */,
 				F695C1DE21A28E5100E93F1A /* DatePickerView */,
 				F695C1E321A28E5100E93F1A /* StringPickerView */,
 			);
@@ -1879,6 +1889,7 @@
 				F657863F21992D6F003D87EA /* WRNavigationBar.m in Sources */,
 				F68D9E6521E9D0EB00E0C959 /* TypeListVC.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
+				F69E67AA221AB96900555F89 /* BRTextField.m in Sources */,
 				F6B8006821F83AF800230DDE /* QDCommonGridViewController.m in Sources */,
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
 				F6388CF221C25A1C00186D72 /* YYConst.mm in Sources */,
@@ -1955,6 +1966,7 @@
 				F6C92B6421A94B3400EE05D1 /* TZAssetModel.m in Sources */,
 				F6C92B6921A94B3400EE05D1 /* TZImagePickerController.m in Sources */,
 				F68D9E5421E7222C00E0C959 /* WMMenuView.m in Sources */,
+				F69E67AD221ABA2600555F89 /* NSDate+BRAdd.m in Sources */,
 				F6B8005121F822F000230DDE /* KKBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

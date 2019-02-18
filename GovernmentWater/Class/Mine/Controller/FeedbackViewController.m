@@ -169,6 +169,7 @@
         if (sucStr == 200) {
             [SVProgressHUD showProgress:1.2 status:messStr];
             [self.navigationController popViewControllerAnimated:YES];
+            [SVProgressHUD dismiss];
         }else{
             [SVProgressHUD showErrorWithStatus:messStr];
         }
