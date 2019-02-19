@@ -22,6 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *selectMuArr;//选中的
 @property (nonatomic, strong) NSDictionary *sureDict;//上个界面传递下来的数据
 
+@property (nonatomic, strong) NSArray *uploadImageArr;//选中的图片
+
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,6 +7,7 @@
 //
 
 #import "EventSureViewController.h"
+#import "EventViewController.h"
 #import "EventChooseViewController.h"
 #import "QDNavigationController.h"
 #import "AssistViewController.h"
@@ -32,6 +33,8 @@ static NSString *identifier = @"cell";
 @property (nonatomic, strong) UIView *footerView;
 
 @property (nonatomic, strong) BRTextField *ageTF;//截止时间
+@property (nonatomic, strong) NSMutableArray *IDArr;
+
 
 
 
@@ -45,15 +48,18 @@ static NSString *identifier = @"cell";
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    _selectMuArr = [NSMutableArray array];
-    
+    [_selectMuArr removeAllObjects];
+    [_IDArr removeAllObjects];
 }
 -(void)didInitialize{
     [super didInitialize];
     _secionArr = @[@"截止时间",@"主要处理人",@"协办处理人"];
     _realname = nil;
     _handleId = nil;
-    _selectMuArr = [NSMutableArray array];
+    _selectMuArr = nil;
+    _IDArr = [NSMutableArray array];
+    _uploadImageArr = [NSArray array];
+    _sureDict = [[NSDictionary alloc]init];
 }
 -(void)initSubviews{
     [super initSubviews];
@@ -67,8 +73,6 @@ static NSString *identifier = @"cell";
     [self.fillButton1 setTitle:@"确定" forState:UIControlStateNormal];
     [self.fillButton1 addTarget:self action:@selector(clickSureFillButton:) forControlEvents:UIControlEventTouchUpInside];
     [_footerView addSubview:self.fillButton1];
-    
-
 }
 -(void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
@@ -112,6 +116,8 @@ static NSString *identifier = @"cell";
 }
 -(CGFloat )tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.section ==0) {
+        return 40;
+    }else if (indexPath.section == 1){
         return 60;
     }
     return 100;
@@ -130,20 +136,24 @@ static NSString *identifier = @"cell";
     if (indexPath.section == 0) {
         [cell.imageView setImage:KKPlaceholderImage];
 //        调整imageView的大小
-        CGSize itemSize = CGSizeMake(40, 40);
+        CGSize itemSize = CGSizeMake(30, 30);
         UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
         CGRect imageRect = CGRectMake(0.0, 0.0, itemSize.width, itemSize.height);
         [cell.imageView.image drawInRect:imageRect];
         cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        cell.detailTextLabel.text = @"请选择截止时间";
-        cell.detailTextLabel.font = UIFontMake(14);
+//        cell.detailTextLabel.text =  self.ageTF.text ==nil? @"请选择截止时间":self.ageTF.text;
+//        cell.detailTextLabel.font = UIFontMake(14);
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [self setupAgeTF:cell];
     }else if (indexPath.section == 1 && indexPath.row == 0){
         cell.textLabel.text = self.realname == nil ? @"选择处理人":self.realname;
         cell.detailTextLabel.text = self.handleId;
+        NSString *str  = self.handleId == nil ? @"空":self.handleId;
+        [_sureDict setValue:str forKey:@"handleId"];//
+
+        
         [cell.imageView setImage:KKPlaceholderImage];
         CGSize itemSize = CGSizeMake(40, 40);
         UIGraphicsBeginImageContextWithOptions(itemSize, NO, UIScreen.mainScreen.scale);
@@ -155,7 +165,7 @@ static NSString *identifier = @"cell";
         if (_selectMuArr == nil || [_selectMuArr isKindOfClass:[NSNull class]] || _selectMuArr.count == 0) {
             cell.textLabel.text = @"请选择协办处理人";
         }else{
-            for (int i = 0 ; i < _selectMuArr.count; i++) {
+                for (int i = 0 ; i < _selectMuArr.count; i++) {
                 UserBaseMessagerModel *model = [UserBaseMessagerModel modelWithDictionary:_selectMuArr[i]];
                 self.eventLabel = [[UILabel alloc]init];
                 self.eventLabel.font = UIFontMake(12);
@@ -181,6 +191,9 @@ static NSString *identifier = @"cell";
                 self.eventLabel.text = model.realname;
                 //        [self.imageView sd_setImageWithURL:[NSString stringWithFormat:@"%@", model.avatar] placeholderImage:KKPlaceholderImage];
                 [self.imgvIcon setImage:KKPlaceholderImage];
+//                [_IDArr addObject: [NSString stringWithFormat:@"%@", [NSNumber numberWithInteger:model.identifier]]];
+                    [_IDArr addObject:[NSNumber numberWithInteger:model.identifier]];
+//                    [_sureDict setValue:_IDArr forKey:@"helpIds"];
             }
             cell.textLabel.hidden = YES;
         }
@@ -193,7 +206,6 @@ static NSString *identifier = @"cell";
     if (indexPath.section == 0) {
         [SVProgressHUD showErrorWithStatus:@"请选择时间"];
     }else if (indexPath.section == 1){
-//        [SVProgressHUD showErrorWithStatus:@"请选择处理人"];
         EventChooseViewController *ev = [[EventChooseViewController alloc]initWithStyle:UITableViewStyleGrouped];
         ev.riverID = self.riverID;
         ev.title = @"选择处理人";
@@ -207,46 +219,57 @@ static NSString *identifier = @"cell";
 }
 
 #pragma mark -生日 AgeTF
-#pragma mark - 3.显示时间选择器（支持 设置自动选择、自定义主题颜色、取消选择的回调）
-//+ (void)showDatePickerWithTitle:(NSString *)title
-//                       dateType:(BRDatePickerMode)dateType
-//                defaultSelValue:(NSString *)defaultSelValue
-//                        minDate:(NSDate *)minDate
-//                        maxDate:(NSDate *)maxDate
-//                   isAutoSelect:(BOOL)isAutoSelect
-//                     themeColor:(UIColor *)themeColor
-//                    resultBlock:(BRDateResultBlock)resultBlock
-//                    cancelBlock:(BRDateCancelBlock)cancelBlock {
-//    BRDatePickerView *datePickerView = [[BRDatePickerView alloc]initWithTitle:title dateType:dateType defaultSelValue:defaultSelValue minDate:minDate maxDate:maxDate isAutoSelect:isAutoSelect themeColor:themeColor resultBlock:resultBlock cancelBlock:cancelBlock];
-//    [datePickerView showWithAnimation:YES];
-//}
-
 -(void)setupAgeTF:(UITableViewCell *)cell {
     if (!_ageTF) {
         _ageTF = [self getTextField:cell];
-        //        _ageTF.text = [NSString stringWithFormat:@"%@", _dataDic[@"birthday"] ];
         __weak typeof(self) weakSelf = self;
         _ageTF.tapAcitonBlock = ^{
-//            [BRDatePickerView showDatePickerWithTitle:<#(NSString *)#> dateType:<#(BRDatePickerMode)#> defaultSelValue:<#(NSString *)#> minDate:<#(NSDate *)#> maxDate:<#(NSDate *)#> isAutoSelect:<#(BOOL)#> themeColor:<#(UIColor *)#> resultBlock:<#^(NSString *selectValue)resultBlock#>];
-            [BRDatePickerView showDatePickerWithTitle:@"选择截止时间" dateType:BRDatePickerModeYMD defaultSelValue:weakSelf.ageTF.text resultBlock:^(NSString *selectValue) {
+//            最小的日期 是今天
+            [BRDatePickerView showDatePickerWithTitle:@"" dateType:BRDatePickerModeYMD defaultSelValue:weakSelf.ageTF.text minDate:[NSDate br_setHour:0 minute:0] maxDate:nil isAutoSelect:NO themeColor:UIColorBlue resultBlock:^(NSString *selectValue) {
                 weakSelf.ageTF.text = selectValue;
-
             }];
         };
     }
 }
 - (BRTextField *)getTextField:(UITableViewCell *)cell {
-    BRTextField *textField = [[BRTextField alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 250, 0, 220, 50)];
+    BRTextField *textField = [[BRTextField alloc]initWithFrame:CGRectMake(SCREEN_WIDTH - 100, 0, 90, 40)];
     textField.backgroundColor = [UIColor clearColor];
-    textField.font = [UIFont systemFontOfSize:14.0f];
+    textField.font = UIFontMake(14);
     textField.textAlignment = NSTextAlignmentRight;
     textField.textColor = UIColorBlue;
     textField.delegate = self;
+    textField.placeholder = @"请选择截止时间";
     [cell.contentView addSubview:textField];
     return textField;
 }
 -(void)clickSureFillButton:(QMUIFillButton *)sender{
-    [SVProgressHUD showErrorWithStatus:@"确定提交"];
+//    if ([StringUtil isEmpty:_handleId]  || _IDArr == nil || [_IDArr isKindOfClass:[NSNull class]]  || _IDArr.count == 0 ) {
+//        [SVProgressHUD showErrorWithStatus:@"请确定提交相关信息"];
+//    }else{
+
+        AFLog(@"%@",_sureDict);
+        
+        [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+        [PPNetworkHelper uploadImagesWithURL:URL_RiverCruiseNew_ReportEvents parameters:_sureDict name:@"filename.png" images:_uploadImageArr fileNames:nil imageScale:0.5 imageType:@"jpg" progress:^(NSProgress *progress) {
+            
+        } success:^(id responseObject) {
+            int sucStr = [responseObject[@"status"] intValue];
+            NSString *messStr = responseObject[@"message"];
+            if (sucStr == 200) {
+                [SVProgressHUD showProgress:1.2 status:messStr];
+                [self.navigationController popViewControllerAnimated:YES];
+                EventViewController * evc = [self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count - 2];
+                [self.navigationController popToViewController:evc animated:YES];
+                [SVProgressHUD dismiss];
+            }else{
+                [SVProgressHUD showErrorWithStatus:messStr];
+            }
+            
+        } failure:^(NSError *error) {
+            
+        }];
+//    }
 }
 
 @end
+//(_selectIndexs == nil || [_selectIndexs isKindOfClass:[NSNull class]] || _selectIndexs.count == 0)
