@@ -243,7 +243,6 @@ static NSString *identifier = @"cell";
         [SVProgressHUD showErrorWithStatus:@"请确定提交相关信息"];
     }else{
         NSString *time =  [NSString stringWithFormat:@"%@",[DateUtil transTotimeSp:self.ageTF.text]];
-        
         NSDictionary *para = @{
                                @"eventContent":self.textViewStr,
                                @"eventPlace":self.eventLocation,
