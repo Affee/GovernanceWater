@@ -141,20 +141,29 @@
 }
 //交办n按钮
 -(void)clickFillButton3:(QMUIButton *)sender{
-    EventSureViewController *eventSureViewController = [[EventSureViewController alloc]initWithStyle:UITableViewStyleGrouped];
-    NSDictionary *dict = @{
-                           @"eventContent":_textView.text,
-                           @"eventPlace":self.eventLocation,
-                           @"isUrgen":[NSNumber numberWithBool:_isEnabled],//是否紧急(0:一般，1：紧急)
-                           @"typeId":_typeID,
-                           @"riverId":_riverID,
-                           @"eventNature":@2,//事件性质(0:群众举报，1：上报，2：督办)
-                           @"flag":@1,//按钮判断标识（0：上报按钮，1：处理按钮，2：交办按钮）
-                           };
-    eventSureViewController.title = @"督办";
-    eventSureViewController.sureDict = dict;
-    eventSureViewController.riverID = self.riverID;
-    [self.navigationController pushViewController:eventSureViewController animated:YES];
+    if ([StringUtil isEmpty:_typeName] || [StringUtil isEmpty:_riverName] || [StringUtil isEmpty:_eventLocation] || _uploadImageArr == nil ||[_uploadImageArr isKindOfClass:[NSNull class]] || _uploadImageArr.count == 0) {
+        [SVProgressHUD showErrorWithStatus:@"请填写完整信息"];
+    }else{
+        EventSureViewController *eventSureViewController = [[EventSureViewController alloc]initWithStyle:UITableViewStyleGrouped];
+        NSDictionary *dict = @{
+                               @"eventContent":_textView.text,
+                               @"eventPlace":self.eventLocation,
+                               @"isUrgen":[NSNumber numberWithBool:_isEnabled],//是否紧急(0:一般，1：紧急)
+                               @"typeId":_typeID,
+                               @"riverId":_riverID,
+                               @"eventNature":@2,//事件性质(0:群众举报，1：上报，2：督办)
+                               @"flag":@1,//按钮判断标识（0：上报按钮，1：处理按钮，2：交办按钮）
+                               };
+        eventSureViewController.title = @"督办";
+        eventSureViewController.sureDict = dict;
+        eventSureViewController.riverID = self.riverID;
+        
+        eventSureViewController.textViewStr = _textView.text;
+        eventSureViewController.eventLocation = self.eventLocation;
+        eventSureViewController.isEnabled = self.isEnabled;
+        eventSureViewController.typeID = self.typeID;
+        [self.navigationController pushViewController:eventSureViewController animated:YES];
+    }
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.dataSource.count;

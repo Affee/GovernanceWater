@@ -36,9 +36,6 @@ static NSString *identifier = @"cell";
 @property (nonatomic, strong) NSMutableArray *IDArr;
 
 
-
-
-
 @end
 
 @implementation EventSureViewController
@@ -151,7 +148,6 @@ static NSString *identifier = @"cell";
         cell.textLabel.text = self.realname == nil ? @"选择处理人":self.realname;
         cell.detailTextLabel.text = self.handleId;
         NSString *str  = self.handleId == nil ? @"空":self.handleId;
-        [_sureDict setValue:str forKey:@"handleId"];//
 
         
         [cell.imageView setImage:KKPlaceholderImage];
@@ -193,7 +189,6 @@ static NSString *identifier = @"cell";
                 [self.imgvIcon setImage:KKPlaceholderImage];
 //                [_IDArr addObject: [NSString stringWithFormat:@"%@", [NSNumber numberWithInteger:model.identifier]]];
                     [_IDArr addObject:[NSNumber numberWithInteger:model.identifier]];
-//                    [_sureDict setValue:_IDArr forKey:@"helpIds"];
             }
             cell.textLabel.hidden = YES;
         }
@@ -244,13 +239,25 @@ static NSString *identifier = @"cell";
 }
 -(void)clickSureFillButton:(QMUIFillButton *)sender{
 //    if ([StringUtil isEmpty:_handleId]  || _IDArr == nil || [_IDArr isKindOfClass:[NSNull class]]  || _IDArr.count == 0 ) {
-//        [SVProgressHUD showErrorWithStatus:@"请确定提交相关信息"];
-//    }else{
-
-        AFLog(@"%@",_sureDict);
+    if ([StringUtil isEmpty:_handleId]) {//协助处理人和截止日期可添加也可不添加
+        [SVProgressHUD showErrorWithStatus:@"请确定提交相关信息"];
+    }else{
+        NSString *time =  [NSString stringWithFormat:@"%@",[DateUtil transTotimeSp:self.ageTF.text]];
         
+        NSDictionary *para = @{
+                               @"eventContent":self.textViewStr,
+                               @"eventPlace":self.eventLocation,
+                               @"isUrgen":[NSNumber numberWithBool:_isEnabled],//是否紧急(0:一般，1：紧急)
+                               @"typeId":_typeID,
+                               @"riverId":_riverID,
+                               @"eventNature":@2,//事件性质(0:群众举报，1：上报，2：督办)
+                               @"flag":@2,//按钮判断标识（0：上报按钮，1：处理按钮，2：交办按钮）
+                               @"helpIds":_IDArr,
+                               @"handleId":_handleId,
+                               @"endDate":time,
+                               };
         [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-        [PPNetworkHelper uploadImagesWithURL:URL_RiverCruiseNew_ReportEvents parameters:_sureDict name:@"filename.png" images:_uploadImageArr fileNames:nil imageScale:0.5 imageType:@"jpg" progress:^(NSProgress *progress) {
+        [PPNetworkHelper uploadImagesWithURL:URL_RiverCruiseNew_ReportEvents parameters:para name:@"filename.png" images:_uploadImageArr fileNames:nil imageScale:0.5 imageType:@"jpg" progress:^(NSProgress *progress) {
             
         } success:^(id responseObject) {
             int sucStr = [responseObject[@"status"] intValue];
@@ -268,8 +275,36 @@ static NSString *identifier = @"cell";
         } failure:^(NSError *error) {
             
         }];
-//    }
+    }
 }
 
+-(NSInteger)timeSwitchTimestamp:(NSString *)formatTime andFormatter:(NSString *)format{
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    [formatter setDateFormat:format]; //(@"YYYY-MM-dd hh:mm:ss") ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    
+    
+    
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+    
+    [formatter setTimeZone:timeZone];
+
+    NSDate* date = [formatter dateFromString:formatTime]; //------------将字符串按formatter转成nsdate
+    
+    //时间转时间戳的方法:
+    
+    NSInteger timeSp = [[NSNumber numberWithDouble:[date timeIntervalSince1970]] integerValue];
+
+    NSLog(@"将某个时间转化成 时间戳&&&&&&&timeSp:%ld",(long)timeSp); //时间戳的值
+    
+    return timeSp;
+    
+}
+
+
+
 @end
-//(_selectIndexs == nil || [_selectIndexs isKindOfClass:[NSNull class]] || _selectIndexs.count == 0)

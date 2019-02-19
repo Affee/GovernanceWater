@@ -75,5 +75,14 @@
     }
 }
 
+//时间---->时间戳
++(NSString *)transTotimeSp:(NSString *)time{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]]; //设置本地时区
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *date = [dateFormatter dateFromString:time];
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[date timeIntervalSince1970]];//时间戳
+    return timeSp;
+}
 
 @end

@@ -19,5 +19,6 @@
 //根据创建新闻时的时间戳，返回新闻创建到现在相隔的时间
 +(NSString *)createTimeToNowTimesTamp:(long)timestamp;
 
-
+//时间---->时间戳
++(NSString *)transTotimeSp:(NSString *)time;
 @end
