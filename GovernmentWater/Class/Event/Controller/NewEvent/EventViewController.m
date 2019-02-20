@@ -24,7 +24,8 @@
 @end
 
 @implementation EventViewController
-
+-(void)viewWillAppear:(BOOL)animated{
+}
 -(void)setupToolbarItems
 {
     [super setupToolbarItems];
@@ -34,11 +35,18 @@
 
 -(void)didInitialize{
     [super didInitialize];
-    _recordsMArr = nil;
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
-    [self requestData];
+    self.tableView.estimatedRowHeight = 0;
+    self.tableView.estimatedSectionHeaderHeight = 0;
+    self.tableView.estimatedSectionFooterHeight = 0;
+    
+    _recordsMArr = [NSMutableArray new];
+    [self pushRequstDataStartIndex:0];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self pushRequstDataStartIndex:0];
+    }];
 }
 -(void)requestData
 {
@@ -62,7 +70,65 @@
         
     }];
 }
-
+#pragma mark ----按照顺序 请求滚动图 和列表方法
+-(void)pushRequstDataStartIndex:(NSInteger)start{
+    __weak typeof (self) weakSelf = self;
+    dispatch_group_t group = dispatch_group_create();
+//   轮播图
+//    事件列表
+    [weakSelf httpRequestOneWithGroup:group startIndex:start];
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        // 汇总结果
+        [weakSelf.tableView reloadData];
+    });
+}
+#pragma mark ---事件列表
+-(void)httpRequestOneWithGroup:(dispatch_group_t)group startIndex:(NSInteger)start{
+    dispatch_group_enter(group);
+    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+    [PPNetworkHelper GET:URL_EventNew_GetList parameters:nil responseCache:^(id responseCache) {
+        
+    } success:^(id responseObject) {
+        [self.tableView.mj_header endRefreshing];
+        [self.tableView.mj_footer endRefreshing];
+        if (responseObject) {
+            NSArray *recordsArr = responseObject[@"records"];
+            if (recordsArr.count > 0) {
+                if (start == 0) {
+                    _recordsMArr = [NSMutableArray new];
+                }else{}
+                
+                if (recordsArr.count == 10) {
+                    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+                        [self pushRequstDataStartIndex:_recordsMArr.count];
+                    }];
+                }
+//                else if (recordsArr.count <10){
+//                    [self.tableView reloadData];// 刷新tableview
+//                    [self.tableView.mj_header endRefreshing];// 结束下拉刷新
+//                    [self.tableView.mj_footer endRefreshing]; // 结束上拉加载
+//                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+//                }
+                else{
+                    self.tableView.mj_footer = nil;
+                }
+                
+                for (NSDictionary *dict in recordsArr) {
+                    [_recordsMArr addObject:dict];
+                }
+            }else{
+                self.tableView.mj_footer = nil;
+                if (start == 0) {
+                    _recordsMArr = [NSMutableArray new];
+                }
+            }
+        }else{}
+        dispatch_group_leave(group);
+    } failure:^(NSError *error) {
+        
+    }];
+    
+}
 
 -(void)initTableView{
     [super initTableView];
@@ -70,10 +136,8 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线
 }
 
-
 -(void)initSubviews{
     [super initSubviews];
-    
     __weak __typeof(self)weakSelf = self;
 //    self.button2 = [QDUIHelper generateLightBorderedButton];
     self.button2 = [[QMUIButton alloc]qmui_initWithImage:[UIImage imageNamed:@"addBlue"] title:nil];
@@ -97,14 +161,12 @@
         [self.navigationController pushViewController:reportViewController animated:YES];
         [aItem.menuView hideWithAnimated:YES];
     }],
-
                                  [QMUIPopupMenuButtonItem itemWithImage:[UIImageMake(@"icon_tabbar_lab") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] title:@"督办事件" handler:^(QMUIPopupMenuButtonItem *aItem) {
                                      AFLog(@"hah3");
                                      [aItem.menuView hideWithAnimated:YES];
                                  }]];
     self.popupByWindow.didHideBlock = ^(BOOL hidesByUserTap) {
         [weakSelf.button2 setImage:[UIImage imageNamed:@"addBlue"] forState:UIControlStateNormal];
-
     };
 }
 //布局与其苟延残喘 不如纵情燃烧
@@ -146,13 +208,14 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
-    EventDetailsVC *eventDetailsVC = [[EventDetailsVC alloc]init];
-    //    MODE 这个后期再搞吧
-    eventDetailsVC.eventID = eventVCModel.EventID;
-    eventDetailsVC.customNavBar.title = @"事件详情";
-    eventDetailsVC.view.backgroundColor = [UIColor whiteColor];
-    [self.navigationController pushViewController:eventDetailsVC animated:YES];
+//    EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
+//    EventDetailsVC *eventDetailsVC = [[EventDetailsVC alloc]init];
+//    //    MODE 这个后期再搞吧
+//    eventDetailsVC.eventID = eventVCModel.EventID;
+//    eventDetailsVC.customNavBar.title = @"事件详情";
+//    eventDetailsVC.view.backgroundColor = [UIColor whiteColor];
+//    [self.navigationController pushViewController:eventDetailsVC animated:YES];
+    [SVProgressHUD showInfoWithStatus:@"事件详情"];
 }
 
 @end

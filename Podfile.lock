@@ -297,7 +297,7 @@ DEPENDENCIES:
   - DZNEmptyDataSet (~> 1.8.1)
   - IQKeyboardManager
   - Masonry
-  - MJRefresh (~> 3.1.12)
+  - MJRefresh
   - QMUIKit
   - Reachability (~> 3.2)
   - SDCycleScrollView (~> 1.75)
@@ -334,6 +334,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 001a320884e584d125141a4c884ef8c533accc6b
+PODFILE CHECKSUM: 5a1e6906d2a176a04d9d603bcea6d0c366877c8e
 
 COCOAPODS: 1.5.3
