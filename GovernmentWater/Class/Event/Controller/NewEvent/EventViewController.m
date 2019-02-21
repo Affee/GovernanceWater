@@ -11,7 +11,7 @@
 #import "EventListCell.h"
 #import "NewsEventModel.h"
 #import "EventDetailsVC.h"
-
+#import "MyDealInViewController.h"
 
 @interface EventViewController ()
 @property(nonatomic, strong) QMUIButton *button2;
@@ -129,7 +129,6 @@
     }];
     
 }
-
 -(void)initTableView{
     [super initTableView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
@@ -208,14 +207,10 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
-//    EventDetailsVC *eventDetailsVC = [[EventDetailsVC alloc]init];
-//    //    MODE 这个后期再搞吧
-//    eventDetailsVC.eventID = eventVCModel.EventID;
-//    eventDetailsVC.customNavBar.title = @"事件详情";
-//    eventDetailsVC.view.backgroundColor = [UIColor whiteColor];
-//    [self.navigationController pushViewController:eventDetailsVC animated:YES];
-    [SVProgressHUD showInfoWithStatus:@"事件详情"];
+    EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
+    MyDealInViewController *myDealInViewController = [[MyDealInViewController alloc]initWithStyle:UITableViewStyleGrouped];
+    myDealInViewController.eventID = eventVCModel.EventID;
+    [self.navigationController pushViewController:myDealInViewController animated:YES];
 }
 
 @end

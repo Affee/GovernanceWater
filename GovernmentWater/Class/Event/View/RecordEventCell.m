@@ -50,6 +50,7 @@
     
     UILabel *timeLabel = [[UILabel alloc] init];
     _timeLabel = timeLabel;
+    timeLabel.textColor = TableViewCellDetailLabelColor;
     timeLabel.text = _model.createTime;
     timeLabel.font = KKFont14;
     

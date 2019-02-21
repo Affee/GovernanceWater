@@ -23,25 +23,14 @@
 #import "FLAnimatedImage.h"
 
 @interface FeedbackViewController ()<QMUITextViewDelegate,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>{
-    NSMutableArray *_selectedPhotos;
-    NSMutableArray *_selectedAssets;
+//    NSMutableArray *_selectedPhotos;
+//    NSMutableArray *_selectedAssets;
     CGFloat _itemWH;
     CGFloat _margin;
     BOOL _isSelectOriginalPhoto;
-    NSArray *_uploadImageArr;
 
 }
-@property(nonatomic,strong) QMUITextView *textView;
-@property (nonatomic, strong) QMUILabel *questionLabel;
-@property (nonatomic, strong) QMUILabel *imageLabel;
-@property (nonatomic, strong) UIView *bigView;
-@property (nonatomic, strong) QMUIFillButton *sureButton;
 
-@property (strong, nonatomic) LxGridViewFlowLayout *layout;
-@property (nonatomic, strong) UICollectionView *collectionView;
-@property (nonatomic, strong) UIScrollView *scrollView;
-@property (nonatomic, strong) UIImagePickerController *imagePickerVc;
-@property (strong, nonatomic) CLLocation *location;
 
 
 
@@ -156,27 +145,32 @@
 //(QMUIButton *)sender 提交意见反馈
 -(void)clickSureButton:(QMUIButton *)sender{
     [SVProgressHUD showErrorWithStatus:@"上报事件"];
-    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-    
-    NSDictionary *para = @{
-                           @"content":[NSString stringWithFormat:@"%@",_textView.text],
-                           };
-    [PPNetworkHelper uploadImagesWithURL:URL_appManage_Feedback parameters:para name:@"filename.png" images:_uploadImageArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
+    if ([StringUtil isEmpty:[NSString stringWithFormat:@"%@",_textView.text]]) {
+        [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
         
-    } success:^(id responseObject) {
-        int sucStr = [responseObject[@"status"] intValue];
-        NSString *messStr = responseObject[@"message"];
-        if (sucStr == 200) {
-            [SVProgressHUD showProgress:1.2 status:messStr];
-            [self.navigationController popViewControllerAnimated:YES];
-            [SVProgressHUD dismiss];
-        }else{
-            [SVProgressHUD showErrorWithStatus:messStr];
-        }
-    } failure:^(NSError *error) {
-        
-    }];
+        NSDictionary *para = @{
+                               @"content":[NSString stringWithFormat:@"%@",_textView.text],
+                               };
+        [PPNetworkHelper uploadImagesWithURL:URL_appManage_Feedback parameters:para name:@"filename.png" images:_uploadImageArr fileNames:nil imageScale:0.5f imageType:@"jpg" progress:^(NSProgress *progress) {
+            
+        } success:^(id responseObject) {
+            int sucStr = [responseObject[@"status"] intValue];
+            NSString *messStr = responseObject[@"message"];
+            if (sucStr == 200) {
+                [SVProgressHUD showProgress:1.2 status:messStr];
+                [self.navigationController popViewControllerAnimated:YES];
+                [SVProgressHUD dismiss];
+            }else{
+                [SVProgressHUD showErrorWithStatus:messStr];
+            }
+        } failure:^(NSError *error) {
+            
+        }];
+    }else{
+        [SVProgressHUD showErrorWithStatus:@"请填写相关信息"];
+    }
 }
+
 
 #pragma mark UICollectionView
 

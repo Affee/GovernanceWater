@@ -64,6 +64,7 @@
 /*地区*/
      UILabel *addressLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(14) textColor:UIColorBlue];
      _addressLabel = addressLabel;
+    addressLabel.textAlignment = NSTextAlignmentLeft;
 
     /*图片*/
     UIImageView *alarmImg = [[UIImageView alloc] init];
@@ -124,8 +125,8 @@
         make.left.equalTo(_sewageLabel.mas_right).offset(Padding);
         make.bottom.equalTo(self.contentView).offset(-Padding);
         make.height.equalTo(@30);
-        make.width.greaterThanOrEqualTo(@20).priorityHigh();
-//        make.top.equalTo(_eventLabel.mas_bottom).offset(Padding);
+        make.width.equalTo(@150);
+//        make.width.greaterThanOrEqualTo(@20).priorityHigh();
     }];
 
     [_eventLabel mas_makeConstraints:^(MASConstraintMaker *make) {

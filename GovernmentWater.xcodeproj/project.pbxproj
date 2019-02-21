@@ -111,6 +111,10 @@
 		F6A5C706219D487D00EB846F /* EventListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C705219D487D00EB846F /* EventListCell.m */; };
 		F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C708219D5C6400EB846F /* EventListCellModel.m */; };
 		F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F6A5C70B219D750400EB846F /* EventDetailsVC.m */; };
+		F6B3A5C7221E4E550016E897 /* MyDealInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A5C6221E4E550016E897 /* MyDealInViewController.m */; };
+		F6B3A5CA221E4F400016E897 /* MyDealArchiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A5C9221E4F400016E897 /* MyDealArchiveViewController.m */; };
+		F6B3A5CD221E501B0016E897 /* MyDealNoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A5CC221E501B0016E897 /* MyDealNoViewController.m */; };
+		F6B3A5D0221E7B390016E897 /* MySureDealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A5CF221E7B390016E897 /* MySureDealViewController.m */; };
 		F6B3A6E821F8401100131536 /* QDUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A6E421F8401100131536 /* QDUIHelper.m */; };
 		F6B3A6E921F8401100131536 /* UIImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A6E521F8401100131536 /* UIImageEffects.m */; };
 		F6B3A6EA21F8401100131536 /* QDCommonUI.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3A6E621F8401100131536 /* QDCommonUI.m */; };
@@ -471,6 +475,14 @@
 		F6A5C708219D5C6400EB846F /* EventListCellModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventListCellModel.m; sourceTree = "<group>"; };
 		F6A5C70A219D750400EB846F /* EventDetailsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailsVC.h; sourceTree = "<group>"; };
 		F6A5C70B219D750400EB846F /* EventDetailsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailsVC.m; sourceTree = "<group>"; };
+		F6B3A5C5221E4E550016E897 /* MyDealInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDealInViewController.h; sourceTree = "<group>"; };
+		F6B3A5C6221E4E550016E897 /* MyDealInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyDealInViewController.m; sourceTree = "<group>"; };
+		F6B3A5C8221E4F400016E897 /* MyDealArchiveViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDealArchiveViewController.h; sourceTree = "<group>"; };
+		F6B3A5C9221E4F400016E897 /* MyDealArchiveViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyDealArchiveViewController.m; sourceTree = "<group>"; };
+		F6B3A5CB221E501B0016E897 /* MyDealNoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyDealNoViewController.h; sourceTree = "<group>"; };
+		F6B3A5CC221E501B0016E897 /* MyDealNoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyDealNoViewController.m; sourceTree = "<group>"; };
+		F6B3A5CE221E7B390016E897 /* MySureDealViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MySureDealViewController.h; sourceTree = "<group>"; };
+		F6B3A5CF221E7B390016E897 /* MySureDealViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MySureDealViewController.m; sourceTree = "<group>"; };
 		F6B3A6E221F8401100131536 /* UIImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageEffects.h; sourceTree = "<group>"; };
 		F6B3A6E321F8401100131536 /* QDCommonUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDCommonUI.h; sourceTree = "<group>"; };
 		F6B3A6E421F8401100131536 /* QDUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDUIHelper.m; sourceTree = "<group>"; };
@@ -1319,6 +1331,21 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		F6B3A5C4221E4BEC0016E897 /* MyDeal(我的处理) */ = {
+			isa = PBXGroup;
+			children = (
+				F6B3A5C5221E4E550016E897 /* MyDealInViewController.h */,
+				F6B3A5C6221E4E550016E897 /* MyDealInViewController.m */,
+				F6B3A5C8221E4F400016E897 /* MyDealArchiveViewController.h */,
+				F6B3A5C9221E4F400016E897 /* MyDealArchiveViewController.m */,
+				F6B3A5CB221E501B0016E897 /* MyDealNoViewController.h */,
+				F6B3A5CC221E501B0016E897 /* MyDealNoViewController.m */,
+				F6B3A5CE221E7B390016E897 /* MySureDealViewController.h */,
+				F6B3A5CF221E7B390016E897 /* MySureDealViewController.m */,
+			);
+			path = "MyDeal(我的处理)";
+			sourceTree = "<group>";
+		};
 		F6B3A6E121F8401100131536 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -1372,6 +1399,7 @@
 				F69E67162212DDE100555F89 /* AssistViewController.m */,
 				F69E6755221515D600555F89 /* ReportPeopleViewController.h */,
 				F69E6756221515D600555F89 /* ReportPeopleViewController.m */,
+				F6B3A5C4221E4BEC0016E897 /* MyDeal(我的处理) */,
 			);
 			path = NewEvent;
 			sourceTree = "<group>";
@@ -1869,6 +1897,7 @@
 				F6C92B6C21A94B3400EE05D1 /* TZPhotoPreviewCell.m in Sources */,
 				F68D9E7A21EA034E00E0C959 /* LocationModel.m in Sources */,
 				F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */,
+				F6B3A5C7221E4E550016E897 /* MyDealInViewController.m in Sources */,
 				F68D9E9021EC9C0E00E0C959 /* UnitModel.m in Sources */,
 				F6B8006721F83AF800230DDE /* QDCommonGroupListViewController.m in Sources */,
 				F6A5C703219C5D6A00EB846F /* FrogetVC.m in Sources */,
@@ -1878,6 +1907,7 @@
 				F6B3A71621F9C22000131536 /* ReportViewController.m in Sources */,
 				F68D9E5321E7222C00E0C959 /* WMScrollView.m in Sources */,
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
+				F6B3A5CA221E4F400016E897 /* MyDealArchiveViewController.m in Sources */,
 				F6B3A74521FC3F7100131536 /* PersonalViewController.m in Sources */,
 				F69E67112212B63000555F89 /* QMUIConfigurationTemplatePinkRose.m in Sources */,
 				F6B3A73021FB3A9A00131536 /* HomeNewsDetailsViewController.m in Sources */,
@@ -1893,6 +1923,7 @@
 				F6B8006821F83AF800230DDE /* QDCommonGridViewController.m in Sources */,
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
 				F6388CF221C25A1C00186D72 /* YYConst.mm in Sources */,
+				F6B3A5CD221E501B0016E897 /* MyDealNoViewController.m in Sources */,
 				F6A5C70C219D750400EB846F /* EventDetailsVC.m in Sources */,
 				F69E670022116E2E00555F89 /* BaseTabBarViewController.m in Sources */,
 				F6B3A70321F862B300131536 /* MineViewController.m in Sources */,
@@ -1948,6 +1979,7 @@
 				F6B3A71321F99EB500131536 /* EventViewController.m in Sources */,
 				F6B3A6E921F8401100131536 /* UIImageEffects.m in Sources */,
 				F68D9E6821E9D29600E0C959 /* TypeListModel.m in Sources */,
+				F6B3A5D0221E7B390016E897 /* MySureDealViewController.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,
 				F669DA9E21B65D0600CAE242 /* RegionModel.m in Sources */,
 				F6B3A6FA21F8419600131536 /* QDAllAnimationViewController.m in Sources */,

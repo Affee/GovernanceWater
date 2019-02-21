@@ -60,6 +60,11 @@
 #define URL_EventChooseNew_GetResponsibleList KKStringWithFormat(@"%@/eventChooseNew/getResponsibleList", Base_Url)
 // /eventNew/getList 事件分页列表
 #define URL_EventNew_GetList KKStringWithFormat(@"%@/eventNew/getList", Base_Url)
+///eventNew/findById 事件详情信息
+#define URL_EventNew_FindById KKStringWithFormat(@"%@/eventNew/findById", Base_Url)
+///eventNew/handleResult 填写处理结果&确定按钮
+#define URL_EventNew_HandleResult KKStringWithFormat(@"%@/eventNew/handleResult", Base_Url)
+
 
 
 #endif /* KKDomian_h */

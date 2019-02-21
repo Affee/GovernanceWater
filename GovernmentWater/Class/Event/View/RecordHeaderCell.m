@@ -62,8 +62,9 @@
 #pragma mark 控件的创建和布局
 -(void)createControls{
     self.eventLabel = [[UILabel alloc]init];
-    self.eventLabel.font = KKFont16;
+    self.eventLabel.font = UIFontMake(16);
     self.eventLabel.numberOfLines = 0;
+    self.eventLabel.textColor = TableViewCellDetailLabelColor;
     
 //    EventDetailModel *model = [EventDetailModel modelWithDictionary:_imageArr];
     
