@@ -17,6 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+-(void)didInitialize{
+    [super didInitialize];
     self.textView.placeholder = @"请输入处理意见";
     self.questionLabel.text = @"处理结果";
     self.imageLabel.text = @"相关图片";
@@ -25,7 +28,6 @@
 -(void)clickSureButton:(QMUIButton *)sender{
     if (![StringUtil isEmpty:[NSString stringWithFormat:@"%@",self.textView.text]]) {
         [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-        
         NSDictionary *para = @{
                                @"option":[NSString stringWithFormat:@"%@",self.textView.text],
                                @"eventId":self.eventID,
@@ -49,6 +51,5 @@
         [SVProgressHUD showErrorWithStatus:@"请填写相关信息"];
     }
 }
-
 
 @end

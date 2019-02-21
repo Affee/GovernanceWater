@@ -43,7 +43,6 @@
 -(void)didInitialize{
     [super didInitialize];
     _uploadImageArr = [NSArray array];
-
     self.textView = [[QMUITextView alloc] init];
     self.textView.delegate = self;
     self.textView.placeholder = @"请输入您的问题或者宝贵意见";
