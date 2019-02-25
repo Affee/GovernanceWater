@@ -1,12 +1,12 @@
 //
-//  EventViewController.m
+//  ssssssss.m
 //  GovernmentWater
 //
-//  Created by affee on 24/01/2019.
+//  Created by affee on 25/02/2019.
 //  Copyright © 2019 affee. All rights reserved.
 //
 
-#import "EventViewController.h"
+#import "ssssssss.h"
 #import "ReportViewController.h"
 #import "EventListCell.h"
 #import "NewsEventModel.h"
@@ -14,12 +14,14 @@
 #import "MyDealInViewController.h"
 #import "DOPDropDownMenu.h"
 
-#define HeaderHeight 40//顶部筛选的高度
+#define HeaderHeight 44//顶部筛选的高度
 
-@interface EventViewController ()<DOPDropDownMenuDelegate,DOPDropDownMenuDataSource>
+@interface ssssssss ()<DOPDropDownMenuDelegate,DOPDropDownMenuDataSource,QMUITableViewDelegate,QMUITableViewDataSource>
 @property(nonatomic, strong) QMUIButton *button2;
 @property(nonatomic, strong) QMUIPopupMenuView *popupByWindow;
 @property(nonatomic, strong) QMUIPopupMenuView *popupAtBarButtonItem;
+@property (nonatomic, strong) QMUITableView *tableView;
+
 //数据
 @property (nonatomic, strong) NSMutableArray *recordsMArr;
 @property (nonatomic,strong) EventVCModel *evenVCModel;
@@ -35,7 +37,7 @@
 
 @end
 
-@implementation EventViewController
+@implementation ssssssss
 -(void)setupToolbarItems
 {
     [super setupToolbarItems];
@@ -53,15 +55,19 @@
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.tableView.estimatedRowHeight = 0;
     self.tableView.estimatedSectionHeaderHeight = 0;
     self.tableView.estimatedSectionFooterHeight = 0;
+
     
-    _recordsMArr = [NSMutableArray new];
-    [self pushRequstDataStartIndex:0];
-    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self pushRequstDataStartIndex:0];
-    }];
+    
+//    _recordsMArr = [NSMutableArray new];
+//    [self pushRequstDataStartIndex:0];
+//    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        [self pushRequstDataStartIndex:0];
+//    }];
 }
 
 #pragma mark --筛选
@@ -108,20 +114,20 @@
     [SVProgressHUD show];
     KKWeakify(self)
     [PPNetworkHelper GET:URL_EventNew_GetList parameters:nil responseCache:^(id responseCache) {
-
+        
     } success:^(id responseObject) {
         _recordsMArr  = [NSMutableArray array];
         for (NSDictionary *dict in responseObject[@"records"]) {
             [_recordsMArr addObject:dict];
         }
-
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             KKStrongify(self)
             [self.tableView reloadData];
         });
         [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
-
+        
     }];
 }
 
@@ -129,8 +135,8 @@
 -(void)pushRequstDataStartIndex:(NSInteger)start{
     __weak typeof (self) weakSelf = self;
     dispatch_group_t group = dispatch_group_create();
-//   轮播图
-//    事件列表
+    //   轮播图
+    //    事件列表
     [weakSelf httpRequestOneWithGroup:group startIndex:start];
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         // 汇总结果
@@ -158,12 +164,12 @@
                         [self pushRequstDataStartIndex:_recordsMArr.count];
                     }];
                 }
-//                else if (recordsArr.count <10){
-//                    [self.tableView reloadData];// 刷新tableview
-//                    [self.tableView.mj_header endRefreshing];// 结束下拉刷新
-//                    [self.tableView.mj_footer endRefreshing]; // 结束上拉加载
-//                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
-//                }
+                //                else if (recordsArr.count <10){
+                //                    [self.tableView reloadData];// 刷新tableview
+                //                    [self.tableView.mj_header endRefreshing];// 结束下拉刷新
+                //                    [self.tableView.mj_footer endRefreshing]; // 结束上拉加载
+                //                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+                //                }
                 else{
                     self.tableView.mj_footer = nil;
                 }
@@ -184,20 +190,32 @@
     }];
     
 }
--(void)initTableView{
-    [super initTableView];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线
-}
 
 -(void)initSubviews{
     [super initSubviews];
     __weak __typeof(self)weakSelf = self;
-    self.BigView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 80)];
-//    [self.view addSubview:self.BigView];
-    [self.tableView addSubview:self.BigView];
+    self.tableView = [[QMUITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight +HeaderHeight *2, KKScreenWidth, KKScreenHeight - KKBarHeight - 2*HeaderHeight)];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线；
+    [self.view addSubview:self.tableView];
     
-//    self.button2 = [QDUIHelper generateLightBorderedButton];
+    self.BigView = [[UIView alloc]initWithFrame:CGRectMake(0, KKBarHeight, KKScreenWidth, HeaderHeight*2)];
+    self.BigView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:self.BigView];
+    
+    _eventHeaderView = [[DOPDropDownMenu alloc]initWithOrigin:CGPointMake(0, KKBarHeight) andHeight:44];
+    _eventHeaderView.backgroundColor = UIColorRed;
+    [self.view  addSubview:_eventHeaderView];
+    //    分页控制器
+    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc]initWithItems: self.eventArr];
+    segmentedControl.frame = CGRectMake(0, HeaderHeight, KKScreenWidth - 80, HeaderHeight);
+    segmentedControl.selectedSegmentIndex = 0;
+    segmentedControl.tintColor = UIColorBlue;
+    [segmentedControl addTarget:segmentedControl action:@selector(indexDidChangeForSegmentedControl:) forControlEvents: UIControlEventValueChanged];
+    [self.BigView addSubview:segmentedControl];
+    
+    
+    //    self.button2 = [QDUIHelper generateLightBorderedButton];
     self.button2 = [[QMUIButton alloc]qmui_initWithImage:[UIImage imageNamed:@"addBlue"] title:nil];
     [self.button2 addTarget:self action:@selector(handleButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self.button2 setImage:[UIImage imageNamed:@"addBlue"] forState:UIControlStateNormal];
@@ -226,6 +244,24 @@
     self.popupByWindow.didHideBlock = ^(BOOL hidesByUserTap) {
         [weakSelf.button2 setImage:[UIImage imageNamed:@"addBlue"] forState:UIControlStateNormal];
     };
+    
+    
+//    选择器的代理以及回调
+    _eventHeaderView.delegate = self;
+    _eventHeaderView.dataSource = self;
+    _eventHeaderView.finishedBlock=^(DOPIndexPath *indexPath){
+        if (indexPath.item >= 0) {
+            NSLog(@"收起:点击了 %ld - %ld - %ld 项目",(long)indexPath.column,(long)indexPath.row,(long)indexPath.item);
+        }else {
+            NSLog(@"收起:点击了 %ld - %ld 额外的-%ld项目",(long)indexPath.column,(long)indexPath.row,(long)indexPath.item);
+            
+        }
+        
+        //        从这里建立新的UI 筛选
+    };
+    //     创建menu 第一次显示 不会调用点击代理，可以用这个手动调用
+    //    [menu selectDefalutIndexPath];
+    [_eventHeaderView selectIndexPath:[DOPIndexPath indexPathWithCol:0 row:0 item:0]];
 }
 //布局与其苟延残喘 不如纵情燃烧
 -(void)viewDidLayoutSubviews
@@ -242,6 +278,36 @@
 {
     [self.popupByWindow showWithAnimated:YES];
     [self.button2 setTitle:@"隐藏菜单浮层" forState:UIControlStateNormal];
+}
+
+-(void)indexDidChangeForSegmentedControl:(UISegmentedControl *)sender{
+    NSInteger selecIndex = sender.selectedSegmentIndex;
+    sender.selectedSegmentIndex = selecIndex;
+    _recordsMArr = [NSMutableArray new];
+    [self pushRequstDataStartIndex:0];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self pushRequstDataStartIndex:0];
+    }];
+//    switch (selecIndex) {
+//        case 0:
+//            [self pushRequstDataStartIndex:0];
+//            self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//                [self pushRequstDataStartIndex:0];
+//            }];
+//            break;
+//        case 1:
+//            [self pushRequstDataStartIndex:0];
+//            self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//                [self pushRequstDataStartIndex:0];
+//            }];
+//            break;
+//        case 2:
+//
+//            break;
+//
+//        default:
+//            break;
+//    }
 }
 
 #pragma mark - tableview delegate / dataSource 两个代理

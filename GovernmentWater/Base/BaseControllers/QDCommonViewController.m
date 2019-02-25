@@ -28,11 +28,11 @@
 #pragma mark - <QDChangingThemeDelegate>
 
 - (void)themeBeforeChanged:(NSObject<QDThemeProtocol> *)themeBeforeChanged afterChanged:(NSObject<QDThemeProtocol> *)themeAfterChanged {
-//    // 主题发生变化，在这里更新全局 UI 控件的 appearance
-//    [QDCommonUI renderGlobalAppearances];
-//
-//    // 更新表情 icon 的颜色
-//    [QDUIHelper updateEmotionImages];
+    // 主题发生变化，在这里更新全局 UI 控件的 appearance
+    [QDCommonUI renderGlobalAppearances];
+
+    // 更新表情 icon 的颜色
+    [QDUIHelper updateEmotionImages];
     
 }
 

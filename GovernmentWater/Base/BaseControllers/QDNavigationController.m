@@ -15,9 +15,4 @@
 @implementation QDNavigationController
 
 
-// MODE 临时加的
-- (UIImage *)navigationBarBackgroundImage {
-    return NavBarBackgroundImage;
-}
-
 @end

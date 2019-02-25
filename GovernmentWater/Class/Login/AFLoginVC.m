@@ -235,7 +235,7 @@
     forgetVC.title = @"找回密码";
     UINavigationController *ptNC = [[UINavigationController alloc]initWithRootViewController:forgetVC];
     [self presentViewController:ptNC animated:YES completion:nil];
-}
+}            
 -(void)ClickregisterBtn:(UIButton *)sender{
     AFLog(@"注册");
     FrogetVC *forgetVC = [[FrogetVC alloc]init];

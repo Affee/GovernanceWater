@@ -20,7 +20,7 @@ static NSString *cellIdentifier = @"EventVE.EventListCell";
 //数据
 @property (nonatomic, strong) NSMutableArray *recordsMArr;
 @property (nonatomic, strong)DOPDropDownMenu *eventHeaderView;
-@property (nonatomic,strong)UILabel *eventTypeLabel;
+@property (nonatomic,strong) UILabel *eventTypeLabel;
 @property (nonatomic, strong) UILabel *chooseLabel;
 @property (nonatomic, strong) UIView *lineView;
 
@@ -135,28 +135,49 @@ static NSString *cellIdentifier = @"EventVE.EventListCell";
 }
 
 #pragma mark --数据请求
+//-(void)requestData
+//{
+//    [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
+//
+//    [SVProgressHUD show];
+//    [PPNetworkHelper GET:Event_GetList_URL parameters:nil responseCache:^(id responseCache) {
+//
+//    } success:^(id responseObject) {
+//        //            _recordsMArr =  responseObject[@"records"];
+//        for (NSDictionary *dict in responseObject[@"records"]) {
+//            [_recordsMArr addObject:dict];
+//        }
+//
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [_tableView reloadData];
+//        });
+//        [SVProgressHUD dismiss];
+//    } failure:^(NSError *error) {
+//
+//    }];
+//}
 -(void)requestData
 {
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-    
     [SVProgressHUD show];
-    [PPNetworkHelper GET:Event_GetList_URL parameters:nil responseCache:^(id responseCache) {
-        
+    KKWeakify(self)
+    [PPNetworkHelper GET:URL_EventNew_GetList parameters:nil responseCache:^(id responseCache) {
+
     } success:^(id responseObject) {
-        //            _recordsMArr =  responseObject[@"records"];
+        _recordsMArr  = [NSMutableArray array];
         for (NSDictionary *dict in responseObject[@"records"]) {
             [_recordsMArr addObject:dict];
         }
-        
+
         dispatch_async(dispatch_get_main_queue(), ^{
-            [_tableView reloadData];
+            KKStrongify(self)
+            [self.tableView reloadData];
         });
         [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
-        
+
     }];
 }
-
 #pragma mark - tableview delegate / dataSource 两个代理
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -193,7 +214,7 @@ static NSString *cellIdentifier = @"EventVE.EventListCell";
 -(UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight + HeaderHeight*2, KKScreenWidth, KKScreenHeight - KKBarHeight - KKiPhoneXSafeAreaDValue) style:UITableViewStylePlain];
+        _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight + HeaderHeight*2, KKScreenWidth, KKScreenHeight - KKBarHeight - KKiPhoneXSafeAreaDValue -100) style:UITableViewStylePlain];
     }
     return _tableView;
 }

@@ -15,6 +15,8 @@
 #import "AboutUsViewController.h"
 #import "UserBaseMessagerModel.h"
 
+#import "ssssssss.h"
+
 @interface MineViewController ()
 @property (nonatomic, strong) UIView *headerView;
 @property (nonatomic, strong) UIView *footView;
@@ -29,6 +31,7 @@
     [super viewDidLoad];
     [self requestData];
 }
+
 -(void)requestData
 {
 //    __weak __typeof(self)weakSelf = self;
@@ -64,7 +67,8 @@
     }else if ([title isEqualToString:@"清楚缓存"]){
         viewController = [[QDSearchViewController alloc]init];
     }else if ([title isEqualToString:@"修改密码"]){
-        viewController = [[ChangePassViewController alloc]init];
+//        viewController = [[ChangePassViewController alloc]init];
+        viewController = [[ssssssss alloc]init];
     }
     viewController.title = title;
     viewController.view.backgroundColor = UIColorWhite;

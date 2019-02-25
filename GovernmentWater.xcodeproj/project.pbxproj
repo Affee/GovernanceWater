@@ -12,8 +12,9 @@
 		F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734121CA300A00B39E6C /* NewsEventModel.m */; };
 		F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734421CA6A8C00B39E6C /* BannerModel.m */; };
 		F60B343E21E5DECA00D504BF /* EventVCT.m in Sources */ = {isa = PBXBuildFile; fileRef = F60B343D21E5DECA00D504BF /* EventVCT.m */; };
-		F60B344221E5E5C900D504BF /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F60B344021E5E5C800D504BF /* DOPDropDownMenu.m */; };
 		F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6299E5A21AE645C009382EB /* EventVCModel.m */; };
+		F62F2F482223D5A30019E78C /* ssssssss.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F2F472223D5A30019E78C /* ssssssss.m */; };
+		F62F2F4E2223E8F60019E78C /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F2F4C2223E8F60019E78C /* DOPDropDownMenu.m */; };
 		F6388CCF21C2423E00186D72 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CCE21C2423D00186D72 /* CoreTelephony.framework */; };
 		F6388CD121C2425F00186D72 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CD021C2425F00186D72 /* Security.framework */; };
 		F6388CD321C2426F00186D72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6388CD221C2426F00186D72 /* CoreGraphics.framework */; };
@@ -289,10 +290,12 @@
 		F602734421CA6A8C00B39E6C /* BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		F60B343C21E5DECA00D504BF /* EventVCT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCT.h; sourceTree = "<group>"; };
 		F60B343D21E5DECA00D504BF /* EventVCT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCT.m; sourceTree = "<group>"; };
-		F60B344021E5E5C800D504BF /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
-		F60B344121E5E5C900D504BF /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
 		F6299E5921AE645C009382EB /* EventVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCModel.h; sourceTree = "<group>"; };
 		F6299E5A21AE645C009382EB /* EventVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCModel.m; sourceTree = "<group>"; };
+		F62F2F462223D5A30019E78C /* ssssssss.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ssssssss.h; sourceTree = "<group>"; };
+		F62F2F472223D5A30019E78C /* ssssssss.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ssssssss.m; sourceTree = "<group>"; };
+		F62F2F4C2223E8F60019E78C /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
+		F62F2F4D2223E8F60019E78C /* DOPDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPDropDownMenu.h; sourceTree = "<group>"; };
 		F6388CCE21C2423D00186D72 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		F6388CD021C2425F00186D72 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		F6388CD221C2426F00186D72 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -798,6 +801,8 @@
 				F6B3A73221FBF48300131536 /* AboutUsViewController.m */,
 				F6B3A74C21FF01C600131536 /* FeedbackViewController.h */,
 				F6B3A74D21FF01C600131536 /* FeedbackViewController.m */,
+				F62F2F462223D5A30019E78C /* ssssssss.h */,
+				F62F2F472223D5A30019E78C /* ssssssss.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -996,8 +1001,8 @@
 		F60B343F21E5E5B000D504BF /* DOPDropDownMean */ = {
 			isa = PBXGroup;
 			children = (
-				F60B344121E5E5C900D504BF /* DOPDropDownMenu.h */,
-				F60B344021E5E5C800D504BF /* DOPDropDownMenu.m */,
+				F62F2F4D2223E8F60019E78C /* DOPDropDownMenu.h */,
+				F62F2F4C2223E8F60019E78C /* DOPDropDownMenu.m */,
 			);
 			path = DOPDropDownMean;
 			sourceTree = "<group>";
@@ -1871,11 +1876,13 @@
 				F68D9E5121E7222C00E0C959 /* UIViewController+WMPageController.m in Sources */,
 				F60B343E21E5DECA00D504BF /* EventVCT.m in Sources */,
 				F695C1E621A28E7B00E93F1A /* BRAddressModel.m in Sources */,
+				F62F2F482223D5A30019E78C /* ssssssss.m in Sources */,
 				F6C92B6E21A94B3400EE05D1 /* TZProgressView.m in Sources */,
 				F68D9E8421EC8E6400E0C959 /* OrganizationVC.m in Sources */,
 				F6C92B6221A94B3400EE05D1 /* NSBundle+TZImagePicker.m in Sources */,
 				F669DAB321B6809700CAE242 /* CLLThreeTreeTableViewCell.m in Sources */,
 				F6C92B6B21A94B3400EE05D1 /* TZPhotoPickerController.m in Sources */,
+				F62F2F4E2223E8F60019E78C /* DOPDropDownMenu.m in Sources */,
 				F6B3A6FD21F8419600131536 /* QDReplicatorLayerViewController.m in Sources */,
 				F6C92B2621A6F5F200EE05D1 /* PPNetworkCache.m in Sources */,
 				F6578664219ABB0F003D87EA /* ViewRiverVC.mm in Sources */,
@@ -1986,7 +1993,6 @@
 				F6B3A6FC21F8419600131536 /* QDAnimationViewController.m in Sources */,
 				F68D9E7D21EC334E00E0C959 /* EventPlaceModel.m in Sources */,
 				F669DA7621AEA3B300CAE242 /* BRInfoModel.m in Sources */,
-				F60B344221E5E5C900D504BF /* DOPDropDownMenu.m in Sources */,
 				F6B3A71C21FACF3A00131536 /* LocationViewController.m in Sources */,
 				F6578656219AB897003D87EA /* NSDictionary+Nilsafe.m in Sources */,
 				F657861721992027003D87EA /* AppDelegate.m in Sources */,
