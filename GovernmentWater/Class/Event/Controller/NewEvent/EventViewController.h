@@ -2,15 +2,15 @@
 //  EventViewController.h
 //  GovernmentWater
 //
-//  Created by affee on 24/01/2019.
+//  Created by affee on 26/02/2019.
 //  Copyright © 2019 affee. All rights reserved.
 //
 
-#import "QDCommonTableViewController.h"
+#import "QDCommonViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface EventViewController : QDCommonTableViewController
+@interface EventViewController : QDCommonViewController
 
 @end
 

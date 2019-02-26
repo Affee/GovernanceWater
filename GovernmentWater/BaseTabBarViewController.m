@@ -61,13 +61,13 @@
     mineNavController.tabBarItem = [QDUIHelper tabBarItemWithTitle:@"我的" image:[UIImageMake(@"我的icon copy") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:UIImageMake(@"我的icon_pressed copy") tag:3];
     AddAccessibilityHint(mineNavController.tabBarItem, @"我的");
 ////    事件2
-    EventVCT *eve = [[EventVCT alloc]init];
-    eve.hidesBottomBarWhenPushed = NO;
-    QDNavigationController *eventVCNavController = [[QDNavigationController alloc]initWithRootViewController:eve];
-    eventVCNavController.tabBarItem = [QDUIHelper tabBarItemWithTitle:@"事件2" image:[UIImageMake(@"我的icon copy") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:UIImageMake(@"我的icon_pressed copy") tag:4];
-    AddAccessibilityHint(eventVCNavController.tabBarItem, @"事件2");
+//    EventVCT *eve = [[EventVCT alloc]init];
+//    eve.hidesBottomBarWhenPushed = NO;
+//    QDNavigationController *eventVCNavController = [[QDNavigationController alloc]initWithRootViewController:eve];
+//    eventVCNavController.tabBarItem = [QDUIHelper tabBarItemWithTitle:@"事件2" image:[UIImageMake(@"我的icon copy") imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:UIImageMake(@"我的icon_pressed copy") tag:4];
+//    AddAccessibilityHint(eventVCNavController.tabBarItem, @"事件2");
     
-    self.viewControllers = @[homeNewsNavController,viewRiverNavController,eventNavController,mineNavController,eventVCNavController];
+    self.viewControllers = @[homeNewsNavController,viewRiverNavController,eventNavController,mineNavController];
 //    self.window.rootViewController = self;
 //    [self.window makeKeyWindow];
 }

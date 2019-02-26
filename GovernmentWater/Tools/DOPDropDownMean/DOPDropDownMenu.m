@@ -118,7 +118,7 @@
 #define IS_IPHONE_6P (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
 
 #define kTableViewCellHeight 43
-#define kTableViewHeight 343
+#define kTableViewHeight 300
 #define kButtomImageViewHeight 21
 
 #define kTextColor [UIColor colorWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]
@@ -349,6 +349,9 @@
         }
         NSLog(@"收回");
     }
+//    if (self.delegate && [_delegate respondsToSelector:@selector(menu:didShow:)]) {
+//        return [self.delegate menu:self didShow:_show];
+//    }
 }
 #pragma mark - init method
 - (instancetype)initWithOrigin:(CGPoint)origin andHeight:(CGFloat)height {
@@ -361,16 +364,18 @@
         _origin = origin;
         _currentSelectedMenudIndex = -1;
         self.show = NO;
-        _fontSize = 15;
+        _fontSize = 14;
         _cellStyle = UITableViewCellStyleValue1;
-        _separatorColor = kSeparatorColor;
+        _separatorColor = UIColorBlue;
         _separatorHeighPercent = 0.5;
         _textColor = kTextColor;
-        _textSelectedColor = kTextSelectColor;
+        _textSelectedColor = UIColorBlue;
         _detailTextFont = [UIFont systemFontOfSize:11];
-        _detailTextColor = kDetailTextColor;
-        _indicatorColor = kTextColor;
-        _tableViewHeight = IS_IPHONE_4_OR_LESS ? 200 : kTableViewHeight;
+        _detailTextColor = UIColorBlue;
+        _indicatorColor = UIColorBlue;
+//        _tableViewHeight = IS_IPHONE_4_OR_LESS ? 300 : kTableViewHeight;
+        _tableViewHeight = 500;
+        
         _dropDownViewWidth = [UIScreen mainScreen].bounds.size.width;
         _showBottomImage = YES;
         _isClickHaveItemValid = YES;
@@ -522,6 +527,9 @@
         [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
             _currentSelectedMenudIndex = tapIndex;
             self.show = NO;
+            if (self.delegate && [_delegate respondsToSelector:@selector(menu:didShow:)]) {
+                return [self.delegate menu:self didShow:self.show];
+            }
         }];
     } else {
         _currentSelectedMenudIndex = tapIndex;
@@ -532,6 +540,9 @@
         
         [self animateIdicator:_indicators[tapIndex] background:_backGroundView tableView:_leftTableView title:_titles[tapIndex] forward:YES complecte:^{
             self.show = YES;
+            if (self.delegate && [_delegate respondsToSelector:@selector(menu:didShow:)]) {
+                return [self.delegate menu:self didShow:self.show];
+            }
         }];
     }
 }
@@ -540,6 +551,9 @@
 {
     [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
         self.show = NO;
+        if (self.delegate && [_delegate respondsToSelector:@selector(menu:didShow:)]) {
+            return [self.delegate menu:self didShow:self.show];
+        }
     }];
 }
 
@@ -936,6 +950,9 @@
                         [DOPIndexPath indexPathWithCol:_currentSelectedMenudIndex row:self.isRemainMenuTitle ? 0 : row]];
         [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
             self.show = NO;
+            if (self.delegate && [_delegate respondsToSelector:@selector(menu:didShow:)]) {
+                return [self.delegate menu:self didShow:self.show];
+            }
         }];
         return YES;
     }
@@ -947,6 +964,9 @@
     title.string = [_dataSource menu:self titleForItemsInRowAtIndexPath:[DOPIndexPath indexPathWithCol:_currentSelectedMenudIndex row:currentSelectedMenudRow item:item]];
     [self animateIdicator:_indicators[_currentSelectedMenudIndex] background:_backGroundView tableView:_leftTableView title:_titles[_currentSelectedMenudIndex] forward:NO complecte:^{
         self.show = NO;
+        if (self.delegate && [_delegate respondsToSelector:@selector(menu:didShow:)]) {
+            return [self.delegate menu:self didShow:self.show];
+        }
     }];
     
 }

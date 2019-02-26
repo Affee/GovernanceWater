@@ -2,7 +2,7 @@
 //  EventViewController.m
 //  GovernmentWater
 //
-//  Created by affee on 24/01/2019.
+//  Created by affee on 26/02/2019.
 //  Copyright © 2019 affee. All rights reserved.
 //
 
@@ -14,12 +14,16 @@
 #import "MyDealInViewController.h"
 #import "DOPDropDownMenu.h"
 
-#define HeaderHeight 40//顶部筛选的高度
+#define HeaderHeight 44//顶部筛选的高度
 
-@interface EventViewController ()<DOPDropDownMenuDelegate,DOPDropDownMenuDataSource>
+@interface EventViewController ()<DOPDropDownMenuDelegate,DOPDropDownMenuDataSource,QMUITableViewDelegate,QMUITableViewDataSource>
 @property(nonatomic, strong) QMUIButton *button2;
 @property(nonatomic, strong) QMUIPopupMenuView *popupByWindow;
 @property(nonatomic, strong) QMUIPopupMenuView *popupAtBarButtonItem;
+@property (nonatomic, strong) QMUITableView *tableView;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
+
+
 //数据
 @property (nonatomic, strong) NSMutableArray *recordsMArr;
 @property (nonatomic,strong) EventVCModel *evenVCModel;
@@ -30,8 +34,16 @@
 
 @property (nonatomic, strong) NSArray *classifys;
 @property (nonatomic, strong) NSArray *cates;
+@property (nonatomic, strong) NSArray *cates1;
+
 @property (nonatomic, strong) NSArray *eventArr;
 @property (nonatomic, strong) NSArray *moreEventArr;
+
+@property (nonatomic, copy) NSString *nature;//事件性质(0:群众举报，1：上报，2：督办)
+@property (nonatomic, copy) NSString *type;//事件类型筛选(0:我的处理，1：我的上报，2：我的交办,3：我应知晓,4:我的退回,5:我的督办,6:查看全部)
+@property (nonatomic, copy) NSString *status;//事件状态(0:待核查，1：待反馈，2：待处理，3：处理中，4：已处理，5：归档)
+
+
 
 @end
 
@@ -46,17 +58,26 @@
 -(void)didInitialize{
     [super didInitialize];
     self.classifys = @[@"上报事件",@"督办事件",@"群众举报"];
-    self.cates = @[@"我的处理",@"我的上报",@"我的派发",@"我应知晓"];
+    self.cates = @[@"我的处理",@"我的上报",@"我的交办",@"我的退回",@"我应知晓"];
+    self.cates1 = @[@"我的处理",@"我的督办",@"我应知晓"];
     
     self.eventArr = @[@"待处理",@"处理中",@"已处理"];
     self.moreEventArr = @[@"待核查",@"待反馈",@"待处理",@"处理中",@"已处理"];
+    
+    _nature = @"1";
+    _type = @"0";
+    _status = @"1";
+    
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     self.tableView.estimatedRowHeight = 0;
     self.tableView.estimatedSectionHeaderHeight = 0;
     self.tableView.estimatedSectionFooterHeight = 0;
     
+    //刚进界面的时候 加载全部的内容
     _recordsMArr = [NSMutableArray new];
     [self pushRequstDataStartIndex:0];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -85,11 +106,20 @@
 }
 - (NSString *)menu:(DOPDropDownMenu *)menu titleForItemsInRowAtIndexPath:(DOPIndexPath *)indexPath
 {
-    return self.cates[indexPath.item];
+    if (indexPath.column == 1) {//中间那个三种情况的
+        return self.cates1[indexPath.item];
+    }else{
+        return self.cates[indexPath.item];
+    }
 }
 - (NSInteger)menu:(DOPDropDownMenu *)menu numberOfItemsInRow:(NSInteger)row column:(NSInteger)column
 {
-    return self.cates.count;
+//    return self.cates.count;
+    if (column == 1) {//中间那个三种情况的
+        return self.cates1.count;
+    }else{
+        return self.cates.count;
+    }
 }
 
 
@@ -108,20 +138,20 @@
     [SVProgressHUD show];
     KKWeakify(self)
     [PPNetworkHelper GET:URL_EventNew_GetList parameters:nil responseCache:^(id responseCache) {
-
+        
     } success:^(id responseObject) {
         _recordsMArr  = [NSMutableArray array];
         for (NSDictionary *dict in responseObject[@"records"]) {
             [_recordsMArr addObject:dict];
         }
-
+        
         dispatch_async(dispatch_get_main_queue(), ^{
             KKStrongify(self)
             [self.tableView reloadData];
         });
         [SVProgressHUD dismiss];
     } failure:^(NSError *error) {
-
+        
     }];
 }
 
@@ -129,8 +159,8 @@
 -(void)pushRequstDataStartIndex:(NSInteger)start{
     __weak typeof (self) weakSelf = self;
     dispatch_group_t group = dispatch_group_create();
-//   轮播图
-//    事件列表
+    //   轮播图
+    //    事件列表
     [weakSelf httpRequestOneWithGroup:group startIndex:start];
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         // 汇总结果
@@ -158,12 +188,12 @@
                         [self pushRequstDataStartIndex:_recordsMArr.count];
                     }];
                 }
-//                else if (recordsArr.count <10){
-//                    [self.tableView reloadData];// 刷新tableview
-//                    [self.tableView.mj_header endRefreshing];// 结束下拉刷新
-//                    [self.tableView.mj_footer endRefreshing]; // 结束上拉加载
-//                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
-//                }
+                //                else if (recordsArr.count <10){
+                //                    [self.tableView reloadData];// 刷新tableview
+                //                    [self.tableView.mj_header endRefreshing];// 结束下拉刷新
+                //                    [self.tableView.mj_footer endRefreshing]; // 结束上拉加载
+                //                    [self.tableView.mj_footer endRefreshingWithNoMoreData];
+                //                }
                 else{
                     self.tableView.mj_footer = nil;
                 }
@@ -184,20 +214,32 @@
     }];
     
 }
--(void)initTableView{
-    [super initTableView];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线
-}
 
 -(void)initSubviews{
     [super initSubviews];
     __weak __typeof(self)weakSelf = self;
-    self.BigView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 80)];
-//    [self.view addSubview:self.BigView];
-    [self.tableView addSubview:self.BigView];
+    self.tableView = [[QMUITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight +HeaderHeight *2, KKScreenWidth, KKScreenHeight - KKBarHeight - 2*HeaderHeight)];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线；
+    [self.view addSubview:self.tableView];
     
-//    self.button2 = [QDUIHelper generateLightBorderedButton];
+    self.BigView = [[UIView alloc]initWithFrame:CGRectMake(0, KKBarHeight, KKScreenWidth, HeaderHeight*2)];
+    self.BigView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.BigView];
+    
+    _eventHeaderView = [[DOPDropDownMenu alloc]initWithOrigin:CGPointMake(0, KKBarHeight) andHeight:44];
+    _eventHeaderView.backgroundColor = UIColorRed;
+    [self.view  addSubview:_eventHeaderView];
+    //    分页控制器
+    _segmentedControl = [[UISegmentedControl alloc]initWithItems: self.eventArr];
+    _segmentedControl.frame = CGRectMake(0, HeaderHeight, KKScreenWidth, HeaderHeight);
+    _segmentedControl.selectedSegmentIndex = 0;
+    _segmentedControl.tintColor = UIColorBlue;
+    [_segmentedControl addTarget:self action:@selector(indexDidChangeForSegmentedControl:) forControlEvents: UIControlEventValueChanged];
+    [self.BigView addSubview:_segmentedControl];
+    
+    
+    //    self.button2 = [QDUIHelper generateLightBorderedButton];
     self.button2 = [[QMUIButton alloc]qmui_initWithImage:[UIImage imageNamed:@"addBlue"] title:nil];
     [self.button2 addTarget:self action:@selector(handleButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self.button2 setImage:[UIImage imageNamed:@"addBlue"] forState:UIControlStateNormal];
@@ -226,6 +268,27 @@
     self.popupByWindow.didHideBlock = ^(BOOL hidesByUserTap) {
         [weakSelf.button2 setImage:[UIImage imageNamed:@"addBlue"] forState:UIControlStateNormal];
     };
+    
+    
+    //    选择器的代理以及回调
+    _eventHeaderView.delegate = self;
+    _eventHeaderView.dataSource = self;
+    _eventHeaderView.finishedBlock=^(DOPIndexPath *indexPath){
+        if (indexPath.item >= 0) {
+            NSLog(@"收起:点击了 %ld - %ld - %ld 项目",(long)indexPath.column,(long)indexPath.row,(long)indexPath.item);
+            _nature = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+            _type = [NSString stringWithFormat:@"%ld",(long)indexPath.item];
+        }else {
+            NSLog(@"收起:点击了 %ld - %ld 额外的-%ld项目",(long)indexPath.column,(long)indexPath.row,(long)indexPath.item);
+            
+            
+        }
+        
+        //        从这里建立新的UI 筛选
+    };
+    //     创建menu 第一次显示 不会调用点击代理，可以用这个手动调用
+    //    [menu selectDefalutIndexPath];
+    [_eventHeaderView selectIndexPath:[DOPIndexPath indexPathWithCol:0 row:0 item:0]];
 }
 //布局与其苟延残喘 不如纵情燃烧
 -(void)viewDidLayoutSubviews
@@ -242,6 +305,38 @@
 {
     [self.popupByWindow showWithAnimated:YES];
     [self.button2 setTitle:@"隐藏菜单浮层" forState:UIControlStateNormal];
+}
+
+-(void)indexDidChangeForSegmentedControl:(UISegmentedControl *)sender{
+    
+    NSInteger selecIndex = sender.selectedSegmentIndex;
+    sender.selectedSegmentIndex = selecIndex;
+    _status = [NSString stringWithFormat:@"%ld",selecIndex];
+    _recordsMArr = [NSMutableArray new];
+    [self pushRequstDataStartIndex:0];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self pushRequstDataStartIndex:0];
+    }];
+    //    switch (selecIndex) {
+    //        case 0:
+    //            [self pushRequstDataStartIndex:0];
+    //            self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    //                [self pushRequstDataStartIndex:0];
+    //            }];
+    //            break;
+    //        case 1:
+    //            [self pushRequstDataStartIndex:0];
+    //            self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    //                [self pushRequstDataStartIndex:0];
+    //            }];
+    //            break;
+    //        case 2:
+    //
+    //            break;
+    //
+    //        default:
+    //            break;
+    //    }
 }
 
 #pragma mark - tableview delegate / dataSource 两个代理
