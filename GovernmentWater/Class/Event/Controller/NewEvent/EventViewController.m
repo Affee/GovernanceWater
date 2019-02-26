@@ -69,6 +69,7 @@
     _status = @"1";
     
 }
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.tableView.dataSource = self;
@@ -106,7 +107,7 @@
 }
 - (NSString *)menu:(DOPDropDownMenu *)menu titleForItemsInRowAtIndexPath:(DOPIndexPath *)indexPath
 {
-    if (indexPath.column == 1) {//中间那个三种情况的
+    if (indexPath.row == 1) {//中间那个三种情况的
         return self.cates1[indexPath.item];
     }else{
         return self.cates[indexPath.item];
@@ -115,7 +116,7 @@
 - (NSInteger)menu:(DOPDropDownMenu *)menu numberOfItemsInRow:(NSInteger)row column:(NSInteger)column
 {
 //    return self.cates.count;
-    if (column == 1) {//中间那个三种情况的
+    if (row == 1) {//中间那个三种情况的
         return self.cates1.count;
     }else{
         return self.cates.count;
@@ -127,8 +128,24 @@
 {
     if (indexPath.item >= 0) {
         NSLog(@"点击了 %ld - %ld - %ld 项目",(long)indexPath.column,(long)indexPath.row,(long)indexPath.item);
+//        这里还是用switch进行赛选吧，不然那回头都是麻烦事情  事件性质(0:群众举报，1：上报，2：督办)
+        switch ((long)indexPath.row) {
+            case 0:
+                _nature = @"1";
+                break;
+            case 1:
+                _nature = @"2";
+                break;
+            case 2:
+                _nature = @"3";
+                break;
+            default:
+                break;
+        }
+//        _nature = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+        _type = [NSString stringWithFormat:@"%ld",(long)indexPath.item];
     }else {
-        NSLog(@"点击了 %ld - %ld 项目",(long)indexPath.column,(long)indexPath.row);
+        NSLog(@"点击了 %ld - %ld 项目",(long)indexPath.column,(long)indexPath.row);//
     }
 }
 
@@ -171,7 +188,13 @@
 -(void)httpRequestOneWithGroup:(dispatch_group_t)group startIndex:(NSInteger)start{
     dispatch_group_enter(group);
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
-    [PPNetworkHelper GET:URL_EventNew_GetList parameters:nil responseCache:^(id responseCache) {
+    NSDictionary *dict  = @{
+                            @"nature":self.nature,
+                            @"type":_type,
+                            @"status": _status
+                            };
+    
+    [PPNetworkHelper GET:URL_EventNew_GetList parameters:dict responseCache:^(id responseCache) {
         
     } success:^(id responseObject) {
         [self.tableView.mj_header endRefreshing];
@@ -218,7 +241,7 @@
 -(void)initSubviews{
     [super initSubviews];
     __weak __typeof(self)weakSelf = self;
-    self.tableView = [[QMUITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight +HeaderHeight *2, KKScreenWidth, KKScreenHeight - KKBarHeight - 2*HeaderHeight)];
+    self.tableView = [[QMUITableView alloc]initWithFrame:CGRectMake(0, KKBarHeight +HeaderHeight *2, KKScreenWidth, KKScreenHeight - KKBarHeight - 2*HeaderHeight - KKTabBarHeight)];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;//分割线
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];//去掉多余分割线；
     [self.view addSubview:self.tableView];
@@ -276,8 +299,7 @@
     _eventHeaderView.finishedBlock=^(DOPIndexPath *indexPath){
         if (indexPath.item >= 0) {
             NSLog(@"收起:点击了 %ld - %ld - %ld 项目",(long)indexPath.column,(long)indexPath.row,(long)indexPath.item);
-            _nature = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
-            _type = [NSString stringWithFormat:@"%ld",(long)indexPath.item];
+        
         }else {
             NSLog(@"收起:点击了 %ld - %ld 额外的-%ld项目",(long)indexPath.column,(long)indexPath.row,(long)indexPath.item);
             
@@ -311,32 +333,13 @@
     
     NSInteger selecIndex = sender.selectedSegmentIndex;
     sender.selectedSegmentIndex = selecIndex;
-    _status = [NSString stringWithFormat:@"%ld",selecIndex];
+    _status = [NSString stringWithFormat:@"%ld",selecIndex + 2 ];//事件类型筛选(0:我的处理，1：我的上报，2：我的交办,3：我应知晓,4:我的退回,5:我的督办,6:查看全部)由于索引 就该了下顺序
     _recordsMArr = [NSMutableArray new];
     [self pushRequstDataStartIndex:0];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self pushRequstDataStartIndex:0];
     }];
-    //    switch (selecIndex) {
-    //        case 0:
-    //            [self pushRequstDataStartIndex:0];
-    //            self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-    //                [self pushRequstDataStartIndex:0];
-    //            }];
-    //            break;
-    //        case 1:
-    //            [self pushRequstDataStartIndex:0];
-    //            self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-    //                [self pushRequstDataStartIndex:0];
-    //            }];
-    //            break;
-    //        case 2:
-    //
-    //            break;
-    //
-    //        default:
-    //            break;
-    //    }
+
 }
 
 #pragma mark - tableview delegate / dataSource 两个代理
@@ -361,10 +364,30 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
-    MyDealInViewController *myDealInViewController = [[MyDealInViewController alloc]initWithStyle:UITableViewStyleGrouped];
-    myDealInViewController.eventID = eventVCModel.EventID;
-    [self.navigationController pushViewController:myDealInViewController animated:YES];
+    
+//    _nature = @"1";事件性质(0:群众举报，1：上报，2：督办)
+//    _type = @"0";事件类型筛选(0:我的处理，1：我的上报，2：我的交办,3：我应知晓,4:我的退回,5:我的督办,6:查看全部)
+//    _status = @"1";事件状态(0:待核查，1：待反馈，2：待处理，3：处理中，4：已处理，5：归档)
+    if ([_nature isEqualToString: @"1"]) {
+        if ([_type isEqualToString:@"0"]) {
+            if ([_status  isEqual: @"2"]) {
+//                我的上报-我的处理-待处理
+                EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
+                MyDealInViewController *myDealInViewController = [[MyDealInViewController alloc]initWithStyle:UITableViewStyleGrouped];
+                myDealInViewController.eventID = eventVCModel.EventID;
+                [self.navigationController pushViewController:myDealInViewController animated:YES];
+            }else{
+                NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
+                [SVProgressHUD showErrorWithStatus:str];
+            }
+        }
+    }else{
+        NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
+        [SVProgressHUD showErrorWithStatus:str];
+    }
+    
+    
+ 
 }
 
 @end

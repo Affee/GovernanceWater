@@ -149,7 +149,8 @@
 #define KKBarHeight KKStatusBarHeight + KKNavBarHeight
 //iPhone X适配差值
 #define KKiPhoneXSafeAreaDValue  ([[UIApplication sharedApplication] statusBarFrame].size.height>20?34:0)
-
+//TabBar高度
+#define KKTabBarHeight (CGFloat)(IS_IPHONE_X?(49.0 + 34.0):(49.0))
 //判断是否是ipad
 #define isPad ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
 //判断iPhoneX

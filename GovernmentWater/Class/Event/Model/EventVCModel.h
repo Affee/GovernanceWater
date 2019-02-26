@@ -71,6 +71,7 @@
 @property(nonatomic, assign) NSInteger *typeId;
 @property(nonatomic, assign) NSInteger *eventNature;
 @property(nonatomic, copy) NSString *enclosureList2;
+@property (nonatomic, copy) NSString *realName;
 @property(nonatomic, assign) NSInteger *userId;
 @property(nonatomic, assign) NSInteger *updateTime;
 @property(nonatomic, copy) NSString *typeName;
@@ -90,6 +91,8 @@
 @property(nonatomic, copy) NSString *handleOpinion;
 @property(nonatomic, copy) NSString *isUrgen;
 @property(nonatomic, assign) NSInteger *eventStatus;
+@property (nonatomic, copy) NSString *avatar;
+
 
 @end
 

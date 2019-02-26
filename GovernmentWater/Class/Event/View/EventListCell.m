@@ -16,7 +16,7 @@
 }
 -(void)setModel:(EventVCModel *)model
 {
-    self.namenikeLabel.text = model.eventContent;
+    self.namenikeLabel.text = model.realName;
     //    MODE
     long timeLong = [[ NSString stringWithFormat:@" %@ ",model.createTime] longValue];
     self.timeLabel.text = [DateUtil getDateFromTimestamp:timeLong format:@"MM-dd hh:mm:ss"];
@@ -26,6 +26,9 @@
     self.addressLabel.text = model.eventPlace;
     self.sewageLabel.text = [NSString stringWithFormat:@"%@",model.typeName];
     self.eventLabel.text = model.eventContent;
+    NSString *str = [NSString stringWithFormat:@"%@",model.avatar];
+    [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:str] placeholderImage:KKPlaceholderImage];
+
     self.selectionStyle=UITableViewCellSelectionStyleNone;
     //    紧急事件
     if ([model.isUrgen  isEqual: @"0"]) {
@@ -54,7 +57,6 @@
     self.imgvIcon = [[UIImageView alloc]init];
     self.imgvIcon.layer.cornerRadius =  25;
     self.imgvIcon.layer.masksToBounds = YES;
-    [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:@"https://pic.36krcnd.com/201803/30021923/e5d6so04q53llwkk!heading"] placeholderImage:KKPlaceholderImage];
     
     UILabel *timeLabel = [[UILabel alloc] qmui_initWithFont:UIFontMake(14) textColor:UIColorGray2];
     _timeLabel = timeLabel;
