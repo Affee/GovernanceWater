@@ -21,13 +21,40 @@
     NSArray *_baseSectionTitleArr;
 }
 @property (nonatomic, strong) QMUIFillButton *sureButton;
+@property (nonatomic, strong) QMUIFillButton *oneButton;
+@property (nonatomic,strong)QMUIFillButton *twoButton;
+
 
 @end
 
 @implementation MyDealInViewController
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //    _nature = @"1";事件性质(0:群众举报，1：上报，2：督办)
+    //    _type = @"0";事件类型筛选(0:我的处理，1：我的上报，2：我的交办,3：我应知晓,4:我的退回,5:我的督办,6:查看全部)
+    //    _status = @"1";事件状态(0:待核查，1：待反馈，2：待处理，3：处理中，4：已处理，5：归档)
+    if ([_nature isEqualToString: @"1"]) {
+        if ([_type isEqualToString:@"0"]) {
+            if ([_status  isEqual: @"2"]) {
+                //                我的上报-我的处理-待处理
+                self.sureButton.hidden = YES;
+            }else{
+                NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
+                [SVProgressHUD showErrorWithStatus:str];
+            }
+        }
+    }else{
+        NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
+        [SVProgressHUD showErrorWithStatus:str];
+    }
+
     
     //    数据请求
     [self getListData];
@@ -166,7 +193,34 @@
         if (!cell) {
             cell = [[QMUITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:DealingC];
         }
-        self.sureButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
+        
+        
+        self.oneButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
+        self.oneButton.cornerRadius = 3;
+        self.oneButton.titleLabel.font = UIFontMake(16);
+        [self.oneButton setTitle:@"填写处理结果" forState:UIControlStateNormal];
+        [self.oneButton addTarget:self action:@selector(clickDealOneButton:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:self.oneButton];
+        self.twoButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
+        self.twoButton.cornerRadius = 3;
+        self.twoButton.titleLabel.font = UIFontMake(16);
+        [self.twoButton setTitle:@"填写处理结果" forState:UIControlStateNormal];
+        [self.twoButton addTarget:self action:@selector(clickDealTwoButton:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.contentView addSubview:self.twoButton];
+        CGFloat witdth = (KKScreenWidth - Padding*3)/2;
+        [self.oneButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(cell.contentView);
+            make.left.equalTo(cell.contentView).offset(Padding);
+            make.width.equalTo(@(witdth));
+        }];
+        [self.twoButton mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.bottom.equalTo(cell.contentView);
+            make.right.equalTo(cell.contentView).offset(-Padding);
+            make.width.equalTo(self.oneButton);
+        }];
+        
+        
+        self.sureButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//处理结果按钮
         self.sureButton.cornerRadius = 3;
         self.sureButton.titleLabel.font = UIFontMake(16);
         [self.sureButton setTitle:@"填写处理结果" forState:UIControlStateNormal];
@@ -177,6 +231,8 @@
             make.left.equalTo(cell.contentView).offset(Padding);
             make.right.equalTo(cell.contentView).offset(-Padding);
         }];
+        
+        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else {
@@ -186,12 +242,19 @@
     return nil;
 }
 
--(void)clickDealSureButton:(QMUIButton *)sender{
+-(void)clickDealSureButton:(QMUIButton *)sender{//处理结果按钮
     MySureDealViewController *sureVc = [[MySureDealViewController alloc]init];
     sureVc.title = @"填写处理结果";
     sureVc.eventID =  self.eventID;
     [self.navigationController  pushViewController:sureVc animated:YES];
     [SVProgressHUD showErrorWithStatus:@"处理结果"];
+}
+
+-(void)clickDealOneButton:(UIButton *)sender{//我的处理 上报按钮
+    [SVProgressHUD showErrorWithStatus:@"我的处理上报按钮"];
+}
+-(void)clickDealTwoButton:(UIButton *)sender{//我的处理交办
+    [SVProgressHUD showErrorWithStatus:@"我的处理交办"];
 }
 
 @end

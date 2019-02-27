@@ -12,6 +12,7 @@
 		F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734121CA300A00B39E6C /* NewsEventModel.m */; };
 		F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734421CA6A8C00B39E6C /* BannerModel.m */; };
 		F60B343E21E5DECA00D504BF /* EventVCT.m in Sources */ = {isa = PBXBuildFile; fileRef = F60B343D21E5DECA00D504BF /* EventVCT.m */; };
+		F610D34022269C050066EC75 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F610D33F22269C050066EC75 /* ButtonCell.m */; };
 		F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6299E5A21AE645C009382EB /* EventVCModel.m */; };
 		F62F2F4E2223E8F60019E78C /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F2F4C2223E8F60019E78C /* DOPDropDownMenu.m */; };
 		F62F2F512224E8E20019E78C /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F2F502224E8E20019E78C /* EventViewController.m */; };
@@ -289,6 +290,8 @@
 		F602734421CA6A8C00B39E6C /* BannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BannerModel.m; sourceTree = "<group>"; };
 		F60B343C21E5DECA00D504BF /* EventVCT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCT.h; sourceTree = "<group>"; };
 		F60B343D21E5DECA00D504BF /* EventVCT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCT.m; sourceTree = "<group>"; };
+		F610D33E22269C050066EC75 /* ButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
+		F610D33F22269C050066EC75 /* ButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		F6299E5921AE645C009382EB /* EventVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCModel.h; sourceTree = "<group>"; };
 		F6299E5A21AE645C009382EB /* EventVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCModel.m; sourceTree = "<group>"; };
 		F62F2F4C2223E8F60019E78C /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
@@ -821,6 +824,8 @@
 				F6C92B7121A9505100EE05D1 /* LxGridViewFlowLayout.m */,
 				F69E671D2213F68000555F89 /* MoreCellTableViewCell.h */,
 				F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */,
+				F610D33E22269C050066EC75 /* ButtonCell.h */,
+				F610D33F22269C050066EC75 /* ButtonCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1942,6 +1947,7 @@
 				F6C92B3921A92A5D00EE05D1 /* TextAndImagesCell.m in Sources */,
 				F6B3A760220167CE00131536 /* EventChooseViewController.m in Sources */,
 				F68D9E6B21E9E13400E0C959 /* EventPlaceVCViewController.m in Sources */,
+				F610D34022269C050066EC75 /* ButtonCell.m in Sources */,
 				F69E67132212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m in Sources */,
 				F6B3A73321FBF48300131536 /* AboutUsViewController.m in Sources */,
 				F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */,

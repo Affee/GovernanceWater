@@ -235,7 +235,6 @@
     } failure:^(NSError *error) {
         
     }];
-    
 }
 
 -(void)initSubviews{
@@ -375,6 +374,11 @@
                 EventVCModel *eventVCModel = [EventVCModel modelWithDictionary:_recordsMArr[indexPath.row]];
                 MyDealInViewController *myDealInViewController = [[MyDealInViewController alloc]initWithStyle:UITableViewStyleGrouped];
                 myDealInViewController.eventID = eventVCModel.EventID;
+//                传递状态
+                myDealInViewController.nature = _nature;
+                myDealInViewController.type = _type;
+                myDealInViewController.status = _status;
+                
                 [self.navigationController pushViewController:myDealInViewController animated:YES];
             }else{
                 NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];

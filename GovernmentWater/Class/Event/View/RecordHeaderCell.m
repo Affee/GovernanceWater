@@ -36,7 +36,7 @@
 //        [arr addObject:model.enclosureList[i]];
 //    }
 //    [NSURL URLWithString:@"%@",model.enclosureList[0]]
-    [self.imgvIcon sd_setImageWithURL:@"http://42.159.84.255/group1/M00/00/0E/CgABBlw4GQOAW3iqAAG085CUcyg658.jpg" placeholderImage:KKPlaceholderImage];
+    [self.imgvIcon sd_setImageWithURL:[NSURL URLWithString:@"http://42.159.84.255/group1/M00/00/0E/CgABBlw4GQOAW3iqAAG085CUcyg658.jpg"] placeholderImage:KKPlaceholderImage];
 
 //     NSMutableArray *imageArr = [NSMutableArray array];
 //    _imageArr = [NSMutableArray arrayWithObjects:@"首页icon copy", nil];
@@ -116,7 +116,7 @@
 //    }
 
     
- 
+
 
 
 }
