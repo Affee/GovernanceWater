@@ -198,13 +198,13 @@
         self.oneButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
         self.oneButton.cornerRadius = 3;
         self.oneButton.titleLabel.font = UIFontMake(16);
-        [self.oneButton setTitle:@"填写处理结果" forState:UIControlStateNormal];
+        [self.oneButton setTitle:@"上报" forState:UIControlStateNormal];
         [self.oneButton addTarget:self action:@selector(clickDealOneButton:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:self.oneButton];
         self.twoButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
         self.twoButton.cornerRadius = 3;
         self.twoButton.titleLabel.font = UIFontMake(16);
-        [self.twoButton setTitle:@"填写处理结果" forState:UIControlStateNormal];
+        [self.twoButton setTitle:@"交办" forState:UIControlStateNormal];
         [self.twoButton addTarget:self action:@selector(clickDealTwoButton:) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:self.twoButton];
         CGFloat witdth = (KKScreenWidth - Padding*3)/2;
@@ -253,7 +253,7 @@
 -(void)clickDealOneButton:(UIButton *)sender{//我的处理 上报按钮
     [SVProgressHUD showErrorWithStatus:@"我的处理上报按钮"];
 }
--(void)clickDealTwoButton:(UIButton *)sender{//我的处理交办
+-(void)clickDealTwoButton:(UIButton *)sender{//我的处理交办 sb啊
     [SVProgressHUD showErrorWithStatus:@"我的处理交办"];
 }
 
