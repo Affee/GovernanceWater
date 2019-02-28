@@ -27,6 +27,8 @@
 #import "ReportPeopleViewController.h"
 
 #import "EventSureViewController.h"
+
+
 @interface ReportViewController ()<QMUITextViewDelegate,TZImagePickerControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate,UIImagePickerControllerDelegate,UIAlertViewDelegate,UIAlertViewDelegate,UINavigationControllerDelegate>
 {
     NSMutableArray *_selectedPhotos;

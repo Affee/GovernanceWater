@@ -5,6 +5,7 @@
 //  Created by affee on 21/02/2019.
 //  Copyright © 2019 affee. All rights reserved.
 //
+#define ButtonCellHeight 2*44+3*Padding  //button的那个按钮高度
 
 #import "MyDealInViewController.h"
 #import "RecordEventCell.h"
@@ -13,6 +14,8 @@
 #import "EventDetailModel.h"
 #import "userEventList.h"
 #import "MySureDealViewController.h"
+#import "ButtonCell.h"
+static NSString *identifer = @"cell";
 
 @interface MyDealInViewController (){
     NSMutableArray *_UserEventListArr;
@@ -131,18 +134,31 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 2) {
-        return 50;
-    }else if (indexPath.section ==0 && indexPath.row ==0){
+    if (indexPath.section == 0 && indexPath.row ==0) {
         return 180;
     }else if (indexPath.section == 1){
-        return 80;
+        return 80;//处理人
+    }else if (indexPath.section == 2){
+        return ButtonCellHeight;
     }else if (indexPath.section == 3){
         return 100;
-    }
-    else{
+    }else{
         return 60;
     }
+    
+//    if (indexPath.section == 2) {
+//        return ButtonCellHeight;// 带有button的cell 高度
+//    }else if (indexPath.section ==0 && indexPath.row ==0){
+//        return 180;
+//    }else if (indexPath.section == 1){
+//        return 80;
+//    }else if (indexPath.section == 3){
+//        return 100;
+//    }
+//    else{
+//        return 60;
+//    }
+    
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     return _baseSectionTitleArr[section];
@@ -188,51 +204,76 @@
         cell.selectionStyle=UITableViewCellSelectionStyleNone;
         return cell;
     }else if (indexPath.section == 2){
-        static  NSString *DealingC = @"BtnCell";
-        QMUITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:DealingC];
+        static  NSString *ButtonCellID = @"ButtonCell";
+        ButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:ButtonCellID];
         if (!cell) {
-            cell = [[QMUITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:DealingC];
+            cell = [[ButtonCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ButtonCellID];
         }
         
+        //    _nature = @"1";事件性质(0:群众举报，1：上报，2：督办)
+        //    _type = @"0";事件类型筛选(0:我的处理，1：我的上报，2：我的交办,3：我应知晓,4:我的退回,5:我的督办,6:查看全部)
+        //    _status = @"1";事件状态(0:待核查，1：待反馈，2：待处理，3：处理中，4：已处理，5：归档)
+        if ([_nature isEqualToString: @"1"]) {
+            if ([_type isEqualToString:@"0"]) {
+                if ([_status  isEqual: @"2"]) {
+                    //                我的上报-我的处理-待处理
+                    cell.zeroButton.hidden = NO;
+                    cell.oneButton.hidden = YES;
+                    cell.twoButton.hidden = YES;
+                    cell.threeButton.hidden = YES;
+                }else{
+                    NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
+                    [SVProgressHUD showErrorWithStatus:str];
+                }
+            }
+        }else{
+            NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
+            [SVProgressHUD showErrorWithStatus:str];
+        }
         
-        self.oneButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
-        self.oneButton.cornerRadius = 3;
-        self.oneButton.titleLabel.font = UIFontMake(16);
-        [self.oneButton setTitle:@"上报" forState:UIControlStateNormal];
-        [self.oneButton addTarget:self action:@selector(clickDealOneButton:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.contentView addSubview:self.oneButton];
-        self.twoButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
-        self.twoButton.cornerRadius = 3;
-        self.twoButton.titleLabel.font = UIFontMake(16);
-        [self.twoButton setTitle:@"交办" forState:UIControlStateNormal];
-        [self.twoButton addTarget:self action:@selector(clickDealTwoButton:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.contentView addSubview:self.twoButton];
-        CGFloat witdth = (KKScreenWidth - Padding*3)/2;
-        [self.oneButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.equalTo(cell.contentView);
-            make.left.equalTo(cell.contentView).offset(Padding);
-            make.width.equalTo(@(witdth));
-        }];
-        [self.twoButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.equalTo(cell.contentView);
-            make.right.equalTo(cell.contentView).offset(-Padding);
-            make.width.equalTo(self.oneButton);
-        }];
+        [cell.zeroButton setTitle:@"处理结果" forState:UIControlStateNormal];
+        [cell.zeroButton addTarget:self action:@selector(ClickZeroButton:) forControlEvents:UIControlEventTouchUpInside];
+//
+//
+//
+//        self.oneButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
+//        self.oneButton.cornerRadius = 3;
+//        self.oneButton.titleLabel.font = UIFontMake(16);
+//        [self.oneButton setTitle:@"上报" forState:UIControlStateNormal];
+//        [self.oneButton addTarget:self action:@selector(clickDealOneButton:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.contentView addSubview:self.oneButton];
+//        self.twoButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
+//        self.twoButton.cornerRadius = 3;
+//        self.twoButton.titleLabel.font = UIFontMake(16);
+//        [self.twoButton setTitle:@"交办" forState:UIControlStateNormal];
+//        [self.twoButton addTarget:self action:@selector(clickDealTwoButton:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.contentView addSubview:self.twoButton];
+//        CGFloat witdth = (KKScreenWidth - Padding*3)/2;
+//        [self.oneButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.bottom.equalTo(cell.contentView);
+//            make.left.equalTo(cell.contentView).offset(Padding);
+//            make.width.equalTo(@(witdth));
+//        }];
+//        [self.twoButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.bottom.equalTo(cell.contentView);
+//            make.right.equalTo(cell.contentView).offset(-Padding);
+//            make.width.equalTo(self.oneButton);
+//        }];
+//
+//
+//        self.sureButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//处理结果按钮
+//        self.sureButton.cornerRadius = 3;
+//        self.sureButton.titleLabel.font = UIFontMake(16);
+//        [self.sureButton setTitle:@"填写处理结果" forState:UIControlStateNormal];
+//        [self.sureButton addTarget:self action:@selector(clickDealSureButton:) forControlEvents:UIControlEventTouchUpInside];
+//        [cell.contentView addSubview:self.sureButton];
+//        [self.sureButton mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.top.bottom.equalTo(cell.contentView);
+//            make.left.equalTo(cell.contentView).offset(Padding);
+//            make.right.equalTo(cell.contentView).offset(-Padding);
+//        }];
         
-        
-        self.sureButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//处理结果按钮
-        self.sureButton.cornerRadius = 3;
-        self.sureButton.titleLabel.font = UIFontMake(16);
-        [self.sureButton setTitle:@"填写处理结果" forState:UIControlStateNormal];
-        [self.sureButton addTarget:self action:@selector(clickDealSureButton:) forControlEvents:UIControlEventTouchUpInside];
-        [cell.contentView addSubview:self.sureButton];
-        [self.sureButton mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.bottom.equalTo(cell.contentView);
-            make.left.equalTo(cell.contentView).offset(Padding);
-            make.right.equalTo(cell.contentView).offset(-Padding);
-        }];
-        
-        
+        cell.backgroundColor = UIColorForBackground;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else {
@@ -256,5 +297,10 @@
 -(void)clickDealTwoButton:(UIButton *)sender{//我的处理交办 sb啊
     [SVProgressHUD showErrorWithStatus:@"我的处理交办"];
 }
+-(void)ClickZeroButton:(QMUIButton *)sender{
+    [SVProgressHUD  showErrorWithStatus:@"处理结果"];
+}
+
+
 
 @end
