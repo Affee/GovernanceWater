@@ -15,6 +15,8 @@
 #import "userEventList.h"
 #import "MySureDealViewController.h"
 #import "ButtonCell.h"
+#import "AdviceCell.h"
+
 static NSString *identifer = @"cell";
 
 @interface MyDealInViewController (){
@@ -65,7 +67,7 @@ static NSString *identifer = @"cell";
 -(void)didInitialize{
     [super didInitialize];
     //    初始化
-    _baseSectionTitleArr = @[@"问题",@"处理人",@" ",@"事件处理"];
+    _baseSectionTitleArr = @[@"问题",@"处理人",@" ",@"事件处理",@"处理建议"];
     _detailArr = [[NSMutableArray alloc]initWithObjects:@" ", @" ",@" ",@" ",@" ",nil];
     _UserEventListArr = [[NSMutableArray alloc]init];
     _RequestDict = [[NSDictionary alloc]init];
@@ -130,6 +132,9 @@ static NSString *identifer = @"cell";
     if (section == 3 && _UserEventListArr.count > 0) {
         return _UserEventListArr.count;
     }
+    if (section == 4) {
+        return 3;
+    }
     return 0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -142,22 +147,12 @@ static NSString *identifer = @"cell";
         return ButtonCellHeight;
     }else if (indexPath.section == 3){
         return 100;
+    }else if (indexPath.section == 4){
+        return 100;
     }else{
         return 60;
     }
     
-//    if (indexPath.section == 2) {
-//        return ButtonCellHeight;// 带有button的cell 高度
-//    }else if (indexPath.section ==0 && indexPath.row ==0){
-//        return 180;
-//    }else if (indexPath.section == 1){
-//        return 80;
-//    }else if (indexPath.section == 3){
-//        return 100;
-//    }
-//    else{
-//        return 60;
-//    }
     
 }
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
@@ -275,6 +270,13 @@ static NSString *identifer = @"cell";
         
         cell.backgroundColor = UIColorForBackground;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }else if (indexPath.section == 4){
+        static  NSString *AdviceCellID = @"AdviceCell";
+        AdviceCell *cell = [tableView dequeueReusableCellWithIdentifier:AdviceCellID];
+        if (!cell) {
+            cell = [[AdviceCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:AdviceCellID];
+        }
         return cell;
     }else {
     }

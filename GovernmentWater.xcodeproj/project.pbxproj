@@ -13,6 +13,7 @@
 		F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734421CA6A8C00B39E6C /* BannerModel.m */; };
 		F60B343E21E5DECA00D504BF /* EventVCT.m in Sources */ = {isa = PBXBuildFile; fileRef = F60B343D21E5DECA00D504BF /* EventVCT.m */; };
 		F610D34022269C050066EC75 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F610D33F22269C050066EC75 /* ButtonCell.m */; };
+		F610D3432227E8640066EC75 /* AdviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F610D3422227E8640066EC75 /* AdviceCell.m */; };
 		F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6299E5A21AE645C009382EB /* EventVCModel.m */; };
 		F62F2F4E2223E8F60019E78C /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F2F4C2223E8F60019E78C /* DOPDropDownMenu.m */; };
 		F62F2F512224E8E20019E78C /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F2F502224E8E20019E78C /* EventViewController.m */; };
@@ -292,6 +293,8 @@
 		F60B343D21E5DECA00D504BF /* EventVCT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCT.m; sourceTree = "<group>"; };
 		F610D33E22269C050066EC75 /* ButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
 		F610D33F22269C050066EC75 /* ButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
+		F610D3412227E8640066EC75 /* AdviceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdviceCell.h; sourceTree = "<group>"; };
+		F610D3422227E8640066EC75 /* AdviceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdviceCell.m; sourceTree = "<group>"; };
 		F6299E5921AE645C009382EB /* EventVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCModel.h; sourceTree = "<group>"; };
 		F6299E5A21AE645C009382EB /* EventVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCModel.m; sourceTree = "<group>"; };
 		F62F2F4C2223E8F60019E78C /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
@@ -826,6 +829,8 @@
 				F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */,
 				F610D33E22269C050066EC75 /* ButtonCell.h */,
 				F610D33F22269C050066EC75 /* ButtonCell.m */,
+				F610D3412227E8640066EC75 /* AdviceCell.h */,
+				F610D3422227E8640066EC75 /* AdviceCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1986,6 +1991,7 @@
 				F6FD29B821DCA99F002B7276 /* YYHistoryTrackPoint.m in Sources */,
 				F6B3A6E921F8401100131536 /* UIImageEffects.m in Sources */,
 				F68D9E6821E9D29600E0C959 /* TypeListModel.m in Sources */,
+				F610D3432227E8640066EC75 /* AdviceCell.m in Sources */,
 				F6B3A5D0221E7B390016E897 /* MySureDealViewController.m in Sources */,
 				F6C92B6321A94B3400EE05D1 /* TZAssetCell.m in Sources */,
 				F669DA9E21B65D0600CAE242 /* RegionModel.m in Sources */,
