@@ -15,6 +15,7 @@
 #import "PPHTTPRequest.h"
 #import "PPInterfacedConst.h"
 #import "BaseTabBarViewController.h"
+#import "AFLoginModel.h"
 
 @interface AFLoginVC ()
 
@@ -211,9 +212,14 @@
                     AppDelegate *dele = (AppDelegate *)[UIApplication sharedApplication].delegate;
                     dele.window.rootViewController = aftabBar;
                     
+//                    角色roleName 然后放到单利中去
+                    AFLoginModel *model  = [AFLoginModel modelWithDictionary:responseObject[@"role"][0]];
+                    NSString *roleName = model.roleName;
+                    
 //                        创建单利 保存唯一的ID
                     NSUserDefaults *loginData = [NSUserDefaults standardUserDefaults];
                     [loginData setObject:responseObject[@"token"] forKey:@"token"];
+                    [loginData setObject:roleName forKey:@"roleName"];
                     [loginData synchronize];
                 }];
             }else{

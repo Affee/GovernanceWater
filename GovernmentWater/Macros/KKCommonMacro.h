@@ -15,5 +15,8 @@
 #define KKStrongify(o)              __strong typeof(self) o = fwwo;
 
 #define Token [[NSUserDefaults standardUserDefaults] stringForKey:@"token"]
+#define RoleName [[NSUserDefaults standardUserDefaults] stringForKey:@"roleName"]
+
+
 
 #endif /* KKCommonMacro_h */

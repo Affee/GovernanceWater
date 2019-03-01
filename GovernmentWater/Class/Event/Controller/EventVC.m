@@ -75,7 +75,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    AFLog(@"token ====%@",Token);
+   
     self.customNavBar.title = @"事件";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.customNavBar wr_setBottomLineHidden:YES];//分割线是否隐藏
