@@ -72,6 +72,10 @@
 
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    AFLog(@"token ====%@",Token);
+    AFLog(@"RoleName === %@",RoleName);
+    
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.estimatedRowHeight = 0;
