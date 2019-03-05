@@ -30,7 +30,7 @@
     
     self.twoLabel = [[QMUILabel alloc]qmui_initWithFont:UIFontMake(15) textColor:TableViewCellDetailLabelColor];
     self.twoLabel.numberOfLines = 0;
-    self.twoLabel.text = @"天蓝蓝地蓝蓝拉起";
+    self.twoLabel.text = @"天蓝蓝地蓝蓝拉起天蓝蓝地蓝蓝拉起天蓝蓝地蓝蓝拉起天蓝蓝地蓝蓝拉起天蓝蓝地蓝蓝拉起";
     [self.contentView addSubview:self.twoLabel];
 
     

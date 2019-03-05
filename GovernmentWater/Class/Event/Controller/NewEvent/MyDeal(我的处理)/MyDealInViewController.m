@@ -23,7 +23,7 @@ static NSString *identifer = @"cell";
     NSMutableArray *_UserEventListArr;
     NSDictionary *_RequestDict;
     NSMutableArray *_detailArr;
-    NSArray *_baseSectionTitleArr;
+    NSMutableArray *_baseSectionTitleArr;//可变数组 组头
 }
 @property (nonatomic, strong) QMUIFillButton *sureButton;
 @property (nonatomic, strong) QMUIFillButton *oneButton;
@@ -39,6 +39,16 @@ static NSString *identifer = @"cell";
 }
 
 
+
+-(void)didInitialize{
+    [super didInitialize];
+    //    初始化
+    _baseSectionTitleArr = [NSMutableArray arrayWithObjects:@"问题",@"处理人",@" ",@"事件处理", nil];
+    _detailArr = [[NSMutableArray alloc]initWithObjects:@" ", @" ",@" ",@" ",@" ",nil];
+    _UserEventListArr = [[NSMutableArray alloc]init];
+    _RequestDict = [[NSDictionary alloc]init];
+    _UserEventListArr = [[NSMutableArray alloc]init];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -47,9 +57,14 @@ static NSString *identifer = @"cell";
     //    _status = @"1";事件状态(0:待核查，1：待反馈，2：待处理，3：处理中，4：已处理，5：归档)
     if ([_nature isEqualToString: @"1"]) {
         if ([_type isEqualToString:@"0"]) {
-            if ([_status  isEqual: @"2"]) {
-                //                我的上报-我的处理-待处理
+            if ([_status  isEqual: @"2"]) {//我的上报-我的处理-待处理
                 self.sureButton.hidden = YES;
+                [_baseSectionTitleArr addObject:@"卡卡卡"];
+                [_baseSectionTitleArr replaceObjectAtIndex:3 withObject:@"滴滴滴"];
+            }else if ([_status isEqual:@"3"]){//我的上报-我的处理-处理中
+
+            }else if ([_status isEqual:@"4"]){//我的上报-我的处理-已理中
+                
             }else{
                 NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
                 [SVProgressHUD showErrorWithStatus:str];
@@ -59,19 +74,10 @@ static NSString *identifer = @"cell";
         NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
         [SVProgressHUD showErrorWithStatus:str];
     }
-
+    
     
     //    数据请求
     [self getListData];
-}
--(void)didInitialize{
-    [super didInitialize];
-    //    初始化
-    _baseSectionTitleArr = @[@"问题",@"处理人",@" ",@"事件处理",@"处理建议"];
-    _detailArr = [[NSMutableArray alloc]initWithObjects:@" ", @" ",@" ",@" ",@" ",nil];
-    _UserEventListArr = [[NSMutableArray alloc]init];
-    _RequestDict = [[NSDictionary alloc]init];
-    _UserEventListArr = [[NSMutableArray alloc]init];
 }
 -(void)initSubviews{
     [super initSubviews];
@@ -216,6 +222,26 @@ static NSString *identifer = @"cell";
                     cell.oneButton.hidden = YES;
                     cell.twoButton.hidden = YES;
                     cell.threeButton.hidden = YES;
+                    [cell.zeroButton setTitle:@"处理结果" forState:UIControlStateNormal];
+                    [cell.zeroButton addTarget:self action:@selector(ClickZeroButton:) forControlEvents:UIControlEventTouchUpInside];
+                }else if ([_status isEqual:@"3"]){
+                    //                我的上报-我的处理-处理中
+                    cell.zeroButton.hidden = NO;
+                    cell.oneButton.hidden = YES;
+                    cell.twoButton.hidden = YES;
+                    cell.threeButton.hidden = YES;
+                    [cell.zeroButton setTitle:@"填写处理结果" forState:UIControlStateNormal];
+                    [cell.zeroButton addTarget:self action:@selector(ClickZeroButton:) forControlEvents:UIControlEventTouchUpInside];
+                }else if ([_status isEqual:@"4"]){//我的上报-我的处理-已理中
+                    cell.zeroButton.hidden = YES;
+                    cell.oneButton.hidden = NO;
+                    cell.twoButton.hidden = NO;
+                    cell.threeButton.hidden = NO;
+                    [cell.oneButton  setTitle:@"上报" forState:UIControlStateNormal];
+                    [cell.oneButton addTarget:self action:@selector(clickDealOneButton:) forControlEvents:UIControlEventTouchUpInside];
+                    
+                    [cell.threeButton setTitle:@"处理" forState:UIControlStateNormal];
+                    [cell.threeButton addTarget:self action:@selector(clickDealTwoButton:) forControlEvents:UIControlEventTouchUpInside];
                 }else{
                     NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
                     [SVProgressHUD showErrorWithStatus:str];
@@ -225,9 +251,7 @@ static NSString *identifer = @"cell";
             NSString *str = [NSString stringWithFormat:@"nature == %@ type == %@  status == %@",_nature,_type,_status];
             [SVProgressHUD showErrorWithStatus:str];
         }
-        
-        [cell.zeroButton setTitle:@"处理结果" forState:UIControlStateNormal];
-        [cell.zeroButton addTarget:self action:@selector(ClickZeroButton:) forControlEvents:UIControlEventTouchUpInside];
+ 
 //
 //
 //
@@ -300,7 +324,8 @@ static NSString *identifer = @"cell";
     [SVProgressHUD showErrorWithStatus:@"我的处理交办"];
 }
 -(void)ClickZeroButton:(QMUIButton *)sender{
-    [SVProgressHUD  showErrorWithStatus:@"处理结果"];
+    [SVProgressHUD showErrorWithStatus:sender.titleLabel.text];
+//    [SVProgressHUD  showErrorWithStatus:@"处理结果"];
 }
 
 
