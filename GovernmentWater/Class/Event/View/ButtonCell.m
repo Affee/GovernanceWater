@@ -47,20 +47,21 @@
     self.oneButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];
     self.oneButton.cornerRadius = 3;
     self.oneButton.titleLabel.font = UIFontMake(16);
-    [self.oneButton setTitle:@"one按钮" forState:UIControlStateNormal];
+    [self.oneButton setTitle:@"上报" forState:UIControlStateNormal];
     [self.contentView  addSubview:self.oneButton];
     
     self.twoButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];
     self.twoButton.cornerRadius = 3;
     self.twoButton.titleLabel.font = UIFontMake(16);
-    [self.twoButton setTitle:@"two按钮" forState:UIControlStateNormal];
+    [self.twoButton setTitle:@"处理" forState:UIControlStateNormal];
+    [self.twoButton addTarget:self action:@selector(dddddddd) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView  addSubview:self.twoButton];
     
     
     self.threeButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];
     self.threeButton.cornerRadius = 3;
     self.threeButton.titleLabel.font = UIFontMake(16);
-    [self.threeButton setTitle:@"three按钮" forState:UIControlStateNormal];
+    [self.threeButton setTitle:@"更多" forState:UIControlStateNormal];
     [self.contentView  addSubview:self.threeButton];
     
 }
@@ -91,5 +92,7 @@
     }];
     
 }
-
+-(void)dddddddd{
+    [SVProgressHUD showErrorWithStatus:@"dddddd"];
+}
 @end
