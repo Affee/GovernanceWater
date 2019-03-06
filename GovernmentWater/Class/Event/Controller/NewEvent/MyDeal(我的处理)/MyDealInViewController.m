@@ -5,6 +5,16 @@
 //  Created by affee on 21/02/2019.
 //  Copyright © 2019 affee. All rights reserved.
 //
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if(indexPath.row == 0) {
+//        cell.hidden = YES;//重点
+//    }}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if(indexPath.row == 0)
+//    {
+//        return 0;//重点
+//    }}
+
 #define ButtonCellHeight 2*44+3*Padding  //button的那个按钮高度
 
 #import "MyDealInViewController.h"
@@ -16,10 +26,12 @@
 #import "MySureDealViewController.h"
 #import "ButtonCell.h"
 #import "AdviceCell.h"
-
+#import "WriteAdviceCell.h"
 static NSString *identifer = @"cell";
+//self.textView.delegate = self;
 
-@interface MyDealInViewController (){
+
+@interface MyDealInViewController ()<QMUITextViewDelegate>{
     NSMutableArray *_UserEventListArr;
     NSDictionary *_RequestDict;
     NSMutableArray *_detailArr;
@@ -62,7 +74,8 @@ static NSString *identifer = @"cell";
                 [_baseSectionTitleArr addObject:@"卡卡卡"];
                 [_baseSectionTitleArr replaceObjectAtIndex:3 withObject:@"滴滴滴"];
             }else if ([_status isEqual:@"3"]){//我的上报-我的处理-处理中
-
+                [_baseSectionTitleArr insertObject:@"a" atIndex:2];
+                
             }else if ([_status isEqual:@"4"]){//我的上报-我的处理-已理中
                 
             }else{
@@ -215,7 +228,7 @@ static NSString *identifer = @"cell";
         //    _type = @"0";事件类型筛选(0:我的处理，1：我的上报，2：我的交办,3：我应知晓,4:我的退回,5:我的督办,6:查看全部)
         //    _status = @"1";事件状态(0:待核查，1：待反馈，2：待处理，3：处理中，4：已处理，5：归档)
         if ([_nature isEqualToString: @"1"]) {
-            if ([_type isEqualToString:@"0"]) {
+            if ([_type isEqualToString:@"0"]) {//我的上报-我的处理
                 if ([_status  isEqual: @"2"]) {
                     //                我的上报-我的处理-待处理
                     cell.zeroButton.hidden = NO;
@@ -254,7 +267,7 @@ static NSString *identifer = @"cell";
  
 //
 //
-//
+//耿耿于怀 傻逼啊啊 啊啊啊啊 晓得怎么搞啊 我的天啊啊呸！垃圾东西啊 这整的
 //        self.oneButton = [[QMUIFillButton alloc]initWithFillType:QMUIFillButtonColorBlue];//上报按钮
 //        self.oneButton.cornerRadius = 3;
 //        self.oneButton.titleLabel.font = UIFontMake(16);
@@ -300,12 +313,27 @@ static NSString *identifer = @"cell";
         AdviceCell *cell = [tableView dequeueReusableCellWithIdentifier:AdviceCellID];
         if (!cell) {
             cell = [[AdviceCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:AdviceCellID];
+            
         }
         return cell;
     }else {
     }
     [self.tableView qmui_clearsSelection];
 
+    
+//   建议cell
+    if ([_baseSectionTitleArr[1] isEqualToString:@"事件"]) {
+        if (indexPath.section == 1) {
+            static NSString * writeAdviceCellID = @"WriteAdviceCell";
+            WriteAdviceCell *cell = [tableView dequeueReusableCellWithIdentifier:writeAdviceCellID];
+            if (!cell) {
+                cell = [[WriteAdviceCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:writeAdviceCellID];
+                cell.textView.delegate = self;
+            }
+            return cell;
+        }
+    }
+    
     return nil;
 }
 

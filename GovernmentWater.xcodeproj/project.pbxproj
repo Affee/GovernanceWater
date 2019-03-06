@@ -14,6 +14,7 @@
 		F60B343E21E5DECA00D504BF /* EventVCT.m in Sources */ = {isa = PBXBuildFile; fileRef = F60B343D21E5DECA00D504BF /* EventVCT.m */; };
 		F610D34022269C050066EC75 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F610D33F22269C050066EC75 /* ButtonCell.m */; };
 		F610D3432227E8640066EC75 /* AdviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F610D3422227E8640066EC75 /* AdviceCell.m */; };
+		F610D34C222FB89F0066EC75 /* WriteAdviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F610D34B222FB89F0066EC75 /* WriteAdviceCell.m */; };
 		F6299E5B21AE645C009382EB /* EventVCModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F6299E5A21AE645C009382EB /* EventVCModel.m */; };
 		F62F2F4E2223E8F60019E78C /* DOPDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F2F4C2223E8F60019E78C /* DOPDropDownMenu.m */; };
 		F62F2F512224E8E20019E78C /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F62F2F502224E8E20019E78C /* EventViewController.m */; };
@@ -295,6 +296,8 @@
 		F610D33F22269C050066EC75 /* ButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		F610D3412227E8640066EC75 /* AdviceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdviceCell.h; sourceTree = "<group>"; };
 		F610D3422227E8640066EC75 /* AdviceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdviceCell.m; sourceTree = "<group>"; };
+		F610D34A222FB89F0066EC75 /* WriteAdviceCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WriteAdviceCell.h; sourceTree = "<group>"; };
+		F610D34B222FB89F0066EC75 /* WriteAdviceCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WriteAdviceCell.m; sourceTree = "<group>"; };
 		F6299E5921AE645C009382EB /* EventVCModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventVCModel.h; sourceTree = "<group>"; };
 		F6299E5A21AE645C009382EB /* EventVCModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventVCModel.m; sourceTree = "<group>"; };
 		F62F2F4C2223E8F60019E78C /* DOPDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOPDropDownMenu.m; sourceTree = "<group>"; };
@@ -831,6 +834,8 @@
 				F610D33F22269C050066EC75 /* ButtonCell.m */,
 				F610D3412227E8640066EC75 /* AdviceCell.h */,
 				F610D3422227E8640066EC75 /* AdviceCell.m */,
+				F610D34A222FB89F0066EC75 /* WriteAdviceCell.h */,
+				F610D34B222FB89F0066EC75 /* WriteAdviceCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1931,6 +1936,7 @@
 				F68D9E6521E9D0EB00E0C959 /* TypeListVC.m in Sources */,
 				F62F2F512224E8E20019E78C /* EventViewController.m in Sources */,
 				F6A5C709219D5C6400EB846F /* EventListCellModel.m in Sources */,
+				F610D34C222FB89F0066EC75 /* WriteAdviceCell.m in Sources */,
 				F69E67AA221AB96900555F89 /* BRTextField.m in Sources */,
 				F6B8006821F83AF800230DDE /* QDCommonGridViewController.m in Sources */,
 				F63AE32621ACD3CF001FB986 /* AFGetImageAsset.m in Sources */,
