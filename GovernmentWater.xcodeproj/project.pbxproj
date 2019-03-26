@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2FA43C3C80500B5020E1839A /* libPods-GovernmentWater.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */; };
+		AA04E758224A079A00CFF7EE /* QDThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAE8D3E6223A4747006F3BE6 /* QDThemeManager.m */; };
 		F602733421C9EF3400B39E6C /* libIQKeyboardManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F602733321C9EF3400B39E6C /* libIQKeyboardManager.a */; };
 		F602734221CA300A00B39E6C /* NewsEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734121CA300A00B39E6C /* NewsEventModel.m */; };
 		F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F602734421CA6A8C00B39E6C /* BannerModel.m */; };
@@ -101,10 +102,6 @@
 		F695C29821A68FC300E93F1A /* JMDropMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F695C29721A68FC000E93F1A /* JMDropMenu.m */; };
 		F69E670022116E2E00555F89 /* BaseTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E66FF22116E2E00555F89 /* BaseTabBarViewController.m */; };
 		F69E67032212A9FB00555F89 /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67022212A9FB00555F89 /* QMUIConfigurationTemplate.m */; };
-		F69E67102212B63000555F89 /* QDThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67072212B63000555F89 /* QDThemeManager.m */; };
-		F69E67112212B63000555F89 /* QMUIConfigurationTemplatePinkRose.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67082212B63000555F89 /* QMUIConfigurationTemplatePinkRose.m */; };
-		F69E67122212B63000555F89 /* QMUIConfigurationTemplateGrass.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E670A2212B63000555F89 /* QMUIConfigurationTemplateGrass.m */; };
-		F69E67132212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E670C2212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m */; };
 		F69E67172212DDE100555F89 /* AssistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E67162212DDE100555F89 /* AssistViewController.m */; };
 		F69E671F2213F68000555F89 /* MoreCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E671E2213F68000555F89 /* MoreCellTableViewCell.m */; };
 		F69E6757221515D600555F89 /* ReportPeopleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F69E6756221515D600555F89 /* ReportPeopleViewController.m */; };
@@ -285,6 +282,17 @@
 		433258CDC7E146BA80812570 /* Pods-GovernmentWater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.release.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.release.xcconfig"; sourceTree = "<group>"; };
 		83A475B32E99075A4C55EB92 /* Pods-GovernmentWater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GovernmentWater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GovernmentWater/Pods-GovernmentWater.debug.xcconfig"; sourceTree = "<group>"; };
 		88293D104D3092A4FAFD60A4 /* libPods-GovernmentWater.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GovernmentWater.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE8D3D9223A472C006F3BE6 /* QMUIConfigurationTemplatePinkRose.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplatePinkRose.h; sourceTree = "<group>"; };
+		AAE8D3DA223A4730006F3BE6 /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
+		AAE8D3DC223A4734006F3BE6 /* QMUIConfigurationTemplatePinkRose.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplatePinkRose.m; sourceTree = "<group>"; };
+		AAE8D3DE223A4738006F3BE6 /* QDThemeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QDThemeManager.h; sourceTree = "<group>"; };
+		AAE8D3E0223A473C006F3BE6 /* QMUIConfigurationTemplateGrapefruit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplateGrapefruit.h; sourceTree = "<group>"; };
+		AAE8D3E2223A4740006F3BE6 /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
+		AAE8D3E4223A4743006F3BE6 /* QMUIConfigurationTemplateGrapefruit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplateGrapefruit.m; sourceTree = "<group>"; };
+		AAE8D3E6223A4747006F3BE6 /* QDThemeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QDThemeManager.m; sourceTree = "<group>"; };
+		AAE8D3E8223A474B006F3BE6 /* QMUIConfigurationTemplateGrass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplateGrass.m; sourceTree = "<group>"; };
+		AAE8D3EA223A4750006F3BE6 /* QDThemeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QDThemeProtocol.h; sourceTree = "<group>"; };
+		AAE8D3EC223A4754006F3BE6 /* QMUIConfigurationTemplateGrass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplateGrass.h; sourceTree = "<group>"; };
 		F602733321C9EF3400B39E6C /* libIQKeyboardManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libIQKeyboardManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F602734021CA300A00B39E6C /* NewsEventModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsEventModel.h; sourceTree = "<group>"; };
 		F602734121CA300A00B39E6C /* NewsEventModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsEventModel.m; sourceTree = "<group>"; };
@@ -456,15 +464,6 @@
 		F69E66FF22116E2E00555F89 /* BaseTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseTabBarViewController.m; sourceTree = "<group>"; };
 		F69E67012212A9FB00555F89 /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
 		F69E67022212A9FB00555F89 /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
-		F69E67052212B63000555F89 /* QMUIConfigurationTemplateGrass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplateGrass.h; sourceTree = "<group>"; };
-		F69E67062212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplateGrapefruit.h; sourceTree = "<group>"; };
-		F69E67072212B63000555F89 /* QDThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDThemeManager.m; sourceTree = "<group>"; };
-		F69E67082212B63000555F89 /* QMUIConfigurationTemplatePinkRose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplatePinkRose.m; sourceTree = "<group>"; };
-		F69E670A2212B63000555F89 /* QMUIConfigurationTemplateGrass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplateGrass.m; sourceTree = "<group>"; };
-		F69E670B2212B63000555F89 /* QDThemeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDThemeProtocol.h; sourceTree = "<group>"; };
-		F69E670C2212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplateGrapefruit.m; sourceTree = "<group>"; };
-		F69E670D2212B63000555F89 /* QDThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDThemeManager.h; sourceTree = "<group>"; };
-		F69E670E2212B63000555F89 /* QMUIConfigurationTemplatePinkRose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplatePinkRose.h; sourceTree = "<group>"; };
 		F69E67152212DDE100555F89 /* AssistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AssistViewController.h; sourceTree = "<group>"; };
 		F69E67162212DDE100555F89 /* AssistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AssistViewController.m; sourceTree = "<group>"; };
 		F69E671D2213F68000555F89 /* MoreCellTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreCellTableViewCell.h; sourceTree = "<group>"; };
@@ -1008,6 +1007,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AAE8D3D8223A471D006F3BE6 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				AAE8D3EA223A4750006F3BE6 /* QDThemeProtocol.h */,
+				AAE8D3E2223A4740006F3BE6 /* QMUIConfigurationTemplate.h */,
+				AAE8D3E0223A473C006F3BE6 /* QMUIConfigurationTemplateGrapefruit.h */,
+				AAE8D3E4223A4743006F3BE6 /* QMUIConfigurationTemplateGrapefruit.m */,
+				AAE8D3EC223A4754006F3BE6 /* QMUIConfigurationTemplateGrass.h */,
+				AAE8D3E8223A474B006F3BE6 /* QMUIConfigurationTemplateGrass.m */,
+				AAE8D3E6223A4747006F3BE6 /* QDThemeManager.m */,
+				AAE8D3DC223A4734006F3BE6 /* QMUIConfigurationTemplatePinkRose.m */,
+				AAE8D3DE223A4738006F3BE6 /* QDThemeManager.h */,
+				AAE8D3DA223A4730006F3BE6 /* QMUIConfigurationTemplate.m */,
+				AAE8D3D9223A472C006F3BE6 /* QMUIConfigurationTemplatePinkRose.h */,
+			);
+			name = Configuration;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		F60B343F21E5E5B000D504BF /* DOPDropDownMean */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,7 +1116,7 @@
 		F65786302199256B003D87EA /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				F69E67042212B63000555F89 /* Configuration */,
+				AAE8D3D8223A471D006F3BE6 /* Configuration */,
 				F6B3A6EB21F8419600131536 /* Animation */,
 				F6B3A6E121F8401100131536 /* Utils */,
 				F6B8005521F83A1500230DDE /* BaseControllers */,
@@ -1314,23 +1332,6 @@
 				F695C29721A68FC000E93F1A /* JMDropMenu.m */,
 			);
 			path = JMDropMenu;
-			sourceTree = "<group>";
-		};
-		F69E67042212B63000555F89 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				F69E67052212B63000555F89 /* QMUIConfigurationTemplateGrass.h */,
-				F69E67062212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.h */,
-				F69E67072212B63000555F89 /* QDThemeManager.m */,
-				F69E67082212B63000555F89 /* QMUIConfigurationTemplatePinkRose.m */,
-				F69E670A2212B63000555F89 /* QMUIConfigurationTemplateGrass.m */,
-				F69E670B2212B63000555F89 /* QDThemeProtocol.h */,
-				F69E670C2212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m */,
-				F69E670D2212B63000555F89 /* QDThemeManager.h */,
-				F69E670E2212B63000555F89 /* QMUIConfigurationTemplatePinkRose.h */,
-			);
-			name = Configuration;
-			path = "../../../Desktop/Demos/QMUIDemo_iOS-master/qmuidemo/Modules/Common/Configuration";
 			sourceTree = "<group>";
 		};
 		F6A5C6FB219BF6DA00EB846F /* Login */ = {
@@ -1869,6 +1870,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA04E758224A079A00CFF7EE /* QDThemeManager.m in Sources */,
 				F6578645219AA3A7003D87EA /* AFBaseNavigationController.m in Sources */,
 				F657864221993076003D87EA /* AFBaseViewController.m in Sources */,
 				F69E67032212A9FB00555F89 /* QMUIConfigurationTemplate.m in Sources */,
@@ -1881,7 +1883,6 @@
 				F669DAA921B6802A00CAE242 /* CLLThreeTreeModel.m in Sources */,
 				F68D9E9321ED8D7D00E0C959 /* MemberListModel.m in Sources */,
 				F657865C219AB897003D87EA /* DateUtil.m in Sources */,
-				F69E67102212B63000555F89 /* QDThemeManager.m in Sources */,
 				F6C92B7021A94B3400EE05D1 /* UIView+Layout.m in Sources */,
 				F68D9E5121E7222C00E0C959 /* UIViewController+WMPageController.m in Sources */,
 				F60B343E21E5DECA00D504BF /* EventVCT.m in Sources */,
@@ -1925,7 +1926,6 @@
 				F695C28021A4189600E93F1A /* RecordEventCell.m in Sources */,
 				F6B3A5CA221E4F400016E897 /* MyDealArchiveViewController.m in Sources */,
 				F6B3A74521FC3F7100131536 /* PersonalViewController.m in Sources */,
-				F69E67112212B63000555F89 /* QMUIConfigurationTemplatePinkRose.m in Sources */,
 				F6B3A73021FB3A9A00131536 /* HomeNewsDetailsViewController.m in Sources */,
 				F68D9E8D21EC97DF00E0C959 /* OfficeModel.m in Sources */,
 				F6B8006521F83AF800230DDE /* QDCommonListViewController.m in Sources */,
@@ -1959,7 +1959,6 @@
 				F6B3A760220167CE00131536 /* EventChooseViewController.m in Sources */,
 				F68D9E6B21E9E13400E0C959 /* EventPlaceVCViewController.m in Sources */,
 				F610D34022269C050066EC75 /* ButtonCell.m in Sources */,
-				F69E67132212B63000555F89 /* QMUIConfigurationTemplateGrapefruit.m in Sources */,
 				F6B3A73321FBF48300131536 /* AboutUsViewController.m in Sources */,
 				F68D9E5821E7236700E0C959 /* EventVCC.m in Sources */,
 				F6C92B6D21A94B3400EE05D1 /* TZPhotoPreviewController.m in Sources */,
@@ -1979,7 +1978,6 @@
 				F6B3A6F821F8419600131536 /* QDActivityIndicator.m in Sources */,
 				F6B8006421F83AF800230DDE /* QDCommonViewController.m in Sources */,
 				F6B3A74E21FF01C600131536 /* FeedbackViewController.m in Sources */,
-				F69E67122212B63000555F89 /* QMUIConfigurationTemplateGrass.m in Sources */,
 				F602734521CA6A8C00B39E6C /* BannerModel.m in Sources */,
 				F68D9E7421E9E34E00E0C959 /* YUFoldingTableView.m in Sources */,
 				F6C92B4321A94AA300EE05D1 /* TZTestCell.m in Sources */,
