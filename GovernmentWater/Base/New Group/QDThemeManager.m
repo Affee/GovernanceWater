@@ -4,7 +4,7 @@
 //
 //  Created by QMUI Team on 2017/5/9.
 //  Copyright © 2017年 QMUI Team. All rights reserved.
-//
+//lalala
 
 #import "QDThemeManager.h"
 #import "QMUIConfigurationTemplate.h"
@@ -14,7 +14,7 @@ NSString *const QDThemeBeforeChangedName = @"QDThemeBeforeChangedName";
 NSString *const QDThemeAfterChangedName = @"QDThemeAfterChangedName";
 
 @implementation QDThemeManager
-
+//aaa
 + (instancetype)sharedInstance {
     static dispatch_once_t onceToken;
     static QDThemeManager *instance = nil;
