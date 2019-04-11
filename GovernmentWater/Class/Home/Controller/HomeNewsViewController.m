@@ -41,8 +41,17 @@ static NSString *identifier = @"cell";
     _recordsMArr = [NSMutableArray array];
     [self getHeaderData];
     [self getDate];//列表数据
-    
-    
+}
+-(void)setupToolbarItems
+{
+    [super setupToolbarItems];
+    self.title  = @"首页";
+}
+-(void)initTableView{
+    [super initTableView];
+}
+-(void)initSubviews{
+    [super initSubviews];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableHeaderView = self.headerView;
     self.headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, KKScreenWidth, 200+ ButtonHeight)];
@@ -81,18 +90,10 @@ static NSString *identifier = @"cell";
         make.bottom.equalTo(_headerView).offset(-Padding);
         make.height.equalTo(@60);
     }];
-
-   
 }
--(void)setupToolbarItems
-{
-    [super setupToolbarItems];
-    self.title  = @"首页";
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
 }
--(void)initTableView{
-    [super initTableView];
-}
-
 -(void)getHeaderData{
     KKWeakify(self)
     [PPNetworkHelper setValue:[NSString stringWithFormat:@"%@",Token] forHTTPHeaderField:@"Authorization"];
@@ -199,7 +200,7 @@ static NSString *identifier = @"cell";
     homeVC.identifier =   [_identifierArr[(long)index] integerValue];    
     homeVC.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:homeVC animated:YES];
-    
 }
+
 
 @end

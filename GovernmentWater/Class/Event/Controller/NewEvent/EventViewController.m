@@ -413,9 +413,6 @@
         [SVProgressHUD showErrorWithStatus:str];
     }
     
-    
- 
 }
 
-@end
-
+@end 

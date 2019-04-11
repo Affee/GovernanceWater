@@ -189,7 +189,7 @@
         cell.detailTextLabel.text = self.isEnabled == NO ? @"否":@"是";
     }
     if (indexPath.row == 1) {
-        cell.detailTextLabel.text = self.typeName == nil ? @"请选择事件类型":self.typeName;
+        cell.detailTextLabel.text = self.typeName == nil ? @"请选择事件类型":self.typeName; 
     }
     if (indexPath.row == 2) {
         cell.detailTextLabel.text = self.riverName == nil ? @"请选择":self.riverName;

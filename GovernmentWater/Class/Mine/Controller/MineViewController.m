@@ -30,6 +30,10 @@
     [super viewDidLoad];
     [self requestData];
 }
+-(void)setupToolbarItems{
+    [super setupToolbarItems];
+    self.title = @"我的";
+}
 
 -(void)requestData
 {
@@ -72,10 +76,7 @@
     viewController.view.backgroundColor = UIColorWhite;
     [self.navigationController pushViewController:viewController animated:YES];
 }
--(void)setupToolbarItems{
-    [super setupToolbarItems];
-    self.title = @"我的";
-}
+
 -(void)initSubviews{
     [super initSubviews];
     _imageV = [[UIImageView alloc]init];
